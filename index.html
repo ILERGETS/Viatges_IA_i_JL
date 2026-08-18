@@ -267,7 +267,7 @@ a.ext:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); 
 .doc-footer small { font-family: var(--condensed); font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
 html { scroll-behavior: smooth; }
-#top, #reserves, #dia0, #dia1, #dia2, #dia3, #dia4, #dia5, #gastro, #logistica { scroll-margin-top: 72px; }
+#top, #reserves, #allotjament, #dia0, #dia1, #dia2, #dia3, #dia4, #dia5, #gastro, #logistica { scroll-margin-top: 72px; }
 
 @media print {
   .no-print, .day-nav-top, .bottom-bar, .print-btn { display: none !important; }
@@ -314,6 +314,7 @@ html { scroll-behavior: smooth; }
 <nav class="day-nav-top" id="main-nav">
   <a href="#top" onclick="setActive(this)"><span class="nav-day">·</span>Portada</a>
   <a href="#reserves" onclick="setActive(this)"><span class="nav-day">★</span>Reserves</a>
+  <a href="#allotjament" onclick="setActive(this)"><span class="nav-day">⌂</span>Allotjament</a>
   <a href="#dia0" onclick="setActive(this)"><span class="nav-day">1</span>Dv 25 · Arribada</a>
   <a href="#dia1" onclick="setActive(this)"><span class="nav-day">2</span>Ds 26 · Clérigos</a>
   <a href="#dia2" onclick="setActive(this)"><span class="nav-day">3</span>Dg 27 · Bolsa</a>
@@ -498,26 +499,26 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
-      <h3 class="sub">Allotjament — 3 opcions (Ribeira/Baixa)</h3>
+      <h3 class="sub" id="allotjament">Allotjament — 3 opcions (Ribeira/Baixa), totes amb valoració 8,9+/10</h3>
       <div class="resto-grid">
         <div class="resto-row header">
           <div class="resto-cell">Hotel</div>
-          <div class="resto-cell">Categoria / preu orientatiu</div>
+          <div class="resto-cell">Categoria / valoració / preu orientatiu</div>
           <div class="resto-cell">Contacte</div>
         </div>
         <div class="resto-row">
           <div class="resto-cell urgent-name"><a href="https://www.eurostarshotels.us/eurostars-porto-douro.html" target="_blank" class="ext">Eurostars Porto Douro</a></div>
-          <div class="resto-cell">4* · Av. Gustavo Eiffel 22 · ~110-130 €/nit</div>
+          <div class="resto-cell">4* · 9,0/10 (Booking) · Av. Gustavo Eiffel 22, davant el Douro · ~110-130 €/nit</div>
           <div class="resto-cell">+351 223 402 750</div>
         </div>
         <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.carrishoteles.com/en/carris-porto-ribeira-hotel/" target="_blank" class="ext">Hotel Carris Porto Ribeira</a></div>
-          <div class="resto-cell">4* · Rua Infante D. Henrique 1 · ~120-140 €/nit</div>
-          <div class="resto-cell">+351 222 061 270</div>
+          <div class="resto-cell urgent-name"><a href="https://www.editoryhotels.com/en/house-ribeira-porto/" target="_blank" class="ext">The Editory House Ribeira</a></div>
+          <div class="resto-cell">4* · 9,0/10 (Booking) · R. Infante D. Henrique 26, a 100 m del Palácio da Bolsa · preu variable, consultar web</div>
+          <div class="resto-cell">+351 220 119 006</div>
         </div>
         <div class="resto-row">
           <div class="resto-cell urgent-name"><a href="https://www.ocahotels.com/en/hotels/oca-ribeira-porto-hotel" target="_blank" class="ext">Oca Ribeira do Porto Hotel</a></div>
-          <div class="resto-cell">3* · Praça da Ribeira · ~85-100 €/nit</div>
+          <div class="resto-cell">3* · 8,9/10 (Booking) · Praça da Ribeira, al bell mig del centre històric · ~85-100 €/nit</div>
           <div class="resto-cell">+351 222 032 097</div>
         </div>
       </div>
