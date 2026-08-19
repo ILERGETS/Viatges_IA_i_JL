@@ -453,12 +453,25 @@ html { scroll-behavior: smooth; }
 
   <div class="toc">
     <h3>Contingut del document</h3>
-    <div class="toc-grid">
+    <div class="toc-grid" style="margin-bottom: 28px;">
       <a href="#resum" class="toc-item" onclick="scrollToSection('#resum')"><span class="toc-num">→</span><span class="toc-text">Resum de sortida</span></a>
       <a href="#reserves" class="toc-item" onclick="scrollToSection('#reserves')"><span class="toc-num">★</span><span class="toc-text">Reserves urgents</span></a>
       <a href="#gastro" class="toc-item" onclick="scrollToSection('#gastro')"><span class="toc-num">✦</span><span class="toc-text">Guia gastronòmica per zones</span></a>
       <a href="#logistica" class="toc-item" onclick="scrollToSection('#logistica')"><span class="toc-num">◆</span><span class="toc-text">Logística i pressupost total</span></a>
     </div>
+    <table class="km-table">
+      <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
+      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Arribada i passeig per la Ribeira</td><td class="km-num">~3,0</td></tr>
+      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Torre dos Clérigos i Livraria Lello</td><td class="km-num">~4,5</td></tr>
+      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Sé, Palácio da Bolsa i São Francisco</td><td class="km-num">~4,0</td></tr>
+      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
+      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Excursió a Guimarães</td><td class="km-num">~5,0</td></tr>
+      <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dc 30/09</a></td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
+      <tr class="total">
+        <td colspan="2"><strong>TOTAL VIATGE</strong></td>
+        <td class="km-num">~23,5</td>
+      </tr>
+    </table>
   </div>
 
   <!-- ═══════════ RESUM DE SORTIDA ═══════════ -->
@@ -492,21 +505,6 @@ html { scroll-behavior: smooth; }
         <div class="summary-row"><span>Emergències (Portugal)</span><span class="val">112</span></div>
       </div>
     </div>
-
-    <h3 class="sub">Itinerari i distàncies</h3>
-    <table class="km-table">
-      <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
-      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Arribada i passeig per la Ribeira</td><td class="km-num">~3,0</td></tr>
-      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Torre dos Clérigos i Livraria Lello</td><td class="km-num">~4,5</td></tr>
-      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Sé, Palácio da Bolsa i São Francisco</td><td class="km-num">~4,0</td></tr>
-      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
-      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Excursió a Guimarães</td><td class="km-num">~5,0</td></tr>
-      <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dc 30/09</a></td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
-      <tr class="total">
-        <td colspan="2"><strong>TOTAL VIATGE</strong></td>
-        <td class="km-num">~23,5</td>
-      </tr>
-    </table>
     <button class="print-btn-summary no-print" onclick="printSummaryOnly()">Imprimir · Resum</button>
   </div>
 
