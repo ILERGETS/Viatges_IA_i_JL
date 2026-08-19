@@ -253,6 +253,15 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .urgent-web { color: var(--ocean); font-size: 12.5px; font-style: italic; }
 .urgent-level { font-size: 12px; font-family: var(--condensed); letter-spacing: 0.08em; }
 
+.km-table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; border: none; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.km-table th { background: transparent !important; color: var(--ink-mute) !important; font-family: var(--condensed) !important; font-size: 10px !important; font-weight: 600 !important; letter-spacing: 0.26em; text-transform: uppercase; padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--rule); }
+.km-table td { padding: 14px 16px; font-size: 13.5px; background: transparent !important; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--ink-soft); font-family: var(--sans); font-weight: 400; }
+.km-table td strong { color: var(--ink); font-weight: 600; }
+.km-table tr:last-child td { border-bottom: none; }
+.km-table tr.total td { background: transparent !important; color: var(--ink) !important; font-weight: 600 !important; font-family: var(--condensed) !important; font-size: 12px !important; letter-spacing: 0.16em; text-transform: uppercase; border-top: 1px solid var(--ink); padding: 18px 16px; }
+.km-num { font-family: var(--serif) !important; font-style: italic !important; font-weight: 400 !important; color: var(--terracotta) !important; font-size: 22px !important; text-align: right; letter-spacing: -0.01em; }
+.km-table tr.total .km-num { color: var(--terracotta) !important; font-size: 24px !important; font-style: italic !important; }
+
 .gastro-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 0; border: none; border-top: 1px solid var(--ink); margin: 16px 0 28px; }
 .gastro-zone { background: transparent !important; color: var(--ink) !important; padding: 24px 24px 24px 0 !important; font-family: var(--serif) !important; font-size: 26px !important; font-weight: 400 !important; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; letter-spacing: -0.01em; font-style: italic; }
 .gastro-dishes { padding: 24px 0 24px 24px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); border-bottom: 1px solid var(--rule); background: transparent !important; font-weight: 400; border-left: 1px solid var(--rule); }
@@ -488,6 +497,21 @@ html { scroll-behavior: smooth; }
         <div class="summary-row"><span>Emergències (Portugal)</span><span class="val">112</span></div>
       </div>
     </div>
+
+    <h3 class="sub">Itinerari i distàncies</h3>
+    <table class="km-table">
+      <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
+      <tr><td>Dia 1 · Dv 25/09</td><td>Arribada i passeig per la Ribeira</td><td class="km-num">~3,0</td></tr>
+      <tr><td>Dia 2 · Ds 26/09</td><td>Torre dos Clérigos i Livraria Lello</td><td class="km-num">~4,5</td></tr>
+      <tr><td>Dia 3 · Dg 27/09</td><td>Sé, Palácio da Bolsa i São Francisco</td><td class="km-num">~4,0</td></tr>
+      <tr><td>Dia 4 · Dl 28/09</td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
+      <tr><td>Dia 5 · Dt 29/09</td><td>Excursió a Guimarães</td><td class="km-num">~5,0</td></tr>
+      <tr><td>Dia 6 · Dc 30/09</td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
+      <tr class="total">
+        <td colspan="2"><strong>TOTAL VIATGE</strong></td>
+        <td class="km-num">~23,5</td>
+      </tr>
+    </table>
     <button class="print-btn-summary no-print" onclick="printSummaryOnly()">Imprimir · Resum</button>
   </div>
 
