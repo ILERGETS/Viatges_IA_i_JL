@@ -157,7 +157,38 @@ body.hide-prices .schedule-place{width:270px;}
 .doc-footer p{font-family:var(--serif);font-size:36px;font-style:italic;color:var(--terracotta-tint);margin-bottom:16px;font-weight:300;letter-spacing:-0.005em;}
 .doc-footer small{font-family:var(--condensed);font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
 html{scroll-behavior:smooth;}
+
+.day-km-walk{margin-top:14px;padding-top:10px;border-top:1px solid var(--rule-soft);}
+.day-km-walk-value{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:400;color:var(--ink-soft);line-height:1;}
+.day-km-walk-label{font-family:var(--condensed);font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:4px;}
+.culture-toggle{margin:18px 0 6px;border-top:1px solid var(--rule-soft);padding-top:4px;}
+.culture-toggle summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:10px 0;font-family:var(--condensed);font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracotta);transition:color 0.15s;}
+.culture-toggle summary::-webkit-details-marker{display:none;}
+.culture-toggle summary::before{content:'+';font-family:var(--serif);font-size:18px;font-weight:400;line-height:1;width:16px;text-align:center;flex-shrink:0;transition:transform 0.2s;}
+.culture-toggle[open] summary::before{content:'–';}
+.culture-toggle summary:hover{color:var(--terracotta-dark);}
+.culture-body{padding:6px 4px 22px 26px;font-family:var(--serif);font-size:15.5px;line-height:1.75;color:var(--ink-soft);max-width:740px;border-left:1px solid var(--rule-soft);margin-left:7px;}
+.culture-body h4{font-family:var(--condensed);font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-mute);margin:18px 0 6px;}
+.culture-body h4:first-child{margin-top:0;}
+.culture-body p{margin-bottom:10px;}
+.culture-body strong{color:var(--ink);font-weight:600;}
+.culture-links{margin-top:14px;padding-top:12px;border-top:1px dotted var(--rule);font-family:var(--sans);font-size:12.5px;font-style:normal;display:flex;flex-wrap:wrap;gap:6px 18px;}
+.culture-links a{color:var(--ocean);border-bottom-color:var(--ocean-soft);}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin:24px 0 40px;}
+.summary-block{border-top:1px solid var(--ink);padding-top:18px;margin-bottom:32px;}
+.summary-block h3{font-family:var(--condensed);font-size:11px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px;}
+.summary-row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--rule-soft);font-family:var(--sans);font-size:13.5px;color:var(--ink-soft);}
+.summary-row strong{color:var(--ink);font-weight:600;}
+.summary-row .val{text-align:right;font-family:var(--serif);font-style:italic;color:var(--ink);}
+.print-btn-summary{position:fixed;bottom:168px;right:24px;width:172px;text-align:center;background:var(--ink);color:var(--paper);border:none;padding:14px 22px;font-family:var(--condensed);font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;z-index:100;box-shadow:0 8px 28px rgba(0,0,0,0.22);transition:background 0.2s;white-space:nowrap;line-height:1;}
+.print-btn-summary:hover{background:var(--terracotta);}
+@media (max-width:760px){.summary-grid{grid-template-columns:1fr;}}
+
 @media print{
+body.print-summary-only .cover,body.print-summary-only .toc,body.print-summary-only .day-nav-top,body.print-summary-only .bottom-bar,body.print-summary-only [id^="dia"],body.print-summary-only #reserves,body.print-summary-only #gastro,body.print-summary-only #logistica,body.print-summary-only .doc-footer,body.print-summary-only .box{display:none!important;}
+.culture-toggle{page-break-inside:avoid;}
+.culture-toggle summary::before{display:none;}
+
 *,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
 .no-print,.day-nav-top,.bottom-bar,.print-btn,.print-btn-gift{display:none!important;}
 body{padding:0;font-size:12px;background:white;}
@@ -183,6 +214,8 @@ img{max-width:100%;}
 <nav class="day-nav-top" id="main-nav">
 <a href="#top" onclick="setActive(this)"><span class="nav-day">·</span>Portada</a>
 <a href="#reserves" onclick="setActive(this)"><span class="nav-day">!</span>Reserves</a>
+<a href="#resum" onclick="setActive(this)"><span class="nav-day">→</span>Resum</a>
+<a href="#allotjament" onclick="setActive(this)"><span class="nav-day">⌂</span>Allotjament</a>
 <a href="#dia1" onclick="setActive(this)"><span class="nav-day">1</span>Dv 30 · Arribada</a>
 <a href="#dia2" onclick="setActive(this)"><span class="nav-day">2</span>Ds 31 · Aniversari</a>
 <a href="#dia3" onclick="setActive(this)"><span class="nav-day">3</span>Dg 1 · Comiat</a>
@@ -226,6 +259,39 @@ img{max-width:100%;}
 <div class="box box-info">
 <span class="box-label">Abans de començar · dades verificades</span>
 Sou <strong>9 dones + 1 nadó de 9 mesos</strong>. <span class="no-gift">Els <strong>preus s'indiquen en euros</strong> (canvi aprox. 1&nbsp;€ = 7,46 DKK; a confirmar). </span>A Dinamarca els <strong>menors de 18 anys entren gratis o amb gran descompte</strong> a la majoria de museus, i el <strong>nadó no paga mai</strong>. <strong>Cap adulta arriba als 65 anys</strong>, així que no s'apliquen descomptes sènior danesos. L'<strong>1 de novembre de 2026 (diumenge) no és festiu oficial</strong>: museus i botigues obren amb horari normal de diumenge. El <strong>25 d'octubre ja s'ha passat a horari d'hivern</strong>: fosqueja cap a les 16:45–17:00. Amb el cotxet, tot l'itinerari s'ha triat pla i accessible; el metro de Copenhaguen té ascensor a totes les estacions.
+</div>
+
+<div id="resum">
+<div class="section-header">
+<div class="section-number">→</div>
+<div class="section-title-group">
+<h2>Resum de sortida</h2>
+<p>Tot l'essencial per al dia del viatge, d'un cop d'ull</p>
+</div>
+</div>
+<div class="summary-grid">
+<div class="summary-block">
+<h3>Vols</h3>
+<div class="summary-row"><span>Anada · Dv 30 oct</span><span class="val">07:10 BCN → 10:10 CPH · Vueling</span></div>
+<div class="summary-row"><span>Tornada · Dg 1 nov</span><span class="val">17:40 CPH → 20:40 BCN · Vueling</span></div>
+</div>
+<div class="summary-block" id="allotjament">
+<h3>Allotjament</h3>
+<div class="summary-row"><span>Comfort Hotel Vesterbro</span><span class="val">Tots els dies (30 oct – 1 nov)</span></div>
+<div class="summary-row"><span>Vesterbrogade 23–29</span><span class="val">1620 København V</span></div>
+</div>
+<div class="summary-block">
+<h3>Primer trasllat</h3>
+<div class="summary-row"><span>Aeroport → Hotel</span><span class="val">Metro M2 + a peu · ~20 min</span></div>
+<div class="summary-row"><span>Bitllet</span><span class="val">3 zones · ~36 DKK</span></div>
+</div>
+<div class="summary-block">
+<h3>Telèfons i adreces d'emergència</h3>
+<div class="summary-row"><span>Hotel</span><span class="val">+45 33 78 80 00</span></div>
+<div class="summary-row"><span>Urgències (policia/ambulància)</span><span class="val">112</span></div>
+<div class="summary-row"><span>Metge no urgent</span><span class="val">1813</span></div>
+</div>
+</div>
 </div>
 
 <!-- ============ RESERVES ============ -->
@@ -278,6 +344,10 @@ Sou <strong>9 dones + 1 nadó de 9 mesos</strong>. <span class="no-gift">Els <st
 </div>
 </div>
 
+<div class="box box-info">
+<span class="box-label">⚠ Abans de sortir · reconfirmeu</span>
+Els <strong>preus, horaris i condicions de reserva</strong> dels monuments i restaurants poden canviar entre ara i el viatge. La <strong>setmana prèvia a la sortida</strong>, reconfirmeu a les webs oficials els horaris del Tivoli, del canal tour i dels restaurants reservats, i que segueixen oberts els dies concrets (dv 30, ds 31, dg 1).
+</div>
 <div class="box box-warn">
 <span class="box-label">Consell amb nadó</span>
 En reservar, demaneu sempre <strong>trona (høj stol)</strong> i espai per al cotxet, i confirmeu que admeten el grup de 9. La majoria de restaurants danesos són molt <em>family-friendly</em>. Per al Tivoli, el nadó entra gratis i hi ha zones de canvi de bolquers.
@@ -308,6 +378,7 @@ En reservar, demaneu sempre <strong>trona (høj stol)</strong> i espai per al co
 <div class="day-km">
 <div class="day-km-value">~3</div>
 <div class="day-km-label">km a peu</div>
+<div class="day-km-walk"><div class="day-km-walk-value">Dins límit</div><div class="day-km-walk-label">màx. dia 1: 10 km</div></div>
 </div>
 </div>
 <div class="day-intro">Arribeu d'hora (10:10). Després del check-in i una hora de descans a l'hotel, teniu tot el dia per endavant: un tomb pel casc antic, dinar, tarda de passeig i, al vespre, Nyhavn il·luminat i sopar de benvinguda.</div>
@@ -322,7 +393,7 @@ Veure ruta del dia a Google Maps</a>
 <tr>
 <td class="schedule-time">10:10</td>
 <td class="schedule-place"><a class="ext" href="https://www.google.com/maps/search/?api=1&query=Copenhagen+Airport+Kastrup" target="_blank">Aeroport de Copenhaguen (CPH)</a></td>
-<td class="schedule-notes">Arribada del vol Vueling des de Barcelona. Recolliu equipatge i agafeu el <strong>metro M2</strong> (direcció Vanløse) fins a <strong>Kongens Nytorv</strong> o el tren fins a <strong>København H</strong>. ~14 min.<span class="no-gift"> Bitllet 3 zones ~36 DKK (~4,80 €).</span> Totes les estacions tenen ascensor (bo per al cotxet).</td>
+<td class="schedule-notes">Arribada del vol Vueling des de Barcelona. Recolliu equipatge i agafeu el <strong>metro M2</strong> (direcció Vanløse) fins a <strong>Kongens Nytorv</strong> o el tren fins a <strong>København H</strong>. ~14 min.<span class="no-gift"> Bitllet 3 zones ~36 DKK (~4,80 €).</span> Totes les estacions tenen ascensor (bo per al cotxet).<br><a href="https://www.google.com/maps/dir/?api=1&origin=Copenhagen+Airport+Kastrup&destination=Comfort+Hotel+Vesterbro,+Vesterbrogade+23-29,+K%C3%B8benhavn&travelmode=transit" target="_blank" class="gmaps-btn" style="margin-top:10px;"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Ruta aeroport → hotel (transport públic)</a></td>
 <td class="schedule-cost">TRANS.<span class="cost-amount">~5 €/p</span></td>
 </tr>
 <tr>
@@ -376,6 +447,52 @@ Veure ruta del dia a Google Maps</a>
 </tr>
 </table>
 
+
+<h3 class="sub">Per aprofundir-hi</h3>
+<details class="culture-toggle">
+<summary>Christiansborg — vuit segles de poder sobre una mateixa illa</summary>
+<div class="culture-body">
+<h4>Època i origen</h4>
+<p>La història de Christiansborg —i la de Copenhaguen mateixa— comença el <strong>1167</strong>, quan el bisbe <strong>Absalon</strong> hi va aixecar una fortalesa sobre l'illot de Slotsholmen per protegir la ciutat dels atacs pel mar. Aquell primer castell es considera la pedra fundacional de Copenhaguen. Des d'aleshores, el mateix tros de terra ha estat el centre del poder danès durant més de 800 anys.</p>
+<h4>Tres palaus, dos incendis</h4>
+<p>El palau que veieu avui és el <strong>tercer</strong> amb aquest nom: els dos anteriors van cremar (el 1794 i el 1884). L'actual es va completar el <strong>1928</strong> en estil neobarroc, obra de l'arquitecte Thorvald Jørgensen, cosa que el converteix, paradoxalment, en un dels palaus més <em>joves</em> de Dinamarca però amb els fonaments més antics. Al soterrani encara es poden visitar les ruïnes del mur d'Absalon i del primer castell.</p>
+<h4>Una raresa mundial</h4>
+<p>Christiansborg és <strong>l'únic edifici del món que allotja els tres poders de l'estat alhora</strong>: el Parlament (Folketinget), el despatx del primer ministre i el Tribunal Suprem. A més, la família reial encara hi fa servir les sales de recepció per a actes oficials. La torre és la més alta de la ciutat i s'hi pot pujar <strong>gratuïtament</strong> per gaudir de les vistes.</p>
+<div class="culture-links">
+<a href="https://en.wikipedia.org/wiki/Christiansborg_Palace" target="_blank" class="ext">Wikipedia (anglès)</a>
+<a href="https://www.thedanishparliament.dk/christiansborg-palace/the-history-of-christiansborg-palace" target="_blank" class="ext">Web oficial del Parlament danès</a>
+</div>
+</div>
+</details>
+<details class="culture-toggle">
+<summary>Context de la ciutat — Copenhaguen</summary>
+<div class="culture-body">
+<h4>Orígens</h4>
+<p>Copenhaguen va néixer com un poblet de pescadors i mercaders al voltant de la fortalesa del bisbe Absalon (1167). El seu nom, <em>København</em>, ve de <em>Køpmannæhafn</em>, "port dels mercaders", que resumeix bé la seva ànima comercial i marítima. Va esdevenir capital del regne al segle XV.</p>
+<h4>Una capital a mida humana</h4>
+<p>Malgrat ser una capital europea, Copenhaguen és compacta, plana i molt caminable —perfecta per al vostre ritme. És mundialment coneguda pel disseny nòrdic, la bicicleta com a mitjà de transport principal i el concepte de <strong>hygge</strong>: aquella sensació d'acolliment, calidesa i benestar compartit que impregna cafès, sopars i vespres d'hivern.</p>
+<h4>Llum d'hivern</h4>
+<p>A finals d'octubre el sol es pon cap a les 16:45. Els danesos combaten la foscor amb espelmes pertot arreu i llums càlids: veureu que fins i tot les botigues i cafès tenen una lluminositat daurada molt acollidora. És el <em>hygge</em> en estat pur.</p>
+<div class="culture-links">
+<a href="https://en.wikipedia.org/wiki/Copenhagen" target="_blank" class="ext">Wikipedia (anglès)</a>
+</div>
+</div>
+</details>
+<details class="culture-toggle">
+<summary>Context del país — Dinamarca</summary>
+<div class="culture-body">
+<h4>La monarquia més antiga d'Europa</h4>
+<p>Dinamarca té la <strong>monarquia continuada més antiga d'Europa</strong>, amb més de mil anys d'història que es remunten als reis vikings del segle X. Des del gener de 2024 el cap d'estat és el rei <strong>Frederic X</strong>, que va succeir la molt estimada reina Margarida II després de la seva abdicació.</p>
+<h4>Un país petit i pròsper</h4>
+<p>Amb uns 6 milions d'habitants, Dinamarca és coneguda per l'estat del benestar, els índexs de felicitat més alts del món i un fort compromís amb el disseny, la sostenibilitat i la bicicleta. La moneda és la <strong>corona danesa</strong> (DKK) —no fan servir l'euro—, tot i que gairebé tot es paga amb targeta.</p>
+<h4>Terra de contes</h4>
+<p>És la pàtria de <strong>Hans Christian Andersen</strong>, autor de "La Sireneta", "L'aneguet lleig" o "La venedora de llumins", i també del joc <strong>LEGO</strong>, inventat a Billund el 1932. Dos símbols d'imaginació que trobareu ben presents al viatge.</p>
+<div class="culture-links">
+<a href="https://en.wikipedia.org/wiki/Denmark" target="_blank" class="ext">Wikipedia (anglès)</a>
+</div>
+</div>
+</details>
+
 <div class="box box-warn">
 <span class="box-label">Nota d'horaris · divendres</span>
 Amb un nadó, aquest primer dia és intens després de matinar molt (vol a les 7:10). Si el grup ve cansat, es pot escurçar el passeig pel casc antic i fer només un tomb curt + dinar tranquil, i tornar aviat a l'hotel. Hem tret l'spa del programa perquè el nadó no hi pot entrar; si algunes voleu fer-ne igualment, consulteu a recepció i organitzeu-vos per torns.
@@ -422,6 +539,7 @@ Amb un nadó, aquest primer dia és intens després de matinar molt (vol a les 7
 <div class="day-km">
 <div class="day-km-value">~4</div>
 <div class="day-km-label">km a peu</div>
+<div class="day-km-walk"><div class="day-km-walk-value">Dins límit</div><div class="day-km-walk-label">màx. dia 2: 12 km</div></div>
 </div>
 </div>
 <div class="day-intro">El dia central: matí pels canals, dinar d'aniversari amb música al migdia, tarda de disseny danès i vespre al Tivoli decorat de Halloween. Ritme relaxat amb un fil festiu.</div>
@@ -479,6 +597,39 @@ Veure ruta del dia a Google Maps</a>
 <div class="day-photo-caption">El Tivoli decorat de Halloween — carabasses i espantaocells per tot el jardí</div>
 </div>
 
+
+<h3 class="sub">Per aprofundir-hi</h3>
+<details class="culture-toggle">
+<summary>Nyhavn — el port on vivia el contista</summary>
+<div class="culture-body">
+<h4>Un port excavat a mà</h4>
+<p>Nyhavn (que vol dir, literalment, "port nou") es va excavar entre <strong>1670 i 1673</strong> per ordre del rei <strong>Cristià V</strong>, en bona part amb mà d'obra de presoners de guerra suecs. Durant gairebé tres segles va ser un port comercial ple de mariners, tavernes i mala reputació, on descarregaven gra, carbó i fusta directament al mercat de Kongens Nytorv.</p>
+<h4>La casa d'Andersen</h4>
+<p>El contista <strong>Hans Christian Andersen</strong> hi va viure a tres adreces diferents (els números 20, 67 i 18) durant una vintena d'anys. Al número 20 hi va publicar els seus primers contes, el 1835. Les tres cases estan marcades amb plaques —un detall petit i bonic si sabeu on mirar mentre passegeu.</p>
+<h4>Un mite desmentit</h4>
+<p>Sovint se sent dir que els colors de les cases servien perquè els mariners beguts reconeguessin casa seva. És una història bonica, però <strong>falsa</strong>: la paleta de colors actual és una decisió de conservació dels anys 1960-70, feta a partir de registres històrics de pigments. El vernís brillant que les fa tan vistoses a les fotos també és una addició d'aquella època.</p>
+<div class="culture-links">
+<a href="https://en.wikipedia.org/wiki/Nyhavn" target="_blank" class="ext">Wikipedia (anglès)</a>
+<a href="https://visitnyhavn.com/en/practical-information/history/" target="_blank" class="ext">Història oficial de Nyhavn</a>
+</div>
+</div>
+</details>
+<details class="culture-toggle">
+<summary>Tivoli — el jardí que va inspirar Walt Disney</summary>
+<div class="culture-body">
+<h4>Un dels parcs més antics del món</h4>
+<p>El Tivoli va obrir el <strong>15 d'agost de 1843</strong>, fet que el converteix en un dels parcs d'atraccions més antics del món encara en funcionament (el segon, després del Bakken, també danès). El va fundar <strong>Georg Carstensen</strong>, un oficial i emprenedor que s'havia inspirat en els jardins de plaer europeus —el nom ve del Jardin de Tivoli de París.</p>
+<h4>"Quan la gent es diverteix, no pensa en política"</h4>
+<p>Segons la tradició, Carstensen va convèncer el rei <strong>Cristià VIII</strong> amb aquesta frase perquè li cedís els terrenys, aleshores just fora de les muralles. Sigui certa o no, el rei va accedir i el parc va ser un èxit immediat. Entre els primers visitants hi havia Hans Christian Andersen, que en va treure la inspiració per al conte "El rossinyol".</p>
+<h4>La petja de Disney i el Halloween</h4>
+<p>El 1951 <strong>Walt Disney</strong> va visitar el Tivoli i, segons expliquen, va prendre'n moltes notes: l'harmonia entre jardins, arquitectura i atraccions va influir directament en el disseny de Disneyland. La muntanya russa de fusta <em>Rutschebanen</em>, de 1914, encara funciona. Durant la vostra visita el trobareu decorat per <strong>Halloween</strong>, amb desenes de milers de carabasses i llums —una de les millors èpoques per veure'l.</p>
+<div class="culture-links">
+<a href="https://ca.wikipedia.org/wiki/Jardins_de_T%C3%ADvoli" target="_blank" class="ext">Viquipèdia (català)</a>
+<a href="https://www.tivoli.dk/en/about-tivoli/the-history-of-tivoli-gardens" target="_blank" class="ext">Història oficial del Tivoli</a>
+</div>
+</div>
+</details>
+
 <div class="box box-warn">
 <span class="box-label">Nota d'horaris · dissabte</span>
 El dinar a Tight tanca a les 16 h: reserveu a les 13:30. El Tivoli obre fins les 22 h; entreu-hi cap a les 18:30 quan ja està tot il·luminat. Si soparu dins el Tivoli (Grøften), no cal sortir del parc.
@@ -524,6 +675,7 @@ El dinar a Tight tanca a les 16 h: reserveu a les 13:30. El Tivoli obre fins les
 <div class="day-km">
 <div class="day-km-value">~2,5</div>
 <div class="day-km-label">km a peu</div>
+<div class="day-km-walk"><div class="day-km-walk-value">Dins límit</div><div class="day-km-walk-label">màx. dia 3: 14 km</div></div>
 </div>
 </div>
 <div class="day-intro">Últim matí dedicat al mercat i a les compres, amb un recorregut a peu 100% per carrers de vianants. Dinar de comiat i cap a l'aeroport a mitja tarda (vol a les 17:40).</div>
@@ -560,7 +712,7 @@ Torvehallerne &#8594; <strong>Frederiksborggade</strong> &#8594; <strong>Købmag
 <tr>
 <td class="schedule-time">15:15</td>
 <td class="schedule-place"><a class="ext" href="https://www.choicehotels.com/denmark/copenhagen/comfort-inn-hotels/dk032" target="_blank">Recollir maletes &amp; cap a l'aeroport</a></td>
-<td class="schedule-notes">Recolliu l'equipatge de la consigna de l'hotel i agafeu el <strong>metro/tren fins a CPH</strong> (~15 min). Sigueu a l'aeroport cap a les 15:40 (2 h abans del vol de les 17:40). Arribada a Barcelona 20:40.</td>
+<td class="schedule-notes">Recolliu l'equipatge de la consigna de l'hotel i agafeu el <strong>metro/tren fins a CPH</strong> (~15 min). Sigueu a l'aeroport cap a les 15:40 (2 h abans del vol de les 17:40). Arribada a Barcelona 20:40.<br><a href="https://www.google.com/maps/dir/?api=1&origin=Comfort+Hotel+Vesterbro,+Vesterbrogade+23-29,+K%C3%B8benhavn&destination=Copenhagen+Airport+Kastrup&travelmode=transit" target="_blank" class="gmaps-btn" style="margin-top:10px;"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Ruta hotel → aeroport (transport públic)</a></td>
 <td class="schedule-cost">TRANS.<span class="cost-amount">~5 €/p</span></td>
 </tr>
 </table>
@@ -674,6 +826,7 @@ Per ordre: <strong>1)</strong> dinar d'aniversari a <a class="ext" href="https:/
 
 </div><!-- /.content -->
 
+<button class="print-btn-summary no-print" onclick="printSummaryOnly()">Imprimir · Resum</button>
 <button class="print-btn-gift no-print" onclick="printGift()">Imprimir sense preus</button>
 <button class="print-btn no-print" onclick="window.print()">Imprimir · PDF</button>
 
@@ -689,10 +842,15 @@ Per ordre: <strong>1)</strong> dinar d'aniversari a <a class="ext" href="https:/
 </div>
 
 <script>
+function printSummaryOnly(){document.body.classList.add('print-summary-only');window.addEventListener('afterprint',function h(){document.body.classList.remove('print-summary-only');window.removeEventListener('afterprint',h);});setTimeout(function(){window.print();},60);setTimeout(function(){document.body.classList.remove('print-summary-only');},3000);}
+let culturePrevOpen=[];
+window.addEventListener('beforeprint',function(){var t=document.querySelectorAll('.culture-toggle');culturePrevOpen=Array.from(t).map(function(d){return d.open;});t.forEach(function(d){d.open=true;});});
+window.addEventListener('afterprint',function(){var t=document.querySelectorAll('.culture-toggle');t.forEach(function(d,i){d.open=culturePrevOpen[i]||false;});});
 function printGift(){document.body.classList.add('hide-prices');window.addEventListener('afterprint',function h(){document.body.classList.remove('hide-prices');window.removeEventListener('afterprint',h);});setTimeout(function(){window.print();},60);setTimeout(function(){document.body.classList.remove('hide-prices');},3000);}
 const days=[
-{id:'top',label:'Portada',prev:null,next:'dia1'},
-{id:'reserves',label:'Reserves',prev:'top',next:'dia1'},
+{id:'top',label:'Portada',prev:null,next:'resum'},
+{id:'resum',label:'Resum de sortida',prev:'top',next:'reserves'},
+{id:'reserves',label:'Reserves',prev:'resum',next:'dia1'},
 {id:'dia1',label:'Dv 30 · Arribada',prev:'reserves',next:'dia2'},
 {id:'dia2',label:'Ds 31 · Aniversari',prev:'dia1',next:'dia3'},
 {id:'dia3',label:'Dg 1 · Comiat',prev:'dia2',next:'gastro'},
@@ -706,7 +864,7 @@ if(d.prev){const p=days.find(x=>x.id===d.prev);prev.textContent='← '+(p?p.labe
 if(d.next){const n=days.find(x=>x.id===d.next);next.textContent=(n?n.label:'')+' →';next.classList.remove('disabled');next.setAttribute('data-target','#'+d.next);}else{next.textContent='Fi del viatge →';next.classList.add('disabled');next.removeAttribute('data-target');}}
 function scrollToSection(href){const id=href.replace('#','');if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});const nl0=document.querySelector('.day-nav-top a[href="#top"]');if(nl0)setActive(nl0);updateBottomBar('top');return;}const t=document.querySelector(href);if(!t)return;const nh=document.getElementById('main-nav').offsetHeight;const tt=t.getBoundingClientRect().top+window.scrollY-nh-8;window.scrollTo({top:tt,behavior:'smooth'});const nl=document.querySelector('.day-nav-top a[href="'+href+'"]');if(nl)setActive(nl);updateBottomBar(id);}
 document.addEventListener('click',function(e){const link=e.target.closest('a[href^="#"],a[data-target]');if(!link)return;if(link.classList.contains('disabled'))return;const target=link.getAttribute('data-target')||link.getAttribute('href');if(!target||target==='#')return;e.preventDefault();scrollToSection(target);});
-const sectionIds=['top','reserves','dia1','dia2','dia3','gastro','logistica'];
+const sectionIds=['top','resum','reserves','dia1','dia2','dia3','gastro','logistica'];
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const id=entry.target.id;const nl=document.querySelector('.day-nav-top a[href="#'+id+'"]');if(nl)setActive(nl);updateBottomBar(id);}});},{rootMargin:'-68px 0px -70% 0px',threshold:0});
 sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 updateBottomBar('top');
