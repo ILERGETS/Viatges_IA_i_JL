@@ -255,6 +255,7 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 
 .km-table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; border: none; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .km-table th { background: transparent !important; color: var(--ink-mute) !important; font-family: var(--condensed) !important; font-size: 10px !important; font-weight: 600 !important; letter-spacing: 0.26em; text-transform: uppercase; padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--rule); }
+.km-table th:last-child { text-align: right; }
 .km-table td { padding: 14px 16px; font-size: 13.5px; background: transparent !important; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--ink-soft); font-family: var(--sans); font-weight: 400; }
 .km-table td strong { color: var(--ink); font-weight: 600; }
 .km-table tr:last-child td { border-bottom: none; }
@@ -342,9 +343,9 @@ a.ext:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); 
 .bottom-bar .bar-center { flex: 0 0 auto; padding: 0 28px; font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--terracotta-tint); letter-spacing: 0; text-transform: none; cursor: pointer; flex-direction: column; gap: 1px; }
 .bottom-bar .bar-center span { font-family: var(--condensed); font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; }
 
-.print-btn { position: fixed; bottom: 72px; right: 24px; background: var(--ink); color: var(--paper); border: none; padding: 14px 22px; font-family: var(--condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; z-index: 100; box-shadow: 0 8px 28px rgba(0,0,0,0.22); transition: background 0.2s; white-space: nowrap; line-height: 1; }
+.print-btn { position: fixed; bottom: 72px; right: 24px; width: 172px; text-align: center; background: var(--ink); color: var(--paper); border: none; padding: 14px 22px; font-family: var(--condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; z-index: 100; box-shadow: 0 8px 28px rgba(0,0,0,0.22); transition: background 0.2s; white-space: nowrap; line-height: 1; }
 .print-btn:hover { background: var(--terracotta); }
-.print-btn-summary { position: fixed; bottom: 122px; right: 24px; background: var(--ink); color: var(--paper); border: none; padding: 14px 22px; font-family: var(--condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; z-index: 100; box-shadow: 0 8px 28px rgba(0,0,0,0.22); transition: background 0.2s; white-space: nowrap; line-height: 1; }
+.print-btn-summary { position: fixed; bottom: 122px; right: 24px; width: 172px; text-align: center; background: var(--ink); color: var(--paper); border: none; padding: 14px 22px; font-family: var(--condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; z-index: 100; box-shadow: 0 8px 28px rgba(0,0,0,0.22); transition: background 0.2s; white-space: nowrap; line-height: 1; }
 .print-btn-summary:hover { background: var(--terracotta); }
 
 .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; margin: 24px 0 40px; }
@@ -456,13 +457,7 @@ html { scroll-behavior: smooth; }
       <a href="#resum" class="toc-item" onclick="scrollToSection('#resum')"><span class="toc-num">→</span><span class="toc-text">Resum de sortida</span></a>
       <a href="#reserves" class="toc-item" onclick="scrollToSection('#reserves')"><span class="toc-num">★</span><span class="toc-text">Reserves urgents</span></a>
       <a href="#gastro" class="toc-item" onclick="scrollToSection('#gastro')"><span class="toc-num">✦</span><span class="toc-text">Guia gastronòmica per zones</span></a>
-      <a href="#dia0" class="toc-item" onclick="scrollToSection('#dia0')"><span class="toc-num">1</span><span class="toc-text">Dv 25 set · Arribada i Ribeira</span></a>
       <a href="#logistica" class="toc-item" onclick="scrollToSection('#logistica')"><span class="toc-num">◆</span><span class="toc-text">Logística i pressupost total</span></a>
-      <a href="#dia1" class="toc-item" onclick="scrollToSection('#dia1')"><span class="toc-num">2</span><span class="toc-text">Ds 26 set · Clérigos i Lello</span></a>
-      <a href="#dia2" class="toc-item" onclick="scrollToSection('#dia2')"><span class="toc-num">3</span><span class="toc-text">Dg 27 set · Sé i Palácio da Bolsa</span></a>
-      <a href="#dia3" class="toc-item" onclick="scrollToSection('#dia3')"><span class="toc-num">4</span><span class="toc-text">Dl 28 set · Vila Nova de Gaia</span></a>
-      <a href="#dia4" class="toc-item" onclick="scrollToSection('#dia4')"><span class="toc-num">5</span><span class="toc-text">Dt 29 set · Guimarães</span></a>
-      <a href="#dia5" class="toc-item" onclick="scrollToSection('#dia5')"><span class="toc-num">6</span><span class="toc-text">Dc 30 set · Comiat</span></a>
     </div>
   </div>
 
@@ -501,12 +496,12 @@ html { scroll-behavior: smooth; }
     <h3 class="sub">Itinerari i distàncies</h3>
     <table class="km-table">
       <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
-      <tr><td>Dia 1 · Dv 25/09</td><td>Arribada i passeig per la Ribeira</td><td class="km-num">~3,0</td></tr>
-      <tr><td>Dia 2 · Ds 26/09</td><td>Torre dos Clérigos i Livraria Lello</td><td class="km-num">~4,5</td></tr>
-      <tr><td>Dia 3 · Dg 27/09</td><td>Sé, Palácio da Bolsa i São Francisco</td><td class="km-num">~4,0</td></tr>
-      <tr><td>Dia 4 · Dl 28/09</td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
-      <tr><td>Dia 5 · Dt 29/09</td><td>Excursió a Guimarães</td><td class="km-num">~5,0</td></tr>
-      <tr><td>Dia 6 · Dc 30/09</td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
+      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Arribada i passeig per la Ribeira</td><td class="km-num">~3,0</td></tr>
+      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Torre dos Clérigos i Livraria Lello</td><td class="km-num">~4,5</td></tr>
+      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Sé, Palácio da Bolsa i São Francisco</td><td class="km-num">~4,0</td></tr>
+      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
+      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Excursió a Guimarães</td><td class="km-num">~5,0</td></tr>
+      <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dc 30/09</a></td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
       <tr class="total">
         <td colspan="2"><strong>TOTAL VIATGE</strong></td>
         <td class="km-num">~23,5</td>
