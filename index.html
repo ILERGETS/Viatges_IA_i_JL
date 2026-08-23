@@ -243,7 +243,7 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 
 .urgents-grid, .resto-grid { display: block; border: none; margin: 16px 0 32px; border-top: 1px solid var(--ink); }
 .urgent-row, .resto-row { border-bottom: 1px solid var(--rule); display: grid; background: transparent !important; }
-.urgent-row { grid-template-columns: 2fr 1.5fr 1fr; }
+.urgent-row { grid-template-columns: 1.8fr 1.4fr 1.1fr 1fr; }
 .resto-row { grid-template-columns: 2fr 1.2fr 1.6fr; }
 .urgent-row.header, .resto-row.header { background: transparent !important; border-bottom: 1px solid var(--rule); }
 .urgent-row.header .urgent-cell, .resto-row.header .resto-cell { color: var(--ink-mute) !important; font-family: var(--condensed) !important; font-size: 10px !important; font-weight: 600 !important; letter-spacing: 0.26em !important; text-transform: uppercase; background: transparent !important; padding: 12px 20px 12px 0; }
@@ -521,56 +521,67 @@ html { scroll-behavior: smooth; }
       <div class="urgent-row header">
         <div class="urgent-cell">Reserva</div>
         <div class="urgent-cell">Enllaç</div>
+        <div class="urgent-cell">Dia i hora</div>
         <div class="urgent-cell">Nivell</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Vols BCN ⇄ OPO — Ryanair</div>
         <div class="urgent-cell urgent-web">Reserva AV9IKF · 175 €</div>
+        <div class="urgent-cell">Dv 25/09, 12:00 · Dc 30/09, 14:15</div>
         <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Allotjament — Apartament Mouzinho 226</div>
         <div class="urgent-cell urgent-web">Confirmació 6024435098 · PIN 3493 · 656,65 €</div>
+        <div class="urgent-cell">Dv 25/09 – Dc 30/09</div>
         <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Trasllat aeroport → apartament</div>
         <div class="urgent-cell urgent-web">Booking.com Rides (Talixo), reserva 945882762 · Gratuït</div>
+        <div class="urgent-cell">Dv 25/09, 13:00</div>
         <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Avisar l'amfitrió de l'hora d'arribada</div>
         <div class="urgent-cell urgent-web">+351 935 604 264 (obligatori abans d'arribar)</div>
+        <div class="urgent-cell">Abans de Dv 25/09, 13:00</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Cancel·lació apartament amb reemborsament</div>
         <div class="urgent-cell urgent-web">Termini: fins al 19/09/2026, 23:59</div>
+        <div class="urgent-cell">Abans del viatge</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Livraria Lello — entrada</div>
         <div class="urgent-cell urgent-web"><a href="https://tickets.livrarialello.pt" target="_blank" class="ext">tickets.livrarialello.pt</a></div>
+        <div class="urgent-cell">Ds 26/09, 11:30</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Torre dos Clérigos — entrada</div>
         <div class="urgent-cell urgent-web"><a href="https://www.getyourguide.com/porto-l151/torre-dos-clerigos-entrance-ticket-t57114/" target="_blank" class="ext">GetYourGuide</a></div>
+        <div class="urgent-cell">Ds 26/09, 10:00</div>
         <div class="urgent-cell urgent-level">RECOMANABLE</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Creuer 6 Pontes + Cava (Gaia)</div>
         <div class="urgent-cell urgent-web"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext">cruzeiros-douro.pt</a></div>
+        <div class="urgent-cell">Dl 28/09, 11:00</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Sopar Taberna Santo António (dia 1)</div>
         <div class="urgent-cell urgent-web"><a href="https://tabernastoantonio.eatbu.com" target="_blank" class="ext">Reserva online / tel. 222 055 306</a></div>
+        <div class="urgent-cell">Dv 25/09, 20:00</div>
         <div class="urgent-cell urgent-level">RECOMANABLE</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Assegurança de viatge</div>
         <div class="urgent-cell urgent-web">A contractar abans de sortir</div>
+        <div class="urgent-cell">Abans del viatge</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
     </div>
