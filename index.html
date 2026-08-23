@@ -1577,6 +1577,16 @@ function updateBottomBar(dayId) {
 }
 
 function scrollToSection(href) {
+  // #main-nav és position:fixed — el seu getBoundingClientRect().top sempre
+  // és ~0 independentment de l'scroll, cosa que trencava el càlcul normal.
+  // Cas especial: el botó "Menú" ha d'anar sempre a dalt de tot del document.
+  if (href === '#main-nav') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateBottomBar('top');
+    const navLink = document.querySelector('.day-nav-top a[href="#top"]');
+    if (navLink) setActive(navLink);
+    return;
+  }
   const target = document.querySelector(href);
   if (!target) return;
   const navHeight = document.getElementById('main-nav').offsetHeight;
@@ -1588,7 +1598,7 @@ function scrollToSection(href) {
 }
 
 document.addEventListener('click', function(e) {
-  const link = e.target.closest('a[href^="#"]');
+  const link = e.target.closest('a[data-target], a[href^="#"]');
   if (!link) return;
   if (link.classList.contains('disabled')) return;
   const target = link.getAttribute('data-target') || link.getAttribute('href');
