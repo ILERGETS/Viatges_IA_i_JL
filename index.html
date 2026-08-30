@@ -215,6 +215,19 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .gmaps-btn svg { flex-shrink: 0; }
 .gmaps-btn svg path { fill: currentColor !important; }
 
+.route-block { margin: 32px 0 40px; }
+.route-block h3.sub { margin-top: 0; }
+.route-svg-wrap { background: var(--paper-warm); padding: 28px 24px 20px; margin: 12px 0 24px; border: 1px solid var(--rule); }
+.route-svg-wrap svg { width: 100%; height: auto; display: block; }
+.route-point-circle { fill: var(--terracotta); stroke: var(--paper-warm); stroke-width: 3; }
+.route-point-num { font-family: var(--sans); font-size: 13px; font-weight: 700; fill: var(--paper); text-anchor: middle; dominant-baseline: central; }
+.route-path { fill: none; stroke: var(--ink-mute); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.route-list { list-style: none; padding: 0; margin: 0 0 20px; }
+.route-list li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+.route-list li:last-child { border-bottom: none; }
+.route-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--terracotta); color: var(--paper); font-family: var(--sans); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.route-list strong { color: var(--ink); font-weight: 600; }
+
 .schedule { width: 100%; border-collapse: collapse; margin-top: 10px; }
 .schedule tr { background: transparent !important; }
 .schedule td { background: transparent !important; border-bottom: 1px solid var(--rule-soft) !important; border-left: none !important; vertical-align: top; padding: 20px 16px !important; }
@@ -696,7 +709,7 @@ html { scroll-behavior: smooth; }
         <tr>
           <td class="schedule-time">17:30</td>
           <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=Cais+da+Ribeira,+Porto" target="_blank" class="ext">Cais da Ribeira</a></td>
-          <td class="schedule-notes">Passeig pla vora el Douro, façanes de colors, vista del pont D. Luís I. Sense esforç, a ritme lliure.</td>
+          <td class="schedule-notes">Passeig pla vora el Douro — veure el recorregut il·lustrat amb 5 punts d'interès just després d'aquesta taula.</td>
           <td class="schedule-cost">—</td>
         </tr>
         <tr>
@@ -709,6 +722,36 @@ html { scroll-behavior: smooth; }
           <td class="schedule-cost">ÀPAT<span class="cost-amount">30 €</span></td>
         </tr>
       </table>
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut de la tarda — Ribeira i muralla medieval</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 125.0,121.4 Q 200.0,142.8 275.0,134.65 Q 350.0,126.5 425.0,100.0 Q 500.0,73.5 575.0,65.35 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="200.0" cy="142.8" r="14"/>
+            <text class="route-point-num" x="200.0" y="142.8">2</text>
+            <circle class="route-point-circle" cx="350.0" cy="126.5" r="14"/>
+            <text class="route-point-num" x="350.0" y="126.5">3</text>
+            <circle class="route-point-circle" cx="500.0" cy="73.5" r="14"/>
+            <text class="route-point-num" x="500.0" y="73.5">4</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">5</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Cais da Ribeira</strong> — El moll medieval vora el Douro, amb els vaixells rabelos amarrats i les façanes de colors superposades pujant cap al turó de la Sé.</span></li>
+          <li><span class="route-num">2</span><span><strong>Praça da Ribeira</strong> — El cor de la Ribeira, amb la coneguda "Fonte do Cubo", una escultura de coure de José Rodrigues on els portuenses van a refrescar-se els peus.</span></li>
+          <li><span class="route-num">3</span><span><strong>Postigo do Carvão</strong> — L'única porta que es conserva sencera de la Muralha Fernandina (segle XIV), la gran muralla medieval que va protegir Porto durant segles. Fàcil de passar per alt si no se sap on mirar.</span></li>
+          <li><span class="route-num">4</span><span><strong>Casa do Infante</strong> — Edifici del segle XIII on, segons la tradició, va néixer l'Infant D. Henrique "el Navegant". Avui és un museu amb una maqueta del Porto medieval.</span></li>
+          <li><span class="route-num">5</span><span><strong>Rua das Virtudes (Miragaia)</strong> — Pujant cap al barri de Miragaia, on sopareu a la Taberna Santo António.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/Cais+da+Ribeira,+Porto/Pra%C3%A7a+da+Ribeira,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Casa+do+Infante,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Veure recorregut a Google Maps
+        </a>
+      </div>
 
       <h3 class="sub">3 alternatives verificades per dinar abans del check-in</h3>
       <div class="resto-grid">
@@ -837,12 +880,34 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
       <div class="day-intro">Un dia curt i cèntric: la Torre dels Clérigos i la Livraria Lello, dues joies a pocs minuts a peu l'una de l'altra. Ritme relaxat, sense presses.</div>
-      <div style="padding: 12px 32px 16px;">
-        <a href="https://www.google.com/maps/dir/Torre+dos+Cl%C3%A9rigos/Livraria+Lello/Avenida+dos+Aliados,+Porto/" target="_blank" class="gmaps-btn">
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut del matí — Barroc i llibres</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
+            <text class="route-point-num" x="250.0" y="144.8">2</text>
+            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
+            <text class="route-point-num" x="450.0" y="90.6">3</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Torre dos Clérigos</strong> — El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto.</span></li>
+          <li><span class="route-num">2</span><span><strong>Igreja do Carmo i Casa Escondida</strong> — Dues esglésies (Carmo i Carmelitas) que semblen una de sola, separades per la casa més estreta de Portugal (poc més d'1 m d'amplada). La façana lateral del Carmo és un gran mural d'atzulejos blaus de 1912.</span></li>
+          <li><span class="route-num">3</span><span><strong>Livraria Lello</strong> — La llibreria neogòtica de 1906, amb l'escalinata vermella més fotografiada de Porto.</span></li>
+          <li><span class="route-num">4</span><span><strong>Jardim da Cordoaria</strong> — Jardí tranquil vora la Universitat, ideal per fer una pausa asseguts abans de dinar.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Veure ruta a Google Maps
+          Veure recorregut a Google Maps
         </a>
       </div>
+
       <table class="schedule">
         <tr>
           <td class="schedule-time">10:00</td>
@@ -871,7 +936,7 @@ html { scroll-behavior: smooth; }
         <tr>
           <td class="schedule-time">16:00</td>
           <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Avenida+dos+Aliados,+Porto" target="_blank" class="ext">Avenida dos Aliados</a></td>
-          <td class="schedule-notes">Passeig pla, edificis d'inici del s. XX, terrasses per descansar.</td>
+          <td class="schedule-notes">Passeig pla — veure el recorregut il·lustrat amb 3 punts d'interès just després d'aquesta taula.</td>
           <td class="schedule-cost">—</td>
         </tr>
         <tr>
@@ -881,6 +946,30 @@ html { scroll-behavior: smooth; }
           <td class="schedule-cost">ÀPAT<span class="cost-amount">50 €</span></td>
         </tr>
       </table>
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut de la tarda — Aliados i São Bento</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 200.0,113.25 Q 350.0,126.5 500.0,91.85 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="350.0" cy="126.5" r="14"/>
+            <text class="route-point-num" x="350.0" y="126.5">2</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">3</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Avenida dos Aliados</strong> — El bulevard central de Porto, flanquejat per edificis d'inici del segle XX.</span></li>
+          <li><span class="route-num">2</span><span><strong>Câmara Municipal do Porto</strong> — L'ajuntament, un edifici de granit neogòtic amb una torre del rellotge que corona l'avinguda.</span></li>
+          <li><span class="route-num">3</span><span><strong>Estação de São Bento</strong> — Una de les estacions de tren més boniques d'Europa: el vestíbul està cobert amb uns 20.000 atzulejos que narren escenes de la història de Portugal. Val la pena entrar-hi encara que no s'agafi cap tren.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/Avenida+dos+Aliados,+Porto/C%C3%A2mara+Municipal+do+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Veure recorregut a Google Maps
+        </a>
+      </div>
 
       <h3 class="sub">Per aprofundir-hi</h3>
       <details class="culture-toggle">
@@ -983,12 +1072,34 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
       <div class="day-intro">Tres monuments a tocar l'un de l'altre: la Sé, el Palácio da Bolsa (Sala Àrab) i la Igreja de São Francisco, amb la talla barroca més sumptuosa de Porto. <em>Dia amb més activitat que la resta — si arribeu cansats, la peça més prescindible és São Francisco (l'interior de la Sé i el Salão Árabe ja donen molt barroc per un sol matí).</em></div>
-      <div style="padding: 12px 32px 16px;">
-        <a href="https://www.google.com/maps/dir/S%C3%A9+do+Porto/Pal%C3%A1cio+da+Bolsa/Igreja+de+S%C3%A3o+Francisco,+Porto/" target="_blank" class="gmaps-btn">
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut del matí — Sé, Bolsa i mercat</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
+            <text class="route-point-num" x="250.0" y="144.8">2</text>
+            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
+            <text class="route-point-num" x="450.0" y="90.6">3</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Sé do Porto</strong> — Catedral romànico-gòtica del segle XII, al punt més alt del centre històric, amb un claustre revestit d'atzulejos del segle XVIII.</span></li>
+          <li><span class="route-num">2</span><span><strong>Palácio da Bolsa</strong> — Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se.</span></li>
+          <li><span class="route-num">3</span><span><strong>Igreja de São Francisco</strong> — Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos.</span></li>
+          <li><span class="route-num">4</span><span><strong>Mercado Ferreira Borges</strong> — Antic mercat de ferro del segle XIX, tocant a São Francisco, avui reconvertit en espai d'oci i concerts — val la pena només per l'estructura metàl·lica.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/S%C3%A9+do+Porto/Pal%C3%A1cio+da+Bolsa/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Veure ruta a Google Maps
+          Veure recorregut a Google Maps
         </a>
       </div>
+
       <table class="schedule">
         <tr>
           <td class="schedule-time">10:00</td>
@@ -1132,12 +1243,34 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
       <div class="day-intro">Travessar el pont D. Luís I (tauler superior, pla) fins a Gaia. Creuer de les 6 Pontes i visita amb tast a una cava de vinho do Porto. Dia sense esforç físic.</div>
-      <div style="padding: 12px 32px 16px;">
-        <a href="https://www.google.com/maps/dir/Ponte+D.+Lu%C3%ADs+I/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut del matí — Pont, monestir i cais</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
+            <text class="route-point-num" x="250.0" y="144.8">2</text>
+            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
+            <text class="route-point-num" x="450.0" y="90.6">3</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Ponte D. Luís I</strong> — Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants.</span></li>
+          <li><span class="route-num">2</span><span><strong>Jardim do Morro</strong> — Jardí-mirador just en baixar el pont pel costat de Gaia, amb una de les millors vistes de tot Porto.</span></li>
+          <li><span class="route-num">3</span><span><strong>Mosteiro da Serra do Pilar</strong> — Monestir renaixentista del segle XVI amb una església circular poc habitual, Patrimoni de la Humanitat junt amb la resta del centre històric.</span></li>
+          <li><span class="route-num">4</span><span><strong>Cais de Gaia</strong> — El moll de les caves de vinho do Porto, punt de partida del creuer de les 6 Pontes.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Veure ruta a Google Maps
+          Veure recorregut a Google Maps
         </a>
       </div>
+
       <table class="schedule">
         <tr>
           <td class="schedule-time">10:30</td>
@@ -1268,6 +1401,34 @@ html { scroll-behavior: smooth; }
         <span class="box-label">Transport</span>
         Tren CP línia de Guimarães, directe des de Porto-Campanhã/São Bento (~1h). <strong>Bilhete Turístico</strong> a 7,70 €/p: viatge il·limitat aquell dia per tota la xarxa urbana de Porto (inclou Guimarães, Braga, Aveiro).
       </div>
+
+      <div class="route-block">
+        <h3 class="sub">Recorregut del matí — Bressol de Portugal</h3>
+        <div class="route-svg-wrap">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
+            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="100.0">1</text>
+            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
+            <text class="route-point-num" x="250.0" y="144.8">2</text>
+            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
+            <text class="route-point-num" x="450.0" y="90.6">3</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          </svg>
+        </div>
+        <ol class="route-list">
+          <li><span class="route-num">1</span><span><strong>Largo do Toural</strong> — La plaça d'entrada al centre històric des de l'estació, punt de partida natural del passeig.</span></li>
+          <li><span class="route-num">2</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.</span></li>
+          <li><span class="route-num">3</span><span><strong>Paço dos Duques de Bragança</strong> — Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica.</span></li>
+          <li><span class="route-num">4</span><span><strong>Castelo de Guimarães</strong> — El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal.</span></li>
+        </ol>
+        <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Veure recorregut a Google Maps
+        </a>
+      </div>
+
       <table class="schedule">
         <tr>
           <td class="schedule-time">09:00</td>
@@ -1288,6 +1449,12 @@ html { scroll-behavior: smooth; }
           <td class="schedule-place">Dinar típic a Guimarães</td>
           <td class="schedule-notes">Zona de la Praça de Santiago — osteria minhota. (Es proposaran 3 alternatives verificades en una propera actualització.)</td>
           <td class="schedule-cost">ÀPAT<span class="cost-amount">40 € (est.)</span></td>
+        </tr>
+        <tr>
+          <td class="schedule-time">15:00</td>
+          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Museu+Alberto+Sampaio,+Guimar%C3%A3es" target="_blank" class="ext">Museu Alberto Sampaio</a></td>
+          <td class="schedule-notes">Al claustre de Nossa Senhora da Oliveira. Peces medievals, orfebreria religiosa. Passeig pla, a 2 min de la Praça de Santiago.</td>
+          <td class="schedule-cost">ENT.<span class="cost-amount">consultar web</span></td>
         </tr>
         <tr>
           <td class="schedule-time">16:30</td>
