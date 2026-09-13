@@ -228,6 +228,19 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .route-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--terracotta); color: var(--paper); font-family: var(--sans); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
 .route-list strong { color: var(--ink); font-weight: 600; }
 
+/* ─── TARGETES DE VILLA / MONUMENT (activitats extra) ─── */
+.villa-card { border: none; border-top: 1px solid var(--rule); margin-bottom: 0; display: grid; grid-template-columns: 1fr; padding: 28px 0; background: transparent; }
+.villa-card:last-child { border-bottom: 1px solid var(--rule); }
+.villa-day-bar { display: none; }
+.villa-content { padding: 0; }
+.villa-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; gap: 28px; flex-wrap: wrap; }
+.villa-name { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; line-height: 1.25; flex: 1 1 auto; min-width: 0; }
+.villa-name span { color: var(--ink-mute) !important; font-style: italic !important; font-size: 18px !important; font-weight: 300 !important; }
+.villa-when { font-family: var(--condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--terracotta); white-space: nowrap; flex-shrink: 0; }
+.villa-desc { font-size: 16px; line-height: 1.65; color: var(--ink-soft); font-style: italic; font-family: var(--serif); font-weight: 400; max-width: 760px; }
+.villa-name a.ext { color: inherit; border-bottom: none; }
+.villa-name a.ext:hover { color: var(--terracotta); }
+
 .schedule { width: 100%; border-collapse: collapse; margin-top: 10px; }
 .schedule tr { background: transparent !important; }
 .schedule td { background: transparent !important; border-bottom: 1px solid var(--rule-soft) !important; border-left: none !important; vertical-align: top; padding: 20px 16px !important; }
@@ -843,6 +856,117 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.visitporto.travel/en/what-to-do/nature-e-outdoors/jardim-das-virtudes" target="_blank" class="ext">Jardim das Virtudes</a>
+        </div>
+        <div class="villa-when">Gratuït · obert 24h</div>
+      </div>
+      <div class="villa-desc">Un jardí en terrasses amagat, amb una de les millors postes de sol sobre el Douro — a 5 min de l'apartament.</div>
+      <details class="culture-toggle">
+        <summary>Jardim das Virtudes — el mirador secret de Miragaia</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>El jardí ocupa l'antiga Quinta das Virtudes, transformada al segle XIX pel paisatgista José Marques Loureiro en un viver de plantes exòtiques que va fer-se molt famós a la ciutat.</p>
+          <h4>Un jardí en socalcos</h4>
+          <p>Baixa en terrasses esglaonades pel petit vall del desaparegut Rio Frio fins gairebé Miragaia, oferint en cada nivell una vista diferent sobre el Douro, l'Alfândega i Vila Nova de Gaia.</p>
+          <h4>El Chafariz das Virtudes</h4>
+          <p>Al bell mig del jardí hi ha una font pública del segle XVII declarada monument nacional — un dels pocs vestigis que queden de l'antiga Quinta.</p>
+          <h4>Una dada curiosa</h4>
+          <p>Al jardí hi creix el ginkgo biloba més gran de Portugal, plantat al segle XVIII — un arbre viu que ha vist créixer tot el barri de Miragaia al seu voltant.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Jardim_das_Virtudes" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — Museu e Igreja da Misericórdia do Porto</a> <span class="reserve-badge"><a href="http://www.mmipo.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">~2,50-5 €/p · Cada dia 10:00-17:30</div>
+      </div>
+      <div class="villa-desc">Un museu poc conegut a la Rua das Flores, amb una església retocada per Nicolau Nasoni i un rooftop amb vistes.</div>
+      <details class="culture-toggle">
+        <summary>MMIPO — l'església de Nasoni que passa desapercebuda</summary>
+        <div class="culture-body">
+          <h4>Època i origen</h4>
+          <p>L'edifici va ser la seu de la Santa Casa da Misericórdia do Porto des de mitjan segle XVI fins al 2013, quan es va reconvertir en museu.</p>
+          <h4>La mà de Nasoni</h4>
+          <p>L'església del conjunt, del segle XVI, va rebre una gran reforma barroca al segle XVIII de mans de Nicolau Nasoni — el mateix arquitecte de la Torre dos Clérigos — que hi va deixar el seu segell inconfusible.</p>
+          <h4>Arquitectura de ferro i vidre</h4>
+          <p>La Galeria dos Benfeitores és un exemple destacat d'arquitectura de ferro i vidre del segle XIX, en contrast amb la resta de l'edifici històric.</p>
+          <h4>Un premi recent</h4>
+          <p>El MMIPO va ser escollit millor museu portuguès l'any 2016, i el seu terrat (rooftop) s'ha convertit en un dels punts més recomanats per fer una copa amb vistes al capvespre.</p>
+          <div class="culture-links">
+            <a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+Santa+Clara,+Porto" target="_blank" class="ext">Igreja de Santa Clara</a>
+        </div>
+        <div class="villa-when">Gratuïta · horaris de culte, consultar a l'entrada</div>
+      </div>
+      <div class="villa-desc">Per fora, discreta i gòtica; per dins, un dels interiors barrocs més sumptuosos de Porto — i molt menys visitada que São Francisco.</div>
+      <details class="culture-toggle">
+        <summary>Santa Clara — el barroc daurat que gairebé ningú visita</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Església gòtica del segle XV, annexa a l'antic convent de monges clarisses, situada a tocar de l'única porta ben conservada de la Muralha Fernandina.</p>
+          <h4>L'interior barroc</h4>
+          <p>Malgrat l'exterior sobri, l'interior està completament revestit de talla daurada dels segles XVII-XVIII, en un contrast que sorprèn qui hi entra per primer cop.</p>
+          <h4>Un lloc apartat</h4>
+          <p>Al ser fora dels circuits més turístics de la Ribeira, sol trobar-se buida — una oportunitat de veure barroc daurat portuguès amb tota calma.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Igreja_de_Santa_Clara_(Porto)" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.fundacaojoserodrigues.pt/" target="_blank" class="ext">Fundação José Rodrigues</a> <span class="reserve-badge"><a href="https://www.fundacaojoserodrigues.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">~3 €/p · consultar horaris a la web</div>
+      </div>
+      <div class="villa-desc">L'antiga foneria de la ciutat, reconvertida en museu de l'escultor José Rodrigues — el mateix autor de la Fonte do Cubo que veureu al recorregut de la Ribeira.</div>
+      <details class="culture-toggle">
+        <summary>L'antiga foneria convertida en museu d'escultura</summary>
+        <div class="culture-body">
+          <h4>Un edifici industrial</h4>
+          <p>L'edifici va ser la Fundição de Palácio de Cristal, una foneria municipal del segle XIX, avui reconvertida en espai expositiu.</p>
+          <h4>José Rodrigues</h4>
+          <p>L'escultor portuguès José Rodrigues (1936-2020) hi va instal·lar el seu propi museu-fundació, amb obres pròpies i d'altres artistes contemporanis portuguesos.</p>
+          <h4>Connexió amb la Ribeira</h4>
+          <p>La coneguda Fonte do Cubo de la Praça da Ribeira, que ja haureu vist al recorregut d'aquest mateix dia, és obra d'aquest mateix escultor.</p>
+          <div class="culture-links">
+            <a href="https://www.fundacaojoserodrigues.pt/" target="_blank" class="ext">Fundação José Rodrigues</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 1</div>
         <table class="budget-table">
@@ -1034,6 +1158,119 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://mercadobolhao.pt/" target="_blank" class="ext">Mercado do Bolhão</a>
+        </div>
+        <div class="villa-when">Entrada gratuïta · Dl-Dv 8-20h, Ds 8-18h, tancat Dg</div>
+      </div>
+      <div class="villa-desc">El mercat més emblemàtic de Porto, reobert el 2022 després d'una restauració de gairebé 20 anys — parades de flors, formatges i fruita sota una estructura de 1914.</div>
+      <details class="culture-toggle">
+        <summary>Bolhão — el mercat centenari que ha renascut</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>El mercat existeix des de 1839, però l'edifici actual és de 1914, obra de l'arquitecte António Correia da Silva, encarregat per la primera corporació municipal republicana de la ciutat.</p>
+          <h4>Una llarga restauració</h4>
+          <p>Des del 2005 l'edifici estava apuntalat amb bastides per risc d'esfondrament. Les obres de restauració, iniciades el 2018, van costar prop de 26 milions d'euros i el mercat no va reobrir fins al 2022.</p>
+          <h4>Com és per dins</h4>
+          <p>Al pis inferior hi ha fruiteries, peixateries i carnisseries; al superior, restaurants amb vistes cap avall — una manera diferent de dinar envoltats d'activitat autèntica.</p>
+          <h4>Patrimoni protegit</h4>
+          <p>És un immoble d'interès públic des del 2006 i està reconegut com a monument d'interès públic des del 2013.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Mercado_do_Bolh%C3%A3o" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Capela+das+Almas,+Porto" target="_blank" class="ext">Capela das Almas</a>
+        </div>
+        <div class="villa-when">Gratuïta · horaris de culte habituals</div>
+      </div>
+      <div class="villa-desc">Una petita capella a la Rua de Santa Catarina, coberta de dalt a baix amb prop de 16.000 atzulejos blaus i blancs.</div>
+      <details class="culture-toggle">
+        <summary>La capella coberta de 16.000 atzulejos</summary>
+        <div class="culture-body">
+          <h4>Època i origen</h4>
+          <p>Capella dedicada a Santa Caterina, construïda al segle XVIII i ampliada el 1801, d'una senzillesa arquitectònica neoclàssica que contrasta amb el que la fa famosa.</p>
+          <h4>Els atzulejos</h4>
+          <p>El 1929 —més d'un segle després de construir-se— les façanes exteriors es van revestir amb 15.947 atzulejos dissenyats per Eduardo Leite, en un estil que imita el barroc del segle XVIII.</p>
+          <h4>El que expliquen</h4>
+          <p>Els plafons narren escenes de la vida de Sant Francesc d'Assís i de Santa Caterina, repartides per les quatre façanes de l'edifici.</p>
+          <h4>Una dada curiosa</h4>
+          <p>Amb uns 360 m² de superfície coberta d'atzulejo, és un dels conjunts ceràmics més grans i fotografiats de tot Portugal, tot i ser una capella relativament petita.</p>
+          <div class="culture-links">
+            <a href="https://en.wikipedia.org/wiki/Capela_das_Almas" target="_blank" class="ext">Viquipèdia (anglès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://cpf.pt/" target="_blank" class="ext">Centro Português de Fotografia</a>
+        </div>
+        <div class="villa-when">Entrada gratuïta · consultar horaris a la web (tancat dilluns)</div>
+      </div>
+      <div class="villa-desc">Una antiga presó del segle XIX reconvertida en museu de fotografia — l'edifici en si ja val la visita.</div>
+      <details class="culture-toggle">
+        <summary>L'antiga presó convertida en museu de fotografia</summary>
+        <div class="culture-body">
+          <h4>Un edifici amb passat fosc</h4>
+          <p>L'edifici va ser la presó i el tribunal de la Relação do Porto, en funcionament des de finals del segle XVIII fins al 1974.</p>
+          <h4>La reconversió</h4>
+          <p>Després de tancar com a presó, l'edifici es va reconvertir en centre cultural dedicat a la fotografia, conservant encara algunes cel·les originals que es poden visitar.</p>
+          <h4>La col·lecció</h4>
+          <p>Alberga un fons fotogràfic històric portuguès molt ampli, amb exposicions temporals i una col·lecció permanent d'aparells fotogràfics antics.</p>
+          <h4>Ubicació</h4>
+          <p>És a tocar del Jardim da Cordoaria, a la mateixa zona del recorregut del matí d'aquest dia.</p>
+          <div class="culture-links">
+            <a href="https://cpf.pt/" target="_blank" class="ext">Centro Português de Fotografia</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+dos+Grilos,+Porto" target="_blank" class="ext">Igreja dos Grilos</a>
+        </div>
+        <div class="villa-when">Gratuïta · horaris de culte</div>
+      </div>
+      <div class="villa-desc">Una església jesuïta renaixentista-manierista prop de São Bento, amb un exterior molt diferent de la resta de temples barrocs de la ciutat.</div>
+      <details class="culture-toggle">
+        <summary>L'església jesuïta que trenca amb el barroc de Porto</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Construïda al segle XVI pels jesuïtes, és un dels pocs exemples d'arquitectura renaixentista i manierista que sobreviuen a Porto, en contrast amb el barroc que domina la resta de la ciutat.</p>
+          <h4>El nom curiós</h4>
+          <p>El nom popular "dos Grilos" (dels grills) prové, segons la tradició local, del so dels insectes que hi havia a la zona quan es va construir — no hi ha una explicació documentada del tot certa.</p>
+          <h4>Ubicació</h4>
+          <p>És a mig camí entre l'Estação de São Bento i la Sé, un desviament curt del recorregut de la tarda d'aquest dia.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Igreja_dos_Grilos" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 2</div>
         <table class="budget-table">
@@ -1205,6 +1442,113 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Casa-Museu+Guerra+Junqueiro,+Porto" target="_blank" class="ext">Casa-Museu Guerra Junqueiro</a>
+        </div>
+        <div class="villa-when">~2-4 €/p, descompte sènior · tancat dilluns</div>
+      </div>
+      <div class="villa-desc">Un petit museu d'arts decoratives dins d'un palauet setcentista, a tocar de la Sé — porcellana, orfebreria i mobiliari antic.</div>
+      <details class="culture-toggle">
+        <summary>El palauet d'arts decoratives a l'ombra de la Sé</summary>
+        <div class="culture-body">
+          <h4>L'edifici</h4>
+          <p>El museu ocupa el Palácio dos Camões, un edifici del segle XVIII situat als peus de la Sé do Porto, un dels millors exemples de casa senyorial barroca de la ciutat.</p>
+          <h4>Guerra Junqueiro</h4>
+          <p>Porta el nom del poeta portuguès Abílio Manuel Guerra Junqueiro (1850-1923), la col·lecció personal del qual —porcellanes, argenteria, mobles i pintura— forma el nucli del museu.</p>
+          <h4>Per als amants de l'arquitectura</h4>
+          <p>L'interior conserva sostres pintats i decoració original del segle XVIII, oferint una mirada a com vivia la noblesa portuense de l'època.</p>
+          <div class="culture-links">
+            <a href="http://www.patrimoniocultural.gov.pt/" target="_blank" class="ext">Direção-Geral do Património Cultural</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+das+Flores,+Porto" target="_blank" class="ext">Rua das Flores</a>
+        </div>
+        <div class="villa-when">Passeig lliure, gratuït</div>
+      </div>
+      <div class="villa-desc">El carrer més elegant del centre històric, ple d'argenteries centenàries i façanes restaurades — ideal per a un passeig sense pressa.</div>
+      <details class="culture-toggle">
+        <summary>El carrer de les argenteries centenàries</summary>
+        <div class="culture-body">
+          <h4>Origen del nom</h4>
+          <p>El nom prové dels horts i jardins que ocupaven la zona abans que el carrer es convertís, als segles XVII-XIX, en el principal eix comercial dels artesans de l'or i la plata de Porto.</p>
+          <h4>Les argenteries</h4>
+          <p>Encara hi sobreviuen algunes joieries i argenteries amb generacions de tradició familiar, amb aparadors que semblen aturats en el temps.</p>
+          <h4>Restauració recent</h4>
+          <p>Bona part de les façanes s'han restaurat en els últims anys, i el carrer s'ha convertit en un dels més fotografiats de la Baixa, amb terrasses i botigues de disseny barrejades amb els comerços tradicionals.</p>
+          <div class="culture-links">
+            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Vit%C3%B3ria,+Porto" target="_blank" class="ext">Miradouro da Vitória</a>
+        </div>
+        <div class="villa-when">Gratuït · accés lliure</div>
+      </div>
+      <div class="villa-desc">Un mirador petit i poc conegut entre les cases de la Baixa, amb una de les millors vistes sobre els teulats de Porto i el Douro.</div>
+      <details class="culture-toggle">
+        <summary>El mirador amagat entre teulades</summary>
+        <div class="culture-body">
+          <h4>Un mirador de barri</h4>
+          <p>Situat al capdamunt del barri de la Vitória, un dels més antics de Porto, aquest mirador ofereix una panoràmica sobre els teulats vermells, la Sé i el riu, sense les aglomeracions d'altres punts de vista més coneguts.</p>
+          <h4>El barri de la Vitória</h4>
+          <p>És un dels sis barris històrics originals de la ciutat, amb carrers estrets i empedrats que baixen en pendent cap a la Ribeira.</p>
+          <h4>Recomanació pràctica</h4>
+          <p>És un bon punt per fer una pausa curta durant el passeig de la tarda, especialment cap al capvespre.</p>
+          <div class="culture-links">
+            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Pa%C3%A7o+Episcopal+do+Porto" target="_blank" class="ext">Sé — claustre i Paço Episcopal (vista exterior)</a>
+        </div>
+        <div class="villa-when">Gratuït per fora · l'interior no es visita</div>
+      </div>
+      <div class="villa-desc">L'antic palau dels bisbes de Porto, just al costat de la Sé, amb una de les façanes barroques més imponents de la ciutat.</div>
+      <details class="culture-toggle">
+        <summary>El palau episcopal que corona el turó de la Sé</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Edifici barroc dels segles XVII-XVIII, seu històrica dels bisbes de Porto, amb una escalinata monumental que domina la vista des de la Ribeira.</p>
+          <h4>Un símbol de poder</h4>
+          <p>La seva ubicació, enganxat a la Sé i dominant tot el nucli antic, reflecteix el pes que l'església va tenir en el desenvolupament urbà de Porto durant segles.</p>
+          <h4>Avui</h4>
+          <p>Continua sent la seu de la Diòcesi de Porto; l'interior no es visita habitualment, però la façana i l'escalinata exterior ja mereixen aturar-s'hi.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Pa%C3%A7o_Episcopal_do_Porto" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 3</div>
         <table class="budget-table">
@@ -1360,6 +1704,113 @@ html { scroll-behavior: smooth; }
         No hi incorporo cap marisqueira especialista a Vila Nova de Gaia: les més ben valorades de la zona (Agudamar, Dom Marisco) estan a Arcozelo/Miramar, a uns 20 min en cotxe — fora de l'abast a peu i en contradicció amb haver descartat el lloguer de cotxe. Si en teniu ganes, la <a href="https://www.google.com/maps/search/?api=1&query=Marisqueira+do+Porto,+Rua+do+Campo+Alegre+110,+Porto" target="_blank" class="ext">Marisqueira do Porto</a> (proposada al dia 2) és l'opció de mariscada més a l'abast de tot el viatge.
       </div>
 
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.gaiacablecar.com/" target="_blank" class="ext">Teleférico de Gaia</a> <span class="reserve-badge"><a href="https://www.gaiacablecar.com/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">~6-10 €/p (anada/anada-tornada, consultar web) · cada dia</div>
+      </div>
+      <div class="villa-desc">Un trajecte curt (600 m, 5 min) entre el Cais de Gaia i el Jardim do Morro, amb vistes espectaculars del pont i el Douro.</div>
+      <details class="culture-toggle">
+        <summary>5 minuts suspesos sobre el Douro</summary>
+        <div class="culture-body">
+          <h4>El trajecte</h4>
+          <p>Connecta el Cais de Gaia (a tocar de les caves de vi) amb el Jardim do Morro, a dalt del pont D. Luís I, salvant un desnivell de més de 60 metres en només 5 minuts.</p>
+          <h4>Les vistes</h4>
+          <p>Durant la pujada es veu el pont D. Luís I des d'un angle que no s'aconsegueix des de terra, junt amb els teulats de Gaia i la Ribeira a l'altra banda.</p>
+          <h4>Alternativa útil</h4>
+          <p>Si les cames ja estan cansades del dia, és una manera còmoda de pujar fins al Jardim do Morro sense haver de fer l'ascens a peu.</p>
+          <div class="culture-links">
+            <a href="https://www.gaiacablecar.com/" target="_blank" class="ext">Teleférico de Gaia — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.wow.pt/" target="_blank" class="ext">WOW — World of Wine</a> <span class="reserve-badge"><a href="https://www.wow.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">Entrada des de ~12-25 €/p segons museus triats · cada dia</div>
+      </div>
+      <div class="villa-desc">Un complex de set petits museus temàtics (vi, cacau, moda, cortiça...) a les antigues caves de Gaia — es pot triar només els que interessin.</div>
+      <details class="culture-toggle">
+        <summary>Set museus dins de les antigues caves de vi</summary>
+        <div class="culture-body">
+          <h4>Un projecte recent</h4>
+          <p>Inaugurat el 2020, WOW reuneix set espais museístics diferents dins d'un conjunt d'antigues caves de vinho do Porto restaurades, a la part alta del Cais de Gaia.</p>
+          <h4>Els temes</h4>
+          <p>Inclou museus dedicats al vi de Porto, al cacau i la xocolata, a la moda portuguesa, a la cortiça (suro) i a la història marítima, entre altres — es poden comprar entrades per un o diversos.</p>
+          <h4>Per als amants de la gastronomia</h4>
+          <p>El Chocolate Story i el Porto Wine Museum encaixen especialment bé amb el vostre interès per la gastronomia autèntica de la regió.</p>
+          <div class="culture-links">
+            <a href="https://www.wow.pt/" target="_blank" class="ext">WOW Porto — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.myportocruz.com/" target="_blank" class="ext">Espaço Porto Cruz</a> <span class="reserve-badge"><a href="https://www.myportocruz.com/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">Terrat gratuït · tast des de ~15 €/p</div>
+      </div>
+      <div class="villa-desc">L'antic edifici de la marca Porto Cruz, amb un terrat-mirador sobre el Douro que és gratuït encara que no es faci cap tast.</div>
+      <details class="culture-toggle">
+        <summary>El terrat gratuït amb la millor vista de Gaia</summary>
+        <div class="culture-body">
+          <h4>L'edifici</h4>
+          <p>Antiga seu de la marca de vi de Porto Cruz, reconvertida en espai d'experiències sobre el vi, amb exposicions interactives sobre el procés d'elaboració.</p>
+          <h4>El terrat</h4>
+          <p>Al pis superior hi ha un terrat-bar amb vistes panoràmiques sobre el Douro i la Ribeira, d'accés lliure encara que no es consumeixi res.</p>
+          <h4>Un bon moment del dia</h4>
+          <p>És un lloc recomanable per acabar la tarda a Gaia, abans de tornar cap a Porto.</p>
+          <div class="culture-links">
+            <a href="https://www.myportocruz.com/" target="_blank" class="ext">Espaço Porto Cruz — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Half+Rabbit+Bordalo+II+Gaia" target="_blank" class="ext">Half Rabbit (Bordalo II)</a>
+        </div>
+        <div class="villa-when">Gratuït · visible des del carrer</div>
+      </div>
+      <div class="villa-desc">Una escultura gegant feta amb material reciclat, obra de l'artista urbà Bordalo II, visible des del teleférico i des del carrer.</div>
+      <details class="culture-toggle">
+        <summary>L'art urbà fet amb escombraries, a la façana d'un edifici de Gaia</summary>
+        <div class="culture-body">
+          <h4>L'artista</h4>
+          <p>Bordalo II és un dels artistes urbans portuguesos més coneguts internacionalment, famós per les seves escultures d'animals fetes íntegrament amb materials reciclats (plàstics, ferralla, pneumàtics).</p>
+          <h4>L'obra</h4>
+          <p>"Half Rabbit" és un conill gegant format per residus recuperats, instal·lat a la façana d'un edifici de Gaia, ben visible des del teleférico i des del passeig del riu.</p>
+          <h4>Un missatge ecològic</h4>
+          <p>Com la resta de l'obra de Bordalo II, l'escultura vol cridar l'atenció sobre el consum de plàstics i la contaminació — art i denúncia social alhora.</p>
+          <div class="culture-links">
+            <a href="https://www.bordaloii.com/" target="_blank" class="ext">Bordalo II — web oficial de l'artista</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 4</div>
         <table class="budget-table">
@@ -1512,6 +1963,115 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://turipenha.pt/" target="_blank" class="ext">Teleférico da Penha</a> <span class="reserve-badge"><a href="https://turipenha.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">~6-9 €/p anada-tornada · consultar disponibilitat abans d'anar-hi</div>
+      </div>
+      <div class="villa-desc">El teleférico més llarg de Portugal (1.700 m), puja fins al Monte da Penha amb vistes de tot Guimarães. Verificar que estigui operatiu abans d'anar-hi.</div>
+      <details class="culture-toggle">
+        <summary>El teleférico més llarg de Portugal</summary>
+        <div class="culture-body">
+          <h4>El trajecte</h4>
+          <p>Amb 1.700 metres de recorregut i un desnivell d'uns 400 m, és el teleférico urbà més llarg de Portugal, inaugurat el 1995.</p>
+          <h4>El Santuário da Penha</h4>
+          <p>A dalt de tot hi ha el Santuário de Nossa Senhora do Carmo da Penha, construït als anys 30 amb granit de la zona, envoltat d'un bosc amb roques i miradors naturals.</p>
+          <h4>Natura accessible</h4>
+          <p>Els voltants del santuari tenen camins plans i ben senyalitzats entre roques granítiques — un bon exemple de natura fàcil d'explorar sense esforç físic important.</p>
+          <h4>Avís important</h4>
+          <p>Alguna font recent apunta que el servei ha tingut talls temporals de funcionament — recomanable confirmar-ne l'operativa el mateix dia abans de desplaçar-s'hi.</p>
+          <div class="culture-links">
+            <a href="https://en.wikipedia.org/wiki/Guimar%C3%A3es_Cable_Car" target="_blank" class="ext">Viquipèdia (anglès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es" target="_blank" class="ext">Mosteiro de Santa Marinha da Costa</a>
+        </div>
+        <div class="villa-when">Accés als jardins i claustre gratuït (part és pousada)</div>
+      </div>
+      <div class="villa-desc">Un monestir del segle XII als vessants de la Penha, avui reconvertit en pousada, amb un claustre i jardins que es poden visitar.</div>
+      <details class="culture-toggle">
+        <summary>El monestir del segle XII que és avui un hotel</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>Fundat el 1154 per Dona Mafalda, esposa d'Afonso Henriques, per complir una promesa feta a la patrona de les dones embarassades.</p>
+          <h4>Reconstrucció barroca</h4>
+          <p>L'edifici actual data en bona part del segle XVIII, quan es va reconstruir en estil barroc, conservant l'esperit religiós original.</p>
+          <h4>Avui, una Pousada de Portugal</h4>
+          <p>Des de fa dècades funciona com a hotel de la xarxa Pousadas de Portugal, però els jardins i part del claustre es poden visitar encara que no s'hi allotgi.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Mosteiro_de_Santa_Marinha_da_Costa" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Zona+dos+Coureiros,+Guimar%C3%A3es" target="_blank" class="ext">Zona dos Coureiros</a>
+        </div>
+        <div class="villa-when">Passeig lliure, gratuït</div>
+      </div>
+      <div class="villa-desc">L'antic barri dels adobers de pell, amb cases baixes i tallers restaurats vora el riu Couros, molt menys visitat que el centre monumental.</div>
+      <details class="culture-toggle">
+        <summary>El barri industrial oblidat de Guimarães</summary>
+        <div class="culture-body">
+          <h4>Un ofici desaparegut</h4>
+          <p>Durant segles, aquest barri vora el rierol de Couros va concentrar els tallers d'adobament de pell de Guimarães, un ofici clau en l'economia medieval de la ciutat.</p>
+          <h4>Recuperació recent</h4>
+          <p>En els últims anys s'ha fet una importante rehabilitació urbana de la zona, conservant l'estructura dels antics tallers i convertint-los en espais culturals i d'oci.</p>
+          <h4>Un contrast interessant</h4>
+          <p>Ofereix una imatge molt diferent de Guimarães respecte al nucli monumental — més industrial i menys turística, ideal si es vol allunyar-se una estona de les multituds.</p>
+          <div class="culture-links">
+            <a href="https://www.cm-guimaraes.pt/" target="_blank" class="ext">Câmara Municipal de Guimarães</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Museu+Martins+Sarmento,+Guimar%C3%A3es" target="_blank" class="ext">Museu Arqueológico da Sociedade Martins Sarmento</a>
+        </div>
+        <div class="villa-when">~3 €/p, descompte sènior · tancat dilluns</div>
+      </div>
+      <div class="villa-desc">Un museu arqueològic centenari amb peces de les cultures castrenques del nord de Portugal, en un edifici del segle XIX.</div>
+      <details class="culture-toggle">
+        <summary>Les cultures castrenques del nord de Portugal</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>Fundat el 1885 a partir de les excavacions de l'arqueòleg Francisco Martins Sarmento a la Citânia de Briteiros, un dels poblats fortificats (castros) més importants del nord de Portugal.</p>
+          <h4>La col·lecció</h4>
+          <p>Reuneix peces de l'edat del ferro i de l'època romana trobades a la regió, incloent-hi escultures de guerrers castrejos i objectes quotidians de fa més de 2.000 anys.</p>
+          <h4>Per als amants de la història</h4>
+          <p>Complementa molt bé la visita al centre medieval, oferint una capa històrica molt anterior a la fundació de Portugal com a país.</p>
+          <div class="culture-links">
+            <a href="https://www.smartinssarmento.pt/" target="_blank" class="ext">Sociedade Martins Sarmento</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 5</div>
         <table class="budget-table">
@@ -1603,6 +2163,113 @@ html { scroll-behavior: smooth; }
           <div class="resto-cell">Praça dos Poveiros 130 · tel. 222 002 874 · tancat diumenge</div>
         </div>
       </div>
+
+  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
+  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Jardins+do+Pal%C3%A1cio+de+Cristal,+Porto" target="_blank" class="ext">Jardins do Palácio de Cristal</a>
+        </div>
+        <div class="villa-when">Gratuït · 8:00-21:00 (horari d'estiu)</div>
+      </div>
+      <div class="villa-desc">Jardins amples amb vistes al Douro, gairebé sense escales — un passeig relaxat per acomiadar-se de Porto.</div>
+      <details class="culture-toggle">
+        <summary>Els jardins que van substituir un palau de vidre desaparegut</summary>
+        <div class="culture-body">
+          <h4>Un palau que ja no existeix</h4>
+          <p>El nom prové d'un pavelló de ferro i vidre construït el 1865 per allotjar una exposició internacional, inspirat en el Crystal Palace de Londres. Es va enderrocar el 1951 i avui hi ha el Pavilhão Rosa Mota.</p>
+          <h4>Els jardins actuals</h4>
+          <p>S'estenen per uns 8 hectàrees en terrasses suaus, amb estanys, paons que hi passegen lliurement, i vistes obertes cap al Douro i Vila Nova de Gaia.</p>
+          <h4>Ritme relaxat</h4>
+          <p>Els camins són amples i majoritàriament plans, ideals per a un últim passeig tranquil el matí de tornada, sense el desnivell d'altres punts de la ciutat.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Jardins_do_Pal%C3%A1cio_de_Cristal" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.museudocarroelectrico.pt/" target="_blank" class="ext">Museu do Carro Eléctrico</a> <span class="reserve-badge"><a href="https://www.museudocarroelectrico.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">~5-8 €/p, descompte sènior · tancat dilluns</div>
+      </div>
+      <div class="villa-desc">Un museu dedicat als antics tramvies de Porto, a Massarelos, amb unitats originals de principis del segle XX.</div>
+      <details class="culture-toggle">
+        <summary>Els tramvies que encara circulen des de fa un segle</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>Instal·lat en una antiga central elèctrica de tramvies de Massarelos, el museu conserva dotzenes d'unitats originals que van circular per Porto des de 1895.</p>
+          <h4>Encara en funcionament</h4>
+          <p>Tres de les línies històriques de tramvia (inclosa la famosa línia 1, vora el Douro) encara funcionen avui amb vehicles d'època, no només com a peces de museu.</p>
+          <h4>Connexió amb Miragaia</h4>
+          <p>És a la mateixa zona per on vau passejar el primer dia del viatge, vora el riu.</p>
+          <div class="culture-links">
+            <a href="https://www.museudocarroelectrico.pt/" target="_blank" class="ext">Museu do Carro Eléctrico — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+Cedofeita,+Porto" target="_blank" class="ext">Igreja de Cedofeita</a>
+        </div>
+        <div class="villa-when">Gratuïta · horaris de culte</div>
+      </div>
+      <div class="villa-desc">Una de les esglésies més antigues de Porto, d'origen romànic, en un barri residencial poc turístic.</div>
+      <details class="culture-toggle">
+        <summary>L'església romànica més antiga de Porto</summary>
+        <div class="culture-body">
+          <h4>Origen llegendari</h4>
+          <p>La tradició situa el seu origen al segle VI, sota el rei suevo Teodomir, tot i que l'edifici actual és bàsicament romànic, del segle XII-XIII.</p>
+          <h4>El nom</h4>
+          <p>"Cedofeita" significaria "feta ràpidament" (cedo + feita), en referència a una llegenda sobre la rapidesa amb què es va construir el temple original.</p>
+          <h4>Un barri diferent</h4>
+          <p>Es troba al barri de Cedofeita, avui una zona residencial i comercial allunyada del circuit turístic més dens, amb un ambient molt més local.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Igreja_de_Cedofeita" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="villa-card">
+    <div class="villa-content">
+      <div class="villa-header">
+        <div class="villa-name">
+          <a href="https://www.fims.up.pt/" target="_blank" class="ext">Fundação Instituto Marques da Silva (FIMS)</a> <span class="reserve-badge"><a href="https://www.fims.up.pt/" target="_blank">Reservar</a></span>
+        </div>
+        <div class="villa-when">Consultar horaris i preu a la web (exposicions temporals)</div>
+      </div>
+      <div class="villa-desc">Un centre dedicat a l'arquitecte José Marques da Silva, autor de l'Estação de São Bento — d'interès especial per al vostre perfil d'arquitecte.</div>
+      <details class="culture-toggle">
+        <summary>L'arxiu de l'arquitecte que va dissenyar São Bento</summary>
+        <div class="culture-body">
+          <h4>L'arquitecte</h4>
+          <p>José Marques da Silva (1869-1947) va ser un dels arquitectes portuguesos més influents de finals del segle XIX i principis del XX, autor de l'Estação de São Bento i de nombrosos edificis emblemàtics de Porto.</p>
+          <h4>El centre</h4>
+          <p>La Fundació conserva el seu arxiu personal —plànols, dibuixos, fotografies— i organitza exposicions temporals sobre arquitectura i urbanisme portuense.</p>
+          <h4>Per a un arquitecte</h4>
+          <p>És una parada poc habitual als circuits turístics, però especialment rellevant si es té interès professional o personal per l'arquitectura de la ciutat que heu estat recorrent tota la setmana.</p>
+          <div class="culture-links">
+            <a href="https://www.fims.up.pt/" target="_blank" class="ext">FIMS — web oficial</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 6</div>
