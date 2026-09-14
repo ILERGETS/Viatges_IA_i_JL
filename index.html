@@ -227,6 +227,8 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .route-list li:last-child { border-bottom: none; }
 .route-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--terracotta); color: var(--paper); font-family: var(--sans); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
 .route-list strong { color: var(--ink); font-weight: 600; }
+.route-num.principal { position: relative; }
+.route-num.principal::after { content: "*"; position: absolute; top: -6px; right: -4px; font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--terracotta); }
 
 /* ─── TARGETES DE VILLA / MONUMENT (activitats extra) ─── */
 .villa-card { border: none; border-top: 1px solid var(--rule); margin-bottom: 0; display: grid; grid-template-columns: 1fr; padding: 28px 0; background: transparent; }
@@ -487,15 +489,15 @@ html { scroll-behavior: smooth; }
     </div>
     <table class="km-table">
       <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
-      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Arribada, Ribeira i Jardim das Virtudes</td><td class="km-num">~3,7</td></tr>
-      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Clérigos, Lello, Bolhão i São Bento</td><td class="km-num">~5,8</td></tr>
-      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Guerra Junqueiro, Sé, Bolsa i São Francisco</td><td class="km-num">~4,6</td></tr>
-      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~4,5</td></tr>
-      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Guimarães, amb Museu Martins Sarmento</td><td class="km-num">~5,4</td></tr>
+      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Ribeira, muralla i MMIPO</td><td class="km-num">~4,4</td></tr>
+      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Clérigos, Lello, Bolhão i São Bento</td><td class="km-num">~6,5</td></tr>
+      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Guerra Junqueiro, Sé, Bolsa, Flores</td><td class="km-num">~5,3</td></tr>
+      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~5,5</td></tr>
+      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Guimarães, amb Museu Martins Sarmento</td><td class="km-num">~6,0</td></tr>
       <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dc 30/09</a></td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
       <tr class="total">
         <td colspan="2"><strong>TOTAL VIATGE</strong></td>
-        <td class="km-num">~26,5</td>
+        <td class="km-num">~30,2</td>
       </tr>
     </table>
   </div>
@@ -654,7 +656,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="day-km">
           <div class="day-km-value">~12</div><div class="day-km-label">quilòmetres</div>
-          <div class="day-km-walk"><div class="day-km-walk-value">~3,7</div><div class="day-km-walk-label">km a peu</div></div>
+          <div class="day-km-walk"><div class="day-km-walk-value">~4,4</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
       <div class="day-intro">Arribada a l'aeroport de Porto a migdia/tarda. Trasllat sense presses fins a l'hotel i primer contacte amb la Ribeira, tot passejant vora el Douro.</div>
@@ -745,28 +747,37 @@ html { scroll-behavior: smooth; }
       <div class="route-block">
         <h3 class="sub">Recorregut de la tarda — Ribeira i muralla medieval</h3>
         <div class="route-svg-wrap">
-          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 125.0,121.4 Q 200.0,142.8 275.0,134.65 Q 350.0,126.5 425.0,100.0 Q 500.0,73.5 575.0,65.35 L 650.0,57.2" />
-            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
-            <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="200.0" cy="142.8" r="14"/>
-            <text class="route-point-num" x="200.0" y="142.8">2</text>
-            <circle class="route-point-circle" cx="350.0" cy="126.5" r="14"/>
-            <text class="route-point-num" x="350.0" y="126.5">3</text>
-            <circle class="route-point-circle" cx="500.0" cy="73.5" r="14"/>
-            <text class="route-point-num" x="500.0" y="73.5">4</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">5</text>
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,110.0 Q 50.0,110.0 92.85,130.25 Q 135.7,150.5 178.55,158.2 Q 221.4,165.9 264.25,156.35 Q 307.1,146.8 350.0,125.9 Q 392.9,105.0 435.75,85.6 Q 478.6,66.2 521.45,60.35 Q 564.3,54.5 607.15,65.8 L 650.0,77.1" />
+            <circle class="route-point-circle" cx="50.0" cy="110.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="110.0">1</text>
+            <circle class="route-point-circle" cx="135.7" cy="150.5" r="14"/>
+            <text class="route-point-num" x="135.7" y="150.5">2</text>
+            <circle class="route-point-circle" cx="221.4" cy="165.9" r="14"/>
+            <text class="route-point-num" x="221.4" y="165.9">3</text>
+            <circle class="route-point-circle" cx="307.1" cy="146.8" r="14"/>
+            <text class="route-point-num" x="307.1" y="146.8">4</text>
+            <circle class="route-point-circle" cx="392.9" cy="105.0" r="14"/>
+            <text class="route-point-num" x="392.9" y="105.0">5</text>
+            <circle class="route-point-circle" cx="478.6" cy="66.2" r="14"/>
+            <text class="route-point-num" x="478.6" y="66.2">6</text>
+            <circle class="route-point-circle" cx="564.3" cy="54.5" r="14"/>
+            <text class="route-point-num" x="564.3" y="54.5">7</text>
+            <circle class="route-point-circle" cx="650.0" cy="77.1" r="14"/>
+            <text class="route-point-num" x="650.0" y="77.1">8</text>
           </svg>
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Cais da Ribeira</strong> — El moll medieval vora el Douro, amb els vaixells rabelos amarrats i les façanes de colors superposades pujant cap al turó de la Sé.</span></li>
           <li><span class="route-num">2</span><span><strong>Praça da Ribeira</strong> — El cor de la Ribeira, amb la coneguda "Fonte do Cubo", una escultura de coure de José Rodrigues on els portuenses van a refrescar-se els peus.</span></li>
-          <li><span class="route-num">3</span><span><strong>Postigo do Carvão</strong> — L'única porta que es conserva sencera de la Muralha Fernandina (segle XIV), la gran muralla medieval que va protegir Porto durant segles. Fàcil de passar per alt si no se sap on mirar.</span></li>
-          <li><span class="route-num">4</span><span><strong>Casa do Infante</strong> — Edifici del segle XIII on, segons la tradició, va néixer l'Infant D. Henrique "el Navegant". Avui és un museu amb una maqueta del Porto medieval.</span></li>
-          <li><span class="route-num">5</span><span><strong>Rua das Virtudes (Miragaia)</strong> — Pujant cap al barri de Miragaia, on sopareu a la Taberna Santo António.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Fundação José Rodrigues</strong> — L'antiga foneria municipal de Porto, reconvertida en museu del mateix escultor que va fer la Fonte do Cubo que acabeu de veure. Obres pròpies i d'altres artistes contemporanis portuguesos.</span></li>
+          <li><span class="route-num">4</span><span><strong>Postigo do Carvão</strong> — L'única porta que es conserva sencera de la Muralha Fernandina (segle XIV), la gran muralla medieval que va protegir Porto durant segles. Fàcil de passar per alt si no se sap on mirar.</span></li>
+          <li><span class="route-num">5</span><span><strong>Igreja de Santa Clara</strong> — Per fora, gòtica i discreta; per dins, un dels interiors barrocs més daurats de Porto, i molt menys visitada que São Francisco.</span></li>
+          <li><span class="route-num">6</span><span><strong>Casa do Infante</strong> — Edifici del segle XIII on, segons la tradició, va néixer l'Infant D. Henrique "el Navegant". Avui és un museu amb una maqueta del Porto medieval.</span></li>
+          <li><span class="route-num principal">7</span><span><strong>MMIPO — Museu e Igreja da Misericórdia</strong> — A la Rua das Flores, una església retocada per Nicolau Nasoni (el mateix arquitecte de la Torre dos Clérigos) amb un rooftop amb vistes.</span></li>
+          <li><span class="route-num">8</span><span><strong>Rua das Virtudes (Miragaia)</strong> — Pujant cap al barri de Miragaia, on sopareu a la Taberna Santo António.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Cais+da+Ribeira,+Porto/Pra%C3%A7a+da+Ribeira,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Casa+do+Infante,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Cais+da+Ribeira,+Porto/Pra%C3%A7a+da+Ribeira,+Porto/Funda%C3%A7%C3%A3o+Jos%C3%A9+Rodrigues,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Igreja+de+Santa+Clara,+Porto/Casa+do+Infante,+Porto/MMIPO,+Rua+das+Flores,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -832,6 +843,53 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
+      <details class="culture-toggle">
+        <summary>MMIPO — l'església de Nasoni que passa desapercebuda</summary>
+        <div class="culture-body">
+          <h4>Època i origen</h4>
+          <p>L'edifici va ser la seu de la Santa Casa da Misericórdia do Porto des de mitjan segle XVI fins al 2013, quan es va reconvertir en museu.</p>
+          <h4>La mà de Nasoni</h4>
+          <p>L'església del conjunt, del segle XVI, va rebre una gran reforma barroca al segle XVIII de mans de Nicolau Nasoni — el mateix arquitecte de la Torre dos Clérigos — que hi va deixar el seu segell inconfusible.</p>
+          <h4>Arquitectura de ferro i vidre</h4>
+          <p>La Galeria dos Benfeitores és un exemple destacat d'arquitectura de ferro i vidre del segle XIX, en contrast amb la resta de l'edifici històric.</p>
+          <h4>Un premi recent</h4>
+          <p>El MMIPO va ser escollit millor museu portuguès l'any 2016, i el seu terrat (rooftop) s'ha convertit en un dels punts més recomanats per fer una copa amb vistes al capvespre.</p>
+          <div class="culture-links">
+            <a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — web oficial</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Igreja de Santa Clara — el barroc daurat que gairebé ningú visita</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Església gòtica del segle XV, annexa a l'antic convent de monges clarisses, situada a tocar de l'única porta ben conservada de la Muralha Fernandina.</p>
+          <h4>L'interior barroc</h4>
+          <p>Malgrat l'exterior sobri, l'interior està completament revestit de talla daurada dels segles XVII-XVIII, en un contrast que sorprèn qui hi entra per primer cop.</p>
+          <h4>Un lloc apartat</h4>
+          <p>Al ser fora dels circuits més turístics de la Ribeira, sol trobar-se buida — una oportunitat de veure barroc daurat portuguès amb tota calma.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Igreja_de_Santa_Clara_(Porto)" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Fundação José Rodrigues — l'antiga foneria convertida en museu d'escultura</summary>
+        <div class="culture-body">
+          <h4>Un edifici industrial</h4>
+          <p>L'edifici va ser la Fundição de Palácio de Cristal, una foneria municipal del segle XIX, avui reconvertida en espai expositiu.</p>
+          <h4>José Rodrigues</h4>
+          <p>L'escultor portuguès José Rodrigues (1936-2020) hi va instal·lar el seu propi museu-fundació, amb obres pròpies i d'altres artistes contemporanis portuguesos.</p>
+          <h4>Connexió amb la Ribeira</h4>
+          <p>La coneguda Fonte do Cubo de la Praça da Ribeira, que ja haureu vist al recorregut d'aquest mateix dia, és obra d'aquest mateix escultor.</p>
+          <div class="culture-links">
+            <a href="https://www.fundacaojoserodrigues.pt/" target="_blank" class="ext">Fundação José Rodrigues</a>
+          </div>
+        </div>
+      </details>
+
       <h3 class="sub" id="allotjament">Allotjament confirmat — FLH Porto Portuguese Apartments</h3>
       <div class="box box-info">
         <span class="box-label">Amb ascensor</span>
@@ -879,97 +937,16 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — Museu e Igreja da Misericórdia do Porto</a> <span class="reserve-badge"><a href="http://www.mmipo.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">~2,50-5 €/p · Cada dia 10:00-17:30</div>
-      </div>
-      <div class="villa-desc">Un museu poc conegut a la Rua das Flores, amb una església retocada per Nicolau Nasoni i un rooftop amb vistes.</div>
-      <details class="culture-toggle">
-        <summary>MMIPO — l'església de Nasoni que passa desapercebuda</summary>
-        <div class="culture-body">
-          <h4>Època i origen</h4>
-          <p>L'edifici va ser la seu de la Santa Casa da Misericórdia do Porto des de mitjan segle XVI fins al 2013, quan es va reconvertir en museu.</p>
-          <h4>La mà de Nasoni</h4>
-          <p>L'església del conjunt, del segle XVI, va rebre una gran reforma barroca al segle XVIII de mans de Nicolau Nasoni — el mateix arquitecte de la Torre dos Clérigos — que hi va deixar el seu segell inconfusible.</p>
-          <h4>Arquitectura de ferro i vidre</h4>
-          <p>La Galeria dos Benfeitores és un exemple destacat d'arquitectura de ferro i vidre del segle XIX, en contrast amb la resta de l'edifici històric.</p>
-          <h4>Un premi recent</h4>
-          <p>El MMIPO va ser escollit millor museu portuguès l'any 2016, i el seu terrat (rooftop) s'ha convertit en un dels punts més recomanats per fer una copa amb vistes al capvespre.</p>
-          <div class="culture-links">
-            <a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+Santa+Clara,+Porto" target="_blank" class="ext">Igreja de Santa Clara</a>
-        </div>
-        <div class="villa-when">Gratuïta · horaris de culte, consultar a l'entrada</div>
-      </div>
-      <div class="villa-desc">Per fora, discreta i gòtica; per dins, un dels interiors barrocs més sumptuosos de Porto — i molt menys visitada que São Francisco.</div>
-      <details class="culture-toggle">
-        <summary>Santa Clara — el barroc daurat que gairebé ningú visita</summary>
-        <div class="culture-body">
-          <h4>Època i estil</h4>
-          <p>Església gòtica del segle XV, annexa a l'antic convent de monges clarisses, situada a tocar de l'única porta ben conservada de la Muralha Fernandina.</p>
-          <h4>L'interior barroc</h4>
-          <p>Malgrat l'exterior sobri, l'interior està completament revestit de talla daurada dels segles XVII-XVIII, en un contrast que sorprèn qui hi entra per primer cop.</p>
-          <h4>Un lloc apartat</h4>
-          <p>Al ser fora dels circuits més turístics de la Ribeira, sol trobar-se buida — una oportunitat de veure barroc daurat portuguès amb tota calma.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Igreja_de_Santa_Clara_(Porto)" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.fundacaojoserodrigues.pt/" target="_blank" class="ext">Fundação José Rodrigues</a> <span class="reserve-badge"><a href="https://www.fundacaojoserodrigues.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">~3 €/p · consultar horaris a la web</div>
-      </div>
-      <div class="villa-desc">L'antiga foneria de la ciutat, reconvertida en museu de l'escultor José Rodrigues — el mateix autor de la Fonte do Cubo que veureu al recorregut de la Ribeira.</div>
-      <details class="culture-toggle">
-        <summary>L'antiga foneria convertida en museu d'escultura</summary>
-        <div class="culture-body">
-          <h4>Un edifici industrial</h4>
-          <p>L'edifici va ser la Fundição de Palácio de Cristal, una foneria municipal del segle XIX, avui reconvertida en espai expositiu.</p>
-          <h4>José Rodrigues</h4>
-          <p>L'escultor portuguès José Rodrigues (1936-2020) hi va instal·lar el seu propi museu-fundació, amb obres pròpies i d'altres artistes contemporanis portuguesos.</p>
-          <h4>Connexió amb la Ribeira</h4>
-          <p>La coneguda Fonte do Cubo de la Praça da Ribeira, que ja haureu vist al recorregut d'aquest mateix dia, és obra d'aquest mateix escultor.</p>
-          <div class="culture-links">
-            <a href="https://www.fundacaojoserodrigues.pt/" target="_blank" class="ext">Fundação José Rodrigues</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 1</div>
         <table class="budget-table">
           <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
           <tr><td>Transport aeroport → apartament</td><td>Taxi privat (reservat, gratuït)</td><td>0 €</td><td>0 €</td></tr>
           <tr><td>Dinar</td><td>Cantinho do Avillez (estimat)</td><td>20 €</td><td>40 €</td></tr>
+          <tr><td>MMIPO</td><td>Museu i església</td><td>4 €</td><td>8 €</td></tr>
+          <tr><td>Fundação José Rodrigues</td><td>Museu d'escultura</td><td>3 €</td><td>6 €</td></tr>
           <tr><td>Sopar</td><td>Taberna Santo António</td><td>15 €</td><td>30 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 1</strong></td><td>35 €</td><td>~70 €</td></tr>
+          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 1</strong></td><td>42 €</td><td>~84 €</td></tr>
         </table>
         <div class="budget-note">* No inclou allotjament ni vols, comptabilitzats a la Logística.</div>
       </div>
@@ -995,7 +972,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="day-km">
           <div class="day-km-value">~2</div><div class="day-km-label">quilòmetres</div>
-          <div class="day-km-walk"><div class="day-km-walk-value">~5,8</div><div class="day-km-walk-label">km a peu</div></div>
+          <div class="day-km-walk"><div class="day-km-walk-value">~6,5</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
       <div class="day-intro">Un dia curt i cèntric: la Torre dels Clérigos i la Livraria Lello, dues joies a pocs minuts a peu l'una de l'altra. Ritme relaxat, sense presses.</div>
@@ -1004,24 +981,27 @@ html { scroll-behavior: smooth; }
         <h3 class="sub">Recorregut del matí — Barroc i llibres</h3>
         <div class="route-svg-wrap">
           <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 125.0,125.5 Q 200.0,151.0 275.0,137.4 Q 350.0,123.8 425.0,91.95 Q 500.0,60.1 575.0,58.8 L 650.0,57.5" />
             <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
             <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
-            <text class="route-point-num" x="250.0" y="144.8">2</text>
-            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
-            <text class="route-point-num" x="450.0" y="90.6">3</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">4</text>
+            <circle class="route-point-circle" cx="200.0" cy="151.0" r="14"/>
+            <text class="route-point-num" x="200.0" y="151.0">2</text>
+            <circle class="route-point-circle" cx="350.0" cy="123.8" r="14"/>
+            <text class="route-point-num" x="350.0" y="123.8">3</text>
+            <circle class="route-point-circle" cx="500.0" cy="60.1" r="14"/>
+            <text class="route-point-num" x="500.0" y="60.1">4</text>
+            <circle class="route-point-circle" cx="650.0" cy="57.5" r="14"/>
+            <text class="route-point-num" x="650.0" y="57.5">5</text>
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Torre dos Clérigos</strong> — El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto.</span></li>
+          <li><span class="route-num principal">1</span><span><strong>Torre dos Clérigos</strong> — El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto.</span></li>
           <li><span class="route-num">2</span><span><strong>Igreja do Carmo i Casa Escondida</strong> — Dues esglésies (Carmo i Carmelitas) que semblen una de sola, separades per la casa més estreta de Portugal (poc més d'1 m d'amplada). La façana lateral del Carmo és un gran mural d'atzulejos blaus de 1912.</span></li>
-          <li><span class="route-num">3</span><span><strong>Livraria Lello</strong> — La llibreria neogòtica de 1906, amb l'escalinata vermella més fotografiada de Porto.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Livraria Lello</strong> — La llibreria neogòtica de 1906, amb l'escalinata vermella més fotografiada de Porto.</span></li>
           <li><span class="route-num">4</span><span><strong>Jardim da Cordoaria</strong> — Jardí tranquil vora la Universitat, ideal per fer una pausa asseguts abans de dinar.</span></li>
+          <li><span class="route-num principal">5</span><span><strong>Centro Português de Fotografia</strong> — Antiga presó del segle XIX reconvertida en museu de fotografia; s'hi conserven encara algunes cel·les originals. Entrada gratuïta, tancat dilluns.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/Centro+Portugu%C3%AAs+de+Fotografia,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1070,27 +1050,30 @@ html { scroll-behavior: smooth; }
         <h3 class="sub">Recorregut de la tarda — Aliados, Bolhão i São Bento</h3>
         <div class="route-svg-wrap">
           <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 125.0,121.4 Q 200.0,142.8 275.0,134.65 Q 350.0,126.5 425.0,100.0 Q 500.0,73.5 575.0,65.35 L 650.0,57.2" />
+            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 110.0,123.75 Q 170.0,147.5 230.0,144.0 Q 290.0,140.5 350.0,113.7 Q 410.0,86.9 470.0,67.65 Q 530.0,48.4 590.0,58.75 L 650.0,69.1" />
             <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
             <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="200.0" cy="142.8" r="14"/>
-            <text class="route-point-num" x="200.0" y="142.8">2</text>
-            <circle class="route-point-circle" cx="350.0" cy="126.5" r="14"/>
-            <text class="route-point-num" x="350.0" y="126.5">3</text>
-            <circle class="route-point-circle" cx="500.0" cy="73.5" r="14"/>
-            <text class="route-point-num" x="500.0" y="73.5">4</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">5</text>
+            <circle class="route-point-circle" cx="170.0" cy="147.5" r="14"/>
+            <text class="route-point-num" x="170.0" y="147.5">2</text>
+            <circle class="route-point-circle" cx="290.0" cy="140.5" r="14"/>
+            <text class="route-point-num" x="290.0" y="140.5">3</text>
+            <circle class="route-point-circle" cx="410.0" cy="86.9" r="14"/>
+            <text class="route-point-num" x="410.0" y="86.9">4</text>
+            <circle class="route-point-circle" cx="530.0" cy="48.4" r="14"/>
+            <text class="route-point-num" x="530.0" y="48.4">5</text>
+            <circle class="route-point-circle" cx="650.0" cy="69.1" r="14"/>
+            <text class="route-point-num" x="650.0" y="69.1">6</text>
           </svg>
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Avenida dos Aliados</strong> — El bulevard central de Porto, flanquejat per edificis d'inici del segle XX.</span></li>
           <li><span class="route-num">2</span><span><strong>Câmara Municipal do Porto</strong> — L'ajuntament, un edifici de granit neogòtic amb una torre del rellotge que corona l'avinguda.</span></li>
-          <li><span class="route-num">3</span><span><strong>Mercado do Bolhão</strong> — El mercat centenari de Porto (1914), reobert el 2022 després d'una restauració de gairebé 20 anys. Parades de fruita, flors i formatges al pis inferior, restaurants al superior.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Mercado do Bolhão</strong> — El mercat centenari de Porto (1914), reobert el 2022 després d'una restauració de gairebé 20 anys. Parades de fruita, flors i formatges al pis inferior, restaurants al superior.</span></li>
           <li><span class="route-num">4</span><span><strong>Capela das Almas</strong> — Una petita capella coberta de dalt a baix amb prop de 16.000 atzulejos blaus i blancs de 1929, a la Rua de Santa Catarina.</span></li>
-          <li><span class="route-num">5</span><span><strong>Estação de São Bento</strong> — Una de les estacions de tren més boniques d'Europa: el vestíbul està cobert amb uns 20.000 atzulejos que narren escenes de la història de Portugal. Val la pena entrar-hi encara que no s'agafi cap tren.</span></li>
+          <li><span class="route-num">5</span><span><strong>Igreja dos Grilos</strong> — Església jesuïta renaixentista-manierista del segle XVI, un estil poc habitual a Porto (dominat pel barroc). El nom popular ve, segons la tradició, del so dels grills que hi havia quan es va construir.</span></li>
+          <li><span class="route-num principal">6</span><span><strong>Estação de São Bento</strong> — Una de les estacions de tren més boniques d'Europa: el vestíbul està cobert amb uns 20.000 atzulejos que narren escenes de la història de Portugal. Val la pena entrar-hi encara que no s'agafi cap tren.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Avenida+dos+Aliados,+Porto/C%C3%A2mara+Municipal+do+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Capela+das+Almas,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Avenida+dos+Aliados,+Porto/C%C3%A2mara+Municipal+do+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Capela+das+Almas,+Porto/Igreja+dos+Grilos,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1164,6 +1147,34 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
+      <details class="culture-toggle">
+        <summary>Centro Português de Fotografia — l'antiga presó convertida en museu</summary>
+        <div class="culture-body">
+          <h4>Un edifici amb passat fosc</h4>
+          <p>L'edifici va ser la presó i el tribunal de la Relação do Porto, en funcionament des de finals del segle XVIII fins al 1974.</p>
+          <h4>La reconversió</h4>
+          <p>Després de tancar com a presó, l'edifici es va reconvertir en centre cultural dedicat a la fotografia, conservant encara algunes cel·les originals que es poden visitar.</p>
+          <h4>La col·lecció</h4>
+          <p>Alberga un fons fotogràfic històric portuguès molt ampli, amb exposicions temporals i una col·lecció permanent d'aparells fotogràfics antics.</p>
+          <div class="culture-links">
+            <a href="https://cpf.pt/" target="_blank" class="ext">Centro Português de Fotografia</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Igreja dos Grilos — l'església jesuïta que trenca amb el barroc de Porto</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Construïda al segle XVI pels jesuïtes, és un dels pocs exemples d'arquitectura renaixentista i manierista que sobreviuen a Porto, en contrast amb el barroc que domina la resta de la ciutat.</p>
+          <h4>El nom curiós</h4>
+          <p>El nom popular "dos Grilos" (dels grills) prové, segons la tradició local, del so dels insectes que hi havia a la zona quan es va construir — no hi ha una explicació documentada del tot certa.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Igreja_dos_Grilos" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+
       <h3 class="sub">3 alternatives verificades per dinar/sopar — Baixa i Clérigos</h3>
       <div class="resto-grid">
         <div class="resto-row header">
@@ -1192,63 +1203,6 @@ html { scroll-behavior: smooth; }
           <div class="resto-cell">Rua do Campo Alegre 110 · tel. 226 097 014 · ~10 min en taxi des de la Baixa</div>
         </div>
       </div>
-
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://cpf.pt/" target="_blank" class="ext">Centro Português de Fotografia</a>
-        </div>
-        <div class="villa-when">Entrada gratuïta · consultar horaris a la web (tancat dilluns)</div>
-      </div>
-      <div class="villa-desc">Una antiga presó del segle XIX reconvertida en museu de fotografia — l'edifici en si ja val la visita.</div>
-      <details class="culture-toggle">
-        <summary>L'antiga presó convertida en museu de fotografia</summary>
-        <div class="culture-body">
-          <h4>Un edifici amb passat fosc</h4>
-          <p>L'edifici va ser la presó i el tribunal de la Relação do Porto, en funcionament des de finals del segle XVIII fins al 1974.</p>
-          <h4>La reconversió</h4>
-          <p>Després de tancar com a presó, l'edifici es va reconvertir en centre cultural dedicat a la fotografia, conservant encara algunes cel·les originals que es poden visitar.</p>
-          <h4>La col·lecció</h4>
-          <p>Alberga un fons fotogràfic històric portuguès molt ampli, amb exposicions temporals i una col·lecció permanent d'aparells fotogràfics antics.</p>
-          <h4>Ubicació</h4>
-          <p>És a tocar del Jardim da Cordoaria, a la mateixa zona del recorregut del matí d'aquest dia.</p>
-          <div class="culture-links">
-            <a href="https://cpf.pt/" target="_blank" class="ext">Centro Português de Fotografia</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+dos+Grilos,+Porto" target="_blank" class="ext">Igreja dos Grilos</a>
-        </div>
-        <div class="villa-when">Gratuïta · horaris de culte</div>
-      </div>
-      <div class="villa-desc">Una església jesuïta renaixentista-manierista prop de São Bento, amb un exterior molt diferent de la resta de temples barrocs de la ciutat.</div>
-      <details class="culture-toggle">
-        <summary>L'església jesuïta que trenca amb el barroc de Porto</summary>
-        <div class="culture-body">
-          <h4>Època i estil</h4>
-          <p>Construïda al segle XVI pels jesuïtes, és un dels pocs exemples d'arquitectura renaixentista i manierista que sobreviuen a Porto, en contrast amb el barroc que domina la resta de la ciutat.</p>
-          <h4>El nom curiós</h4>
-          <p>El nom popular "dos Grilos" (dels grills) prové, segons la tradició local, del so dels insectes que hi havia a la zona quan es va construir — no hi ha una explicació documentada del tot certa.</p>
-          <h4>Ubicació</h4>
-          <p>És a mig camí entre l'Estação de São Bento i la Sé, un desviament curt del recorregut de la tarda d'aquest dia.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Igreja_dos_Grilos" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 2</div>
@@ -1284,7 +1238,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="day-km">
           <div class="day-km-value">~2</div><div class="day-km-label">quilòmetres</div>
-          <div class="day-km-walk"><div class="day-km-walk-value">~4,6</div><div class="day-km-walk-label">km a peu</div></div>
+          <div class="day-km-walk"><div class="day-km-walk-value">~5,3</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
       <div class="day-intro">Quatre visites a tocar l'una de l'altra: la Casa-Museu Guerra Junqueiro, la Sé, el Palácio da Bolsa (Sala Àrab) i la Igreja de São Francisco, amb la talla barroca més sumptuosa de Porto. <em>Dia amb més activitat que la resta — si arribeu cansats, les peces més prescindibles són Guerra Junqueiro i São Francisco (l'interior de la Sé i el Salão Árabe ja donen molt barroc per un sol matí).</em></div>
@@ -1292,28 +1246,37 @@ html { scroll-behavior: smooth; }
       <div class="route-block">
         <h3 class="sub">Recorregut del matí — Sé, Bolsa i mercat</h3>
         <div class="route-svg-wrap">
-          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 125.0,121.4 Q 200.0,142.8 275.0,134.65 Q 350.0,126.5 425.0,100.0 Q 500.0,73.5 575.0,65.35 L 650.0,57.2" />
-            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
-            <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="200.0" cy="142.8" r="14"/>
-            <text class="route-point-num" x="200.0" y="142.8">2</text>
-            <circle class="route-point-circle" cx="350.0" cy="126.5" r="14"/>
-            <text class="route-point-num" x="350.0" y="126.5">3</text>
-            <circle class="route-point-circle" cx="500.0" cy="73.5" r="14"/>
-            <text class="route-point-num" x="500.0" y="73.5">4</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">5</text>
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,110.0 Q 50.0,110.0 92.85,131.9 Q 135.7,153.8 178.55,159.2 Q 221.4,164.6 264.25,149.45 Q 307.1,134.3 350.0,110.0 Q 392.9,85.7 435.75,70.55 Q 478.6,55.4 521.45,60.8 Q 564.3,66.2 607.15,88.1 L 650.0,110.0" />
+            <circle class="route-point-circle" cx="50.0" cy="110.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="110.0">1</text>
+            <circle class="route-point-circle" cx="135.7" cy="153.8" r="14"/>
+            <text class="route-point-num" x="135.7" y="153.8">2</text>
+            <circle class="route-point-circle" cx="221.4" cy="164.6" r="14"/>
+            <text class="route-point-num" x="221.4" y="164.6">3</text>
+            <circle class="route-point-circle" cx="307.1" cy="134.3" r="14"/>
+            <text class="route-point-num" x="307.1" y="134.3">4</text>
+            <circle class="route-point-circle" cx="392.9" cy="85.7" r="14"/>
+            <text class="route-point-num" x="392.9" y="85.7">5</text>
+            <circle class="route-point-circle" cx="478.6" cy="55.4" r="14"/>
+            <text class="route-point-num" x="478.6" y="55.4">6</text>
+            <circle class="route-point-circle" cx="564.3" cy="66.2" r="14"/>
+            <text class="route-point-num" x="564.3" y="66.2">7</text>
+            <circle class="route-point-circle" cx="650.0" cy="110.0" r="14"/>
+            <text class="route-point-num" x="650.0" y="110.0">8</text>
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Casa-Museu Guerra Junqueiro</strong> — Petit museu d'arts decoratives dins d'un palauet barroc del segle XVIII, als peus mateix de la Sé.</span></li>
-          <li><span class="route-num">2</span><span><strong>Sé do Porto</strong> — Catedral romànico-gòtica del segle XII, al punt més alt del centre històric, amb un claustre revestit d'atzulejos del segle XVIII.</span></li>
-          <li><span class="route-num">3</span><span><strong>Palácio da Bolsa</strong> — Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se.</span></li>
-          <li><span class="route-num">4</span><span><strong>Igreja de São Francisco</strong> — Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos.</span></li>
-          <li><span class="route-num">5</span><span><strong>Mercado Ferreira Borges</strong> — Antic mercat de ferro del segle XIX, tocant a São Francisco, avui reconvertit en espai d'oci i concerts — val la pena només per l'estructura metàl·lica.</span></li>
+          <li><span class="route-num principal">1</span><span><strong>Casa-Museu Guerra Junqueiro</strong> — Petit museu d'arts decoratives dins d'un palauet barroc del segle XVIII, als peus mateix de la Sé.</span></li>
+          <li><span class="route-num">2</span><span><strong>Paço Episcopal do Porto</strong> — Antic palau dels bisbes de Porto, barroc dels segles XVII-XVIII, amb una escalinata monumental que domina la vista des de la Ribeira. L'interior no es visita, però la façana ja val la pena.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Sé do Porto</strong> — Catedral romànico-gòtica del segle XII, al punt més alt del centre històric, amb un claustre revestit d'atzulejos del segle XVIII.</span></li>
+          <li><span class="route-num">4</span><span><strong>Miradouro da Vitória</strong> — Un mirador petit i poc conegut entre les cases del barri de la Vitória, amb una de les millors vistes sobre els teulats de Porto i el Douro.</span></li>
+          <li><span class="route-num">5</span><span><strong>Rua das Flores</strong> — El carrer més elegant del centre històric, ple d'argenteries centenàries i façanes restaurades.</span></li>
+          <li><span class="route-num principal">6</span><span><strong>Palácio da Bolsa</strong> — Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se.</span></li>
+          <li><span class="route-num principal">7</span><span><strong>Igreja de São Francisco</strong> — Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos.</span></li>
+          <li><span class="route-num">8</span><span><strong>Mercado Ferreira Borges</strong> — Antic mercat de ferro del segle XIX, tocant a São Francisco, avui reconvertit en espai d'oci i concerts — val la pena només per l'estructura metàl·lica.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Casa-Museu+Guerra+Junqueiro,+Porto/S%C3%A9+do+Porto/Pal%C3%A1cio+da+Bolsa/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Casa-Museu+Guerra+Junqueiro,+Porto/Pa%C3%A7o+Episcopal+do+Porto/S%C3%A9+do+Porto/Miradouro+da+Vit%C3%B3ria,+Porto/Rua+das+Flores,+Porto/Pal%C3%A1cio+da+Bolsa/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1421,6 +1384,47 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
+      <details class="culture-toggle">
+        <summary>Rua das Flores — el carrer de les argenteries centenàries</summary>
+        <div class="culture-body">
+          <h4>Origen del nom</h4>
+          <p>El nom prové dels horts i jardins que ocupaven la zona abans que el carrer es convertís, als segles XVII-XIX, en el principal eix comercial dels artesans de l'or i la plata de Porto.</p>
+          <h4>Les argenteries</h4>
+          <p>Encara hi sobreviuen algunes joieries i argenteries amb generacions de tradició familiar, amb aparadors que semblen aturats en el temps.</p>
+          <h4>Restauració recent</h4>
+          <p>Bona part de les façanes s'han restaurat en els últims anys, i el carrer s'ha convertit en un dels més fotografiats de la Baixa.</p>
+          <div class="culture-links">
+            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Miradouro da Vitória — el mirador amagat entre teulades</summary>
+        <div class="culture-body">
+          <h4>Un mirador de barri</h4>
+          <p>Situat al capdamunt del barri de la Vitória, un dels més antics de Porto, aquest mirador ofereix una panoràmica sobre els teulats vermells, la Sé i el riu, sense les aglomeracions d'altres punts de vista més coneguts.</p>
+          <h4>El barri de la Vitória</h4>
+          <p>És un dels sis barris històrics originals de la ciutat, amb carrers estrets i empedrats que baixen en pendent cap a la Ribeira.</p>
+          <div class="culture-links">
+            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Paço Episcopal — el palau que corona el turó de la Sé</summary>
+        <div class="culture-body">
+          <h4>Època i estil</h4>
+          <p>Edifici barroc dels segles XVII-XVIII, seu històrica dels bisbes de Porto, amb una escalinata monumental que domina la vista des de la Ribeira.</p>
+          <h4>Un símbol de poder</h4>
+          <p>La seva ubicació, enganxat a la Sé i dominant tot el nucli antic, reflecteix el pes que l'església va tenir en el desenvolupament urbà de Porto durant segles.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Pa%C3%A7o_Episcopal_do_Porto" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+
       <h3 class="sub">3 alternatives verificades per dinar — Sé i Ribeira</h3>
       <div class="resto-grid">
         <div class="resto-row header">
@@ -1444,87 +1448,6 @@ html { scroll-behavior: smooth; }
           <div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns · reservar amb molta antelació</div>
         </div>
       </div>
-
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Rua+das+Flores,+Porto" target="_blank" class="ext">Rua das Flores</a>
-        </div>
-        <div class="villa-when">Passeig lliure, gratuït</div>
-      </div>
-      <div class="villa-desc">El carrer més elegant del centre històric, ple d'argenteries centenàries i façanes restaurades — ideal per a un passeig sense pressa.</div>
-      <details class="culture-toggle">
-        <summary>El carrer de les argenteries centenàries</summary>
-        <div class="culture-body">
-          <h4>Origen del nom</h4>
-          <p>El nom prové dels horts i jardins que ocupaven la zona abans que el carrer es convertís, als segles XVII-XIX, en el principal eix comercial dels artesans de l'or i la plata de Porto.</p>
-          <h4>Les argenteries</h4>
-          <p>Encara hi sobreviuen algunes joieries i argenteries amb generacions de tradició familiar, amb aparadors que semblen aturats en el temps.</p>
-          <h4>Restauració recent</h4>
-          <p>Bona part de les façanes s'han restaurat en els últims anys, i el carrer s'ha convertit en un dels més fotografiats de la Baixa, amb terrasses i botigues de disseny barrejades amb els comerços tradicionals.</p>
-          <div class="culture-links">
-            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Miradouro+da+Vit%C3%B3ria,+Porto" target="_blank" class="ext">Miradouro da Vitória</a>
-        </div>
-        <div class="villa-when">Gratuït · accés lliure</div>
-      </div>
-      <div class="villa-desc">Un mirador petit i poc conegut entre les cases de la Baixa, amb una de les millors vistes sobre els teulats de Porto i el Douro.</div>
-      <details class="culture-toggle">
-        <summary>El mirador amagat entre teulades</summary>
-        <div class="culture-body">
-          <h4>Un mirador de barri</h4>
-          <p>Situat al capdamunt del barri de la Vitória, un dels més antics de Porto, aquest mirador ofereix una panoràmica sobre els teulats vermells, la Sé i el riu, sense les aglomeracions d'altres punts de vista més coneguts.</p>
-          <h4>El barri de la Vitória</h4>
-          <p>És un dels sis barris històrics originals de la ciutat, amb carrers estrets i empedrats que baixen en pendent cap a la Ribeira.</p>
-          <h4>Recomanació pràctica</h4>
-          <p>És un bon punt per fer una pausa curta durant el passeig de la tarda, especialment cap al capvespre.</p>
-          <div class="culture-links">
-            <a href="https://www.visitporto.travel/" target="_blank" class="ext">Visit Porto — web oficial de turisme</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Pa%C3%A7o+Episcopal+do+Porto" target="_blank" class="ext">Sé — claustre i Paço Episcopal (vista exterior)</a>
-        </div>
-        <div class="villa-when">Gratuït per fora · l'interior no es visita</div>
-      </div>
-      <div class="villa-desc">L'antic palau dels bisbes de Porto, just al costat de la Sé, amb una de les façanes barroques més imponents de la ciutat.</div>
-      <details class="culture-toggle">
-        <summary>El palau episcopal que corona el turó de la Sé</summary>
-        <div class="culture-body">
-          <h4>Època i estil</h4>
-          <p>Edifici barroc dels segles XVII-XVIII, seu històrica dels bisbes de Porto, amb una escalinata monumental que domina la vista des de la Ribeira.</p>
-          <h4>Un símbol de poder</h4>
-          <p>La seva ubicació, enganxat a la Sé i dominant tot el nucli antic, reflecteix el pes que l'església va tenir en el desenvolupament urbà de Porto durant segles.</p>
-          <h4>Avui</h4>
-          <p>Continua sent la seu de la Diòcesi de Porto; l'interior no es visita habitualment, però la façana i l'escalinata exterior ja mereixen aturar-s'hi.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Pa%C3%A7o_Episcopal_do_Porto" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 3</div>
@@ -1561,7 +1484,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="day-km">
           <div class="day-km-value">~3</div><div class="day-km-label">quilòmetres, tot pla</div>
-          <div class="day-km-walk"><div class="day-km-walk-value">~4,5</div><div class="day-km-walk-label">km a peu</div></div>
+          <div class="day-km-walk"><div class="day-km-walk-value">~5,5</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
       <div class="day-intro">Travessar el pont D. Luís I (tauler superior, pla) fins a Gaia. Creuer de les 6 Pontes i visita amb tast a una cava de vinho do Porto. Dia sense esforç físic.</div>
@@ -1569,25 +1492,37 @@ html { scroll-behavior: smooth; }
       <div class="route-block">
         <h3 class="sub">Recorregut del matí — Pont, monestir i cais</h3>
         <div class="route-svg-wrap">
-          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
-            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
-            <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
-            <text class="route-point-num" x="250.0" y="144.8">2</text>
-            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
-            <text class="route-point-num" x="450.0" y="90.6">3</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,110.0 Q 50.0,110.0 92.85,131.9 Q 135.7,153.8 178.55,159.2 Q 221.4,164.6 264.25,149.45 Q 307.1,134.3 350.0,110.0 Q 392.9,85.7 435.75,70.55 Q 478.6,55.4 521.45,60.8 Q 564.3,66.2 607.15,88.1 L 650.0,110.0" />
+            <circle class="route-point-circle" cx="50.0" cy="110.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="110.0">1</text>
+            <circle class="route-point-circle" cx="135.7" cy="153.8" r="14"/>
+            <text class="route-point-num" x="135.7" y="153.8">2</text>
+            <circle class="route-point-circle" cx="221.4" cy="164.6" r="14"/>
+            <text class="route-point-num" x="221.4" y="164.6">3</text>
+            <circle class="route-point-circle" cx="307.1" cy="134.3" r="14"/>
+            <text class="route-point-num" x="307.1" y="134.3">4</text>
+            <circle class="route-point-circle" cx="392.9" cy="85.7" r="14"/>
+            <text class="route-point-num" x="392.9" y="85.7">5</text>
+            <circle class="route-point-circle" cx="478.6" cy="55.4" r="14"/>
+            <text class="route-point-num" x="478.6" y="55.4">6</text>
+            <circle class="route-point-circle" cx="564.3" cy="66.2" r="14"/>
+            <text class="route-point-num" x="564.3" y="66.2">7</text>
+            <circle class="route-point-circle" cx="650.0" cy="110.0" r="14"/>
+            <text class="route-point-num" x="650.0" y="110.0">8</text>
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Ponte D. Luís I</strong> — Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants.</span></li>
+          <li><span class="route-num principal">1</span><span><strong>Ponte D. Luís I</strong> — Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants.</span></li>
           <li><span class="route-num">2</span><span><strong>Jardim do Morro</strong> — Jardí-mirador just en baixar el pont pel costat de Gaia, amb una de les millors vistes de tot Porto.</span></li>
           <li><span class="route-num">3</span><span><strong>Mosteiro da Serra do Pilar</strong> — Monestir renaixentista del segle XVI amb una església circular poc habitual, Patrimoni de la Humanitat junt amb la resta del centre històric.</span></li>
-          <li><span class="route-num">4</span><span><strong>Cais de Gaia</strong> — El moll de les caves de vinho do Porto, punt de partida del creuer de les 6 Pontes.</span></li>
+          <li><span class="route-num">4</span><span><strong>Teleférico de Gaia</strong> — Baixada alternativa fins al Cais (5 min, ~600 m), amb vistes del pont des d'un angle diferent. Útil si les cames ja estan cansades.</span></li>
+          <li><span class="route-num">5</span><span><strong>WOW — World of Wine</strong> — Complex de set petits museus temàtics (vi, cacau, moda, cortiça) a les antigues caves de Gaia, inaugurat el 2020. Es pot triar només els que interessin.</span></li>
+          <li><span class="route-num">6</span><span><strong>Half Rabbit (Bordalo II)</strong> — Escultura gegant d'un conill fet amb materials reciclats, obra de l'artista urbà Bordalo II, a la façana d'un edifici de Gaia.</span></li>
+          <li><span class="route-num">7</span><span><strong>Espaço Porto Cruz</strong> — Antiga seu de la marca de vi Porto Cruz, amb un terrat-mirador gratuït sobre el Douro encara que no es faci cap tast.</span></li>
+          <li><span class="route-num principal">8</span><span><strong>Cais de Gaia</strong> — El moll de les caves de vinho do Porto, punt de partida del creuer de les 6 Pontes.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Telef%C3%A9rico+de+Gaia/WOW+Porto/Half+Rabbit+Bordalo+II+Gaia/Espa%C3%A7o+Porto+Cruz/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1654,6 +1589,58 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
+      <details class="culture-toggle">
+        <summary>Teleférico de Gaia — 5 minuts suspesos sobre el Douro</summary>
+        <div class="culture-body">
+          <h4>El trajecte</h4>
+          <p>Connecta el Cais de Gaia (a tocar de les caves de vi) amb el Jardim do Morro, a dalt del pont D. Luís I, salvant un desnivell de més de 60 metres en només 5 minuts.</p>
+          <h4>Les vistes</h4>
+          <p>Durant la pujada es veu el pont D. Luís I des d'un angle que no s'aconsegueix des de terra, junt amb els teulats de Gaia i la Ribeira a l'altra banda.</p>
+          <div class="culture-links">
+            <a href="https://www.gaiacablecar.com/" target="_blank" class="ext">Teleférico de Gaia — web oficial</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>WOW — set museus dins de les antigues caves de vi</summary>
+        <div class="culture-body">
+          <h4>Un projecte recent</h4>
+          <p>Inaugurat el 2020, WOW reuneix set espais museístics diferents dins d'un conjunt d'antigues caves de vinho do Porto restaurades, a la part alta del Cais de Gaia.</p>
+          <h4>Els temes</h4>
+          <p>Inclou museus dedicats al vi de Porto, al cacau i la xocolata, a la moda portuguesa i a la cortiça (suro), entre altres — es poden comprar entrades per un o diversos.</p>
+          <div class="culture-links">
+            <a href="https://www.wow.pt/" target="_blank" class="ext">WOW Porto — web oficial</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Half Rabbit — l'art urbà fet amb escombraries</summary>
+        <div class="culture-body">
+          <h4>L'artista</h4>
+          <p>Bordalo II és un dels artistes urbans portuguesos més coneguts internacionalment, famós per les seves escultures d'animals fetes íntegrament amb materials reciclats.</p>
+          <h4>L'obra</h4>
+          <p>"Half Rabbit" és un conill gegant format per residus recuperats, instal·lat a la façana d'un edifici de Gaia, ben visible des del teleférico i des del passeig del riu.</p>
+          <div class="culture-links">
+            <a href="https://www.bordaloii.com/" target="_blank" class="ext">Bordalo II — web oficial de l'artista</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Espaço Porto Cruz — el terrat gratuït amb la millor vista de Gaia</summary>
+        <div class="culture-body">
+          <h4>L'edifici</h4>
+          <p>Antiga seu de la marca de vi de Porto Cruz, reconvertida en espai d'experiències sobre el vi, amb exposicions interactives sobre el procés d'elaboració.</p>
+          <h4>El terrat</h4>
+          <p>Al pis superior hi ha un terrat-bar amb vistes panoràmiques sobre el Douro i la Ribeira, d'accés lliure encara que no es consumeixi res.</p>
+          <div class="culture-links">
+            <a href="https://www.myportocruz.com/" target="_blank" class="ext">Espaço Porto Cruz — web oficial</a>
+          </div>
+        </div>
+      </details>
+
       <h3 class="sub">3 alternatives verificades per dinar — Vila Nova de Gaia</h3>
       <div class="resto-grid">
         <div class="resto-row header">
@@ -1681,113 +1668,6 @@ html { scroll-behavior: smooth; }
         <span class="box-label">Sobre les mariscades a Gaia</span>
         No hi incorporo cap marisqueira especialista a Vila Nova de Gaia: les més ben valorades de la zona (Agudamar, Dom Marisco) estan a Arcozelo/Miramar, a uns 20 min en cotxe — fora de l'abast a peu i en contradicció amb haver descartat el lloguer de cotxe. Si en teniu ganes, la <a href="https://www.google.com/maps/search/?api=1&query=Marisqueira+do+Porto,+Rua+do+Campo+Alegre+110,+Porto" target="_blank" class="ext">Marisqueira do Porto</a> (proposada al dia 2) és l'opció de mariscada més a l'abast de tot el viatge.
       </div>
-
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.gaiacablecar.com/" target="_blank" class="ext">Teleférico de Gaia</a> <span class="reserve-badge"><a href="https://www.gaiacablecar.com/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">~6-10 €/p (anada/anada-tornada, consultar web) · cada dia</div>
-      </div>
-      <div class="villa-desc">Un trajecte curt (600 m, 5 min) entre el Cais de Gaia i el Jardim do Morro, amb vistes espectaculars del pont i el Douro.</div>
-      <details class="culture-toggle">
-        <summary>5 minuts suspesos sobre el Douro</summary>
-        <div class="culture-body">
-          <h4>El trajecte</h4>
-          <p>Connecta el Cais de Gaia (a tocar de les caves de vi) amb el Jardim do Morro, a dalt del pont D. Luís I, salvant un desnivell de més de 60 metres en només 5 minuts.</p>
-          <h4>Les vistes</h4>
-          <p>Durant la pujada es veu el pont D. Luís I des d'un angle que no s'aconsegueix des de terra, junt amb els teulats de Gaia i la Ribeira a l'altra banda.</p>
-          <h4>Alternativa útil</h4>
-          <p>Si les cames ja estan cansades del dia, és una manera còmoda de pujar fins al Jardim do Morro sense haver de fer l'ascens a peu.</p>
-          <div class="culture-links">
-            <a href="https://www.gaiacablecar.com/" target="_blank" class="ext">Teleférico de Gaia — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.wow.pt/" target="_blank" class="ext">WOW — World of Wine</a> <span class="reserve-badge"><a href="https://www.wow.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">Entrada des de ~12-25 €/p segons museus triats · cada dia</div>
-      </div>
-      <div class="villa-desc">Un complex de set petits museus temàtics (vi, cacau, moda, cortiça...) a les antigues caves de Gaia — es pot triar només els que interessin.</div>
-      <details class="culture-toggle">
-        <summary>Set museus dins de les antigues caves de vi</summary>
-        <div class="culture-body">
-          <h4>Un projecte recent</h4>
-          <p>Inaugurat el 2020, WOW reuneix set espais museístics diferents dins d'un conjunt d'antigues caves de vinho do Porto restaurades, a la part alta del Cais de Gaia.</p>
-          <h4>Els temes</h4>
-          <p>Inclou museus dedicats al vi de Porto, al cacau i la xocolata, a la moda portuguesa, a la cortiça (suro) i a la història marítima, entre altres — es poden comprar entrades per un o diversos.</p>
-          <h4>Per als amants de la gastronomia</h4>
-          <p>El Chocolate Story i el Porto Wine Museum encaixen especialment bé amb el vostre interès per la gastronomia autèntica de la regió.</p>
-          <div class="culture-links">
-            <a href="https://www.wow.pt/" target="_blank" class="ext">WOW Porto — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.myportocruz.com/" target="_blank" class="ext">Espaço Porto Cruz</a> <span class="reserve-badge"><a href="https://www.myportocruz.com/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">Terrat gratuït · tast des de ~15 €/p</div>
-      </div>
-      <div class="villa-desc">L'antic edifici de la marca Porto Cruz, amb un terrat-mirador sobre el Douro que és gratuït encara que no es faci cap tast.</div>
-      <details class="culture-toggle">
-        <summary>El terrat gratuït amb la millor vista de Gaia</summary>
-        <div class="culture-body">
-          <h4>L'edifici</h4>
-          <p>Antiga seu de la marca de vi de Porto Cruz, reconvertida en espai d'experiències sobre el vi, amb exposicions interactives sobre el procés d'elaboració.</p>
-          <h4>El terrat</h4>
-          <p>Al pis superior hi ha un terrat-bar amb vistes panoràmiques sobre el Douro i la Ribeira, d'accés lliure encara que no es consumeixi res.</p>
-          <h4>Un bon moment del dia</h4>
-          <p>És un lloc recomanable per acabar la tarda a Gaia, abans de tornar cap a Porto.</p>
-          <div class="culture-links">
-            <a href="https://www.myportocruz.com/" target="_blank" class="ext">Espaço Porto Cruz — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Half+Rabbit+Bordalo+II+Gaia" target="_blank" class="ext">Half Rabbit (Bordalo II)</a>
-        </div>
-        <div class="villa-when">Gratuït · visible des del carrer</div>
-      </div>
-      <div class="villa-desc">Una escultura gegant feta amb material reciclat, obra de l'artista urbà Bordalo II, visible des del teleférico i des del carrer.</div>
-      <details class="culture-toggle">
-        <summary>L'art urbà fet amb escombraries, a la façana d'un edifici de Gaia</summary>
-        <div class="culture-body">
-          <h4>L'artista</h4>
-          <p>Bordalo II és un dels artistes urbans portuguesos més coneguts internacionalment, famós per les seves escultures d'animals fetes íntegrament amb materials reciclats (plàstics, ferralla, pneumàtics).</p>
-          <h4>L'obra</h4>
-          <p>"Half Rabbit" és un conill gegant format per residus recuperats, instal·lat a la façana d'un edifici de Gaia, ben visible des del teleférico i des del passeig del riu.</p>
-          <h4>Un missatge ecològic</h4>
-          <p>Com la resta de l'obra de Bordalo II, l'escultura vol cridar l'atenció sobre el consum de plàstics i la contaminació — art i denúncia social alhora.</p>
-          <div class="culture-links">
-            <a href="https://www.bordaloii.com/" target="_blank" class="ext">Bordalo II — web oficial de l'artista</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 4</div>
@@ -1822,7 +1702,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="day-km">
           <div class="day-km-value">~50</div><div class="day-km-label">quilòmetres en tren</div>
-          <div class="day-km-walk"><div class="day-km-walk-value">~5,4</div><div class="day-km-walk-label">km a peu</div></div>
+          <div class="day-km-walk"><div class="day-km-walk-value">~6,0</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
       <div class="day-intro">Excursió en tren (sense cotxe de lloguer — ho vam valorar i el tren directe és més còmode i relaxat). Centre històric pla i molt cuidat.</div>
@@ -1834,25 +1714,34 @@ html { scroll-behavior: smooth; }
       <div class="route-block">
         <h3 class="sub">Recorregut del matí — Bressol de Portugal</h3>
         <div class="route-svg-wrap">
-          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
-            <path class="route-path" d="M 50.0,100.0 Q 50.0,100.0 150.0,122.4 Q 250.0,144.8 350.0,117.7 Q 450.0,90.6 550.0,73.9 L 650.0,57.2" />
-            <circle class="route-point-circle" cx="50.0" cy="100.0" r="14"/>
-            <text class="route-point-num" x="50.0" y="100.0">1</text>
-            <circle class="route-point-circle" cx="250.0" cy="144.8" r="14"/>
-            <text class="route-point-num" x="250.0" y="144.8">2</text>
-            <circle class="route-point-circle" cx="450.0" cy="90.6" r="14"/>
-            <text class="route-point-num" x="450.0" y="90.6">3</text>
-            <circle class="route-point-circle" cx="650.0" cy="57.2" r="14"/>
-            <text class="route-point-num" x="650.0" y="57.2">4</text>
+          <svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg">
+            <path class="route-path" d="M 50.0,105.0 Q 50.0,105.0 100.0,127.9 Q 150.0,150.8 200.0,152.85 Q 250.0,154.9 300.0,134.2 Q 350.0,113.5 400.0,88.95 Q 450.0,64.4 500.0,58.35 Q 550.0,52.3 600.0,70.2 L 650.0,88.1" />
+            <circle class="route-point-circle" cx="50.0" cy="105.0" r="14"/>
+            <text class="route-point-num" x="50.0" y="105.0">1</text>
+            <circle class="route-point-circle" cx="150.0" cy="150.8" r="14"/>
+            <text class="route-point-num" x="150.0" y="150.8">2</text>
+            <circle class="route-point-circle" cx="250.0" cy="154.9" r="14"/>
+            <text class="route-point-num" x="250.0" y="154.9">3</text>
+            <circle class="route-point-circle" cx="350.0" cy="113.5" r="14"/>
+            <text class="route-point-num" x="350.0" y="113.5">4</text>
+            <circle class="route-point-circle" cx="450.0" cy="64.4" r="14"/>
+            <text class="route-point-num" x="450.0" y="64.4">5</text>
+            <circle class="route-point-circle" cx="550.0" cy="52.3" r="14"/>
+            <text class="route-point-num" x="550.0" y="52.3">6</text>
+            <circle class="route-point-circle" cx="650.0" cy="88.1" r="14"/>
+            <text class="route-point-num" x="650.0" y="88.1">7</text>
           </svg>
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Largo do Toural</strong> — La plaça d'entrada al centre històric des de l'estació, punt de partida natural del passeig.</span></li>
-          <li><span class="route-num">2</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.</span></li>
-          <li><span class="route-num">3</span><span><strong>Paço dos Duques de Bragança</strong> — Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica.</span></li>
-          <li><span class="route-num">4</span><span><strong>Castelo de Guimarães</strong> — El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal.</span></li>
+          <li><span class="route-num">2</span><span><strong>Zona dos Coureiros</strong> — L'antic barri dels adobers de pell, amb tallers restaurats vora el riu Couros, molt menys visitat que el centre monumental.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.</span></li>
+          <li><span class="route-num principal">4</span><span><strong>Paço dos Duques de Bragança</strong> — Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica.</span></li>
+          <li><span class="route-num principal">5</span><span><strong>Castelo de Guimarães</strong> — El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal.</span></li>
+          <li><span class="route-num">6</span><span><strong>Mosteiro de Santa Marinha da Costa</strong> — Monestir del segle XII als vessants de la Penha, avui reconvertit en pousada. Jardins i claustre visitables encara que no s'hi allotgi.</span></li>
+          <li><span class="route-num">7</span><span><strong>Teleférico da Penha</strong> — El teleférico urbà més llarg de Portugal (1.700 m), puja fins al Monte da Penha. Requereix temps extra no inclòs a l'horari fix del dia — verificar que estigui operatiu abans d'anar-hi.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
+        <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Zona+dos+Coureiros,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es/Telef%C3%A9rico+da+Penha,+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1933,6 +1822,47 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
 
+      <details class="culture-toggle">
+        <summary>Teleférico da Penha — el teleférico més llarg de Portugal</summary>
+        <div class="culture-body">
+          <h4>El trajecte</h4>
+          <p>Amb 1.700 metres de recorregut i un desnivell d'uns 400 m, és el teleférico urbà més llarg de Portugal, inaugurat el 1995.</p>
+          <h4>El Santuário da Penha</h4>
+          <p>A dalt de tot hi ha el Santuário de Nossa Senhora do Carmo da Penha, envoltat d'un bosc amb roques i miradors naturals de camins plans i ben senyalitzats.</p>
+          <h4>Avís important</h4>
+          <p>Alguna font recent apunta que el servei ha tingut talls temporals de funcionament — recomanable confirmar-ne l'operativa el mateix dia abans de desplaçar-s'hi.</p>
+          <div class="culture-links">
+            <a href="https://en.wikipedia.org/wiki/Guimar%C3%A3es_Cable_Car" target="_blank" class="ext">Viquipèdia (anglès)</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Mosteiro de Santa Marinha da Costa — el monestir del segle XII que és avui un hotel</summary>
+        <div class="culture-body">
+          <h4>Origen</h4>
+          <p>Fundat el 1154 per Dona Mafalda, esposa d'Afonso Henriques, per complir una promesa feta a la patrona de les dones embarassades.</p>
+          <h4>Avui, una Pousada de Portugal</h4>
+          <p>Des de fa dècades funciona com a hotel de la xarxa Pousadas de Portugal, però els jardins i part del claustre es poden visitar encara que no s'hi allotgi.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Mosteiro_de_Santa_Marinha_da_Costa" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="culture-toggle">
+        <summary>Zona dos Coureiros — el barri industrial oblidat de Guimarães</summary>
+        <div class="culture-body">
+          <h4>Un ofici desaparegut</h4>
+          <p>Durant segles, aquest barri vora el rierol de Couros va concentrar els tallers d'adobament de pell de Guimarães, un ofici clau en l'economia medieval de la ciutat.</p>
+          <h4>Recuperació recent</h4>
+          <p>En els últims anys s'ha fet una important rehabilitació urbana de la zona, conservant l'estructura dels antics tallers i convertint-los en espais culturals i d'oci.</p>
+          <div class="culture-links">
+            <a href="https://www.cm-guimaraes.pt/" target="_blank" class="ext">Câmara Municipal de Guimarães</a>
+          </div>
+        </div>
+      </details>
+
       <h3 class="sub">3 alternatives verificades per dinar — Guimarães</h3>
       <div class="resto-grid">
         <div class="resto-row header">
@@ -1961,89 +1891,6 @@ html { scroll-behavior: smooth; }
           <div class="resto-cell">R. Conde Paçô Vieira 6, Mesão Frio · tel. 253 163 380 · tancat dimecres · ~10 min en taxi des del centre històric</div>
         </div>
       </div>
-
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://turipenha.pt/" target="_blank" class="ext">Teleférico da Penha</a> <span class="reserve-badge"><a href="https://turipenha.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">~6-9 €/p anada-tornada · consultar disponibilitat abans d'anar-hi</div>
-      </div>
-      <div class="villa-desc">El teleférico més llarg de Portugal (1.700 m), puja fins al Monte da Penha amb vistes de tot Guimarães. Verificar que estigui operatiu abans d'anar-hi.</div>
-      <details class="culture-toggle">
-        <summary>El teleférico més llarg de Portugal</summary>
-        <div class="culture-body">
-          <h4>El trajecte</h4>
-          <p>Amb 1.700 metres de recorregut i un desnivell d'uns 400 m, és el teleférico urbà més llarg de Portugal, inaugurat el 1995.</p>
-          <h4>El Santuário da Penha</h4>
-          <p>A dalt de tot hi ha el Santuário de Nossa Senhora do Carmo da Penha, construït als anys 30 amb granit de la zona, envoltat d'un bosc amb roques i miradors naturals.</p>
-          <h4>Natura accessible</h4>
-          <p>Els voltants del santuari tenen camins plans i ben senyalitzats entre roques granítiques — un bon exemple de natura fàcil d'explorar sense esforç físic important.</p>
-          <h4>Avís important</h4>
-          <p>Alguna font recent apunta que el servei ha tingut talls temporals de funcionament — recomanable confirmar-ne l'operativa el mateix dia abans de desplaçar-s'hi.</p>
-          <div class="culture-links">
-            <a href="https://en.wikipedia.org/wiki/Guimar%C3%A3es_Cable_Car" target="_blank" class="ext">Viquipèdia (anglès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es" target="_blank" class="ext">Mosteiro de Santa Marinha da Costa</a>
-        </div>
-        <div class="villa-when">Accés als jardins i claustre gratuït (part és pousada)</div>
-      </div>
-      <div class="villa-desc">Un monestir del segle XII als vessants de la Penha, avui reconvertit en pousada, amb un claustre i jardins que es poden visitar.</div>
-      <details class="culture-toggle">
-        <summary>El monestir del segle XII que és avui un hotel</summary>
-        <div class="culture-body">
-          <h4>Origen</h4>
-          <p>Fundat el 1154 per Dona Mafalda, esposa d'Afonso Henriques, per complir una promesa feta a la patrona de les dones embarassades.</p>
-          <h4>Reconstrucció barroca</h4>
-          <p>L'edifici actual data en bona part del segle XVIII, quan es va reconstruir en estil barroc, conservant l'esperit religiós original.</p>
-          <h4>Avui, una Pousada de Portugal</h4>
-          <p>Des de fa dècades funciona com a hotel de la xarxa Pousadas de Portugal, però els jardins i part del claustre es poden visitar encara que no s'hi allotgi.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Mosteiro_de_Santa_Marinha_da_Costa" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Zona+dos+Coureiros,+Guimar%C3%A3es" target="_blank" class="ext">Zona dos Coureiros</a>
-        </div>
-        <div class="villa-when">Passeig lliure, gratuït</div>
-      </div>
-      <div class="villa-desc">L'antic barri dels adobers de pell, amb cases baixes i tallers restaurats vora el riu Couros, molt menys visitat que el centre monumental.</div>
-      <details class="culture-toggle">
-        <summary>El barri industrial oblidat de Guimarães</summary>
-        <div class="culture-body">
-          <h4>Un ofici desaparegut</h4>
-          <p>Durant segles, aquest barri vora el rierol de Couros va concentrar els tallers d'adobament de pell de Guimarães, un ofici clau en l'economia medieval de la ciutat.</p>
-          <h4>Recuperació recent</h4>
-          <p>En els últims anys s'ha fet una importante rehabilitació urbana de la zona, conservant l'estructura dels antics tallers i convertint-los en espais culturals i d'oci.</p>
-          <h4>Un contrast interessant</h4>
-          <p>Ofereix una imatge molt diferent de Guimarães respecte al nucli monumental — més industrial i menys turística, ideal si es vol allunyar-se una estona de les multituds.</p>
-          <div class="culture-links">
-            <a href="https://www.cm-guimaraes.pt/" target="_blank" class="ext">Câmara Municipal de Guimarães</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 5</div>
@@ -2138,112 +1985,6 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
-  <h3 class="sub">Activitats i curiositats extra — opcionals</h3>
-  <div class="day-intro" style="padding-top:0 !important;">Idees per si teniu ganes de més aquest dia. No compten als km a peu ni al pressupost — trieu-ne les que us abellixin.</div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Jardins+do+Pal%C3%A1cio+de+Cristal,+Porto" target="_blank" class="ext">Jardins do Palácio de Cristal</a>
-        </div>
-        <div class="villa-when">Gratuït · 8:00-21:00 (horari d'estiu)</div>
-      </div>
-      <div class="villa-desc">Jardins amples amb vistes al Douro, gairebé sense escales — un passeig relaxat per acomiadar-se de Porto.</div>
-      <details class="culture-toggle">
-        <summary>Els jardins que van substituir un palau de vidre desaparegut</summary>
-        <div class="culture-body">
-          <h4>Un palau que ja no existeix</h4>
-          <p>El nom prové d'un pavelló de ferro i vidre construït el 1865 per allotjar una exposició internacional, inspirat en el Crystal Palace de Londres. Es va enderrocar el 1951 i avui hi ha el Pavilhão Rosa Mota.</p>
-          <h4>Els jardins actuals</h4>
-          <p>S'estenen per uns 8 hectàrees en terrasses suaus, amb estanys, paons que hi passegen lliurement, i vistes obertes cap al Douro i Vila Nova de Gaia.</p>
-          <h4>Ritme relaxat</h4>
-          <p>Els camins són amples i majoritàriament plans, ideals per a un últim passeig tranquil el matí de tornada, sense el desnivell d'altres punts de la ciutat.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Jardins_do_Pal%C3%A1cio_de_Cristal" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.museudocarroelectrico.pt/" target="_blank" class="ext">Museu do Carro Eléctrico</a> <span class="reserve-badge"><a href="https://www.museudocarroelectrico.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">~5-8 €/p, descompte sènior · tancat dilluns</div>
-      </div>
-      <div class="villa-desc">Un museu dedicat als antics tramvies de Porto, a Massarelos, amb unitats originals de principis del segle XX.</div>
-      <details class="culture-toggle">
-        <summary>Els tramvies que encara circulen des de fa un segle</summary>
-        <div class="culture-body">
-          <h4>Origen</h4>
-          <p>Instal·lat en una antiga central elèctrica de tramvies de Massarelos, el museu conserva dotzenes d'unitats originals que van circular per Porto des de 1895.</p>
-          <h4>Encara en funcionament</h4>
-          <p>Tres de les línies històriques de tramvia (inclosa la famosa línia 1, vora el Douro) encara funcionen avui amb vehicles d'època, no només com a peces de museu.</p>
-          <h4>Connexió amb Miragaia</h4>
-          <p>És a la mateixa zona per on vau passejar el primer dia del viatge, vora el riu.</p>
-          <div class="culture-links">
-            <a href="https://www.museudocarroelectrico.pt/" target="_blank" class="ext">Museu do Carro Eléctrico — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+Cedofeita,+Porto" target="_blank" class="ext">Igreja de Cedofeita</a>
-        </div>
-        <div class="villa-when">Gratuïta · horaris de culte</div>
-      </div>
-      <div class="villa-desc">Una de les esglésies més antigues de Porto, d'origen romànic, en un barri residencial poc turístic.</div>
-      <details class="culture-toggle">
-        <summary>L'església romànica més antiga de Porto</summary>
-        <div class="culture-body">
-          <h4>Origen llegendari</h4>
-          <p>La tradició situa el seu origen al segle VI, sota el rei suevo Teodomir, tot i que l'edifici actual és bàsicament romànic, del segle XII-XIII.</p>
-          <h4>El nom</h4>
-          <p>"Cedofeita" significaria "feta ràpidament" (cedo + feita), en referència a una llegenda sobre la rapidesa amb què es va construir el temple original.</p>
-          <h4>Un barri diferent</h4>
-          <p>Es troba al barri de Cedofeita, avui una zona residencial i comercial allunyada del circuit turístic més dens, amb un ambient molt més local.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Igreja_de_Cedofeita" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="villa-card">
-    <div class="villa-content">
-      <div class="villa-header">
-        <div class="villa-name">
-          <a href="https://www.fims.up.pt/" target="_blank" class="ext">Fundação Instituto Marques da Silva (FIMS)</a> <span class="reserve-badge"><a href="https://www.fims.up.pt/" target="_blank">Reservar</a></span>
-        </div>
-        <div class="villa-when">Consultar horaris i preu a la web (exposicions temporals)</div>
-      </div>
-      <div class="villa-desc">Un centre dedicat a l'arquitecte José Marques da Silva, autor de l'Estação de São Bento — d'interès especial per al vostre perfil d'arquitecte.</div>
-      <details class="culture-toggle">
-        <summary>L'arxiu de l'arquitecte que va dissenyar São Bento</summary>
-        <div class="culture-body">
-          <h4>L'arquitecte</h4>
-          <p>José Marques da Silva (1869-1947) va ser un dels arquitectes portuguesos més influents de finals del segle XIX i principis del XX, autor de l'Estação de São Bento i de nombrosos edificis emblemàtics de Porto.</p>
-          <h4>El centre</h4>
-          <p>La Fundació conserva el seu arxiu personal —plànols, dibuixos, fotografies— i organitza exposicions temporals sobre arquitectura i urbanisme portuense.</p>
-          <h4>Per a un arquitecte</h4>
-          <p>És una parada poc habitual als circuits turístics, però especialment rellevant si es té interès professional o personal per l'arquitectura de la ciutat que heu estat recorrent tota la setmana.</p>
-          <div class="culture-links">
-            <a href="https://www.fims.up.pt/" target="_blank" class="ext">FIMS — web oficial</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
 
       <div class="budget-box">
         <div class="budget-header">Pressupost estimat — Dia 6</div>
@@ -2302,7 +2043,7 @@ html { scroll-behavior: smooth; }
       <div class="budget-header">Pressupost total estimat del viatge</div>
       <table class="budget-table">
         <tr><td>Concepte</td><td>Detall</td><td></td><td>Total</td></tr>
-        <tr><td>Dia 1 — Arribada</td><td>Transport (taxi gratuït) + Jardim Virtudes + dinar + sopar</td><td></td><td>70 €</td></tr>
+        <tr><td>Dia 1 — Arribada</td><td>Transport (taxi gratuït) + MMIPO + Fund. J. Rodrigues + dinar + sopar</td><td></td><td>84 €</td></tr>
         <tr><td>Dia 2 — Clérigos, Lello i Bolhão</td><td>Entrades + àpats</td><td></td><td>106 €</td></tr>
         <tr><td>Dia 3 — Guerra Junqueiro, Sé i Bolsa</td><td>Entrades + àpats</td><td></td><td>98 €</td></tr>
         <tr><td>Dia 4 — Gaia</td><td>Creuer + cava + àpats</td><td></td><td>88 €</td></tr>
@@ -2311,7 +2052,7 @@ html { scroll-behavior: smooth; }
         <tr><td>Allotjament</td><td>FLH Porto Portuguese Apartments, 5 nits (reservat)</td><td></td><td>648,85 €</td></tr>
         <tr><td>Vols</td><td>Ryanair, 2 persones, anada i tornada (reservat, AV9IKF)</td><td></td><td>175 €</td></tr>
         <tr><td>Assegurança de viatge</td><td>2 persones</td><td></td><td>40 €</td></tr>
-        <tr class="budget-total"><td colspan="3"><strong>TOTAL ESTIMAT DEL VIATGE</strong></td><td>~1.332 €</td></tr>
+        <tr class="budget-total"><td colspan="3"><strong>TOTAL ESTIMAT DEL VIATGE</strong></td><td>~1.346 €</td></tr>
       </table>
       <div class="budget-note">* Vols i allotjament amb preu real (ja reservats i pagats). Trasllat d'anada gratuït (taxi Booking.com Rides); el de tornada encara no reservat, es manté l'estimació amb metro. La resta de conceptes són estimacions orientatives (agost 2026) a reconfirmar.</div>
     </div>
