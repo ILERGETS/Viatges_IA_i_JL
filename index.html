@@ -238,6 +238,18 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .route-time { font-family: var(--condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--terracotta); flex-shrink: 0; }
 .route-cost { font-family: var(--condensed); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-left: auto; white-space: nowrap; }
 .route-cost .cost-amount { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 14px; margin-left: 4px; }
+.alt-restaurants { display: inline; margin-left: 8px; }
+.alt-restaurants summary { display: inline !important; cursor: pointer; white-space: nowrap; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--condensed); font-weight: 600; color: var(--ink-mute); border: 1px solid var(--rule); border-radius: 3px; padding: 2px 7px !important; gap: 0 !important; }
+.alt-restaurants summary:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.alt-restaurants summary::before { content: ''; }
+.alt-restaurants .resto-grid { margin-top: 12px; }
+.route-actions-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 28px; }
+.route-actions-row .gmaps-btn, .route-actions-row .budget-toggle { margin: 0; flex: 1 1 auto; }
+.budget-toggle summary { display: flex !important; align-items: center; justify-content: center; gap: 8px; cursor: pointer; list-style: none; font-family: var(--condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); padding: 11px 20px; background: transparent; transition: background 0.15s, color 0.15s; }
+.budget-toggle summary::-webkit-details-marker { display: none; }
+.budget-toggle summary:hover { background: var(--ink); color: var(--paper); }
+.budget-toggle[open] summary { background: var(--ink); color: var(--paper); }
+.budget-toggle .budget-box { margin-top: 16px; }
 
 /* ─── TARGETES DE VILLA / MONUMENT (activitats extra) ─── */
 .villa-card { border: none; border-top: 1px solid var(--rule); margin-bottom: 0; display: grid; grid-template-columns: 1fr; padding: 28px 0; background: transparent; }
