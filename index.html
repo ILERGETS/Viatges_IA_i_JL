@@ -229,9 +229,15 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .route-list strong { color: var(--ink); font-weight: 600; }
 .route-num.principal { position: relative; }
 .route-num.principal::after { content: "*"; position: absolute; top: -6px; right: -4px; font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--terracotta); }
-.route-culture { display: block; margin-top: 8px; }
-.route-culture summary { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--condensed); color: var(--terracotta); }
-.route-culture .culture-body { padding-left: 0; }
+.route-culture { display: inline; margin-left: 6px; }
+.route-culture summary { display: inline !important; cursor: pointer; white-space: nowrap; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--condensed); color: var(--terracotta); font-weight: 600; padding: 0 !important; gap: 0 !important; }
+.route-culture summary::before { content: '+ '; }
+.route-culture[open] summary::before { content: '– '; }
+.route-culture .culture-body { display: block; padding-left: 0; margin-top: 10px; }
+.route-item-header { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 3px; }
+.route-time { font-family: var(--condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--terracotta); flex-shrink: 0; }
+.route-cost { font-family: var(--condensed); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-left: auto; white-space: nowrap; }
+.route-cost .cost-amount { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 14px; margin-left: 4px; }
 
 /* ─── TARGETES DE VILLA / MONUMENT (activitats extra) ─── */
 .villa-card { border: none; border-top: 1px solid var(--rule); margin-bottom: 0; display: grid; grid-template-columns: 1fr; padding: 28px 0; background: transparent; }
@@ -972,7 +978,7 @@ html { scroll-behavior: smooth; }
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232.</span></li>
-          <li><span class="route-num principal">2</span><span><strong>Torre dos Clérigos</strong> — El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto.
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">10:00</span><a href="https://porto.travel/clerigos-tower/" target="_blank" class="ext"><strong>Torre dos Clérigos</strong></a><span class="reserve-badge"><a href="https://www.getyourguide.com/porto-l151/torre-dos-clerigos-entrance-ticket-t57114/" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">16 €</span></span></div>El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto. Oberta 9:30-13h i 14:30-19h; 225 esglaons (opcional pujar-hi, l'església es visita sense pujar).
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -992,7 +998,7 @@ html { scroll-behavior: smooth; }
           </details>
         </span></li>
           <li><span class="route-num">3</span><span><strong>Igreja do Carmo i Casa Escondida</strong> — Dues esglésies (Carmo i Carmelitas) que semblen una de sola, separades per la casa més estreta de Portugal (poc més d'1 m d'amplada). La façana lateral del Carmo és un gran mural d'atzulejos blaus de 1912.</span></li>
-          <li><span class="route-num principal">4</span><span><strong>Livraria Lello</strong> — La llibreria neogòtica de 1906, amb l'escalinata vermella més fotografiada de Porto.
+          <li><span class="route-num principal">4</span><span><div class="route-item-header"><span class="route-time">11:30</span><a href="https://tickets.livrarialello.pt" target="_blank" class="ext"><strong>Livraria Lello</strong></a><span class="reserve-badge"><a href="https://tickets.livrarialello.pt" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">20 €</span></span></div>La llibreria neogòtica de 1906, amb l'escalinata vermella més fotografiada de Porto. R. das Carmelitas 144. <strong>Reserva obligatòria amb antelació</strong> — bitllet "Silver" 10 €/p, deduïble en un llibre.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1035,34 +1041,10 @@ html { scroll-behavior: smooth; }
 
       <table class="schedule">
         <tr>
-          <td class="schedule-time">10:00</td>
-          <td class="schedule-place highlight">
-            <a href="https://porto.travel/clerigos-tower/" target="_blank" class="ext">Torre dos Clérigos</a>
-            <span class="reserve-badge"><a href="https://www.getyourguide.com/porto-l151/torre-dos-clerigos-entrance-ticket-t57114/" target="_blank">Reservar</a></span>
-          </td>
-          <td class="schedule-notes">Oberta 9:30-13h i 14:30-19h. 225 esglaons (opcional pujar-hi; l'església es visita sense pujar). Entrada 8 €/p adult.</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">16 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">11:30</td>
-          <td class="schedule-place highlight">
-            <a href="https://tickets.livrarialello.pt" target="_blank" class="ext">Livraria Lello</a>
-            <span class="reserve-badge"><a href="https://tickets.livrarialello.pt" target="_blank">Reservar</a></span>
-          </td>
-          <td class="schedule-notes">R. das Carmelitas 144. <strong>Reserva obligatòria amb antelació.</strong> Bitllet "Silver" 10 €/p (deduïble en un llibre).</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">20 €</span></td>
-        </tr>
-        <tr>
           <td class="schedule-time">13:00</td>
           <td class="schedule-place highlight"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa Guedes</a></td>
           <td class="schedule-notes">Praça dos Poveiros 130 · tel. +351 222 002 874. Famosa sandes de pernil. Casual, sense reserva. Tancat diumenge.</td>
           <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">16:00</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Avenida+dos+Aliados,+Porto" target="_blank" class="ext">Avenida dos Aliados</a></td>
-          <td class="schedule-notes">Passeig pla — veure el recorregut il·lustrat amb 3 punts d'interès just després d'aquesta taula.</td>
-          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">20:00</td>
@@ -1259,7 +1241,7 @@ html { scroll-behavior: smooth; }
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232, a pocs minuts de la Sé.</span></li>
-          <li><span class="route-num principal">2</span><span><strong>Casa-Museu Guerra Junqueiro</strong> — Petit museu d'arts decoratives dins d'un palauet barroc del segle XVIII, als peus mateix de la Sé.
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">09:15</span><a href="https://www.google.com/maps/search/?api=1&query=Casa-Museu+Guerra+Junqueiro,+Porto" target="_blank" class="ext"><strong>Casa-Museu Guerra Junqueiro</strong></a><span class="route-cost">ENT.<span class="cost-amount">~3 €</span></span></div>Petit museu d'arts decoratives dins d'un palauet barroc del segle XVIII, als peus mateix de la Sé. Palácio dos Camões. Porcellana, argenteria i mobiliari del segle XVIII. Tancat dilluns.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1289,7 +1271,7 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">4</span><span><strong>Sé do Porto</strong> — Catedral romànico-gòtica del segle XII, al punt més alt del centre històric, amb un claustre revestit d'atzulejos del segle XVIII.
+          <li><span class="route-num principal">4</span><span><div class="route-item-header"><span class="route-time">10:00</span><a href="https://www.google.com/maps/search/?api=1&query=S%C3%A9+do+Porto" target="_blank" class="ext"><strong>Sé do Porto</strong></a><span class="route-cost">ENT.<span class="cost-amount">consultar</span></span></div>Catedral romànico-gòtica del segle XII, al punt més alt del centre històric. Interior gratuït; claustre amb entrada i atzulejos del segle XVIII (preu a confirmar a taquilla).
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1353,7 +1335,7 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">10</span><span><strong>Palácio da Bolsa</strong> — Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se.
+          <li><span class="route-num principal">10</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://porto.travel/palacio-da-bolsa/" target="_blank" class="ext"><strong>Palácio da Bolsa</strong></a><span class="route-cost">ENT.<span class="cost-amount">23,50 €</span></span></div>Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se. Visita guiada obligatòria, ~30-45 min. <strong>Sense venda online</strong> — comprar a taquilla en arribar. Adult 14 €/p, <strong>sènior 9,50 €/p</strong>.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1370,7 +1352,7 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">11</span><span><strong>Igreja de São Francisco</strong> — Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos.
+          <li><span class="route-num principal">11</span><span><div class="route-item-header"><span class="route-time">12:30</span><a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+S%C3%A3o+Francisco,+Porto" target="_blank" class="ext"><strong>Igreja de São Francisco</strong></a><span class="route-cost">ENT.<span class="cost-amount">~9 €</span></span></div>Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos. Rua Infante D. Henrique. Oberta 9-20h (setembre); entrada ~4,50-6 €/p (consultar web oficial el dia).
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1398,30 +1380,6 @@ html { scroll-behavior: smooth; }
       </div>
 
       <table class="schedule">
-        <tr>
-          <td class="schedule-time">09:15</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Casa-Museu+Guerra+Junqueiro,+Porto" target="_blank" class="ext">Casa-Museu Guerra Junqueiro</a></td>
-          <td class="schedule-notes">Palácio dos Camões, als peus de la Sé. Porcellana, argenteria i mobiliari del segle XVIII. Tancat dilluns.</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">~2-4 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">10:00</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=S%C3%A9+do+Porto" target="_blank" class="ext">Sé do Porto</a></td>
-          <td class="schedule-notes">Catedral romànico-gòtica. Interior gratuït; claustre amb entrada (preu a confirmar a taquilla).</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">consultar</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">11:00</td>
-          <td class="schedule-place highlight"><a href="https://porto.travel/palacio-da-bolsa/" target="_blank" class="ext">Palácio da Bolsa</a></td>
-          <td class="schedule-notes">Visita guiada obligatòria, ~30-45 min. <strong>Sense venda online</strong> — comprar a taquilla en arribar. Adult 14 €/p · <strong>sènior 9,50 €/p</strong> (aplica a Ell, 66 anys).</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">23,50 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">12:30</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+S%C3%A3o+Francisco,+Porto" target="_blank" class="ext">Igreja de São Francisco</a></td>
-          <td class="schedule-notes">Rua Infante D. Henrique. Oberta 9-20h (setembre). Talla barroca daurada. Entrada ~4,50-6 €/p (consultar web oficial el dia).</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">~9 €</span></td>
-        </tr>
         <tr>
           <td class="schedule-time">14:00</td>
           <td class="schedule-place">Dinar zona Ribeira</td>
@@ -1527,7 +1485,7 @@ html { scroll-behavior: smooth; }
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232, a pocs minuts del pont.</span></li>
-          <li><span class="route-num principal">2</span><span><strong>Ponte D. Luís I</strong> — Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants.
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">10:30</span><a href="https://www.google.com/maps/search/?api=1&query=Ponte+D.+Lu%C3%ADs+I,+Porto" target="_blank" class="ext"><strong>Ponte D. Luís I</strong></a></div>Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants. Alternativa sense escales: teleférico de Gaia.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1601,7 +1559,7 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">9</span><span><strong>Cais de Gaia</strong> — El moll de les caves de vinho do Porto, punt de partida del creuer de les 6 Pontes.</span></li>
+          <li><span class="route-num principal">9</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext"><strong>Cais de Gaia — Creuer 6 Pontes + Cava</strong></a><span class="reserve-badge"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">58 €</span></span></div>El moll de les caves de vinho do Porto. Creuer de 50 min + visita guiada amb tast a una cava, durada total ~2h.</span></li>
         </ol>
         <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Telef%C3%A9rico+de+Gaia/WOW+Porto/Half+Rabbit+Bordalo+II+Gaia/Espa%C3%A7o+Porto+Cruz/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -1611,31 +1569,10 @@ html { scroll-behavior: smooth; }
 
       <table class="schedule">
         <tr>
-          <td class="schedule-time">10:30</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Ponte+D.+Lu%C3%ADs+I,+Porto" target="_blank" class="ext">Pont D. Luís I</a></td>
-          <td class="schedule-notes">Travessar pel tauler superior (vianants, pla, vistes espectaculars). Alternativa sense escales: teleférico de Gaia.</td>
-          <td class="schedule-cost">—</td>
-        </tr>
-        <tr>
-          <td class="schedule-time">11:00</td>
-          <td class="schedule-place highlight">
-            <a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext">Creuer 6 Pontes + Cava de vinho do Porto</a>
-            <span class="reserve-badge"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank">Reservar</a></span>
-          </td>
-          <td class="schedule-notes">Cais de Vila Nova de Gaia. Creuer 50 min + visita guiada amb tast a una cava. Durada total ~2h.</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">58 €</span></td>
-        </tr>
-        <tr>
           <td class="schedule-time">13:30</td>
           <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=Casa+Guedes+Gaia,+Avenida+de+Diogo+Leite+56" target="_blank" class="ext">Casa Guedes — Cais de Gaia</a></td>
           <td class="schedule-notes">Av. Diogo Leite 56, V.N. Gaia · tel. +351 910 861 707. Terrassa amb vista al riu, sandes de pernil i plats tradicionals.</td>
           <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">16:00</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Cais+de+Gaia,+Vila+Nova+de+Gaia" target="_blank" class="ext">Cais de Gaia</a></td>
-          <td class="schedule-notes">Passeig pla vora el riu, vistes de la Ribeira des de l'altra banda.</td>
-          <td class="schedule-cost">—</td>
         </tr>
       </table>
 
@@ -1768,8 +1705,8 @@ html { scroll-behavior: smooth; }
         </span></li>
           <li><span class="route-num principal">3</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.</span></li>
           <li><span class="route-num">4</span><span><strong>Padrão do Salado</strong> — Monument gòtic de 1342, amb una creu de pedra que representa Crist i la Verge, erigit per commemorar la victòria luso-castellana contra els moros a la batalla del Salado (1340).</span></li>
-          <li><span class="route-num principal">5</span><span><strong>Paço dos Duques de Bragança</strong> — Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica.</span></li>
-          <li><span class="route-num principal">6</span><span><strong>Castelo de Guimarães</strong> — El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal.</span></li>
+          <li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://pacodosduques.gov.pt/" target="_blank" class="ext"><strong>Paço dos Duques de Bragança</strong></a><span class="route-cost">ENT.<span class="cost-amount">~5 €</span></span></div>Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica. Preu a confirmar a la web oficial.</span></li>
+          <li><span class="route-num principal">6</span><span><div class="route-item-header"><span class="route-time">11:45</span><a href="https://www.google.com/maps/search/?api=1&query=Castelo+de+Guimar%C3%A3es" target="_blank" class="ext"><strong>Castelo de Guimarães</strong></a><span class="route-cost">ENT.<span class="cost-amount">~5 €</span></span></div>El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal. Preu a confirmar a la web oficial.</span></li>
           <li><span class="route-num">7</span><span><strong>Mosteiro de Santa Marinha da Costa</strong> — Monestir del segle XII als vessants de la Penha, avui reconvertit en pousada. Jardins i claustre visitables encara que no s'hi allotgi.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
@@ -1815,12 +1752,6 @@ html { scroll-behavior: smooth; }
           </td>
           <td class="schedule-notes">Sortida des de Porto-São Bento (la més cèntrica). Bilhete Turístico il·limitat, sense reserva online — es compra a les màquines de l'estació.</td>
           <td class="schedule-cost">TRANS.<span class="cost-amount">15,40 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">10:15</td>
-          <td class="schedule-place"><a href="https://www.google.com/maps/search/?api=1&query=Centro+Hist%C3%B3rico+de+Guimar%C3%A3es" target="_blank" class="ext">Centre històric de Guimarães</a></td>
-          <td class="schedule-notes">Praça de Santiago, Paço dos Duques de Bragança (entrada ~5 €/p, consultar web oficial), Castell. Passeig pla per la zona monumental.</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">~10 €</span></td>
         </tr>
         <tr>
           <td class="schedule-time">13:00</td>
