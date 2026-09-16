@@ -243,8 +243,9 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .alt-restaurants summary:hover { color: var(--terracotta); border-color: var(--terracotta); }
 .alt-restaurants summary::before { content: ''; }
 .alt-restaurants .resto-grid { margin-top: 12px; }
-.route-actions-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 28px; }
-.route-actions-row .gmaps-btn, .route-actions-row .budget-toggle { margin: 0; flex: 1 1 auto; }
+.route-actions-row { display: flex; gap: 12px; flex-wrap: nowrap; align-items: stretch; margin: 4px 0 28px; }
+.route-actions-row .gmaps-btn { margin: 0; flex: 1 1 auto; }
+.route-actions-row .budget-toggle { margin: 0; flex: 0 0 auto; }
 .budget-toggle summary { display: flex !important; align-items: center; justify-content: center; gap: 8px; cursor: pointer; list-style: none; font-family: var(--condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); padding: 11px 20px; background: transparent; transition: background 0.15s, color 0.15s; }
 .budget-toggle summary::-webkit-details-marker { display: none; }
 .budget-toggle summary:hover { background: var(--ink); color: var(--paper); }
@@ -473,8 +474,8 @@ html { scroll-behavior: smooth; }
   <a href="#allotjament" onclick="setActive(this)"><span class="nav-day">⌂</span>Allotjament</a>
   <a href="#dia0" onclick="setActive(this)"><span class="nav-day">1</span>Dv 25 · Arribada</a>
   <a href="#dia1" onclick="setActive(this)"><span class="nav-day">2</span>Ds 26 · Clérigos</a>
-  <a href="#dia2" onclick="setActive(this)"><span class="nav-day">3</span>Dg 27 · Bolsa</a>
-  <a href="#dia3" onclick="setActive(this)"><span class="nav-day">4</span>Dl 28 · Gaia</a>
+  <a href="#dia2" onclick="setActive(this)"><span class="nav-day">3</span>Dg 27 · Sé</a>
+  <a href="#dia3" onclick="setActive(this)"><span class="nav-day">4</span>Dl 28 · Bolsa i Gaia</a>
   <a href="#dia4" onclick="setActive(this)"><span class="nav-day">5</span>Dt 29 · Guimarães</a>
   <a href="#dia5" onclick="setActive(this)"><span class="nav-day">6</span>Dc 30 · Comiat</a>
   <a href="#gastro" onclick="setActive(this)"><span class="nav-day">✦</span>Gastronomia</a>
@@ -512,8 +513,8 @@ html { scroll-behavior: smooth; }
       <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
       <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dv 25/09</a></td><td>Ribeira cap a Miragaia</td><td class="km-num">~3,9</td></tr>
       <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Ds 26/09</a></td><td>Clérigos, Lello, Bolhão i São Bento</td><td class="km-num">~7,1</td></tr>
-      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Guerra Junqueiro, Sé, muralla, Bolsa</td><td class="km-num">~6,5</td></tr>
-      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Vila Nova de Gaia, creuer i caves</td><td class="km-num">~5,8</td></tr>
+      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dg 27/09</a></td><td>Guerra Junqueiro, Sé, São Francisco</td><td class="km-num">~6,5</td></tr>
+      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dl 28/09</a></td><td>Palácio da Bolsa (12:00) i Gaia (creuer tarda)</td><td class="km-num">~5,8</td></tr>
       <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dt 29/09</a></td><td>Guimarães, amb Museu Martins Sarmento</td><td class="km-num">~6,3</td></tr>
       <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dc 30/09</a></td><td>Matí lliure i comiat</td><td class="km-num">~2,5</td></tr>
       <tr class="total">
@@ -538,10 +539,18 @@ html { scroll-behavior: smooth; }
         <div class="summary-row"><span>Anada · 25 set</span><span class="val">12:00 BCN → 13:00 OPO</span></div>
         <div class="summary-row"><span>Tornada · 30 set</span><span class="val">14:15 OPO → 17:00 BCN</span></div>
       </div>
-      <div class="summary-block">
-        <h3>Allotjament · FLH Porto Portuguese Apartments</h3>
-        <div class="summary-row"><span>Confirmació 5623504321</span><span class="val">Dies 25-30 set</span></div>
-        <div class="summary-row"><span>PIN check-in</span><span class="val">6264</span></div>
+      <div class="summary-block" id="allotjament">
+        <h3>Allotjament confirmat · FLH Porto Portuguese Apartments</h3>
+        <div class="summary-row"><span>Apartament</span><span class="val">1 hab. superior amb balcó · llicència 55435/AL</span></div>
+        <div class="summary-row"><span>Adreça</span><span class="val">Rua Mouzinho da Silveira 232, 4050-417 Porto</span></div>
+        <div class="summary-row"><span>Confirmació</span><span class="val">5623504321 · 25–30 set · 5 nits</span></div>
+        <div class="summary-row"><span>PIN / accés</span><span class="val">6264 · autocheck-in (sense recepció)</span></div>
+        <div class="summary-row"><span>Preu</span><span class="val">648,85 € tot inclòs · esmorzar no inclòs</span></div>
+        <div class="summary-row"><span>Check-in / out</span><span class="val">Des de 15:00 · sortida fins 11:00 (dc 30)</span></div>
+        <div class="summary-row"><span>Telèfon amfitrió</span><span class="val">+351 969 280 084</span></div>
+        <div class="summary-row"><span>Cancel·lació</span><span class="val">Reemborsament fins 17/09/2026 23:59</span></div>
+        <div class="summary-row"><span>Ascensor</span><span class="val">Confirmat amb l'amfitrió</span></div>
+        <div class="summary-row"><span>Notes</span><span class="val">Avisar hora d'arribada; DNI i targeta al check-in</span></div>
       </div>
       <div class="summary-block">
         <h3>Primer trasllat</h3>
@@ -581,7 +590,7 @@ html { scroll-behavior: smooth; }
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Allotjament — FLH Porto Portuguese Apartments</div>
-        <div class="urgent-cell urgent-web">Confirmació 5623504321 · PIN 6264 · 648,85 €</div>
+        <div class="urgent-cell urgent-web">RESERVAT — dades completes al Resum de sortida</div>
         <div class="urgent-cell">Dv 25/09 – Dc 30/09</div>
         <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
@@ -610,21 +619,21 @@ html { scroll-behavior: smooth; }
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
-        <div class="urgent-cell urgent-name">Torre dos Clérigos — entrada</div>
-        <div class="urgent-cell urgent-web"><a href="https://www.getyourguide.com/porto-l151/torre-dos-clerigos-entrance-ticket-t57114/" target="_blank" class="ext">GetYourGuide</a></div>
+        <div class="urgent-cell urgent-name">Torre dos Clérigos — JEP 2026</div>
+        <div class="urgent-cell urgent-web">RESERVAT · NE Online 53197 · Visita Reservada, skip-line · 2 × 2 € = 4 €</div>
         <div class="urgent-cell">Ds 26/09, 10:00</div>
-        <div class="urgent-cell urgent-level">RECOMANABLE</div>
+        <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Palácio da Bolsa — visita guiada</div>
-        <div class="urgent-cell urgent-web">Visita guiada obligatòria, 30 min · Adult 14 € + sènior 9,50 € = 23,50 € · Horari i idioma s'assignen per ordre d'arribada · <a href="https://palaciodabolsa.com/en/tourism/" target="_blank" class="ext">palaciodabolsa.com</a> · Reserva online: <a href="https://booking.visitportoandnorth.travel/pt/experiencias/palacio-da-bolsa/visita-guiada-ao-palacio-da-bolsa/" target="_blank" class="ext">Visit Porto &amp; North</a> (no venen el mateix dia; si no hi ha hora, taquilla al moment)</div>
-        <div class="urgent-cell">Dg 27/09, 11:00</div>
-        <div class="urgent-cell urgent-level">ALTA</div>
+        <div class="urgent-cell urgent-web">RESERVAT · n. 37233 · Fast track · 1 sènior 9,50 € + 1 adult 14 € = 23,50 € · idioma i hora exacta al taulell · sense canvi de data</div>
+        <div class="urgent-cell">Dl 28/09, 12:00</div>
+        <div class="urgent-cell urgent-level">RESERVAT ✓</div>
       </div>
       <div class="urgent-row">
         <div class="urgent-cell urgent-name">Creuer 6 Pontes + Cava (Gaia)</div>
         <div class="urgent-cell urgent-web"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext">cruzeiros-douro.pt</a></div>
-        <div class="urgent-cell">Dl 28/09, 11:00</div>
+        <div class="urgent-cell">Dl 28/09, 16:00 (tarda, després de la Bolsa)</div>
         <div class="urgent-cell urgent-level">ALTA</div>
       </div>
       <div class="urgent-row">
@@ -648,11 +657,11 @@ html { scroll-behavior: smooth; }
     </div>
     <div class="box box-warn">
       <span class="box-label">Atenció — Cancel·lació de l'apartament</span>
-      El FLH Porto Portuguese Apartments es pot cancel·lar amb <strong>reemborsament complet fins al 17 de setembre de 2026, 23:59</strong> (hora local). Passada aquesta data, el càrrec és l'import total (648,85 €). L'esmorzar no hi és inclòs. Cal <strong>avisar l'amfitrió de l'hora d'arribada abans d'anar-hi</strong> — trucar al +351 969 280 084 o contactar per Booking.com.
+      Termini de cancel·lació amb reemborsament: <strong>17/09/2026, 23:59</strong>. Dades de l'apartament, PIN i telèfon: només al <a href="#allotjament" onclick="scrollToSection('#allotjament')" class="ext">Resum de sortida</a>. Cal avisar l'amfitrió de l'hora d'arribada.
     </div>
     <div class="box box-warn">
-      <span class="box-label">Atenció — Palácio da Bolsa</span>
-      La visita és <strong>obligatòriament guiada</strong> (30 min). Preus oficials (web palaciodabolsa.com, consultats 16/09/2026): adult 14 €, sènior/estudiant 9,50 € (cal DNI). Horari 9:00–18:30. L'idioma (PT/ES/FR/EN) s'assigna per ordre d'arribada. Es pot reservar online a Visit Porto &amp; North (no per al mateix dia); si no queda hora, es compra a taquilla. El palau <strong>tanca al públic el 30/09</strong> (dia de tornada; no afecta el dia 27). Arribeu d'hora el diumenge per triar idioma.
+      <span class="box-label">Confirmat — Palácio da Bolsa</span>
+      Reserva <strong>37233</strong> per al <strong>dilluns 28/09 a les 12:00</strong> (visita guiada, fast track, 30 min). Import ja pagat: 23,50 € (1 adult 14 € + 1 sènior 9,50 €). Presenteu-vos al taulell: l'idioma s'assigna allà. <strong>No es pot canviar la data</strong>. El palau tanca al públic el 30/09 (no afecta aquest torn).
     </div>
     <div class="box box-info">
       <span class="box-label">Reconfirmeu abans de sortir</span>
@@ -722,10 +731,24 @@ html { scroll-behavior: smooth; }
         </div>
       </details>
       <div style="padding: 12px 32px 16px;">
-        <a href="https://www.google.com/maps/dir/Aeroporto+Francisco+S%C3%A1+Carneiro/Ribeira,+Porto/" target="_blank" class="gmaps-btn">
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Aeroporto+Francisco+S%C3%A1+Carneiro/Ribeira,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure ruta a Google Maps
         </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — trasllat d'arribada</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Taxi aeroport → apartament</td><td>Talixo, reservat</td><td>0 €</td><td>0 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>0 €</td><td>0 €</td></tr>
+              </table>
+              <div class="budget-note">* No inclou allotjament ni vols (Logística / Resum).</div>
+            </div>
+          </details>
+        </div>
       </div>
       <div class="route-block">
         <h3 class="sub">Recorregut del dia — Arribada, Ribeira i Miragaia</h3>
@@ -758,9 +781,25 @@ html { scroll-behavior: smooth; }
         </div>
         <ol class="route-list">
           <li><span class="route-num">1</span><span><div class="route-item-header"><span class="route-time">13:00</span><strong>Arribada OPO</strong></div>Vol Ryanair FR4585 (reserva AV9IKF), sortida BCN 12:00. Aeroport <a href="https://www.google.com/maps/search/?api=1&query=Aeroporto+Francisco+S%C3%A1+Carneiro" target="_blank" class="ext">Francisco Sá Carneiro</a>. Trasllat en taxi privat reservat (Talixo, ref. 945882762), el conductor segueix el vol i espera fins a 45 min. Gratuït. <a href="https://www.google.com/maps/dir/?api=1&origin=Aeroporto+Francisco+S%C3%A1+Carneiro&destination=Rua+Mouzinho+da+Silveira+232,+Porto&travelmode=driving" target="_blank" class="ext">Veure ruta aeroport → apartament</a></span></li>
-          <li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~13:30</span><a href="https://cantinhodoavillez.pt/pt/restaurantes/mouzinho-da-silveira.html" target="_blank" class="ext"><strong>Cantinho do Avillez</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://ocomercial.com/" target="_blank" class="ext">O Comercial</a></div><div class="resto-cell">~20-30 €/p · cuina tradicional, dins el Palácio da Bolsa</div><div class="resto-cell">R. Ferreira Borges · tel. 918 838 649 · tancat ds. migdia i dg.</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns, cuina tradicional</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div></div></details><span class="route-cost">ÀPAT<span class="cost-amount">40 € (est.)</span></span></div>El taxi us deixa a la porta, però el check-in oficial no comença fins a les 15:00. Confirmeu amb l'amfitrió (+351 969 280 084) si es pot deixar l'equipatge abans. R. Mouzinho da Silveira 166 (mateix carrer), obert cada dia 12:30-23:00.</span></li>
-          <li><span class="route-num">3</span><span><div class="route-item-header"><span class="route-time">15:00</span><strong>Check-in — FLH Porto Portuguese Apartments</strong></div>Confirmació 5623504321 · PIN 6264. Rua Mouzinho da Silveira 232. Amb ascensor. Accés amb codi (contacteu l'amfitrió per rebre'l). Porteu DNI/passaport i targeta de crèdit per al registre.</span></li>
-          <li><span class="route-num">4</span><span><a href="https://www.google.com/maps/search/?api=1&query=Cais+da+Ribeira,+Porto" target="_blank" class="ext"><strong>Cais da Ribeira</strong></a> — El moll medieval vora el Douro, amb els vaixells rabelos amarrats i les façanes de colors superposades pujant cap al turó de la Sé.</span></li>
+          <li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~13:30</span><a href="https://cantinhodoavillez.pt/pt/restaurantes/mouzinho-da-silveira.html" target="_blank" class="ext"><strong>Restaurant · Cantinho do Avillez</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://ocomercial.com/" target="_blank" class="ext">O Comercial</a></div><div class="resto-cell">~20-30 €/p · cuina tradicional, dins el Palácio da Bolsa</div><div class="resto-cell">R. Ferreira Borges · tel. 918 838 649 · tancat ds. migdia i dg.</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns, cuina tradicional</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div></div></details><span class="route-cost">ÀPAT<span class="cost-amount">40 € (est.)</span></span></div>El taxi us deixa a la porta, però el check-in oficial no comença fins a les 15:00. Confirmeu amb l'amfitrió (+351 969 280 084) si es pot deixar l'equipatge abans. R. Mouzinho da Silveira 166 (mateix carrer), obert cada dia 12:30-23:00.</span></li>
+          <li><span class="route-num">3</span><span><div class="route-item-header"><span class="route-time">15:00</span><strong>Check-in — apartament confirmat</strong></div>Dades d'accés i PIN: només al Resum de sortida. Porteu DNI/passaport i targeta per al registre.</span></li>
+          <li><span class="route-num">4</span><span><a href="https://www.google.com/maps/search/?api=1&query=Cais+da+Ribeira,+Porto" target="_blank" class="ext"><strong>Cais da Ribeira</strong></a> — El moll medieval vora el Douro, amb els vaixells rabelos amarrats i les façanes de colors superposades pujant cap al turó de la Sé.<details class="culture-toggle route-culture">
+        <summary>Saber-ne més · Cais da Ribeira i el centre històric — context i curiositats</summary>
+        <div class="culture-body">
+          <h4>Època i origen</h4>
+          <p>La Ribeira és el nucli medieval del Porto, un teixit de carrerons estrets i cases altes de façanes de colors que baixen en pendent fins al Douro. Va créixer arran del riu des del segle XII, quan Porto era ja un port comercial actiu.</p>
+          <h4>Patrimoni de la Humanitat</h4>
+          <p>Tot el centre històric —Ribeira inclosa— va ser declarat Patrimoni Mundial per la UNESCO l'any 1996, juntament amb la Ponte Luís I i el Mosteiro da Serra do Pilar.</p>
+          <h4>Una dada curiosa</h4>
+          <p>Els vaixells rabelos amarrats al Cais eren fins fa un segle l'únic mitjà per transportar el vi del Douro fins a les caves de Gaia.</p>
+          <h4>Per als amants de Roma i el Renaixement</h4>
+          <p>A diferència de Roma, on la ciutat es va planificar sovint des del poder, la Ribeira és una ciutat "orgànica", crescuda casa a casa sense pla general.</p>
+          <div class="culture-links">
+            <a href="https://en.wikipedia.org/wiki/Historic_Centre_of_Porto" target="_blank" class="ext">Viquipèdia (anglès)</a>
+            <a href="https://whc.unesco.org/en/list/755/" target="_blank" class="ext">UNESCO — fitxa oficial (anglès)</a>
+          </div>
+        </div>
+      </details></span></li>
           <li><span class="route-num">5</span><span><strong>Praça da Ribeira</strong> — El cor de la Ribeira. A la font central, coronada per la coneguda "Fonte do Cubo" de José Rodrigues, hi ha una fornícula amb una estàtua de Sant Joan Baptista (obra de João Cutileiro, inaugurada l'any 2000).</span></li>
           <li><span class="route-num">6</span><span><strong>Alminhas da Ponte</strong> — Una placa de metall a la muralla, amb espelmes enceses pels veïns, en record dels portuenses que van morir el 1809 quan l'antic pont de barques es va enfonsar fugint de les tropes napoleòniques.</span></li>
           <li><span class="route-num">7</span><span><strong>Casa do Infante</strong> — Edifici del segle XIII on, segons la tradició, va néixer l'Infant D. Henrique "el Navegant". Avui és un museu amb una maqueta del Porto medieval.</span></li>
@@ -785,7 +824,7 @@ html { scroll-behavior: smooth; }
               <div class="culture-links"><a href="http://www.mmipo.pt/" target="_blank" class="ext">MMIPO — web oficial</a></div>
             </div></details></span></li>
           <li><span class="route-num">10</span><span><strong>Rua das Virtudes (Miragaia)</strong> — Pujant cap al barri de Miragaia, on sopareu a la Taberna Santo António.</span></li>
-          <li><span class="route-num">11</span><span><div class="route-item-header"><span class="route-time">20:00</span><a href="https://tabernastoantonio.eatbu.com" target="_blank" class="ext"><strong>Taberna Santo António</strong></a><span class="reserve-badge"><a href="https://tabernastoantonio.eatbu.com" target="_blank">Reservar</a></span><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix i marisc</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns</div></div></div></details><span class="route-cost">ÀPAT<span class="cost-amount">30 €</span></span></div>R. das Virtudes 32, Miragaia · tel. +351 222 055 306. Cuina casolana portuense, ambient familiar.</span></li>
+          <li><span class="route-num">11</span><span><div class="route-item-header"><span class="route-time">20:00</span><a href="https://tabernastoantonio.eatbu.com" target="_blank" class="ext"><strong>Taberna · Santo António</strong></a><span class="reserve-badge"><a href="https://tabernastoantonio.eatbu.com" target="_blank">Reservar</a></span><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix i marisc</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns</div></div></div></details><span class="route-cost">ÀPAT<span class="cost-amount">30 €</span></span></div>R. das Virtudes 32, Miragaia · tel. +351 222 055 306. Cuina casolana portuense, ambient familiar.</span></li>
         </ol>
         <div class="route-actions-row">
           <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Cais+da+Ribeira,+Porto/Pra%C3%A7a+da+Ribeira,+Porto/Alminhas+da+Ponte,+Porto/Casa+do+Infante,+Porto/Jardim+das+Virtudes,+Porto/MMIPO,+Rua+das+Flores,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
@@ -793,7 +832,7 @@ html { scroll-behavior: smooth; }
             Veure recorregut a Google Maps
           </a>
           <details class="budget-toggle">
-            <summary>Pressupost del dia</summary>
+            <summary>Pressupost del recorregut</summary>
             <div class="budget-box">
               <div class="budget-header">Pressupost estimat — Dia 1</div>
               <table class="budget-table">
@@ -808,86 +847,6 @@ html { scroll-behavior: smooth; }
             </div>
           </details>
         </div>
-      </div>
-
-      <h3 class="sub">Per aprofundir-hi</h3>
-      <details class="culture-toggle">
-        <summary>Cais da Ribeira i el centre històric — context i curiositats</summary>
-        <div class="culture-body">
-          <h4>Època i origen</h4>
-          <p>La Ribeira és el nucli medieval del Porto, un teixit de carrerons estrets i cases altes de façanes de colors que baixen en pendent fins al Douro. Va créixer arran del riu des del segle XII, quan Porto era ja un port comercial actiu.</p>
-          <h4>Patrimoni de la Humanitat</h4>
-          <p>Tot el centre històric —Ribeira inclosa— va ser declarat Patrimoni Mundial per la UNESCO l'any 1996, juntament amb la Ponte Luís I i el Mosteiro da Serra do Pilar.</p>
-          <h4>Una dada curiosa</h4>
-          <p>Els vaixells rabelos amarrats al Cais eren fins fa un segle l'únic mitjà per transportar el vi del Douro fins a les caves de Gaia.</p>
-          <h4>Per als amants de Roma i el Renaixement</h4>
-          <p>A diferència de Roma, on la ciutat es va planificar sovint des del poder, la Ribeira és una ciutat "orgànica", crescuda casa a casa sense pla general.</p>
-          <div class="culture-links">
-            <a href="https://en.wikipedia.org/wiki/Historic_Centre_of_Porto" target="_blank" class="ext">Viquipèdia (anglès)</a>
-            <a href="https://whc.unesco.org/en/list/755/" target="_blank" class="ext">UNESCO — fitxa oficial (anglès)</a>
-          </div>
-        </div>
-      </details>
-
-
-      <h3 class="sub" id="allotjament">Allotjament confirmat — FLH Porto Portuguese Apartments</h3>
-      <div class="box box-info">
-        <span class="box-label">Amb ascensor</span>
-        Substitueix la reserva anterior (sense ascensor, 3r pis). Aquest allotjament té ascensor confirmat — informació verificada directament amb l'amfitrió abans de reservar.
-      </div>
-      <div class="box box-info">
-        <span class="box-label">Accés — autocheck-in</span>
-        L'apartament no té recepció: l'accés és amb <strong>codi a la porta</strong>. Cal avisar l'amfitrió de l'hora d'arribada abans d'anar-hi (per telèfon o des de Booking.com). Check-in oficial a partir de les 15:00; check-out fins a les 11:00 del dia 30. Cal presentar DNI/passaport i targeta de crèdit.
-      </div>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Allotjament</div>
-          <div class="resto-cell">Reserva / preu / dades de check-in</div>
-          <div class="resto-cell">Contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name">FLH Porto Portuguese Apartments — Apartament 1 hab. superior amb balcó <span class="reserve-badge">RESERVAT</span></div>
-          <div class="resto-cell">Confirmació 5623504321 · PIN 6264 · 648,85 € (5 nits, tot inclòs) · Esmorzar no inclòs · Llicència 55435/AL · Cancel·lable amb reemborsament fins 17/09</div>
-          <div class="resto-cell">Rua Mouzinho da Silveira 232, 4050-417 Porto · +351 969 280 084</div>
-        </div>
-      </div>
-
-      
-      <h3 class="sub">3 alternatives verificades per sopar/dinar — Miragaia i Ribeira</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://tabernastoantonio.eatbu.com" target="_blank" class="ext">Taberna Santo António</a></div>
-          <div class="resto-cell">~15 €/p · cuina casolana</div>
-          <div class="resto-cell">R. das Virtudes 32 · tel. 222 055 306 · tancat dilluns</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div>
-          <div class="resto-cell">~25 €/p · polp i carns</div>
-          <div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div>
-          <div class="resto-cell">~30-40 €/p · peix i marisc</div>
-          <div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns · reservar amb molta antelació (només 8 taules)</div>
-        </div>
-      </div>
-
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 1</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Transport aeroport → apartament</td><td>Taxi privat (reservat, gratuït)</td><td>0 €</td><td>0 €</td></tr>
-          <tr><td>Dinar</td><td>Cantinho do Avillez (estimat)</td><td>20 €</td><td>40 €</td></tr>
-          <tr><td>MMIPO</td><td>Museu i església</td><td>4 €</td><td>8 €</td></tr>
-          <tr><td>Sopar</td><td>Taberna Santo António</td><td>15 €</td><td>30 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 1</strong></td><td>39 €</td><td>~78 €</td></tr>
-        </table>
-        <div class="budget-note">* No inclou allotjament ni vols, comptabilitzats a la Logística.</div>
       </div>
     </div>
   </div>
@@ -936,8 +895,8 @@ html { scroll-behavior: smooth; }
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232.</span></li>
-          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">10:00</span><a href="https://porto.travel/clerigos-tower/" target="_blank" class="ext"><strong>Torre dos Clérigos</strong></a><span class="reserve-badge"><a href="https://www.getyourguide.com/porto-l151/torre-dos-clerigos-entrance-ticket-t57114/" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">16 €</span></span></div>El campanar barroc de Nicolau Nasoni, de 76 m, punt de referència de tot Porto. Oberta 9:30-13h i 14:30-19h; 225 esglaons (opcional pujar-hi, l'església es visita sense pujar).
+          <li><span class="route-num">1</span><span><strong>Apartament confirmat</strong> — Sortida (adreça al Resum).</span></li>
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">10:00</span><a href="https://porto.travel/clerigos-tower/" target="_blank" class="ext"><strong>Torre dos Clérigos</strong></a><span class="reserve-badge">RESERVAT</span><span class="route-cost">ENT.<span class="cost-amount">4 €</span></span></div>El campanar barroc de Nicolau Nasoni, de 76 m. <strong>Jornades Europees del Patrimoni 2026</strong>: visita reservada ds 26/09 10:00, 2 × 2 € = 4 € (NE Online 53197), skip-line. 225 esglaons opcionals; l'església es visita sense pujar.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -992,26 +951,27 @@ html { scroll-behavior: smooth; }
           </details>
         </span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/Centro+Portugu%C3%AAs+de+Fotografia,+Porto/" target="_blank" class="gmaps-btn">
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/Centro+Portugu%C3%AAs+de+Fotografia,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — recorregut del matí (dia 2)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Torre dos Clérigos</td><td>JEP 2026, reservat 2 €/p</td><td>2 €</td><td>4 €</td></tr>
+                <tr><td>Livraria Lello</td><td>Silver (pendent)</td><td>10 €</td><td>20 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>12 €</td><td>24 €</td></tr>
+              </table>
+              <div class="budget-note">* Entrada Clérigos confirmada (NE Online 53197).</div>
+            </div>
+          </details>
+        </div>
       </div>
 
-      <table class="schedule">
-        <tr>
-          <td class="schedule-time">13:00</td>
-          <td class="schedule-place highlight"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa Guedes</a></td>
-          <td class="schedule-notes">Praça dos Poveiros 130 · tel. +351 222 002 874. Famosa sandes de pernil. Casual, sense reserva. Tancat diumenge.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">20:00</td>
-          <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></td>
-          <td class="schedule-notes">Rua de São Nicolau 1 · tel. +351 222 008 232. Casa de pastes tradicional, esplanada amb vista al Douro. <strong>No accepten reserva</strong> — recomanable anar-hi cap a les 19:45h.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">50 €</span></td>
-        </tr>
-      </table>
 
       <div class="route-block">
         <h3 class="sub">Recorregut de la tarda — Aliados, Bolhão i São Bento</h3>
@@ -1092,54 +1052,30 @@ html { scroll-behavior: smooth; }
           </details>
         </span></li>
           <li><span class="route-num principal">8</span><span><strong>Estação de São Bento</strong> — Una de les estacions de tren més boniques d'Europa: el vestíbul està cobert amb uns 20.000 atzulejos que narren escenes de la història de Portugal. Val la pena entrar-hi encara que no s'agafi cap tren.</span></li>
+          <li><span class="route-num">9</span><span><div class="route-item-header"><span class="route-time">13:00</span><a href="https://casaguedes.pt" target="_blank" class="ext"><strong>Casa de sandes · Casa Guedes</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=O+Buraco,+Rua+do+Bol%C3%A3o+95,+Porto" target="_blank" class="ext">O Buraco</a></div><div class="resto-cell">fins a 20 €/p · cuina casolana</div><div class="resto-cell">Rua do Bolhão 95 · tancat ds nit i dg</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.cafesantiago.pt" target="_blank" class="ext">Café Santiago</a></div><div class="resto-cell">~12-15 €/p · francesinha</div><div class="resto-cell">R. Passos Manuel 226 · tel. 222 055 797 · tancat diumenge</div></div></div></details></div>Praça dos Poveiros 130 · tel. 222 002 874. Tancat diumenge.</span></li>
+          <li><span class="route-num">10</span><span><div class="route-item-header"><span class="route-time">20:00</span><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext"><strong>Adega · São Nicolau</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510</div></div></div></details></div>No accepten reserva — arribar cap a les 19:45.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Pra%C3%A7a+da+Liberdade,+Porto/Avenida+dos+Aliados,+Porto/Monumento+Almeida+Garrett,+Porto/C%C3%A2mara+Municipal+do+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Capela+das+Almas,+Porto/Igreja+dos+Grilos,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Pra%C3%A7a+da+Liberdade,+Porto/Avenida+dos+Aliados,+Porto/Monumento+Almeida+Garrett,+Porto/C%C3%A2mara+Municipal+do+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Capela+das+Almas,+Porto/Igreja+dos+Grilos,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
-      </div>
-
-      <h3 class="sub">3 alternatives verificades per dinar/sopar — Baixa i Clérigos</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa Guedes</a></div>
-          <div class="resto-cell">~10 €/p · sandes de pernil</div>
-          <div class="resto-cell">Praça dos Poveiros 130 · tel. 222 002 874 · tancat diumenge</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=O+Buraco,+Rua+do+Bol%C3%A3o+95,+Porto" target="_blank" class="ext">O Buraco</a></div>
-          <div class="resto-cell">fins a 20 €/p · cuina casolana</div>
-          <div class="resto-cell">Rua do Bolhão 95 · tancat dissabte nit i diumenge</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.cafesantiago.pt" target="_blank" class="ext">Café Santiago</a></div>
-          <div class="resto-cell">~12-15 €/p · francesinha</div>
-          <div class="resto-cell">R. Passos Manuel 226 · tel. 222 055 797 · tancat diumenge</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Marisqueira+do+Porto,+Rua+do+Campo+Alegre+110,+Porto" target="_blank" class="ext">Marisqueira do Porto</a> <span class="reserve-badge">MARISCADA</span></div>
-          <div class="resto-cell">~25 €/p · marisc especialista des de 1976 (Google Maps — web oficial en construcció)</div>
-          <div class="resto-cell">Rua do Campo Alegre 110 · tel. 226 097 014 · ~10 min en taxi des de la Baixa</div>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — recorregut de la tarda (dia 2)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Dinar</td><td>Casa Guedes (est.)</td><td>10 €</td><td>20 €</td></tr>
+                <tr><td>Sopar</td><td>Adega São Nicolau (est.)</td><td>25 €</td><td>50 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>35 €</td><td>70 €</td></tr>
+              </table>
+              <div class="budget-note">* No inclou allotjament ni vols (Logística / Resum).</div>
+            </div>
+          </details>
         </div>
       </div>
 
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 2</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Torre dos Clérigos</td><td>Entrada adult</td><td>8 €</td><td>16 €</td></tr>
-          <tr><td>Livraria Lello</td><td>Bitllet Silver</td><td>10 €</td><td>20 €</td></tr>
-          <tr><td>Dinar</td><td>Casa Guedes</td><td>10 €</td><td>20 €</td></tr>
-          <tr><td>Sopar</td><td>Adega São Nicolau</td><td>25 €</td><td>50 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 2</strong></td><td>53 €</td><td>~106 €</td></tr>
-        </table>
-        <div class="budget-note">* Preus d'entrada consultats a fonts oficials/agregadors el 08/2026 — reconfirmar abans del viatge.</div>
-      </div>
     </div>
   </div>
 
@@ -1148,7 +1084,7 @@ html { scroll-behavior: smooth; }
     <div class="section-header">
       <div class="section-number">3</div>
       <div class="section-title-group">
-        <h2>Sé i Palácio da Bolsa</h2>
+        <h2>Sé i São Francisco</h2>
         <p>Diumenge 27 de setembre · Cor històric</p>
       </div>
     </div>
@@ -1165,10 +1101,10 @@ html { scroll-behavior: smooth; }
           <div class="day-km-walk"><div class="day-km-walk-value">~6,5</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
-      <div class="day-intro">Quatre visites a tocar l'una de l'altra: la Casa-Museu Guerra Junqueiro, la Sé, el Palácio da Bolsa (Sala Àrab) i la Igreja de São Francisco, amb la talla barroca més sumptuosa de Porto. <em>Dia amb més activitat que la resta — si arribeu cansats, les peces més prescindibles són Guerra Junqueiro i São Francisco (l'interior de la Sé i el Salão Árabe ja donen molt barroc per un sol matí).</em></div>
+      <div class="day-intro">Tres visites a tocar: Casa-Museu Guerra Junqueiro, la Sé i la Igreja de São Francisco. El Palácio da Bolsa queda per a <strong>dilluns 28 a les 12:00</strong> (reserva confirmada). <em>Si arribeu cansats, Guerra Junqueiro és la peça més prescindible.</em></div>
 
       <div class="route-block">
-        <h3 class="sub">Recorregut del matí — Des de l'apartament, Sé, Bolsa i mercat</h3>
+        <h3 class="sub">Recorregut del matí — Des de l'apartament, Sé i São Francisco</h3>
         <div class="route-svg-wrap">
           <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg">
             <path class="route-path" d="M 40.0,115.0 Q 40.0,115.0 68.2,134.4 Q 96.4,153.8 124.55,163.0 Q 152.7,172.2 180.9,166.35 Q 209.1,160.5 237.3,142.65 Q 265.5,124.8 293.65,104.4 Q 321.8,84.0 350.0,71.75 Q 378.2,59.5 406.35,61.85 Q 434.5,64.2 462.7,79.95 Q 490.9,95.7 519.1,116.5 Q 547.3,137.3 575.45,152.25 Q 603.6,167.2 631.8,168.4 L 660.0,169.6" />
@@ -1199,7 +1135,7 @@ html { scroll-behavior: smooth; }
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232, a pocs minuts de la Sé.</span></li>
+          <li><span class="route-num">1</span><span><strong>Apartament confirmat</strong> — Sortida cap a la Sé (adreça al Resum).</span></li>
           <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">09:15</span><a href="https://www.google.com/maps/search/?api=1&query=Casa-Museu+Guerra+Junqueiro,+Porto" target="_blank" class="ext"><strong>Casa-Museu Guerra Junqueiro</strong></a><span class="route-cost">ENT.<span class="cost-amount">~3 €</span></span></div>Petit museu d'arts decoratives dins d'un palauet barroc del segle XVIII, als peus mateix de la Sé. Palácio dos Camões. Porcellana, argenteria i mobiliari del segle XVIII. Tancat dilluns.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
@@ -1294,24 +1230,7 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">10</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://palaciodabolsa.com/en/tourism/" target="_blank" class="ext"><strong>Palácio da Bolsa</strong></a><span class="route-cost">ENT.<span class="cost-amount">23,50 €</span></span></div>Antiga borsa de comerç, amb el Salão Árabe: una sala d'estil neomudèjar que va trigar 18 anys a decorar-se. Visita guiada obligatòria, 30 min. Adult 14 €/p, <strong>sènior 9,50 €/p</strong> (cal DNI). Reserva online possible; si no, taquilla. Horari i idioma per ordre d'arribada.
-          <details class="culture-toggle route-culture">
-            <summary>Saber-ne més</summary>
-            <div class="culture-body">
-          <h4>Un incendi que ho va originar tot</h4>
-          <p>La nit del 24 de juliol de 1832, durant el setge del Porto (guerra civil entre liberals i absolutistes), un incendi va arrasar el convent franciscà de São Francisco, deixant només dempeus l'església actual (la que visitareu just al costat). La reina D. Maria II va cedir les ruïnes als comerciants de la ciutat perquè hi bastissin la seva pròpia seu.</p>
-          <h4>Setanta anys de construcció</h4>
-          <p>La primera pedra es va col·locar el 1842, però la decoració interior es va allargar fins al 1909 — gairebé set dècades. És un edifici neoclàssic amb influències de l'arquitectura toscana i del palladianisme anglès, pensat expressament per exhibir la riquesa i el poder de la nova burgesia mercantil enfront de l'antic poder eclesiàstic.</p>
-          <h4>El Salão Árabe</h4>
-          <p>La sala més fotografiada, inaugurada el 1880, no és àrab de veritat: és una fantasia neomudèjar del segle XIX inspirada en l'Alhambra de Granada, amb estucs coberts de pa d'or i inscripcions en àrab (que, curiosament, no diuen res concret — són decoratives). S'hi han rebut caps d'estat com Bill Clinton o els reis d'Espanya.</p>
-          <div class="culture-links">
-            <a href="https://pt.wikipedia.org/wiki/Pal%C3%A1cio_da_Bolsa" target="_blank" class="ext">Viquipèdia (portuguès)</a>
-            <a href="https://palaciodabolsa.com/historia/" target="_blank" class="ext">Web oficial — història</a>
-          </div>
-        </div>
-          </details>
-        </span></li>
-          <li><span class="route-num principal">11</span><span><div class="route-item-header"><span class="route-time">12:30</span><a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+S%C3%A3o+Francisco,+Porto" target="_blank" class="ext"><strong>Igreja de São Francisco</strong></a><span class="route-cost">ENT.<span class="cost-amount">~18 €</span></span></div>Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos. Rua Infante D. Henrique. Oberta 9-20h (setembre). Entrada habitual ~9 €/p (13+); no consta descompte sènior a la web de l'orde — reconfirmar a taquilla.
+          <li><span class="route-num principal">10</span><span><div class="route-item-header"><span class="route-time">11:15</span><a href="https://www.google.com/maps/search/?api=1&query=Igreja+de+S%C3%A3o+Francisco,+Porto" target="_blank" class="ext"><strong>Igreja de São Francisco</strong></a><span class="route-cost">ENT.<span class="cost-amount">~18 €</span></span></div>Exterior gòtic auster, interior recobert amb prop de 300-600 kg d'or en talla barroca. Sota l'església hi ha unes catacumbes amb ossos. Rua Infante D. Henrique. Oberta 9-20h (setembre). Entrada habitual ~9 €/p (13+); no consta descompte sènior a la web de l'orde — reconfirmar a taquilla.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1330,21 +1249,34 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num">12</span><span><strong>Mercado Ferreira Borges</strong> — Antic mercat de ferro del segle XIX, tocant a São Francisco, avui reconvertit en espai d'oci i concerts — val la pena només per l'estructura metàl·lica.</span></li>
+          <li><span class="route-num">11</span><span><strong>Mercado Ferreira Borges</strong> — Antic mercat de ferro del segle XIX, tocant a São Francisco, avui reconvertit en espai d'oci i concerts — val la pena només per l'estructura metàl·lica.</span></li>
+          <li><span class="route-num">12</span><span><div class="route-item-header"><span class="route-time">13:30</span><a href="https://tabernadavo.eatbu.com" target="_blank" class="ext"><strong>Taberna · d'Avó</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix i marisc</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns</div></div></div></details></div>Petiscos i cuina casolana a 5-7 min de São Francisco. Tancat diumenge — si tanqués, useu les alternatives.</span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Casa-Museu+Guerra+Junqueiro,+Porto/Pa%C3%A7o+Episcopal+do+Porto/S%C3%A9+do+Porto/Pelourinho+do+Porto/Miradouro+da+Vit%C3%B3ria,+Porto/Rua+das+Flores,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Igreja+de+Santa+Clara,+Porto/Pal%C3%A1cio+da+Bolsa/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Casa-Museu+Guerra+Junqueiro,+Porto/Pa%C3%A7o+Episcopal+do+Porto/S%C3%A9+do+Porto/Pelourinho+do+Porto/Miradouro+da+Vit%C3%B3ria,+Porto/Rua+das+Flores,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Igreja+de+Santa+Clara,+Porto/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — recorregut del matí (dia 3)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Guerra Junqueiro</td><td>1 adult + 1 sènior (est.)</td><td>~3 €</td><td>~5,50 €</td></tr>
+                <tr><td>Sé</td><td>claustre/museu/torre</td><td>4 €</td><td>~8 €</td></tr>
+                <tr><td>São Francisco</td><td>~9 €/p</td><td>9 €</td><td>~18 €</td></tr>
+                <tr><td>Dinar</td><td>Taberna d'Avó (est.)</td><td>25 €</td><td>50 €</td></tr>
+                <tr><td>Miscel·lània</td><td>Cafès</td><td>5 €</td><td>10 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>~46 €</td><td>~91,50 €</td></tr>
+              </table>
+              <div class="budget-note">* Bolsa compta al recorregut de dilluns.</div>
+            </div>
+          </details>
+        </div>
       </div>
 
       <table class="schedule">
-        <tr>
-          <td class="schedule-time">14:00</td>
-          <td class="schedule-place">Dinar zona Ribeira</td>
-          <td class="schedule-notes">Osteria típica a la zona (veure guia gastronòmica). Estimació per persona amb vi inclòs.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">50 € (est.)</span></td>
-        </tr>
         <tr>
           <td class="schedule-time">17:00</td>
           <td class="schedule-place">Passeig lliure</td>
@@ -1353,44 +1285,6 @@ html { scroll-behavior: smooth; }
         </tr>
       </table>
 
-      <h3 class="sub">3 alternatives verificades per dinar — Sé i Ribeira</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://tabernadavo.eatbu.com" target="_blank" class="ext">Taberna d'Avó</a></div>
-          <div class="resto-cell">preu moderat · petiscos i cuina casolana</div>
-          <div class="resto-cell">R. de São Bento da Vitória 48 · tel. 222 012 181 · tancat diumenge · sense reserva, anar-hi d'hora</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div>
-          <div class="resto-cell">~25 €/p · polp i carns</div>
-          <div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div>
-          <div class="resto-cell">~30-40 €/p · peix i marisc</div>
-          <div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns · reservar amb molta antelació</div>
-        </div>
-      </div>
-
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 3</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Casa-Museu Guerra Junqueiro</td><td>1 adult + 1 sènior (estimat)</td><td>~3 €</td><td>~5,50 €</td></tr>
-          <tr><td>Sé — claustre / museu / torre</td><td>~4 €/p (Visit Porto)</td><td>4 €</td><td>~8 €</td></tr>
-          <tr><td>Palácio da Bolsa</td><td>1 adult + 1 sènior (oficial)</td><td>—</td><td>23,50 €</td></tr>
-          <tr><td>Igreja de São Francisco</td><td>~9 €/p (sense sènior confirmat)</td><td>9 €</td><td>~18 €</td></tr>
-          <tr><td>Dinar</td><td>Osteria típica (estimat)</td><td>25 €</td><td>50 €</td></tr>
-          <tr><td>Miscel·lània</td><td>Cafès, gelats</td><td>5 €</td><td>10 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 3</strong></td><td>~57 €</td><td>~115 €</td></tr>
-        </table>
-        <div class="budget-note">* Sé i São Francisco: reconfirmar a taquilla. Palácio da Bolsa: preus oficials 16/09/2026. Ell té 66 anys (sènior); ella fa 63 el 29/09 — encara no sènior.</div>
-      </div>
     </div>
   </div>
 
@@ -1399,7 +1293,7 @@ html { scroll-behavior: smooth; }
     <div class="section-header">
       <div class="section-number">4</div>
       <div class="section-title-group">
-        <h2>Vila Nova de Gaia</h2>
+        <h2>Palácio da Bolsa i Gaia</h2>
         <p>Dilluns 28 de setembre · Caves i Douro</p>
       </div>
     </div>
@@ -1416,10 +1310,10 @@ html { scroll-behavior: smooth; }
           <div class="day-km-walk"><div class="day-km-walk-value">~5,8</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
-      <div class="day-intro">Travessar el pont D. Luís I (tauler superior, pla) fins a Gaia. Creuer de les 6 Pontes i visita amb tast a una cava de vinho do Porto. Dia sense esforç físic.</div>
+      <div class="day-intro">Matí al Palácio da Bolsa (reserva 12:00). Després, passeig a Gaia, dinar al Cais i <strong>creuer 6 Pontes a la tarda (16:00)</strong> per no solapar-lo amb la visita.</div>
 
       <div class="route-block">
-        <h3 class="sub">Recorregut del matí — Des de l'apartament, pont, monestir i cais</h3>
+        <h3 class="sub">Recorregut — Bolsa 12:00, Gaia i creuer de tarda</h3>
         <div class="route-svg-wrap">
           <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
             <path class="route-path" d="M 45.0,110.0 Q 45.0,110.0 83.1,131.3 Q 121.2,152.6 159.35,158.95 Q 197.5,165.3 235.65,152.3 Q 273.8,139.3 311.9,116.0 Q 350.0,92.7 388.1,75.5 Q 426.2,58.3 464.35,59.2 Q 502.5,60.1 540.65,78.5 Q 578.8,96.9 616.9,119.9 L 655.0,142.9" />
@@ -1444,8 +1338,25 @@ html { scroll-behavior: smooth; }
           </svg>
         </div>
         <ol class="route-list">
-          <li><span class="route-num">1</span><span><strong>Apartament FLH Porto</strong> — Sortida des de Rua Mouzinho da Silveira 232, a pocs minuts del pont.</span></li>
-          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">10:30</span><a href="https://www.google.com/maps/search/?api=1&query=Ponte+D.+Lu%C3%ADs+I,+Porto" target="_blank" class="ext"><strong>Ponte D. Luís I</strong></a></div>Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants. Alternativa sense escales: teleférico de Gaia.
+          <li><span class="route-num">1</span><span><strong>Apartament confirmat</strong> — Sortida cap a la Bolsa (dades d'accés al Resum).</span></li>
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">12:00</span><a href="https://palaciodabolsa.com/en/tourism/" target="_blank" class="ext"><strong>Palácio da Bolsa</strong></a><span class="reserve-badge">RESERVAT</span><span class="route-cost">ENT.<span class="cost-amount">23,50 €</span></span></div>Antiga borsa de comerç i Salão Árabe. <strong>Reserva 37233 confirmada</strong> — dl 28/09 12:00, fast track. 1 adult 14 € + 1 sènior 9,50 € = 23,50 € (pagat). Idioma al taulell; <strong>sense canvi de data</strong>.
+          <details class="culture-toggle route-culture">
+            <summary>Saber-ne més</summary>
+            <div class="culture-body">
+          <h4>Un incendi que ho va originar tot</h4>
+          <p>La nit del 24 de juliol de 1832, durant el setge del Porto (guerra civil entre liberals i absolutistes), un incendi va arrasar el convent franciscà de São Francisco, deixant només dempeus l'església actual (la que visitareu just al costat). La reina D. Maria II va cedir les ruïnes als comerciants de la ciutat perquè hi bastissin la seva pròpia seu.</p>
+          <h4>Setanta anys de construcció</h4>
+          <p>La primera pedra es va col·locar el 1842, però la decoració interior es va allargar fins al 1909 — gairebé set dècades. És un edifici neoclàssic amb influències de l'arquitectura toscana i del palladianisme anglès, pensat expressament per exhibir la riquesa i el poder de la nova burgesia mercantil enfront de l'antic poder eclesiàstic.</p>
+          <h4>El Salão Árabe</h4>
+          <p>La sala més fotografiada, inaugurada el 1880, no és àrab de veritat: és una fantasia neomudèjar del segle XIX inspirada en l'Alhambra de Granada, amb estucs coberts de pa d'or i inscripcions en àrab (que, curiosament, no diuen res concret — són decoratives). S'hi han rebut caps d'estat com Bill Clinton o els reis d'Espanya.</p>
+          <div class="culture-links">
+            <a href="https://pt.wikipedia.org/wiki/Pal%C3%A1cio_da_Bolsa" target="_blank" class="ext">Viquipèdia (portuguès)</a>
+            <a href="https://palaciodabolsa.com/historia/" target="_blank" class="ext">Web oficial — història</a>
+          </div>
+        </div>
+          </details>
+        </span></li>
+          <li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">13:15</span><a href="https://www.google.com/maps/search/?api=1&query=Ponte+D.+Lu%C3%ADs+I,+Porto" target="_blank" class="ext"><strong>Ponte D. Luís I</strong></a></div>Pont de ferro de doble tauler (1886), obra de Théophile Seyrig, deixeble d'Eiffel. Tauler superior, pla i per a vianants. Alternativa sense escales: teleférico de Gaia.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
             <div class="culture-body">
@@ -1519,27 +1430,9 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">9</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext"><strong>Cais de Gaia — Creuer 6 Pontes + Cava</strong></a><span class="reserve-badge"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">58 €</span></span></div>El moll de les caves de vinho do Porto. Creuer de 50 min + visita guiada amb tast a una cava, durada total ~2h.</span></li>
-        </ol>
-        <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Telef%C3%A9rico+de+Gaia/WOW+Porto/Half+Rabbit+Bordalo+II+Gaia/Espa%C3%A7o+Porto+Cruz/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Veure recorregut a Google Maps
-        </a>
-      </div>
-
-      <table class="schedule">
-        <tr>
-          <td class="schedule-time">13:30</td>
-          <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=Casa+Guedes+Gaia,+Avenida+de+Diogo+Leite+56" target="_blank" class="ext">Casa Guedes — Cais de Gaia</a></td>
-          <td class="schedule-notes">Av. Diogo Leite 56, V.N. Gaia · tel. +351 910 861 707. Terrassa amb vista al riu, sandes de pernil i plats tradicionals.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
-        </tr>
-      </table>
-
-      <h3 class="sub">Per aprofundir-hi</h3>
-      
-      <details class="culture-toggle">
-        <summary>El vinho do Porto — la primera denominació d'origen (gairebé) del món</summary>
+          <li><span class="route-num">9</span><span><div class="route-item-header"><span class="route-time">13:45</span><a href="https://www.google.com/maps/search/?api=1&query=Casa+Guedes+Gaia,+Avenida+de+Diogo+Leite+56" target="_blank" class="ext"><strong>Casa de sandes · Casa Guedes — Cais de Gaia</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.thefork.pt/restaurante/restaurante-nov-adega-r826683" target="_blank" class="ext">Nov'Adega</a></div><div class="resto-cell">~15-23 €/p · cabrit, tripas</div><div class="resto-cell">R. Cândido dos Reis 65 · tel. 223 756 771</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://sanchopanzacaisdegaia.eatbu.com" target="_blank" class="ext">Sancho Panza — Cais de Gaia</a></div><div class="resto-cell">francesinha, bacalhau</div><div class="resto-cell">Av. de Ramos Pinto 250 · tel. 917 113 196 · tancat dimarts</div></div></div></details></div>Av. Diogo Leite 56 · tel. 910 861 707. Terrassa al riu.</span></li>
+          <li><span class="route-num principal">10</span><span><div class="route-item-header"><span class="route-time">16:00</span><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank" class="ext"><strong>Cais de Gaia — Creuer 6 Pontes + Cava</strong></a><span class="reserve-badge"><a href="https://www.cruzeiros-douro.pt/pt/cruzeiros-1-dia/cruzeiro-pontes-com-visita-caves" target="_blank">Reservar</a></span><span class="route-cost">ENT.<span class="cost-amount">58 €</span></span></div>El moll de les caves de vinho do Porto. Creuer de 50 min + visita guiada amb tast a una cava, durada total ~2h.<details class="culture-toggle route-culture">
+        <summary>Saber-ne més · El vinho do Porto — la primera denominació d'origen (gairebé) del món</summary>
         <div class="culture-body">
           <h4>Per què les caves són a Gaia i no al Porto</h4>
           <p>El vi es cultiva riu amunt, a la Vall del Douro, a desenes de quilòmetres d'aquí. Fins al segle XX baixava en vaixells <em>rabelos</em> pel riu fins a Gaia, on el clima més fresc i humit —a diferència de la calor seca de l'interior— és ideal per envellir-lo llargament en bótes de roure. Per això totes les grans marques (Sandeman, Calém, Graham's, Ferreira...) tenen les seves caves històriques a Gaia, no a Porto.</p>
@@ -1552,48 +1445,33 @@ html { scroll-behavior: smooth; }
             <a href="https://www.ivdp.pt/pt/vinhos/vinhos-do-porto/historia/" target="_blank" class="ext">IVDP — història oficial del vi do Porto</a>
           </div>
         </div>
-      </details>
-
-      <h3 class="sub">3 alternatives verificades per dinar — Vila Nova de Gaia</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
+      </details></span></li>
+        </ol>
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Pal%C3%A1cio+da+Bolsa/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Telef%C3%A9rico+de+Gaia/WOW+Porto/Half+Rabbit+Bordalo+II+Gaia/Espa%C3%A7o+Porto+Cruz/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Veure recorregut a Google Maps
+        </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — recorregut Bolsa i Gaia (dia 4)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Palácio da Bolsa</td><td>Reserva 37233 (1+1)</td><td>11,75 €</td><td>23,50 €</td></tr>
+                <tr><td>Creuer + cava</td><td>tarda 16:00 (pendent reserva)</td><td>29 €</td><td>58 €</td></tr>
+                <tr><td>Dinar</td><td>Casa Guedes Gaia (est.)</td><td>10 €</td><td>20 €</td></tr>
+                <tr><td>Miscel·lània</td><td>Cafès</td><td>5 €</td><td>10 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>~56 €</td><td>~111,50 €</td></tr>
+              </table>
+              <div class="budget-note">* Bolsa ja pagada. Creuer encara per reservar.</div>
+            </div>
+          </details>
         </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Casa+Guedes+Gaia,+Avenida+de+Diogo+Leite+56" target="_blank" class="ext">Casa Guedes — Cais de Gaia</a></div>
-          <div class="resto-cell">~10 €/p · sandes de pernil</div>
-          <div class="resto-cell">Av. Diogo Leite 56 · tel. 910 861 707 · obert cada dia</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.thefork.pt/restaurante/restaurante-nov-adega-r826683" target="_blank" class="ext">Nov'Adega</a></div>
-          <div class="resto-cell">~15-23 €/p · cabrit assat, tripas</div>
-          <div class="resto-cell">R. Cândido dos Reis 65 · tel. 223 756 771 · obert cada dia</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://sanchopanzacaisdegaia.eatbu.com" target="_blank" class="ext">Sancho Panza — no Cais de Gaia</a></div>
-          <div class="resto-cell">preu mitjà-alt · francesinha, bacalhau</div>
-          <div class="resto-cell">Av. de Ramos Pinto 250 · tel. 917 113 196 · tancat dimarts</div>
-        </div>
-      </div>
-      <div class="box box-info">
-        <span class="box-label">Sobre les mariscades a Gaia</span>
-        No hi incorporo cap marisqueira especialista a Vila Nova de Gaia: les més ben valorades de la zona (Agudamar, Dom Marisco) estan a Arcozelo/Miramar, a uns 20 min en cotxe — fora de l'abast a peu i en contradicció amb haver descartat el lloguer de cotxe. Si en teniu ganes, la <a href="https://www.google.com/maps/search/?api=1&query=Marisqueira+do+Porto,+Rua+do+Campo+Alegre+110,+Porto" target="_blank" class="ext">Marisqueira do Porto</a> (proposada al dia 2) és l'opció de mariscada més a l'abast de tot el viatge.
       </div>
 
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 4</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Creuer + cava</td><td>cruzeiros-douro.pt</td><td>29 €</td><td>58 €</td></tr>
-          <tr><td>Dinar</td><td>Casa Guedes Gaia</td><td>10 €</td><td>20 €</td></tr>
-          <tr><td>Miscel·lània</td><td>Cafès</td><td>5 €</td><td>10 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 4</strong></td><td>44 €</td><td>~88 €</td></tr>
-        </table>
-        <div class="budget-note">* Preu del creuer confirmat a la web oficial (agost 2026); pot variar amb la temporada.</div>
-      </div>
-    </div>
+
+          </div>
   </div>
 
   <!-- ═══════════ DIA 5 — DT 29 SET ═══════════ -->
@@ -1663,7 +1541,24 @@ html { scroll-behavior: smooth; }
         </div>
           </details>
         </span></li>
-          <li><span class="route-num principal">3</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.</span></li>
+          <li><span class="route-num principal">3</span><span><strong>Praça de Santiago i Igreja de Nossa Senhora da Oliveira</strong> — El cor medieval de la ciutat, amb les cases porticades més fotografiades de Guimarães.<details class="culture-toggle route-culture">
+        <summary>Saber-ne més · Context de la ciutat — Guimarães, "Aqui nasceu Portugal"</summary>
+        <div class="culture-body">
+          <h4>D'un monestir a un regne</h4>
+          <p>Cap al 950, la comtessa Mumadona Dias, vídua i devota cristiana, va fundar un monestir en aquest indret i hi va fer construir un castell per protegir-lo dels atacs normands i musulmans. A finals del segle XI, el comte D. Henrique de Borgonya i la seva esposa D. Teresa —pares del futur primer rei de Portugal— van triar aquest burg com a residència.</p>
+          <h4>La Batalla de São Mamede (1128)</h4>
+          <p>El 24 de juny de 1128, al Campo de São Mamede, just als afores de la ciutat, D. Afonso Henriques va derrotar les tropes lleials a la seva pròpia mare, D. Teresa, i va assumir el poder del Comtat Portucalense. Molts historiadors consideren aquest episodi el naixement polític de Portugal com a entitat separada del regne de Lleó. La frase "Aqui nasceu Portugal", inscrita en una de les torres de la muralla, en resumeix la importància simbòlica.</p>
+          <h4>El Paço dos Duques</h4>
+          <p>Construït al segle XV per D. Afonso, fill natural del rei D. João I i primer Duc de Bragança, aquest palau d'inspiració borgonyona —amb les seves característiques xemeneies cilíndriques— és un exemplar únic a la Península Ibèrica. Va acabar sent, segles després, residència oficial usada pel dictador Salazar durant les seves visites al nord.</p>
+          <h4>Una llegenda d'honor: Egas Moniz</h4>
+          <p>Egas Moniz, aio (tutor) del jove D. Afonso Henriques, havia promès lleialtat al rei de Lleó en nom del seu pupil. Quan aquest es va revoltar, Egas Moniz es va presentar davant el rei lleonès amb una corda al coll, oferint la seva pròpia vida per la paraula trencada — un gest que la tradició portuguesa recorda encara com a exemple d'honor.</p>
+          <div class="culture-links">
+            <a href="https://es.wikipedia.org/wiki/Guimar%C3%A3es" target="_blank" class="ext">Viquipèdia (espanyol)</a>
+            <a href="https://pacodosduques.gov.pt/" target="_blank" class="ext">Web oficial — Paço dos Duques</a>
+          </div>
+        </div>
+      </details></span></li>
+          <li><span class="route-num">3b</span><span><div class="route-item-header"><span class="route-time">13:15</span><a href="https://www.google.com/maps/search/?api=1&query=El+Rei+Dom+Afonso,+Pra%C3%A7a+de+S%C3%A3o+Tiago+20,+Guimar%C3%A3es" target="_blank" class="ext"><strong>Restaurant · El Rei Dom Afonso</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Taberna+Trovador,+Largo+do+Trovador+10,+Guimar%C3%A3es" target="_blank" class="ext">Taberna Trovador</a></div><div class="resto-cell">~15 €/p · petiscos minhotos</div><div class="resto-cell">Largo do Trovador 10 · tel. 913 205 263</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://restaurantebuxa.com" target="_blank" class="ext">Restaurante Buxa</a></div><div class="resto-cell">~15-25 €/p · cuina tradicional</div><div class="resto-cell">Largo da Oliveira 23 · tel. 252 058 242</div></div></div></details></div>Praça de São Tiago 20-A · tel. 253 419 096. Cuina minhota, a 1 min de la plaça.</span></li>
           <li><span class="route-num">4</span><span><strong>Padrão do Salado</strong> — Monument gòtic de 1342, amb una creu de pedra que representa Crist i la Verge, erigit per commemorar la victòria luso-castellana contra els moros a la batalla del Salado (1340).</span></li>
           <li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://pacodosduques.gov.pt/planear-visita/bilhetica-horarios/" target="_blank" class="ext"><strong>Paço dos Duques de Bragança</strong></a><span class="route-cost">ENT.<span class="cost-amount">7,50 €</span></span></div>Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica. Normal 5 €, sènior (+65) 2,50 € (MMP, cal DNI). Obert 10-18h.</span></li>
           <li><span class="route-num principal">6</span><span><div class="route-item-header"><span class="route-time">11:45</span><a href="https://www.google.com/maps/search/?api=1&query=Castelo+de+Guimar%C3%A3es" target="_blank" class="ext"><strong>Castelo de Guimarães</strong></a><span class="route-cost">ENT.<span class="cost-amount">7,50 €</span></span></div>El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal. Normal 5 €, sènior 2,50 € (MMP). Circuit Paço + Castelo + Museu Alberto Sampaio: 13 €/p si encara aplica (període de requalificació).</span></li>
@@ -1698,10 +1593,27 @@ html { scroll-behavior: smooth; }
           </details>
         </span></li>
         </ol>
-        <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Zona+dos+Coureiros,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Padr%C3%A3o+do+Salado,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es/Telef%C3%A9rico+da+Penha,+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Zona+dos+Coureiros,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Padr%C3%A3o+do+Salado,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es/Telef%C3%A9rico+da+Penha,+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — recorregut Guimarães (dia 5)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Tren Bilhete Turístico</td><td>CP</td><td>7,70 €</td><td>15,40 €</td></tr>
+                <tr><td>Paço + Castelo + Sampaio + Sarmento</td><td>MMP / Visit</td><td>~16 €</td><td>~28,50 €</td></tr>
+                <tr><td>Dinar</td><td>El Rei Dom Afonso (est.)</td><td>20 €</td><td>40 €</td></tr>
+                <tr><td>Miscel·lània</td><td>Cafès</td><td>5 €</td><td>10 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>~47 €</td><td>~93,90 €</td></tr>
+              </table>
+              <div class="budget-note">* No inclou allotjament ni vols (Logística / Resum).</div>
+            </div>
+          </details>
+        </div>
       </div>
 
       <table class="schedule">
@@ -1728,38 +1640,8 @@ html { scroll-behavior: smooth; }
         <tr>
           <td class="schedule-time">16:00</td>
           <td class="schedule-place"><a href="https://msarmento.org/espacos/martins-sarmento/" target="_blank" class="ext">Museu Arqueológico Martins Sarmento</a></td>
-          <td class="schedule-notes">Peces de les cultures castrenques del nord de Portugal (Citânia de Briteiros). A 5 min a peu del Museu Alberto Sampaio. Tancat dilluns. Normal 4 €, +65 2 € (Visit Guimarães).</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">6 €</span></td>
-        </tr>
-        <tr>
-          <td class="schedule-time">17:45</td>
-          <td class="schedule-place"><a href="https://www.cp.pt/info/w/guimaraes-visit" target="_blank" class="ext">Tren de tornada a Porto</a></td>
-          <td class="schedule-notes">Inclòs al Bilhete Turístico del matí.</td>
-          <td class="schedule-cost">—</td>
-        </tr>
-      </table>
-
-      <h3 class="sub">Per aprofundir-hi</h3>
-      <details class="culture-toggle">
-        <summary>Context de la ciutat — Guimarães, "Aqui nasceu Portugal"</summary>
-        <div class="culture-body">
-          <h4>D'un monestir a un regne</h4>
-          <p>Cap al 950, la comtessa Mumadona Dias, vídua i devota cristiana, va fundar un monestir en aquest indret i hi va fer construir un castell per protegir-lo dels atacs normands i musulmans. A finals del segle XI, el comte D. Henrique de Borgonya i la seva esposa D. Teresa —pares del futur primer rei de Portugal— van triar aquest burg com a residència.</p>
-          <h4>La Batalla de São Mamede (1128)</h4>
-          <p>El 24 de juny de 1128, al Campo de São Mamede, just als afores de la ciutat, D. Afonso Henriques va derrotar les tropes lleials a la seva pròpia mare, D. Teresa, i va assumir el poder del Comtat Portucalense. Molts historiadors consideren aquest episodi el naixement polític de Portugal com a entitat separada del regne de Lleó. La frase "Aqui nasceu Portugal", inscrita en una de les torres de la muralla, en resumeix la importància simbòlica.</p>
-          <h4>El Paço dos Duques</h4>
-          <p>Construït al segle XV per D. Afonso, fill natural del rei D. João I i primer Duc de Bragança, aquest palau d'inspiració borgonyona —amb les seves característiques xemeneies cilíndriques— és un exemplar únic a la Península Ibèrica. Va acabar sent, segles després, residència oficial usada pel dictador Salazar durant les seves visites al nord.</p>
-          <h4>Una llegenda d'honor: Egas Moniz</h4>
-          <p>Egas Moniz, aio (tutor) del jove D. Afonso Henriques, havia promès lleialtat al rei de Lleó en nom del seu pupil. Quan aquest es va revoltar, Egas Moniz es va presentar davant el rei lleonès amb una corda al coll, oferint la seva pròpia vida per la paraula trencada — un gest que la tradició portuguesa recorda encara com a exemple d'honor.</p>
-          <div class="culture-links">
-            <a href="https://es.wikipedia.org/wiki/Guimar%C3%A3es" target="_blank" class="ext">Viquipèdia (espanyol)</a>
-            <a href="https://pacodosduques.gov.pt/" target="_blank" class="ext">Web oficial — Paço dos Duques</a>
-          </div>
-        </div>
-      </details>
-
-      <details class="culture-toggle">
-        <summary>Museu Martins Sarmento — les cultures castrenques del nord de Portugal</summary>
+          <td class="schedule-notes">Peces de les cultures castrenques del nord de Portugal (Citânia de Briteiros). A 5 min a peu del Museu Alberto Sampaio. Tancat dilluns. Normal 4 €, +65 2 € (Visit Guimarães).<details class="culture-toggle route-culture">
+        <summary>Saber-ne més · Museu Martins Sarmento — les cultures castrenques del nord de Portugal</summary>
         <div class="culture-body">
           <h4>Origen</h4>
           <p>Fundat el 1885 a partir de les excavacions de l'arqueòleg Francisco Martins Sarmento a la Citânia de Briteiros, un dels poblats fortificats (castros) més importants del nord de Portugal.</p>
@@ -1771,51 +1653,16 @@ html { scroll-behavior: smooth; }
             <a href="https://www.smartinssarmento.pt/" target="_blank" class="ext">Sociedade Martins Sarmento</a>
           </div>
         </div>
-      </details>
-
-      
-      
-      
-      <h3 class="sub">3 alternatives verificades per dinar — Guimarães (Praça de Santiago)</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=El+Rei+Dom+Afonso,+Pra%C3%A7a+de+S%C3%A3o+Tiago+20,+Guimar%C3%A3es" target="_blank" class="ext">El Rei Dom Afonso</a></div>
-          <div class="resto-cell">~15-22 €/p · cuina minhota tradicional</div>
-          <div class="resto-cell">Praça de São Tiago 20-A · tel. 253 419 096 · a 1 min de la plaça</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Taberna+Trovador,+Largo+do+Trovador+10,+Guimar%C3%A3es" target="_blank" class="ext">Taberna Trovador</a></div>
-          <div class="resto-cell">~15 €/p · petiscos i plats minhotos (Expresso, 2025)</div>
-          <div class="resto-cell">Largo do Trovador 10 · tel. 913 205 263 · ~5 min a peu de la Praça de Santiago · sala petita, millor reservar</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://restaurantebuxa.com" target="_blank" class="ext">Restaurante Buxa</a></div>
-          <div class="resto-cell">~15-25 €/p · cuina tradicional</div>
-          <div class="resto-cell">Largo da Oliveira 23 · tel. 252 058 242 · ~2 min de la Praça de Santiago · 12-15h i 19-22h</div>
-        </div>
-      </div>
-
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 5</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Tren (Bilhete Turístico)</td><td>Il·limitat CP Porto</td><td>7,70 €</td><td>15,40 €</td></tr>
-          <tr><td>Paço dos Duques</td><td>1 adult + 1 sènior (MMP)</td><td>—</td><td>7,50 €</td></tr>
-          <tr><td>Castelo de Guimarães</td><td>1 adult + 1 sènior (MMP)</td><td>—</td><td>7,50 €</td></tr>
-          <tr><td>Museu Alberto Sampaio</td><td>1 adult + 1 sènior (MMP)</td><td>—</td><td>7,50 €</td></tr>
-          <tr><td>Museu Martins Sarmento</td><td>4 € + 2 € (+65)</td><td>—</td><td>6 €</td></tr>
-          <tr><td>Dinar</td><td>El Rei Dom Afonso (estimat)</td><td>20 €</td><td>40 €</td></tr>
-          <tr><td>Miscel·lània</td><td>Cafès</td><td>5 €</td><td>10 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 5</strong></td><td>~47 €</td><td>~93,90 €</td></tr>
-        </table>
-        <div class="budget-note">* Preus MMP i Visit Guimarães consultats 16/09/2026. Circuit combinat Paço+Castelo+Sampaio 13 €/p si encara és vigent (estalvi davant 15 €/p).</div>
-      </div>
-    </div>
+      </details></td>
+          <td class="schedule-cost">ENT.<span class="cost-amount">6 €</span></td>
+        </tr>
+        <tr>
+          <td class="schedule-time">17:45</td>
+          <td class="schedule-place"><a href="https://www.cp.pt/info/w/guimaraes-visit" target="_blank" class="ext">Tren de tornada a Porto</a></td>
+          <td class="schedule-notes">Inclòs al Bilhete Turístico del matí.</td>
+          <td class="schedule-cost">—</td>
+        </tr>
+      </table>    </div>
   </div>
 
   <!-- ═══════════ DIA 6 — DC 30 SET ═══════════ -->
@@ -1843,6 +1690,15 @@ html { scroll-behavior: smooth; }
       <div class="day-intro">Matí lliure per a un últim passeig o per allò que hagi quedat pendent. Trasllat relaxat cap a l'aeroport.</div>
       <table class="schedule">
         <tr>
+          <td class="schedule-time">10:15</td>
+          <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=O+Buraco,+Rua+do+Bol%C3%A3o+95,+Porto" target="_blank" class="ext"><strong>Restaurant · O Buraco</strong></a>
+            <details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.cafesantiago.pt" target="_blank" class="ext">Café Santiago</a></div><div class="resto-cell">francesinha</div><div class="resto-cell">R. Passos Manuel 226 · tancat diumenge</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa de sandes · Casa Guedes</a></div><div class="resto-cell">sandes de pernil</div><div class="resto-cell">Praça dos Poveiros 130 · tancat diumenge</div></div></div></details>
+          </td>
+          <td class="schedule-notes">Últim àpat abans del vol. Casual, a la Baixa.</td>
+          <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
+        </tr>
+
+        <tr>
           <td class="schedule-time">09:30</td>
           <td class="schedule-place">Matí lliure</td>
           <td class="schedule-notes">Esmorzar tranquil, última passejada per la Ribeira o compres de records (vins, conserves).</td>
@@ -1850,7 +1706,7 @@ html { scroll-behavior: smooth; }
         </tr>
         <tr>
           <td class="schedule-time">11:00</td>
-          <td class="schedule-place highlight">Check-out FLH Porto Portuguese Apartments</td>
+          <td class="schedule-place highlight">Check-out (apartament confirmat — vegeu Resum)</td>
           <td class="schedule-notes">Sortida obligatòria <strong>fins a les 11:00</strong> (hora límit segons la reserva). Deixeu les claus/codi tal com indiqui l'amfitrió.</td>
           <td class="schedule-cost">—</td>
         </tr>
@@ -1870,41 +1726,6 @@ html { scroll-behavior: smooth; }
         </tr>
       </table>
 
-      
-      <h3 class="sub">3 alternatives verificades — últim àpat abans del vol</h3>
-      <div class="resto-grid">
-        <div class="resto-row header">
-          <div class="resto-cell">Local</div>
-          <div class="resto-cell">Preu / especialitat</div>
-          <div class="resto-cell">Adreça i contacte</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=O+Buraco,+Rua+do+Bol%C3%A3o+95,+Porto" target="_blank" class="ext">O Buraco</a></div>
-          <div class="resto-cell">fins a 20 €/p · cuina casolana</div>
-          <div class="resto-cell">Rua do Bolhão 95 · tancat dissabte nit i diumenge</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://www.cafesantiago.pt" target="_blank" class="ext">Café Santiago</a></div>
-          <div class="resto-cell">~12-15 €/p · francesinha</div>
-          <div class="resto-cell">R. Passos Manuel 226 · tel. 222 055 797 · tancat diumenge</div>
-        </div>
-        <div class="resto-row">
-          <div class="resto-cell urgent-name"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa Guedes</a></div>
-          <div class="resto-cell">~10 €/p · sandes de pernil</div>
-          <div class="resto-cell">Praça dos Poveiros 130 · tel. 222 002 874 · tancat diumenge</div>
-        </div>
-      </div>
-
-
-      <div class="budget-box">
-        <div class="budget-header">Pressupost estimat — Dia 6</div>
-        <table class="budget-table">
-          <tr><td>Concepte</td><td>Detall</td><td>Per persona</td><td>2 persones</td></tr>
-          <tr><td>Esmorzar/dinar lleuger</td><td>Estimat</td><td>10 €</td><td>20 €</td></tr>
-          <tr><td>Transport a l'aeroport</td><td>Metro línia E</td><td>2,60 €</td><td>5,20 €</td></tr>
-          <tr class="budget-total"><td colspan="2"><strong>TOTAL DIA 6</strong></td><td>12,60 €</td><td>~25 €</td></tr>
-        </table>
-      </div>
     </div>
   </div>
 
@@ -1914,25 +1735,13 @@ html { scroll-behavior: smooth; }
       <div class="section-number">✦</div>
       <div class="section-title-group">
         <h2>Guia gastronòmica</h2>
-        <p>Tascas i osterias típiques, no turístiques</p>
-      </div>
-    </div>
-    <p class="intro">Els locals següents han estat verificats (adreça, telèfon i horari actuals) i evitem expressament les zones més turístiques del riu.</p>
-    <div class="gastro-grid">
-      <div class="gastro-zone">Miragaia / Ribeira</div>
-      <div class="gastro-dishes"><strong>Taberna Santo António</strong> — cuina casolana portuense, ambient familiar. R. das Virtudes 32 · tel. 222 055 306 · tancat dilluns.</div>
-      <div class="gastro-zone">Ribeira</div>
-      <div class="gastro-dishes"><strong>Adega São Nicolau</strong> — casa de pastes, polp i carns, esplanada amb vista al Douro. Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva, anar-hi d'hora.</div>
-      <div class="gastro-zone">Baixa / Gaia</div>
-      <div class="gastro-dishes"><strong>Casa Guedes</strong> — icona de les sandes de pernil, ambient casual. Dues seus: Praça dos Poveiros 130 (Baixa, tancat diumenge) i Av. Diogo Leite 56 (Cais de Gaia, obert cada dia).</div>
-    </div>
-    <div class="box box-food">
-      <span class="box-label">Plats a provar</span>
-      Francesinha, tripas à moda do Porto, bacalhau à Gomes de Sá, sandes de pernil, vinho verde i, per acabar, un cálice de vinho do Porto Tawny.
-    </div>
+    <p class="day-intro">Els locals concrets i les alternatives són al recorregut de cada dia (prefix de tipus + botó Alternatives). Aquí, només el que cal tastar.</p>
+    <div class="gastro-dishes"><strong>Francesinha</strong> — entrepà cobert de salsa i formatge; prova-la un cop (Café Santiago si tanqués Casa Guedes).</div>
+    <div class="gastro-dishes"><strong>Sandes de pernil</strong> — Casa Guedes (Baixa o Gaia).</div>
+    <div class="gastro-dishes"><strong>Tripas à moda do Porto</strong> — plat històric de la ciutat; a una tasca no turística.</div>
+    <div class="gastro-dishes"><strong>Vinho do Porto</strong> — tast a la cava del creuer (dia 4), no cal repetir-lo a cada bar.</div>
   </div>
 
-  <!-- ═══════════ LOGÍSTICA I PRESSUPOST TOTAL ═══════════ -->
   <div id="logistica">
     <div class="section-header">
       <div class="section-number">◆</div>
@@ -1944,7 +1753,7 @@ html { scroll-behavior: smooth; }
 
     <ul class="tips">
       <li><strong>Vols:</strong> reservats — Ryanair AV9IKF, 175 € (2 persones), BCN ⇄ OPO. Anada dv 25/09 12:00; tornada dc 30/09 14:15.</li>
-      <li><strong>Allotjament:</strong> reservat — FLH Porto Portuguese Apartments, 648,85 € (5 nits). PIN 6264. Cancel·lació amb reemborsament <strong>fins demà 17/09/2026, 23:59</strong>.</li>
+      <li><strong>Allotjament:</strong> reservat — dades completes (PIN, adreça, cancel·lació) <strong>només al Resum de sortida</strong>.</li>
       <li><strong>Trasllat d'anada:</strong> taxi Booking.com Rides (Talixo) 945882762, gratuït. Tornada: metro línia E des de São Bento (encara no reservat).</li>
       <li><strong>Cotxe de lloguer:</strong> descartat — el tren cobreix Guimarães.</li>
       <li><strong>Assegurança de viatge:</strong> pendent de contractar, ~15-25 €/p (estimat 40 € al total).</li>
@@ -1952,21 +1761,21 @@ html { scroll-behavior: smooth; }
     </ul>
 
     <div class="budget-box">
-      <div class="budget-header">Pressupost total estimat del viatge</div>
+      <div class="budget-header">Resum de pressupost — 1 persona i 2 persones</div>
       <table class="budget-table">
-        <tr><td>Concepte</td><td>Detall</td><td></td><td>Total</td></tr>
-        <tr><td>Dia 1 — Arribada</td><td>Transport (taxi gratuït) + MMIPO + Fund. J. Rodrigues + dinar + sopar</td><td></td><td>84 €</td></tr>
-        <tr><td>Dia 2 — Clérigos, Lello i Bolhão</td><td>Entrades + àpats</td><td></td><td>106 €</td></tr>
-        <tr><td>Dia 3 — Guerra Junqueiro, Sé i Bolsa</td><td>Entrades + àpats</td><td></td><td>~115 €</td></tr>
-        <tr><td>Dia 4 — Gaia</td><td>Creuer + cava + àpats</td><td></td><td>88 €</td></tr>
-        <tr><td>Dia 5 — Guimarães</td><td>Tren + monuments + àpats</td><td></td><td>~93,90 €</td></tr>
-        <tr><td>Dia 6 — Comiat</td><td>Àpat + transport</td><td></td><td>25 €</td></tr>
-        <tr><td>Allotjament</td><td>FLH Porto Portuguese Apartments, 5 nits (reservat)</td><td></td><td>648,85 €</td></tr>
-        <tr><td>Vols</td><td>Ryanair, 2 persones, anada i tornada (reservat, AV9IKF)</td><td></td><td>175 €</td></tr>
-        <tr><td>Assegurança de viatge</td><td>2 persones</td><td></td><td>40 €</td></tr>
-        <tr class="budget-total"><td colspan="3"><strong>TOTAL ESTIMAT DEL VIATGE</strong></td><td>~1.375 €</td></tr>
+        <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+        <tr><td>Dia 1 — Arribada i Ribeira</td><td>Dinar, MMIPO, sopar</td><td>39 €</td><td>78 €</td></tr>
+        <tr><td>Dia 2 — Clérigos i Lello</td><td>JEP Clérigos 2 €/p + Lello + àpats</td><td>47 €</td><td>94 €</td></tr>
+        <tr><td>Dia 3 — Sé i São Francisco</td><td>Entrades + dinar (Bolsa al dia 4)</td><td>~46 €</td><td>~91 €</td></tr>
+        <tr><td>Dia 4 — Bolsa i Gaia</td><td>Bolsa 23,50 € + creuer + dinar</td><td>~56 €</td><td>~111,50 €</td></tr>
+        <tr><td>Dia 5 — Guimarães</td><td>Tren + MMP + dinar</td><td>~47 €</td><td>~93,90 €</td></tr>
+        <tr><td>Dia 6 — Comiat</td><td>Àpat + metro</td><td>12,60 €</td><td>~25 €</td></tr>
+        <tr><td>Vols</td><td>Ryanair AV9IKF (reservat)</td><td>87,50 €</td><td>175 €</td></tr>
+        <tr><td>Allotjament</td><td>5 nits (vegeu Resum)</td><td>324,43 €</td><td>648,85 €</td></tr>
+        <tr><td>Assegurança</td><td>Pendent (estimat)</td><td>20 €</td><td>40 €</td></tr>
+        <tr class="budget-total"><td colspan="2"><strong>TOTAL ESTIMAT DEL VIATGE</strong></td><td>~679 €</td><td>~1.357 €</td></tr>
       </table>
-      <div class="budget-note">* Vols i allotjament amb preu real. Trasllat d'anada gratuït; tornada en metro (estimat). Entrades reconfirmades 16/09/2026; reconfirmeu la setmana prèvia a la sortida.</div>
+      <div class="budget-note">* Els desglossos de cada recorregut són al botó «Pressupost del recorregut», a la dreta de Google Maps. Allotjament detallat només al Resum. Clérigos JEP 4 € total; Bolsa 23,50 € total (reserves confirmades).</div>
     </div>
   </div>
 
@@ -1974,7 +1783,7 @@ html { scroll-behavior: smooth; }
 
 <div class="doc-footer">
   <p>Bon viatge!</p>
-  <small>Porto · 25-30 setembre 2026 · Ribeira · Clérigos · Gaia · Guimarães</small>
+  <small>Porto · 25-30 setembre 2026 · Ribeira · Clérigos · Sé · Bolsa · Gaia · Guimarães</small>
 </div>
 
 <div class="bottom-bar" id="bottom-bar">
@@ -1991,8 +1800,8 @@ const days = [
   { id: 'reserves',  label: 'Reserves urgents',    prev: 'top',       next: 'dia0' },
   { id: 'dia0',      label: 'Dv 25 · Arribada',    prev: 'reserves',  next: 'dia1' },
   { id: 'dia1',      label: 'Ds 26 · Clérigos',    prev: 'dia0',      next: 'dia2' },
-  { id: 'dia2',      label: 'Dg 27 · Bolsa',       prev: 'dia1',      next: 'dia3' },
-  { id: 'dia3',      label: 'Dl 28 · Gaia',        prev: 'dia2',      next: 'dia4' },
+  { id: 'dia2',      label: 'Dg 27 · Sé',          prev: 'dia1',      next: 'dia3' },
+  { id: 'dia3',      label: 'Dl 28 · Bolsa i Gaia',        prev: 'dia2',      next: 'dia4' },
   { id: 'dia4',      label: 'Dt 29 · Guimarães',   prev: 'dia3',      next: 'dia5' },
   { id: 'dia5',      label: 'Dc 30 · Comiat',      prev: 'dia4',      next: 'gastro' },
   { id: 'gastro',    label: 'Gastronomia',         prev: 'dia5',      next: 'logistica' },
