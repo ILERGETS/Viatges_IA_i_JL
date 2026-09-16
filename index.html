@@ -2,7 +2,7 @@
 <html lang="ca">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Viatge a Porto IA i Josep Lluís - Setembre 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +101,9 @@ body {
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
   padding-top: 56px; padding-bottom: 52px;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 ::selection { background: var(--terracotta-tint); color: var(--terracotta-dark); }
 
@@ -165,7 +168,7 @@ body {
 }
 .cover-meta-item span { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--paper); font-style: italic; line-height: 1.35; display: block; }
 
-.content { max-width: 920px; margin: 0 auto; padding: 84px 56px 64px; }
+.content { max-width: 920px; width: 100%; margin: 0 auto; padding: 84px 56px 64px; }
 
 .toc { background: transparent; margin: 0 0 32px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 36px 0 28px; }
 .toc h3 { font-family: var(--condensed); font-size: 10.5px; font-weight: 600; letter-spacing: 0.34em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 28px; }
@@ -250,6 +253,8 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
   align-items: start;
   margin: 4px 0 28px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 .route-actions-row .gmaps-btn,
 .route-actions-row .budget-toggle summary {
@@ -263,6 +268,8 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
   justify-content: center;
   white-space: nowrap;
   line-height: 1;
+  overflow: hidden;
+  max-width: 100%;
 }
 .route-actions-row .gmaps-btn { width: 100%; }
 .route-actions-row .budget-toggle { display: contents; }
@@ -443,7 +450,7 @@ a.ext:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); 
 .doc-footer p { font-family: var(--serif); font-size: 36px; font-style: italic; color: var(--terracotta-tint); margin-bottom: 16px; font-weight: 300; letter-spacing: -0.005em; }
 .doc-footer small { font-family: var(--condensed); font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 #top, #resum, #reserves, #allotjament, #dia0, #dia1, #dia2, #dia3, #dia4, #dia5, #gastro, #logistica { scroll-margin-top: 72px; }
 
 @media print {
@@ -467,15 +474,15 @@ html { scroll-behavior: smooth; }
   .villa-card { page-break-inside: avoid; }
 }
 @media (max-width: 760px) {
-  .content { padding: 56px 24px; }
-  .cover-inner { padding: 64px 28px 64px; }
+  .content { padding: 48px 16px 64px; width: 100%; max-width: 100%; }
+  .cover-inner { padding: 64px 20px 64px; }
   .cover-meta { grid-template-columns: 1fr 1fr; }
   .cover-meta-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.12); }
   .cover-meta-item:nth-child(2n) { border-right: none; padding-right: 0; }
   .cover-meta-item:nth-child(n+3) { padding-top: 18px; margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.12); }
-  .section-header { grid-template-columns: 70px 1fr; gap: 16px; margin-top: 64px; }
-  .section-number { font-size: 64px; }
-  .section-title-group h2 { font-size: 30px; }
+  .section-header { grid-template-columns: 48px 1fr; gap: 12px; margin-top: 48px; }
+  .section-number { font-size: 48px; }
+  .section-title-group h2 { font-size: 26px; }
   .day-photo, .day-photo-wrap { height: 220px; max-height: 220px; }
   .day-header { padding: 20px; grid-template-columns: 1fr; gap: 12px; }
   .day-km { text-align: left; }
@@ -489,6 +496,25 @@ html { scroll-behavior: smooth; }
   .gastro-grid { grid-template-columns: 1fr; }
   .gastro-dishes { border-left: none; padding-left: 0; padding-top: 0; }
   .gastro-zone { padding-bottom: 8px; }
+  .day-nav-top a { padding: 0 12px; gap: 8px; }
+  .print-btn, .print-btn-summary { right: 12px; width: auto; max-width: calc(100vw - 24px); padding: 12px 14px; }
+  .budget-box, .km-table, .route-svg-wrap { max-width: 100%; overflow-x: auto; }
+  .budget-table td { white-space: normal !important; }
+  .budget-table td:last-child { white-space: nowrap !important; }
+  .route-actions-row { grid-template-columns: 1fr; gap: 8px; }
+  .route-actions-row .gmaps-btn,
+  .route-actions-row .budget-toggle summary {
+    width: 100%;
+    height: auto !important;
+    min-height: 48px;
+    white-space: normal !important;
+    overflow: hidden;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    line-height: 1.3;
+    padding: 12px 14px !important;
+  }
+  .route-actions-row .budget-toggle .budget-box { grid-column: 1; }
 }
 </style>
 </head>
