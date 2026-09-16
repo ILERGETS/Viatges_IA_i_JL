@@ -243,14 +243,28 @@ h3.sub::before { content: ''; position: absolute; left: 0; top: 50%; width: 24px
 .alt-restaurants summary:hover { color: var(--terracotta); border-color: var(--terracotta); }
 .alt-restaurants summary::before { content: ''; }
 .alt-restaurants .resto-grid { margin-top: 12px; }
-.route-actions-row { display: flex; gap: 12px; flex-wrap: nowrap; align-items: stretch; margin: 4px 0 28px; }
-.route-actions-row .gmaps-btn { margin: 0; flex: 1 1 auto; }
-.route-actions-row .budget-toggle { margin: 0; flex: 0 0 auto; }
+.route-actions-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  margin: 4px 0 28px;
+  width: 100%;
+}
+.route-actions-row .gmaps-btn { margin: 0; width: 100%; box-sizing: border-box; }
+.route-actions-row .budget-toggle { display: contents; }
 .budget-toggle summary { display: flex !important; align-items: center; justify-content: center; gap: 8px; cursor: pointer; list-style: none; font-family: var(--condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); padding: 11px 20px; background: transparent; transition: background 0.15s, color 0.15s; }
 .budget-toggle summary::-webkit-details-marker { display: none; }
 .budget-toggle summary:hover { background: var(--ink); color: var(--paper); }
 .budget-toggle[open] summary { background: var(--ink); color: var(--paper); }
-.budget-toggle .budget-box { margin-top: 16px; }
+.route-actions-row .budget-toggle .budget-box {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 8px 0 0;
+}
+#gastro, #logistica { width: 100%; max-width: 100%; }
+#logistica .budget-box { width: 100%; }
+#gastro .gastro-dishes { border-left: none; padding-left: 0; }
 
 /* ─── TARGETES DE VILLA / MONUMENT (activitats extra) ─── */
 .villa-card { border: none; border-top: 1px solid var(--rule); margin-bottom: 0; display: grid; grid-template-columns: 1fr; padding: 28px 0; background: transparent; }
@@ -1560,8 +1574,8 @@ html { scroll-behavior: smooth; }
       </details></span></li>
           <li><span class="route-num">3b</span><span><div class="route-item-header"><span class="route-time">13:15</span><a href="https://www.google.com/maps/search/?api=1&query=El+Rei+Dom+Afonso,+Pra%C3%A7a+de+S%C3%A3o+Tiago+20,+Guimar%C3%A3es" target="_blank" class="ext"><strong>Restaurant · El Rei Dom Afonso</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Taberna+Trovador,+Largo+do+Trovador+10,+Guimar%C3%A3es" target="_blank" class="ext">Taberna Trovador</a></div><div class="resto-cell">~15 €/p · petiscos minhotos</div><div class="resto-cell">Largo do Trovador 10 · tel. 913 205 263</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://restaurantebuxa.com" target="_blank" class="ext">Restaurante Buxa</a></div><div class="resto-cell">~15-25 €/p · cuina tradicional</div><div class="resto-cell">Largo da Oliveira 23 · tel. 252 058 242</div></div></div></details></div>Praça de São Tiago 20-A · tel. 253 419 096. Cuina minhota, a 1 min de la plaça.</span></li>
           <li><span class="route-num">4</span><span><strong>Padrão do Salado</strong> — Monument gòtic de 1342, amb una creu de pedra que representa Crist i la Verge, erigit per commemorar la victòria luso-castellana contra els moros a la batalla del Salado (1340).</span></li>
-          <li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://pacodosduques.gov.pt/planear-visita/bilhetica-horarios/" target="_blank" class="ext"><strong>Paço dos Duques de Bragança</strong></a><span class="route-cost">ENT.<span class="cost-amount">7,50 €</span></span></div>Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica. Normal 5 €, sènior (+65) 2,50 € (MMP, cal DNI). Obert 10-18h.</span></li>
-          <li><span class="route-num principal">6</span><span><div class="route-item-header"><span class="route-time">11:45</span><a href="https://www.google.com/maps/search/?api=1&query=Castelo+de+Guimar%C3%A3es" target="_blank" class="ext"><strong>Castelo de Guimarães</strong></a><span class="route-cost">ENT.<span class="cost-amount">7,50 €</span></span></div>El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal. Normal 5 €, sènior 2,50 € (MMP). Circuit Paço + Castelo + Museu Alberto Sampaio: 13 €/p si encara aplica (període de requalificació).</span></li>
+          <li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">11:00</span><a href="https://pacodosduques.gov.pt/planear-visita/bilhetica-horarios/" target="_blank" class="ext"><strong>Paço dos Duques de Bragança</strong></a></div>Palau del segle XV d'inspiració borgonyona, únic a la Península Ibèrica. Normal 5 €, sènior (+65) 2,50 € (MMP, cal DNI). Obert 10-18h.</span></li>
+          <li><span class="route-num principal">6</span><span><div class="route-item-header"><span class="route-time">11:45</span><a href="https://www.google.com/maps/search/?api=1&query=Castelo+de+Guimar%C3%A3es" target="_blank" class="ext"><strong>Castelo de Guimarães</strong></a></div>El castell on, segons la tradició, va néixer D. Afonso Henriques, primer rei de Portugal. Normal 5 €, sènior 2,50 € (MMP). Circuit Paço + Castelo + Museu Alberto Sampaio: 13 €/p si encara aplica (període de requalificació).</span></li>
           <li><span class="route-num">7</span><span><strong>Mosteiro de Santa Marinha da Costa</strong> — Monestir del segle XII als vessants de la Penha, avui reconvertit en pousada. Jardins i claustre visitables encara que no s'hi allotgi.
           <details class="culture-toggle route-culture">
             <summary>Saber-ne més</summary>
@@ -1623,19 +1637,19 @@ html { scroll-behavior: smooth; }
             <span class="reserve-badge"><a href="https://www.cp.pt/info/w/guimaraes-visit" target="_blank">Reservar</a></span>
           </td>
           <td class="schedule-notes">Sortida des de Porto-São Bento (la més cèntrica). Bilhete Turístico il·limitat, sense reserva online — es compra a les màquines de l'estació.</td>
-          <td class="schedule-cost">TRANS.<span class="cost-amount">15,40 €</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">13:00</td>
           <td class="schedule-place highlight"><a href="https://www.google.com/maps/search/?api=1&query=El+Rei+Dom+Afonso,+Pra%C3%A7a+de+S%C3%A3o+Tiago+20,+Guimar%C3%A3es" target="_blank" class="ext">Dinar — El Rei Dom Afonso</a></td>
           <td class="schedule-notes">Praça de São Tiago 20-A · tel. 253 419 096. Cuina minhota, ~15-22 €/p. A 1 min de la plaça. Alternatives: Taberna Trovador i Restaurante Buxa (graella més avall). Dimarts obert.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">40 € (est.)</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">15:00</td>
           <td class="schedule-place"><a href="https://www.museualbertosampaio.gov.pt/planear-visita/bilhetica-horarios/" target="_blank" class="ext">Museu Alberto Sampaio</a></td>
           <td class="schedule-notes">Al claustre de Nossa Senhora da Oliveira. Peces medievals, orfebreria religiosa. A 2 min de la Praça de Santiago. Normal 5 €, sènior 2,50 €.</td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">7,50 €</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">16:00</td>
@@ -1654,7 +1668,7 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
       </details></td>
-          <td class="schedule-cost">ENT.<span class="cost-amount">6 €</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">17:45</td>
@@ -1695,14 +1709,14 @@ html { scroll-behavior: smooth; }
             <details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.cafesantiago.pt" target="_blank" class="ext">Café Santiago</a></div><div class="resto-cell">francesinha</div><div class="resto-cell">R. Passos Manuel 226 · tancat diumenge</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://casaguedes.pt" target="_blank" class="ext">Casa de sandes · Casa Guedes</a></div><div class="resto-cell">sandes de pernil</div><div class="resto-cell">Praça dos Poveiros 130 · tancat diumenge</div></div></div></details>
           </td>
           <td class="schedule-notes">Últim àpat abans del vol. Casual, a la Baixa.</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">20 €</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
 
         <tr>
           <td class="schedule-time">09:30</td>
           <td class="schedule-place">Matí lliure</td>
           <td class="schedule-notes">Esmorzar tranquil, última passejada per la Ribeira o compres de records (vins, conserves).</td>
-          <td class="schedule-cost">ÀPAT<span class="cost-amount">20 € (est.)</span></td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">11:00</td>
@@ -1713,10 +1727,8 @@ html { scroll-behavior: smooth; }
         <tr>
           <td class="schedule-time">11:45</td>
           <td class="schedule-place">Trasllat a l'aeroport</td>
-          <td class="schedule-notes">A peu fins a l'estació de metro <strong>São Bento</strong> (~5 min) + Metro línia E directa a l'aeroport, ~25 min. Marge de ~2h abans del vol.
-            <a href="https://www.google.com/maps/dir/?api=1&origin=Rua+Mouzinho+da+Silveira+232,+Porto&destination=Aeroporto+Francisco+S%C3%A1+Carneiro&travelmode=transit" target="_blank" class="ext">Veure ruta apartament → aeroport</a>
-          </td>
-          <td class="schedule-cost">TRANS.<span class="cost-amount">5,20 €</span></td>
+          <td class="schedule-notes">A peu fins a l'estació de metro <strong>São Bento</strong> (~5 min) + Metro línia E directa a l'aeroport, ~25 min. Marge de ~2h abans del vol. Recorregut al botó de Google Maps.</td>
+          <td class="schedule-cost">—</td>
         </tr>
         <tr>
           <td class="schedule-time">14:15</td>
@@ -1725,6 +1737,25 @@ html { scroll-behavior: smooth; }
           <td class="schedule-cost">—</td>
         </tr>
       </table>
+        <div class="route-actions-row">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/O+Buraco,+Rua+do+Bolh%C3%A3o+95,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/Aeroporto+Francisco+S%C3%A1+Carneiro/" target="_blank" class="gmaps-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12-2.5-2.5 2.5z"/></svg>
+          Veure recorregut a Google Maps
+        </a>
+          <details class="budget-toggle">
+            <summary>Pressupost del recorregut</summary>
+            <div class="budget-box">
+              <div class="budget-header">Pressupost — comiat (dia 6)</div>
+              <table class="budget-table">
+                <tr><td>Concepte</td><td>Detall</td><td>1 persona</td><td>2 persones</td></tr>
+                <tr><td>Àpat</td><td>O Buraco (est.)</td><td>10 €</td><td>20 €</td></tr>
+                <tr><td>Metro São Bento → aeroport</td><td>Línia E / Andante</td><td>2,60 €</td><td>5,20 €</td></tr>
+                <tr class="budget-total"><td colspan="2"><strong>TOTAL</strong></td><td>12,60 €</td><td>25,20 €</td></tr>
+              </table>
+              <div class="budget-note">* No inclou allotjament ni vols (Logística / Resum). Esmorzar lliure no comptat si mengeu a O Buraco.</div>
+            </div>
+          </details>
+        </div>
 
     </div>
   </div>
@@ -1735,6 +1766,9 @@ html { scroll-behavior: smooth; }
       <div class="section-number">✦</div>
       <div class="section-title-group">
         <h2>Guia gastronòmica</h2>
+        <p>El que cal tastar</p>
+      </div>
+    </div>
     <p class="day-intro">Els locals concrets i les alternatives són al recorregut de cada dia (prefix de tipus + botó Alternatives). Aquí, només el que cal tastar.</p>
     <div class="gastro-dishes"><strong>Francesinha</strong> — entrepà cobert de salsa i formatge; prova-la un cop (Café Santiago si tanqués Casa Guedes).</div>
     <div class="gastro-dishes"><strong>Sandes de pernil</strong> — Casa Guedes (Baixa o Gaia).</div>
