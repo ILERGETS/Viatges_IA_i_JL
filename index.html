@@ -517,6 +517,74 @@ html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
   .route-actions-row .budget-toggle .budget-box { grid-column: 1; }
 }
 
+/* ─── CAPA RÀPIDA DEL DIA (pas 12) — pantalla, dins cada #diaN ─── */
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-num.principal) {
+  background: var(--paper-warm);
+  padding: 12px 14px;
+  margin: 6px 0;
+  border-left: 3px solid var(--terracotta);
+  border-bottom-color: transparent;
+}
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-num.principal) .route-time {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary {
+  padding: 8px 0 8px 4px;
+  margin-left: 44px;
+  border-left: 2px solid var(--rule-soft);
+  border-bottom: none;
+  cursor: pointer;
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary .route-num {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  background: var(--rule);
+  color: var(--ink-mute);
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary:not(.route-secondary-expanded) > span:last-child {
+  max-height: 2.65em;
+  overflow: hidden;
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary:not(.route-secondary-expanded)::after {
+  content: '… toca per ampliar';
+  display: block;
+  font-family: var(--condensed);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 4px;
+  margin-left: 44px;
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary.route-secondary-expanded::after {
+  content: none;
+}
+body.section-view[data-active-section^="dia"] .route-list li.route-secondary.route-secondary-expanded > span:last-child {
+  max-height: none;
+}
+body.section-view[data-active-section^="dia"] .day-card > .culture-toggle:not([open]) .culture-body,
+body.section-view[data-active-section^="dia"] .route-culture:not([open]) .culture-body {
+  display: none;
+}
+body.section-view[data-active-section^="dia"] .gmaps-btn::after {
+  content: ' · punts principals *';
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  margin-left: 4px;
+}
+@media print {
+  body.section-view .route-list li.route-secondary > span:last-child,
+  body .route-list li.route-secondary > span:last-child {
+    max-height: none !important;
+  }
+  body .route-list li.route-secondary::after {
+    display: none !important;
+  }
+}
+
 /* ─── MODE UNA SECCIÓ (pas 9) — pantalla, no impressió ─── */
 body.section-view .cover,
 body.section-view .content > .toc,
@@ -937,7 +1005,7 @@ body.section-view[data-active-section="top"] .cover-inner {
           <li><span class="route-num">11</span><span><div class="route-item-header"><span class="route-time">20:00</span><a href="https://tabernastoantonio.eatbu.com" target="_blank" class="ext"><strong>Taberna · Santo António</strong></a><span class="reserve-badge"><a href="https://tabernastoantonio.eatbu.com" target="_blank">Reservar</a></span><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext">Adega São Nicolau</a></div><div class="resto-cell">~25 €/p · polp i carns</div><div class="resto-cell">Rua de São Nicolau 1 · tel. 222 008 232 · sense reserva</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix i marisc</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510 · tancat dilluns</div></div></div></details><span class="route-cost">ÀPAT<span class="cost-amount">30 €</span></span></div>R. das Virtudes 32, Miragaia · tel. +351 222 055 306. Cuina casolana portuense, ambient familiar.</span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Cais+da+Ribeira,+Porto/Pra%C3%A7a+da+Ribeira,+Porto/Alminhas+da+Ponte,+Porto/Casa+do+Infante,+Porto/Jardim+das+Virtudes,+Porto/MMIPO,+Rua+das+Flores,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Jardim+das+Virtudes,+Porto/MMIPO,+Rua+das+Flores,+Porto/Rua+das+Virtudes,+Porto/" target="_blank" class="gmaps-btn">
             <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Veure recorregut a Google Maps
           </a>
@@ -1062,7 +1130,7 @@ body.section-view[data-active-section="top"] .cover-inner {
         </span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Torre+dos+Cl%C3%A9rigos/Igreja+do+Carmo,+Porto/Livraria+Lello/Jardim+da+Cordoaria,+Porto/Centro+Portugu%C3%AAs+de+Fotografia,+Porto/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Torre+dos+Cl%C3%A9rigos,+Porto/Livraria+Lello,+Porto/Centro+Portugu%C3%AAs+de+Fotografia,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1166,7 +1234,7 @@ body.section-view[data-active-section="top"] .cover-inner {
           <li><span class="route-num">10</span><span><div class="route-item-header"><span class="route-time">20:00</span><a href="https://www.google.com/maps/search/?api=1&query=Adega+S%C3%A3o+Nicolau,+Rua+de+S%C3%A3o+Nicolau+1,+Porto" target="_blank" class="ext"><strong>Adega · São Nicolau</strong></a><details class="alt-restaurants"><summary>Alternatives</summary><div class="resto-grid"><div class="resto-row header"><div class="resto-cell">Local</div><div class="resto-cell">Preu / especialitat</div><div class="resto-cell">Adreça i contacte</div></div><div class="resto-row"><div class="resto-cell urgent-name"><a href="https://tabernadosmercadores.com" target="_blank" class="ext">Taberna dos Mercadores</a></div><div class="resto-cell">~30-40 €/p · peix</div><div class="resto-cell">R. dos Mercadores 36 · tel. 222 010 510</div></div></div></details></div>No accepten reserva — arribar cap a les 19:45.</span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Pra%C3%A7a+da+Liberdade,+Porto/Avenida+dos+Aliados,+Porto/Monumento+Almeida+Garrett,+Porto/C%C3%A2mara+Municipal+do+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Capela+das+Almas,+Porto/Igreja+dos+Grilos,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Pra%C3%A7a+da+Liberdade,+Porto/Mercado+do+Bolh%C3%A3o,+Porto/Esta%C3%A7%C3%A3o+de+S%C3%A3o+Bento,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1366,7 +1434,7 @@ body.section-view[data-active-section="top"] .cover-inner {
           <li><span class="route-num">13</span><span><div class="route-item-header"><span class="route-time">17:00</span><strong>Passeig lliure</strong></div>Tarda sense pla fix — descans o terrassa vora el riu.</span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Casa-Museu+Guerra+Junqueiro,+Porto/Pa%C3%A7o+Episcopal+do+Porto/S%C3%A9+do+Porto/Pelourinho+do+Porto/Miradouro+da+Vit%C3%B3ria,+Porto/Rua+das+Flores,+Porto/Postigo+do+Carv%C3%A3o,+Porto/Igreja+de+Santa+Clara,+Porto/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Casa-Museu+Guerra+Junqueiro,+Porto/S%C3%A9+do+Porto/Igreja+de+S%C3%A3o+Francisco,+Porto/Mercado+Ferreira+Borges,+Porto/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1553,7 +1621,7 @@ body.section-view[data-active-section="top"] .cover-inner {
       </details></span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Pal%C3%A1cio+da+Bolsa/Ponte+D.+Lu%C3%ADs+I/Jardim+do+Morro,+Vila+Nova+de+Gaia/Mosteiro+da+Serra+do+Pilar/Telef%C3%A9rico+de+Gaia/WOW+Porto/Half+Rabbit+Bordalo+II+Gaia/Espa%C3%A7o+Porto+Cruz/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Rua+Mouzinho+da+Silveira+232,+Porto/Pal%C3%A1cio+da+Bolsa,+Porto/Ponte+D.+Lu%C3%ADs+I,+Porto/Cais+de+Gaia,+Vila+Nova+de+Gaia/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1716,7 +1784,7 @@ body.section-view[data-active-section="top"] .cover-inner {
           <li><span class="route-num">13</span><span><div class="route-item-header"><span class="route-time">17:45</span><a href="https://www.cp.pt/info/w/guimaraes-visit" target="_blank" class="ext"><strong>Tren de tornada a Porto</strong></a></div>Inclòs al Bilhete Turístico del matí.</span></li>
         </ol>
         <div class="route-actions-row">
-          <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Zona+dos+Coureiros,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Padr%C3%A3o+do+Salado,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a/Castelo+de+Guimar%C3%A3es/Mosteiro+de+Santa+Marinha+da+Costa,+Guimar%C3%A3es/Telef%C3%A9rico+da+Penha,+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
+          <a href="https://www.google.com/maps/dir/Largo+do+Toural,+Guimar%C3%A3es/Pra%C3%A7a+de+Santiago,+Guimar%C3%A3es/Pa%C3%A7o+dos+Duques+de+Bragan%C3%A7a,+Guimar%C3%A3es/Castelo+de+Guimar%C3%A3es,+Guimar%C3%A3es/Museu+Alberto+Sampaio,+Guimar%C3%A3es/Museu+Arqueol%C3%B3gico+Martins+Sarmento,+Guimar%C3%A3es/Telef%C3%A9rico+da+Penha,+Guimar%C3%A3es/" target="_blank" class="gmaps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Veure recorregut a Google Maps
         </a>
@@ -1991,12 +2059,26 @@ document.addEventListener('click', function(e) {
   navigateToSection(t);
 });
 
+function initDayQuickLayer() {
+  document.querySelectorAll('.route-list li').forEach(li => {
+    if (li.querySelector('.route-num.principal')) return;
+    li.classList.add('route-secondary');
+    if (li.dataset.quickBound) return;
+    li.dataset.quickBound = '1';
+    li.addEventListener('click', function(e) {
+      if (e.target.closest('a, summary, details, button')) return;
+      li.classList.toggle('route-secondary-expanded');
+    });
+  });
+}
+
 function initSectionView() {
   const barCenter = document.querySelector('#bar-center, .bar-center');
   if (barCenter) {
     barCenter.setAttribute('href', '#menu');
     barCenter.setAttribute('data-target', '#menu');
   }
+  initDayQuickLayer();
   navigateToSection('#top');
 }
 
