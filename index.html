@@ -516,6 +516,63 @@ html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
   }
   .route-actions-row .budget-toggle .budget-box { grid-column: 1; }
 }
+
+/* ─── MODE UNA SECCIÓ (pas 9) — pantalla, no impressió ─── */
+body.section-view .cover,
+body.section-view .content > .toc,
+body.section-view .content > [id],
+body.section-view .doc-footer {
+  display: none !important;
+}
+
+body.section-view[data-active-section="top"] .cover {
+  display: flex !important;
+  min-height: auto !important;
+  max-height: min(52vh, 520px);
+  margin-top: -56px;
+}
+
+body.section-view[data-active-section="top"] .content {
+  display: none !important;
+}
+
+body.section-view:not([data-active-section="top"]) .content {
+  display: block !important;
+}
+
+body.section-view[data-active-section="menu"] .content > .toc,
+body.section-view[data-active-section="menu"] .content > #menu {
+  display: block !important;
+}
+
+body.section-view[data-active-section="resum"] .content > #resum,
+body.section-view[data-active-section="reserves"] .content > #reserves,
+body.section-view[data-active-section="allotjament"] .content > #allotjament,
+body.section-view[data-active-section="gastro"] .content > #gastro,
+body.section-view[data-active-section="logistica"] .content > #logistica {
+  display: block !important;
+}
+
+body.section-view[data-active-section="dia0"] .content > #dia0,
+body.section-view[data-active-section="dia1"] .content > #dia1,
+body.section-view[data-active-section="dia2"] .content > #dia2,
+body.section-view[data-active-section="dia3"] .content > #dia3,
+body.section-view[data-active-section="dia4"] .content > #dia4,
+body.section-view[data-active-section="dia5"] .content > #dia5,
+body.section-view[data-active-section="dia6"] .content > #dia6,
+body.section-view[data-active-section="dia7"] .content > #dia7,
+body.section-view[data-active-section="dia8"] .content > #dia8,
+body.section-view[data-active-section="dia9"] .content > #dia9 {
+  display: block !important;
+}
+
+body.section-view[data-active-section="logistica"] .doc-footer {
+  display: block !important;
+}
+
+body.section-view[data-active-section="top"] .cover-inner {
+  padding: 48px var(--pad-x) 56px;
+}
 </style>
 </head>
 <body>
@@ -554,7 +611,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 <div class="content">
 
-  <div class="toc">
+  <div class="toc" id="menu">
     <h3>Contingut del document</h3>
     <div class="toc-grid" style="margin-bottom: 28px;">
       <a href="#resum" class="toc-item" onclick="scrollToSection('#resum')"><span class="toc-num">→</span><span class="toc-text">Resum de sortida</span></a>
@@ -1802,16 +1859,21 @@ html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 <div class="bottom-bar" id="bottom-bar">
   <a id="bar-prev" class="bar-prev disabled">← Anterior</a>
-  <a id="bar-center" class="bar-center" href="#main-nav">↑ Menú<span id="bar-day-label">Portada</span></a>
+  <a id="bar-center" class="bar-center" href="#menu">↑ Menú<span id="bar-day-label">Portada</span></a>
   <a id="bar-next" class="bar-next disabled">Següent →</a>
 </div>
 
 <button class="print-btn no-print" onclick="window.print()">Imprimir · Tot</button>
 
 <script>
+/* JS canonic — adapta days[] a cada viatge. Mode pantalla: section-view (pas 9). */
+
+// Ordre Anterior/Següent — inclou menu (TOC) i Resum (veure estructura.md)
 const days = [
-  { id: 'top',       label: 'Portada',            prev: null,        next: 'reserves' },
-  { id: 'reserves',  label: 'Reserves urgents',    prev: 'top',       next: 'dia0' },
+  { id: 'top',       label: 'Portada',            prev: null,        next: 'menu' },
+  { id: 'menu',      label: 'Contingut',          prev: 'top',       next: 'resum' },
+  { id: 'resum',     label: 'Resum',              prev: 'menu',      next: 'reserves' },
+  { id: 'reserves',  label: 'Reserves urgents',    prev: 'resum',     next: 'dia0' },
   { id: 'dia0',      label: 'Dv 25 · Arribada',    prev: 'reserves',  next: 'dia1' },
   { id: 'dia1',      label: 'Ds 26 · Clérigos',    prev: 'dia0',      next: 'dia2' },
   { id: 'dia2',      label: 'Dg 27 · Sé',          prev: 'dia1',      next: 'dia3' },
@@ -1823,6 +1885,19 @@ const days = [
 ];
 
 let currentDay = 'top';
+let activeSectionId = 'top';
+let printRestoreSection = null;
+
+function screenSectionId(rawId) {
+  if (!rawId || rawId === 'main-nav') return 'menu';
+  if (rawId === 'menu') return 'menu';
+  const el = document.getElementById(rawId);
+  if (!el) return null;
+  if (rawId === 'top' || el.classList.contains('cover')) return 'top';
+  if (el.parentElement && el.parentElement.classList.contains('content')) return rawId;
+  if (el.closest('#resum')) return 'resum';
+  return rawId;
+}
 
 function setActive(el) {
   if (!el) return;
@@ -1832,12 +1907,12 @@ function setActive(el) {
 
 function updateBottomBar(dayId) {
   currentDay = dayId;
+  activeSectionId = dayId;
   const d = days.find(x => x.id === dayId);
-  if (!d) return;
-
-  const prev  = document.getElementById('bar-prev');
-  const next  = document.getElementById('bar-next');
+  const prev = document.getElementById('bar-prev');
+  const next = document.getElementById('bar-next');
   const label = document.getElementById('bar-day-label');
+  if (!d || !prev || !next || !label) return;
 
   label.textContent = d.label;
 
@@ -1864,79 +1939,102 @@ function updateBottomBar(dayId) {
   }
 }
 
-function scrollToSection(href) {
-  // #main-nav és position:fixed — el seu getBoundingClientRect().top sempre
-  // és ~0 independentment de l'scroll, cosa que trencava el càlcul normal.
-  // Cas especial: el botó "Menú" ha d'anar sempre a dalt de tot del document.
-  if (href === '#main-nav') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    updateBottomBar('top');
-    const navLink = document.querySelector('.day-nav-top a[href="#top"]');
-    if (navLink) setActive(navLink);
-    return;
+function applySectionView(screenId, scrollToRawId) {
+  document.body.classList.add('section-view');
+  document.body.setAttribute('data-active-section', screenId);
+  window.scrollTo(0, 0);
+
+  if (scrollToRawId && scrollToRawId !== screenId) {
+    const sub = document.getElementById(scrollToRawId);
+    if (sub) {
+      requestAnimationFrame(() => {
+        sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
   }
-  const target = document.querySelector(href);
+}
+
+function navigateToSection(href) {
+  const target = (href || '').replace('#', '');
   if (!target) return;
-  const navHeight = document.getElementById('main-nav').offsetHeight;
-  const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
-  window.scrollTo({ top: targetTop, behavior: 'smooth' });
-  const navLink = document.querySelector('.day-nav-top a[href="' + href + '"]');
+
+  const screenId = screenSectionId(target);
+  if (!screenId) return;
+
+  applySectionView(screenId, target !== screenId ? target : null);
+
+  let navLink = document.querySelector('.day-nav-top a[href="#' + target + '"]');
+  if (!navLink && screenId === 'resum') {
+    navLink = document.querySelector('.day-nav-top a[href="#resum"]');
+  }
+  if (!navLink && screenId === 'menu') {
+    navLink = document.querySelector('.day-nav-top a[href="#top"]');
+  }
   if (navLink) setActive(navLink);
-  updateBottomBar(href.replace('#', ''));
+
+  if (days.find(x => x.id === screenId)) {
+    updateBottomBar(screenId);
+  }
+}
+
+function scrollToSection(href) {
+  navigateToSection(href);
 }
 
 document.addEventListener('click', function(e) {
   const link = e.target.closest('a[data-target], a[href^="#"]');
   if (!link) return;
   if (link.classList.contains('disabled')) return;
-  const target = link.getAttribute('data-target') || link.getAttribute('href');
-  if (!target || target === '#') return;
+  const t = link.getAttribute('data-target') || link.getAttribute('href');
+  if (!t || t === '#') return;
   e.preventDefault();
-  scrollToSection(target);
+  navigateToSection(t);
 });
 
-const sectionIds = ['top', 'reserves', 'dia0', 'dia1', 'dia2', 'dia3', 'dia4', 'dia5', 'gastro', 'logistica'];
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      const navLink = document.querySelector('.day-nav-top a[href="#' + id + '"]');
-      if (navLink) setActive(navLink);
-      updateBottomBar(id);
-    }
-  });
-}, { rootMargin: '-68px 0px -70% 0px', threshold: 0 });
+function initSectionView() {
+  const barCenter = document.querySelector('#bar-center, .bar-center');
+  if (barCenter) {
+    barCenter.setAttribute('href', '#menu');
+    barCenter.setAttribute('data-target', '#menu');
+  }
+  navigateToSection('#top');
+}
 
-sectionIds.forEach(id => {
-  const el = document.getElementById(id);
-  if (el) observer.observe(el);
-});
-
-updateBottomBar('top');
-
-// IMPRESSIÓ SELECTIVA DEL RESUM (nou a v9)
 function printSummaryOnly() {
   document.body.classList.add('print-summary-only');
   window.print();
 }
-window.addEventListener('afterprint', () => {
-  document.body.classList.remove('print-summary-only');
+
+let culturePrevOpenState = [];
+
+window.addEventListener('beforeprint', () => {
+  printRestoreSection = document.body.getAttribute('data-active-section') || activeSectionId;
+  document.body.classList.remove('section-view');
+  document.body.removeAttribute('data-active-section');
+
+  culturePrevOpenState = Array.from(document.querySelectorAll('.culture-toggle')).map(d => d.open);
+  document.querySelectorAll('.culture-toggle').forEach(d => { d.open = true; });
 });
 
-// FIX IMPRESSIÓ/PDF: el navegador NO permet revelar el contingut d'un <details>
-// tancat només amb CSS (display:block no n'hi ha prou — el motor de paginació
-// d'impressió de Chrome/Edge ignora l'override). L'única manera fiable és obrir
-// realment l'atribut `open` abans d'imprimir, i restaurar l'estat previ després.
-let culturePrevOpenState = [];
-window.addEventListener('beforeprint', () => {
-  const toggles = document.querySelectorAll('.culture-toggle');
-  culturePrevOpenState = Array.from(toggles).map(d => d.open);
-  toggles.forEach(d => { d.open = true; });
-});
 window.addEventListener('afterprint', () => {
-  const toggles = document.querySelectorAll('.culture-toggle');
-  toggles.forEach((d, i) => { d.open = culturePrevOpenState[i] ?? false; });
+  document.body.classList.remove('print-summary-only');
+
+  document.querySelectorAll('.culture-toggle').forEach((d, i) => {
+    d.open = culturePrevOpenState[i] ?? false;
+  });
+
+  if (printRestoreSection) {
+    document.body.classList.add('section-view');
+    document.body.setAttribute('data-active-section', printRestoreSection);
+    activeSectionId = printRestoreSection;
+  }
 });
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSectionView);
+} else {
+  initSectionView();
+}
 </script>
 
 </body>
