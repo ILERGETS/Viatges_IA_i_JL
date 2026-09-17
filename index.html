@@ -529,40 +529,67 @@ body.section-view[data-active-section^="dia"] .route-list li:has(.route-num.prin
   font-size: 14px;
   letter-spacing: 0.12em;
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary {
-  padding: 8px 0 8px 4px;
-  margin-left: 44px;
-  border-left: 2px solid var(--rule-soft);
-  border-bottom: none;
-  cursor: pointer;
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-quick) {
+  align-items: flex-start;
+  padding: 10px 0;
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary .route-num {
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-quick) .route-num {
   width: 22px;
   height: 22px;
   font-size: 11px;
   background: var(--rule);
   color: var(--ink-mute);
+  margin-top: 2px;
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary:not(.route-secondary-expanded) > span:last-child {
-  max-height: 2.65em;
-  overflow: hidden;
+body.section-view[data-active-section^="dia"] .route-quick {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  margin: 0;
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary:not(.route-secondary-expanded)::after {
-  content: '… toca per ampliar';
-  display: block;
+body.section-view[data-active-section^="dia"] .route-quick-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::-webkit-details-marker {
+  display: none;
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::marker {
+  content: '';
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::after {
+  content: 'Més';
+  flex-shrink: 0;
   font-family: var(--condensed);
   font-size: 10px;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-mute);
-  margin-top: 4px;
-  margin-left: 44px;
+  border: 1px solid var(--rule);
+  padding: 3px 8px;
+  line-height: 1.2;
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary.route-secondary-expanded::after {
-  content: none;
+body.section-view[data-active-section^="dia"] .route-quick[open] .route-quick-summary::after {
+  content: 'Menys';
 }
-body.section-view[data-active-section^="dia"] .route-list li.route-secondary.route-secondary-expanded > span:last-child {
-  max-height: none;
+body.section-view[data-active-section^="dia"] .route-quick-body {
+  padding: 10px 0 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+body.section-view[data-active-section^="dia"] .route-quick:not([open]) .route-quick-body {
+  display: none;
 }
 body.section-view[data-active-section^="dia"] .day-card > .culture-toggle:not([open]) .culture-body,
 body.section-view[data-active-section^="dia"] .route-culture:not([open]) .culture-body {
@@ -576,14 +603,19 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
   margin-left: 4px;
 }
 @media print {
-  body.section-view .route-list li.route-secondary > span:last-child,
-  body .route-list li.route-secondary > span:last-child {
-    max-height: none !important;
+  body .route-quick,
+  body .route-quick[open] {
+    display: block;
   }
-  body .route-list li.route-secondary::after {
+  body .route-quick-summary {
     display: none !important;
   }
+  body .route-quick-body {
+    display: block !important;
+    padding: 0;
+  }
 }
+
 
 /* ─── MODE UNA SECCIÓ (pas 9) — pantalla, no impressió ─── */
 body.section-view .cover,
@@ -2061,16 +2093,53 @@ document.addEventListener('click', function(e) {
   navigateToSection(t);
 });
 
+function routeQuickTitle(contentSpan) {
+  const header = contentSpan.querySelector('.route-item-header');
+  if (header) {
+    const clone = header.cloneNode(true);
+    clone.querySelectorAll('.route-cost, .reserve-badge, .alt-restaurants').forEach(el => el.remove());
+    return clone.textContent.trim().replace(/\s+/g, ' ');
+  }
+  const link = contentSpan.querySelector('a.ext');
+  if (link) return link.textContent.trim();
+  const strong = contentSpan.querySelector('strong');
+  if (strong) return strong.textContent.trim();
+  const text = contentSpan.textContent.trim();
+  const dash = text.indexOf('—');
+  if (dash > 0) return text.slice(0, dash).trim();
+  return text.length > 72 ? text.slice(0, 72) + '…' : text;
+}
+
 function initDayQuickLayer() {
   document.querySelectorAll('.route-list li').forEach(li => {
+    if (li.dataset.routeQuickInit) return;
     if (li.querySelector('.route-num.principal')) return;
-    li.classList.add('route-secondary');
-    if (li.dataset.quickBound) return;
-    li.dataset.quickBound = '1';
-    li.addEventListener('click', function(e) {
-      if (e.target.closest('a, summary, details, button')) return;
-      li.classList.toggle('route-secondary-expanded');
-    });
+    if (li.querySelector('.route-item-header')) return;
+
+    const contentSpan = li.querySelector(':scope > span:last-of-type');
+    if (!contentSpan || contentSpan.querySelector('details.route-quick')) return;
+
+    const title = routeQuickTitle(contentSpan);
+    if (!title) return;
+
+    li.dataset.routeQuickInit = '1';
+
+    const details = document.createElement('details');
+    details.className = 'route-quick';
+
+    const summary = document.createElement('summary');
+    summary.className = 'route-quick-summary';
+    summary.textContent = title;
+
+    const body = document.createElement('div');
+    body.className = 'route-quick-body';
+    while (contentSpan.firstChild) {
+      body.appendChild(contentSpan.firstChild);
+    }
+
+    details.appendChild(summary);
+    details.appendChild(body);
+    contentSpan.appendChild(details);
   });
 }
 
@@ -2090,6 +2159,7 @@ function printSummaryOnly() {
 }
 
 let culturePrevOpenState = [];
+let routeQuickPrevOpen = [];
 
 window.addEventListener('beforeprint', () => {
   printRestoreSection = document.body.getAttribute('data-active-section') || activeSectionId;
@@ -2098,6 +2168,9 @@ window.addEventListener('beforeprint', () => {
 
   culturePrevOpenState = Array.from(document.querySelectorAll('.culture-toggle')).map(d => d.open);
   document.querySelectorAll('.culture-toggle').forEach(d => { d.open = true; });
+
+  routeQuickPrevOpen = Array.from(document.querySelectorAll('details.route-quick')).map(d => d.open);
+  document.querySelectorAll('details.route-quick').forEach(d => { d.open = true; });
 });
 
 window.addEventListener('afterprint', () => {
@@ -2106,6 +2179,17 @@ window.addEventListener('afterprint', () => {
   document.querySelectorAll('.culture-toggle').forEach((d, i) => {
     d.open = culturePrevOpenState[i] ?? false;
   });
+
+  document.querySelectorAll('details.route-quick').forEach((d, i) => {
+    d.open = routeQuickPrevOpen[i] ?? false;
+  });
+
+  if (printRestoreSection) {
+    document.body.classList.add('section-view');
+    document.body.setAttribute('data-active-section', printRestoreSection);
+    activeSectionId = printRestoreSection;
+  }
+});
 
   if (printRestoreSection) {
     document.body.classList.add('section-view');
