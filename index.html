@@ -2191,13 +2191,6 @@ window.addEventListener('afterprint', () => {
   }
 });
 
-  if (printRestoreSection) {
-    document.body.classList.add('section-view');
-    document.body.setAttribute('data-active-section', printRestoreSection);
-    activeSectionId = printRestoreSection;
-  }
-});
-
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initSectionView);
 } else {
