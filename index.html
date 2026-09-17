@@ -2100,10 +2100,32 @@ function routeQuickTitle(contentSpan) {
     clone.querySelectorAll('.route-cost, .reserve-badge, .alt-restaurants').forEach(el => el.remove());
     return clone.textContent.trim().replace(/\s+/g, ' ');
   }
-  const link = contentSpan.querySelector('a.ext');
-  if (link) return link.textContent.trim();
-  const strong = contentSpan.querySelector('strong');
-  if (strong) return strong.textContent.trim();
+
+  const strongTop = contentSpan.querySelector(':scope > strong');
+  if (strongTop) return strongTop.textContent.trim().replace(/\s+/g, ' ');
+
+  for (const node of contentSpan.childNodes) {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.matches('details.culture-toggle, details.route-quick, details.alt-restaurants')) break;
+      if (node.matches('strong')) {
+        return node.textContent.trim().replace(/\s+/g, ' ');
+      }
+      if (node.matches('a.ext') && !node.closest('.culture-links')) {
+        const label = node.textContent.trim();
+        if (label && !/^Visit Porto\s/i.test(label)) return label;
+      }
+    } else if (node.nodeType === Node.TEXT_NODE) {
+      const chunk = node.textContent.trim();
+      if (!chunk) continue;
+      const dash = chunk.indexOf('—');
+      const head = (dash > 0 ? chunk.slice(0, dash) : chunk).trim();
+      if (head) return head.replace(/\s+/g, ' ');
+    }
+  }
+
+  const topLink = contentSpan.querySelector(':scope > a.ext');
+  if (topLink) return topLink.textContent.trim();
+
   const text = contentSpan.textContent.trim();
   const dash = text.indexOf('—');
   if (dash > 0) return text.slice(0, dash).trim();
