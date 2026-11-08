@@ -1167,7 +1167,7 @@ body.section-view[data-active-section="dia1"] .content > #dia1,
 body.section-view[data-active-section="dia2"] .content > #dia2,
 body.section-view[data-active-section="dia3"] .content > #dia3,
 body.section-view[data-active-section="dia4"] .content > #dia4,
-body.section-view[data-active-section="dia5"] .content > #dia5,
+body.section-view[data-active-section="dia4w"] .content > #dia4w, body.section-view[data-active-section="dia5"] .content > #dia5,
 body.section-view[data-active-section="dia6"] .content > #dia6,
 body.section-view[data-active-section="dia7"] .content > #dia7,
 body.section-view[data-active-section="dia8"] .content > #dia8,
@@ -1343,7 +1343,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
   <a href="#dia1" onclick="setActive(this)"><span class="nav-day">2</span>Dt 10 · Mercat</a>
   <a href="#dia2" onclick="setActive(this)"><span class="nav-day">3</span>Dc 11 · Londres romà</a>
   <a href="#dia3" onclick="setActive(this)"><span class="nav-day">4</span>Dj 12 · Llums</a>
-  <a href="#dia4" onclick="setActive(this)"><span class="nav-day">5</span>Dv 13 · Oxford o Windsor</a>
+  <a href="#dia4" onclick="setActive(this)"><span class="nav-day">5</span>Dv 13 · Oxford</a> <a href="#dia4w" onclick="setActive(this)"><span class="nav-day">5</span>Dv 13 · Windsor</a>
   <a href="#dia5" onclick="setActive(this)"><span class="nav-day">6</span>Ds 14 · Comiat</a>
   <a href="#gastro" onclick="setActive(this)"><span class="nav-day">✦</span>Gastronomia</a>
   <a href="#logistica" onclick="setActive(this)"><span class="nav-day">◆</span>Logística</a>
@@ -1382,7 +1382,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
       <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Dt 10/11</a></td><td>Borough Market, Tàmesi, Tower Bridge</td><td class="km-num">~3,4</td></tr>
       <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Dc 11/11</a></td><td>London Stone, Londres romà i mercats</td><td class="km-num">~3,7</td></tr>
       <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dj 12/11</a></td><td>Llums de Nadal a peu</td><td class="km-num">~4,9</td></tr>
-      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dv 13/11</a></td><td>Excursió a Oxford o Windsor</td><td class="km-num">~4,3</td></tr>
+      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dv 13/11</a></td><td>Excursió a Oxford</td><td class="km-num">~4,3</td></tr><tr><td><a href="#dia4w" onclick="scrollToSection('#dia4w')" class="ext">Dia 5 · Dv 13/11 (alt.)</a></td><td>Windsor i Eton</td><td class="km-num">~2,7</td></tr>
       <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Ds 14/11</a></td><td>Comiat i vol de tornada</td><td class="km-num">—</td></tr>
     </table>
   </div>
@@ -1749,8 +1749,8 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
     <div class="section-header">
       <div class="section-number">5</div>
       <div class="section-title-group">
-        <h2>Excursió a Oxford o Windsor</h2>
-        <p>Divendres 13 de novembre · Oxford o Windsor</p>
+        <h2>Excursió a Oxford</h2>
+        <p>Divendres 13 de novembre · Oxford</p>
       </div>
     </div>
     <div class="day-card">
@@ -1766,7 +1766,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
           <div class="day-km-walk"><div class="day-km-walk-value">~4,3</div><div class="day-km-walk-label">km a peu</div></div>
         </div>
       </div>
-      <div class="day-intro">Tren de Paddington a Oxford, visita als edificis principals i passeig pels colleges. ⚠ Horaris de tren i preus per verificar. Entrades del Sheldonian: horari oficial verificat. Alternativa: si no s'hi va, el dia pot ser Windsor (vegeu la caixa més avall).</div>
+      <div class="day-intro">Tren de Paddington a Oxford, visita als edificis principals i passeig pels colleges. ⚠ Horaris de tren i preus per verificar. Entrades del Sheldonian: horari oficial verificat. Alternativa: Windsor, a la pantalla «Dv 13 · Windsor».</div>
 
       <details class="culture-toggle"><summary>Context de la ciutat — Oxford</summary><div class="culture-body"><h4>Una universitat medieval</h4><p>La universitat d'Oxford té origen medieval i està formada per colleges independents. Cada college té el seu aulari, la seva biblioteca i sovint els seus jardins, i tots junts formen la ciutat universitària.</p><h4>El pub dels Inklings</h4><p>The Eagle and Child, al carrer St Giles', és conegut per haver estat un dels llocs de trobada dels Inklings, el grup d'escriptors que incloïa J. R. R. Tolkien i C. S. Lewis. Hi ha fonts que diuen que el pub va tancar durant la pandèmia; cal comprovar-ho.</p><div class="culture-links"><a href="https://ca.wikipedia.org/wiki/Oxford" target="_blank" class="ext">Viquipèdia (català) · Oxford</a></div></div></details>
 
@@ -1788,7 +1788,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
         · Quod (Old Bank Hotel) · <a href="https://www.google.com/maps/search/?api=1&query=Quod+Old+Bank+Hotel+Oxford" target="_blank" class="ext">Google Maps</a>, The High. ⚠ horari a verificar.<br>
         · The Magdalen Arms · <a href="https://www.google.com/maps/search/?api=1&query=The+Magdalen+Arms+Oxford" target="_blank" class="ext">Google Maps</a> (gastropub). ⚠ adreça no trobada; no confirmo que quedi a 5 min.
       </div>
-      <div class="box box-info"><span class="box-label">Alternativa B · Windsor (si no es va a Oxford)</span>Tren directe de London Waterloo a Windsor &amp; Eton Riverside (South Western Railway): uns 54 min i un tren cada 30 min aprox. Tarifa des de ~13 £, sense reserva prèvia (segons fonts; ⚠ verificar a nationalrail.co.uk). Des de Ruislip, cal anar fins a Waterloo amb metro (ruta a verificar a TfL).<br>El castell de Windsor obre de dijous a dilluns, així que divendres 13/11 hi és obert (horari a verificar).<br>Si no es va a Windsor, el dia és Oxford, tal com està descrit més amunt.<br>Preus del castell (només si s'hi va): des de 32 £ per adult amb reserva prèvia (font: Ajuntament de Windsor, a verificar a rct.uk).</div>
+      <div class="box box-info"><span class="box-label">Alternativa</span>Windsor té pantalla pròpia: mireu «Dv 13 · Windsor» al menú.</div>
       <div class="route-block">
         <h3 class="sub">Recorregut del dia — Paddington, Oxford i colleges</h3>
         <ol class="route-list">
@@ -1803,7 +1803,29 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
     </div>
   </div>
 
-  <!-- ═══════════ DIA 6 — DS 14 NOV ═══════════ -->
+  <div id="dia4w">
+  <div class="section-header"><div class="section-number">5</div><div class="section-title-group"><h2>Alternativa: Windsor</h2><p>Divendres 13 de novembre · Windsor (alternativa a Oxford)</p></div></div>
+  <div class="day-card">
+    <div class="day-header"><div class="day-header-left"><div class="day-label">Dia 5 · Divendres (alternativa)</div><div class="day-title">Windsor i Eton</div><div class="day-date">13 de novembre de 2026</div></div><div class="day-km"><div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div><div class="day-km-walk"><div class="day-km-walk-value">~2,7</div><div class="day-km-walk-label">km a peu</div></div></div></div>
+    <div class="day-intro">Alternativa a Oxford per al mateix dia. Tren des de Waterloo, castell de Windsor (obert divendres), passeig fins a Eton i tornada. Els preus i horaris són de fonts sense verificar: cal comprovar-los abans de decidir.</div>
+    <div class="box box-info"><span class="box-label">Si no es va a Windsor</span>El dia és Oxford: mireu la pantalla «Dv 13 · Oxford».</div>
+    <div class="route-block"><h3 class="sub">Recorregut del dia — Windsor i Eton</h3>
+      <ol class="route-list">
+        <li><span class="route-num">1</span><span><div class="route-item-header"><span class="route-time">~09:30</span><strong>Metro Ruislip → Waterloo</strong> · <a href="https://www.google.com/maps/search/?api=1&query=London+Waterloo+station" target="_blank" class="ext">Google Maps</a></div>Ruta a verificar a TfL. Cal sortir d'hora per al tren de les 10:30.</span></li>
+        <li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~10:30</span><strong>Tren London Waterloo → Windsor &amp; Eton Riverside</strong> · <a href="https://www.google.com/maps/search/?api=1&query=London+Waterloo+station" target="_blank" class="ext">Google Maps</a></div>South Western Railway, directe, uns 54 min i un tren cada 30 min aprox. Tarifa des de ~13 £ sense reserva prèvia (segons fonts; ⚠ verificar a nationalrail.co.uk).</span></li>
+        <li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">~11:30</span><strong>Windsor Castle</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Windsor+Castle" target="_blank" class="ext">Google Maps</a></div>Visita al castell (obert de dijous a dilluns, així que divendres sí). Entrada des de 32 £ per adult amb reserva prèvia (Ajuntament de Windsor; ⚠ verificar a rct.uk). Horari d'hivern: una font diu 10:00–16:15 i últim accés a les 15:00 (⚠ verificar).</span></li>
+        <li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">~13:30</span><strong>Dinar a Windsor</strong></div>Restaurant a triar al poble. ⚠ Encara no hi ha opcions verificades (adreça, horari i menú).</span></li>
+        <li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">~15:00</span><strong>Passeig fins a Eton</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Eton+College" target="_blank" class="ext">Google Maps</a></div>Uns 15–20 min a peu creuant el Tàmesi pel pont fins a Eton (⚠ mesurar). Eton College: visita no verificada.</span></li>
+        <li><span class="route-num">6</span><span><div class="route-item-header"><span class="route-time">~16:30</span><strong>Tornada a peu a l'estació</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Windsor+%26amp%3B+Eton+Riverside+station" target="_blank" class="ext">Google Maps</a></div>Pel passeig del riu, uns 15–20 min fins a Windsor &amp; Eton Riverside (⚠ mesurar).</span></li>
+        <li><span class="route-num">7</span><span><div class="route-item-header"><span class="route-time">~17:30</span><strong>Tren Windsor &amp; Eton Riverside → London Waterloo</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Windsor+%26amp%3B+Eton+Riverside+station" target="_blank" class="ext">Google Maps</a></div>Mateixa línia, directe, uns 54 min (⚠ verificar horari concret).</span></li>
+        <li><span class="route-num">8</span><span><div class="route-item-header"><span class="route-time">~19:00</span><strong>Metro Waterloo → Ruislip</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Ruislip+Manor+station" target="_blank" class="ext">Google Maps</a></div>Ruta a verificar a TfL. Arribada a casa cap a les 20:00.</span></li>
+      </ol>
+      <div class="route-actions-row"><a class="gmaps-btn" href="https://www.google.com/maps/dir/Windsor+Castle/Eton+College/Windsor+%26+Eton+Riverside+station/" target="_blank">Veure recorregut a Google Maps</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DIA 6 — DS 14 NOV ═══════════ -->
   <div id="dia5">
     <div class="section-header">
       <div class="section-number">6</div>
@@ -1927,8 +1949,9 @@ const days = [
   { id: 'dia1',      label: 'Dt 10 · Mercat',     prev: 'dia0',     next: 'dia2' },
   { id: 'dia2',      label: 'Dc 11 · Londres romà',     prev: 'dia1',     next: 'dia3' },
   { id: 'dia3',      label: 'Dj 12 · Llums',      prev: 'dia2',     next: 'dia4' },
-  { id: 'dia4',      label: 'Dv 13 · Oxford o Windsor', prev: 'dia3',     next: 'dia5' },
-  { id: 'dia5',      label: 'Ds 14 · Comiat',     prev: 'dia4',     next: 'gastro' },
+  { id: 'dia4',      label: 'Dv 13 · Oxford', prev: 'dia3',     next: 'dia4w' },
+  { id: 'dia4w',     label: 'Dv 13 · Windsor', prev: 'dia4', next: 'dia5' },
+  { id: 'dia5',      label: 'Ds 14 · Comiat',     prev: 'dia4w',     next: 'gastro' },
   { id: 'gastro',    label: 'Gastronomia',        prev: 'dia5',     next: 'logistica' },
   { id: 'logistica', label: 'Logística',          prev: 'gastro',   next: null },
 ];
