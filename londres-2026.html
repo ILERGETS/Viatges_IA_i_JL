@@ -1155,6 +1155,7 @@ body.section-view[data-active-section="menu"] .content > #menu {
 }
 
 body.section-view[data-active-section="resum"] .content > #resum,
+body.section-view[data-active-section="resum-visites"] .content > #resum-visites,
 body.section-view[data-active-section="reserves"] .content > #reserves,
 body.section-view[data-active-section="allotjament"] .content > #allotjament,
 body.section-view[data-active-section="gastro"] .content > #gastro,
@@ -1330,6 +1331,10 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
   .route-actions-row .budget-toggle .budget-box { grid-column: 1; }
 }
 
+  .visites-dia { margin: 28px 0 8px; font-size: 1.05rem; }
+  .visites-taula th, .visites-taula td { text-align: left; }
+  .visites-taula td:first-child { white-space: nowrap; width: 1%; }
+  .visites-nota, .visites-buit { color: var(--ink-soft); font-size: 0.9rem; }
 </style>
 </head>
 <body>
@@ -1337,6 +1342,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
 <nav class="day-nav-top" id="main-nav">
   <a href="#top" onclick="setActive(this)"><span class="nav-day">·</span>Portada</a>
   <a href="#resum" onclick="setActive(this)"><span class="nav-day">→</span>Resum</a>
+  <a href="#resum-visites" onclick="setActive(this)"><span class="nav-day">◎</span>Resum de visites</a>
   <a href="#reserves" onclick="setActive(this)"><span class="nav-day">★</span>Reserves</a>
   <a href="#allotjament" onclick="setActive(this)"><span class="nav-day">⌂</span>Allotjament</a>
   <a href="#dia0" onclick="setActive(this)"><span class="nav-day">1</span>Dl 9 · Arribada</a>
@@ -1372,6 +1378,7 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
     <h3>Contingut del document</h3>
     <div class="toc-grid" style="margin-bottom: 28px;">
       <a href="#resum" class="toc-item" onclick="scrollToSection('#resum')"><span class="toc-num">→</span><span class="toc-text">Resum de sortida</span></a>
+      <a href="#resum-visites" class="toc-item" onclick="scrollToSection('#resum-visites')"><span class="toc-num">◎</span><span class="toc-text">Resum de visites</span></a>
       <a href="#reserves" class="toc-item" onclick="scrollToSection('#reserves')"><span class="toc-num">★</span><span class="toc-text">Reserves urgents</span></a>
       <a href="#gastro" class="toc-item" onclick="scrollToSection('#gastro')"><span class="toc-num">✦</span><span class="toc-text">Què tastar</span></a>
       <a href="#logistica" class="toc-item" onclick="scrollToSection('#logistica')"><span class="toc-num">◆</span><span class="toc-text">Logística i pressupost</span></a>
@@ -1429,6 +1436,67 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
   </div>
 
   <!-- ═══════════ RESERVES URGENTS ═══════════ -->
+  <!-- ═══════════ RESUM DE VISITES ═══════════ -->
+  <div id="resum-visites">
+    <div class="section-header">
+      <div class="section-number">◎</div>
+      <div class="section-title-group">
+        <h2>Resum de visites</h2>
+        <p>Totes les visites previstes, per dia, amb hora i adreça</p>
+      </div>
+    </div>
+    <p class="visites-nota">No hi són els trasllats, els dinars ni els sopars. Els enllaços obren Google Maps.</p>
+    <h3 class="visites-dia">Dl 9 · Arribada</h3>
+    <p class="visites-buit">Dia d&#x27;arribada i trasllat a Ruislip: cap visita prevista.</p>
+    <h3 class="visites-dia">Dt 10 · Mercat i Tàmesi</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:00</td><td><strong>Shakespeare&#x27;s Globe (visita guiada)</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Shakespeare%27s+Globe+%28visita+guiada%29+21+New+Globe+Walk%2C+London+SE1+9DT" target="_blank" class="ext">21 New Globe Walk, London SE1 9DT</a></td></tr>
+      <tr><td>~13:00</td><td><strong>Tower Bridge</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Tower+Bridge+Tower+Bridge+Rd%2C+London+SE1+2UP" target="_blank" class="ext">Tower Bridge Rd, London SE1 2UP</a></td></tr>
+      <tr><td>~14:00</td><td><strong>Winter by the River</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Winter+by+the+River+London+Bridge+City%2C+London+SE1+%28adre%C3%A7a+exacta+a+comprovar%29" target="_blank" class="ext">London Bridge City, London SE1 (adreça exacta a comprovar)</a></td></tr>
+      <tr><td>14:30</td><td><strong>Borough Market</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Borough+Market+Borough+Market%2C+London+SE1" target="_blank" class="ext">Borough Market, London SE1</a></td></tr>
+      <tr><td>~15:30</td><td><strong>Southwark Cathedral</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Southwark+Cathedral+London+Bridge%2C+London+SE1+9DA" target="_blank" class="ext">London Bridge, London SE1 9DA</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dc 11 · Londres romà i City</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:00</td><td><strong>London Stone</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=London+Stone+111+Cannon+St%2C+London+EC4N+5AR" target="_blank" class="ext">111 Cannon St, London EC4N 5AR</a></td></tr>
+      <tr><td>~10:45</td><td><strong>St Stephen Walbrook</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=St+Stephen+Walbrook+39+Walbrook%2C+London+EC4N+8BN" target="_blank" class="ext">39 Walbrook, London EC4N 8BN</a></td></tr>
+      <tr><td>~11:30</td><td><strong>Amfiteatre romà (Guildhall Art Gallery)</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Amfiteatre+rom%C3%A0+%28Guildhall+Art+Gallery%29+Guildhall+Yard%2C+London+EC2V+5AE" target="_blank" class="ext">Guildhall Yard, London EC2V 5AE</a></td></tr>
+      <tr><td>12:45</td><td><strong>London Mithraeum</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=London+Mithraeum+12+Walbrook%2C+London+EC4N+8AA" target="_blank" class="ext">12 Walbrook, London EC4N 8AA</a></td></tr>
+      <tr><td>~13:30</td><td><strong>Leadenhall Market</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Leadenhall+Market+Leadenhall+Market%2C+London+EC3V" target="_blank" class="ext">Leadenhall Market, London EC3V</a></td></tr>
+      <tr><td>~14:45</td><td><strong>Christ Church Spitalfields</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Christ+Church+Spitalfields+Commercial+Street%2C+London+E1+%28adre%C3%A7a+exacta+a+comprovar%29" target="_blank" class="ext">Commercial Street, London E1 (adreça exacta a comprovar)</a></td></tr>
+      <tr><td>~15:30</td><td><strong>Old Spitalfields Market</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market+Spitalfields%2C+London+E1+%28adre%C3%A7a+exacta+a+comprovar%29" target="_blank" class="ext">Spitalfields, London E1 (adreça exacta a comprovar)</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dj 12 · Llums de Nadal</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~15:00</td><td><strong>Oxford Street</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Oxford+Street+Oxford+Street%2C+London+W1" target="_blank" class="ext">Oxford Street, London W1</a></td></tr>
+      <tr><td>~15:40</td><td><strong>Carnaby Street</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Carnaby+Street+Carnaby%2C+London+W1F" target="_blank" class="ext">Carnaby, London W1F</a></td></tr>
+      <tr><td>~16:05</td><td><strong>Regent Street</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Regent+Street+Regent+Street%2C+London+W1" target="_blank" class="ext">Regent Street, London W1</a></td></tr>
+      <tr><td>~16:45</td><td><strong>Seven Dials</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Seven+Dials+Seven+Dials%2C+London+WC2H" target="_blank" class="ext">Seven Dials, London WC2H</a></td></tr>
+      <tr><td>~17:15</td><td><strong>Covent Garden</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Covent+Garden+Covent+Garden+Market%2C+London+WC2E+7QH" target="_blank" class="ext">Covent Garden Market, London WC2E 7QH</a></td></tr>
+      <tr><td>~17:45</td><td><strong>Leicester Square</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Leicester+Square+Leicester+Square%2C+London+WC2H" target="_blank" class="ext">Leicester Square, London WC2H</a></td></tr>
+      <tr><td>~18:10</td><td><strong>Regent Street i St James&#x27;s</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Regent+Street+i+St+James%27s+Regent+Street%2C+London+W1+%28zona%2C+adre%C3%A7a+exacta+a+comprovar%29" target="_blank" class="ext">Regent Street, London W1 (zona, adreça exacta a comprovar)</a></td></tr>
+      <tr><td>~18:40</td><td><strong>Old Bond Street i New Bond Street</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Old+Bond+Street+i+New+Bond+Street+Old+Bond+Street%2C+London+W1" target="_blank" class="ext">Old Bond Street, London W1</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dv 13 · Oxford</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:30</td><td><strong>Sheldonian Theatre</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Sheldonian+Theatre+Broad+St%2C+Oxford+OX1+3AZ" target="_blank" class="ext">Broad St, Oxford OX1 3AZ</a></td></tr>
+      <tr><td>~12:00</td><td><strong>Radcliffe Camera</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Radcliffe+Camera+Radcliffe+Sq%2C+Oxford+OX1+3BG" target="_blank" class="ext">Radcliffe Sq, Oxford OX1 3BG</a></td></tr>
+      <tr><td>~16:00</td><td><strong>The Eagle and Child</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=The+Eagle+and+Child+St+Giles%27%2C+Oxford" target="_blank" class="ext">St Giles&#x27;, Oxford</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dv 13 · Windsor (alternativa)</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~11:30</td><td><strong>Windsor Castle</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Windsor+Castle+Windsor%2C+Berkshire" target="_blank" class="ext">Windsor, Berkshire</a></td></tr>
+      <tr><td>~15:00</td><td><strong>Eton College</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Eton+College+Windsor+SL4+6DW" target="_blank" class="ext">Windsor SL4 6DW</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Ds 14 · Comiat</h3>
+    <p class="visites-buit">Dia de sortida: cap visita prevista.</p>
+  </div>
+
   <div id="reserves">
     <div class="section-header">
       <div class="section-number">★</div>
@@ -1949,8 +2017,9 @@ body.section-view[data-active-section^="dia"] .gmaps-btn::after {
 const days = [
   { id: 'top',       label: 'Portada',            prev: null,       next: 'menu' },
   { id: 'menu',      label: 'Contingut',          prev: 'top',      next: 'resum' },
-  { id: 'resum',     label: 'Resum',              prev: 'menu',     next: 'reserves' },
-  { id: 'reserves',  label: 'Reserves urgents',   prev: 'resum',    next: 'dia0' },
+  { id: 'resum',     label: 'Resum',              prev: 'menu',     next: 'resum-visites' },
+  { id: 'resum-visites', label: 'Resum de visites', prev: 'resum', next: 'reserves' },
+  { id: 'reserves',  label: 'Reserves urgents',   prev: 'resum-visites', next: 'dia0' },
   { id: 'dia0',      label: 'Dl 9 · Arribada',    prev: 'reserves', next: 'dia1' },
   { id: 'dia1',      label: 'Dt 10 · Mercat',     prev: 'dia0',     next: 'dia2' },
   { id: 'dia2',      label: 'Dc 11 · Londres romà',     prev: 'dia1',     next: 'dia3' },
