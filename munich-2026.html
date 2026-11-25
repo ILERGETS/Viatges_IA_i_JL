@@ -1,111 +1,2012 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Munich i Neuschwanstein · cap d'any 2026/2027 (esborrany)</title>
-<style>
-  body { font-family: Georgia, "Times New Roman", serif; background:#f7f3ec; color:#2b2622; margin:0; line-height:1.55; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 24px 18px 60px; }
-  h1 { font-size: 2rem; margin: .2em 0; }
-  h2 { font-size: 1.35rem; border-bottom: 2px solid #c9b79c; padding-bottom: 4px; margin-top: 2em; }
-  h3 { font-size: 1.1rem; margin: 1.4em 0 .3em; }
-  .banner { background:#fff3cd; border:1px solid #e0c060; border-radius:6px; padding:10px 14px; font-size:.95rem; }
-  .meta { color:#6b5f55; font-size:.95rem; }
-  table { border-collapse: collapse; width: 100%; margin: .6em 0; font-size: .95rem; }
-  th, td { border-bottom: 1px solid #ddd3c4; padding: 6px 8px; text-align: left; vertical-align: top; }
-  th { background:#ece4d6; }
-  .pend { color:#8a5a00; font-style: italic; }
-  .box { background:#fff; border:1px solid #ddd3c4; border-radius:6px; padding:10px 14px; margin:.6em 0; }
-  a { color:#7a4b1e; }
-  ul { padding-left: 1.2em; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Munich i Neuschwanstein · cap d'any 2026/2027</title>
+  <style>
+/* CSS canonic — incrustar al <style> del HTML de viatge.
+   Mode pantalla: body.section-view (pas 9). Impressió: tot el document visible. */
+
+:root {
+  /* Paleta editorial — estrictament restringida */
+  --ink:              #1a1410;   /* tinta principal — text, línies fortes, botons */
+  --ink-soft:         #322922;   /* tinta cos de text, notes, descripcions */
+  --ink-mute:         #5c503f;   /* tinta secundària — metadades, capçaleres taules */
+  --paper:            #faf6ed;   /* fons crema principal — body background */
+  --paper-warm:       #f0e8d4;   /* fons crema càlid — capçaleres de dia (.day-header) */
+  --rule:             #d6cab2;   /* línies divisòries fortes */
+  --rule-soft:        #ebe2cc;   /* línies divisòries suaus — entre files de taula */
+  --terracotta:       #a8421e;   /* accent únic — números, hores, imports, highlights */
+  --terracotta-dark:  #7a2d14;   /* hover de terracota */
+  --terracotta-tint:  #f0d6c5;   /* terracota molt clar — sobre fons foscos (nav, footer) */
+  --ocean:            #1d3346;   /* marí — NOMÉS nav superior/inferior i links externs */
+  --ocean-soft:       #c3cfdb;   /* marí clar — links externs hover subtil */
+  --gold:             #a87f30;   /* or — NOMÉS línia lateral de caixes gastronòmiques */
+ 
+  --serif:      'Cormorant Garamond', Georgia, serif;
+  --sans:       'Barlow', sans-serif;
+  --condensed:  'Barlow Condensed', sans-serif;
+ 
+  --pad-x: 80px;   /* padding horitzontal de la portada */
+}
+ 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  padding-top: 56px;    /* reserva espai per la barra de nav superior fixa */
+  padding-bottom: 52px; /* reserva espai per la barra inferior fixa */
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+img, .day-photo, .route-svg-wrap svg { max-width: 100%; }
+.budget-box, .km-table, .route-svg-wrap { max-width: 100%; overflow-x: auto; }
+ 
+::selection {
+  background: var(--terracotta-tint);
+  color: var(--terracotta-dark);
+}
+ 
+/* ─── BARRA DE NAVEGACIÓ SUPERIOR FIXA ─── */
+.day-nav-top {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--ink);
+  display: flex; overflow-x: auto;
+  scrollbar-width: none;
+  height: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.day-nav-top::-webkit-scrollbar { display: none; }
+.day-nav-top a {
+  flex-shrink: 0; display: flex; align-items: center; gap: 12px;
+  padding: 0 22px; text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--condensed);
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  flex-direction: row; line-height: 1;
+}
+.day-nav-top a span.nav-day {
+  font-family: var(--serif);
+  font-style: italic; font-size: 22px; font-weight: 400;
+  color: var(--terracotta);
+  line-height: 1; letter-spacing: -0.02em; margin: 0;
+}
+.day-nav-top a:hover { color: var(--paper); background: rgba(255,255,255,0.04); }
+.day-nav-top a.active { color: var(--paper); background: rgba(168,66,30,0.18); }
+ 
+/* ─── PORTADA CINEMATOGRÀFICA ─── */
+.cover {
+  margin-top: -56px;   /* compensa el padding-top del body */
+  min-height: 100vh;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0;
+  /* Gradients de suport per si la imatge tarda a carregar */
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 25%, rgba(168,66,30,0.20) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 15% 80%, rgba(168,127,48,0.12) 0%, transparent 65%),
+    linear-gradient(170deg, #1a2638 0%, #0f1722 100%);
+  color: var(--paper);
+}
+.cover-image {
+  position: absolute; inset: 0;
+  /* La foto de portada s'incrusta aquí com a background-image en Base64 */
+  background-size: cover;
+  background-position: center 42%;
+  filter: saturate(0.82) contrast(1.02);
+}
+/* La cover-image ha de tenir sempre un degradat per llegibilitat: */
+/* background-image: linear-gradient(...), url('data:image/jpeg;base64,...'); */
+/* El degradat va primer: */
+/* linear-gradient(180deg, rgba(10,14,22,0.55) 0%, rgba(10,14,22,0.20) 35%, rgba(10,14,22,0.55) 70%, rgba(10,14,22,0.96) 100%) */
+ 
+.cover-inner {
+  position: relative; z-index: 2;
+  padding: 88px var(--pad-x) 130px;
+  max-width: 1180px; width: 100%; margin: 0 auto;
+}
+.cover-eyebrow {
+  font-family: var(--condensed);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.cover-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 32px; height: 1px;
+  background: var(--terracotta); flex-shrink: 0;
+}
+.cover-title {
+  font-family: var(--serif);
+  font-size: clamp(64px, 9vw, 132px);
+  font-weight: 300; color: var(--paper);
+  line-height: 0.95; letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+.cover-title em {
+  font-style: italic; font-weight: 300;
+  color: var(--paper); letter-spacing: -0.005em;
+}
+.cover-subtitle {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.1vw, 30px);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 56px; letter-spacing: 0;
+}
+.cover-rule { display: none; }  /* reservat per ús futur, ara ocult */
+.cover-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 28px;
+  max-width: 940px;
+}
+.cover-meta-item {
+  padding: 8px 28px 8px 0;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.cover-meta-item:nth-child(3n) { border-right: none; padding-right: 0; }
+.cover-meta-item:nth-child(n+4) {
+  padding-top: 22px; margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.cover-meta-item label {
+  font-family: var(--condensed);
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--terracotta-tint);
+  display: block; margin-bottom: 8px;
+}
+.cover-meta-item span {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 400;
+  color: var(--paper); font-style: italic;
+  line-height: 1.35; display: block;
+}
+ 
+/* ─── CONTENIDOR PRINCIPAL ─── */
+.content {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 84px 56px 64px;
+}
+ 
+/* ─── TAULA DE CONTINGUTS (TOC) ─── */
+.toc {
+  background: transparent;
+  margin: 0 0 32px;
+  border-top: 1px solid var(--ink);      /* línia superior gruixuda */
+  border-bottom: 1px solid var(--rule);  /* línia inferior suau */
+  padding: 36px 0 28px;
+}
+.toc h3 {
+  font-family: var(--condensed);
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 28px;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 56px;
+}
+.toc-item {
+  display: flex; align-items: baseline; gap: 16px;
+  color: var(--ink); text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+  transition: color 0.15s, padding 0.15s;
+}
+.toc-item:hover { color: var(--terracotta); padding-left: 6px; }
+.toc-num {
+  font-family: var(--serif); font-style: italic;
+  font-size: 22px; font-weight: 400;
+  color: var(--terracotta); flex-shrink: 0;
+  line-height: 1; width: 24px;
+}
+.toc-text {
+  font-family: var(--sans);
+  font-size: 13.5px; font-weight: 400;
+  letter-spacing: 0.01em; flex: 1;
+}
+.toc-dots { display: none; }
+ 
+/* ─── CAPÇALERES DE SECCIÓ ─── */
+.section-header {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: end;
+  gap: 28px;
+  margin: 88px 0 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-number {
+  font-family: var(--serif); font-style: italic;
+  font-size: 104px; font-weight: 300;
+  line-height: 0.82;
+  color: var(--terracotta);
+  letter-spacing: -0.04em; text-align: left;
+}
+.section-title-group h2 {
+  font-family: var(--serif);
+  font-size: 46px; font-weight: 400;
+  color: var(--ink);
+  line-height: 1.05; letter-spacing: -0.015em;
+}
+.section-title-group p {
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ink-mute); margin-top: 12px;
+}
+ 
+/* ─── TEXTOS INTRODUCTORIS ─── */
+p.intro {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400; font-style: italic;
+  color: var(--ink-soft); line-height: 1.55;
+  margin: 8px 0 28px; max-width: 720px;
+}
+ 
+/* ─── SUBTÍTOLS DE SUBAPARTAT (h3.sub) ─── */
+h3.sub {
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 48px 0 18px;
+  padding-bottom: 0; border-bottom: none;
+  position: relative; padding-left: 36px;
+}
+h3.sub::before {
+  content: ''; position: absolute;
+  left: 0; top: 50%;
+  width: 24px; height: 1px;
+  background: var(--terracotta);
+}
+ 
+/* ─── TARGETA DE DIA ─── */
+.day-card {
+  margin-bottom: 56px;
+  border: none; background: transparent;
+}
+.day-photo-wrap {
+  position: relative; overflow: hidden;
+  max-height: 380px; margin-bottom: 0;
+}
+.day-photo {
+  width: 100%; height: 380px;
+  object-fit: cover; display: block;
+  filter: saturate(0.9);
+  transition: filter 0.4s;
+}
+.day-photo:hover { filter: saturate(1.05); }
+.day-photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%);
+  padding: 64px 32px 20px;
+  font-family: var(--serif); font-style: italic;
+  font-size: 14.5px; color: rgba(255,255,255,0.94);
+  letter-spacing: 0.01em;
+}
+ 
+.day-header {
+  background: var(--paper-warm);
+  padding: 26px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.day-label {
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 8px;
+}
+.day-title {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 400;
+  color: var(--ink); line-height: 1.05; letter-spacing: -0.01em;
+}
+.day-date {
+  font-family: var(--serif);
+  font-size: 14.5px; font-weight: 400;
+  color: var(--ink-mute); margin-top: 6px; font-style: italic;
+}
+.day-km { text-align: right; }
+.day-km-value {
+  font-family: var(--serif); font-style: italic;
+  font-size: 54px; font-weight: 300;
+  color: var(--terracotta); line-height: 0.9; letter-spacing: -0.03em;
+}
+.day-km-label {
+  font-family: var(--condensed);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink-mute); margin-top: 6px;
+}
+ 
+/* ─── INDICADOR DE KM A PEU (nou a v9) ─── */
+/* Segona xifra petita sota el km de trajecte, per als km caminats del dia.
+   S'afegeix a .day-km, sota .day-km-label. Si el dia supera el límit orientatiu
+   (veure NIVELL 1 — RITME DEL VIATGE), afegeix la classe "over-limit" per marcar-ho
+   visualment sense alarmisme (mateix color terracota d'avís, no vermell). */
+.day-km-walk {
+  margin-top: 14px; padding-top: 10px;
+  border-top: 1px solid var(--rule-soft);
+}
+.day-km-walk-value {
+  font-family: var(--serif); font-style: italic;
+  font-size: 22px; font-weight: 400;
+  color: var(--ink-soft); line-height: 1;
+}
+.day-km-walk-label {
+  font-family: var(--condensed);
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-mute); margin-top: 4px;
+}
+.day-km.over-limit .day-km-walk-value { color: var(--terracotta); }
+.day-km.over-limit .day-km-walk-label::after {
+  content: ' · per sobre del límit del dia';
+  color: var(--terracotta);
+}
+ 
+.day-intro {
+  background: transparent !important;
+  border-top: none !important;
+  padding: 24px 0 8px !important;
+  font-family: var(--serif);
+  font-size: 18px; font-style: italic;
+  color: var(--ink-soft); font-weight: 400;
+  line-height: 1.55; max-width: 760px;
+}
+ 
+/* ─── BOTÓ GOOGLE MAPS (.gmaps-btn) ─── */
+/* Contenidor del botó: padding: 12px 32px 16px; background transparent */
+.gmaps-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--ink);
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 10px 20px; text-decoration: none;
+  margin: 14px 0 0;
+  transition: all 0.2s;
+  cursor: pointer; border-radius: 0;
+}
+.gmaps-btn:hover { background: var(--ink) !important; color: var(--paper) !important; }
+.gmaps-btn svg { flex-shrink: 0; }
+.gmaps-btn svg path { fill: currentColor !important; }
+/* ─── ITINERARI A PEU AMB ESQUEMA IL·LUSTRATIU (.route-block) ─── */
+/* Un bloc per tram (matí/tarda) quan hi ha prou punts d'interès pel camí.
+   Veure NIVELL 1 per al criteri de quan generar-ho. L'esquema SVG és propi
+   i il·lustratiu, NO un mapa geogràfic real ni a escala. */
+.route-block { margin: 32px 0 40px; }
+.route-block h3.sub { margin-top: 0; }
+.route-svg-wrap {
+  background: var(--paper-warm); padding: 28px 24px 20px;
+  margin: 12px 0 24px; border: 1px solid var(--rule);
+}
+.route-svg-wrap svg { width: 100%; height: auto; display: block; }
+.route-point-circle { fill: var(--terracotta); stroke: var(--paper-warm); stroke-width: 3; }
+.route-point-num {
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  fill: var(--paper); text-anchor: middle; dominant-baseline: central;
+}
+.route-path { fill: none; stroke: var(--ink-mute); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.route-list { list-style: none; padding: 0; margin: 0 0 20px; }
+.route-list li {
+  display: flex; gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: 14px; line-height: 1.6; color: var(--ink-soft);
+}
+.route-list li:last-child { border-bottom: none; }
+.route-num {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--terracotta); color: var(--paper);
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.route-list strong { color: var(--ink); font-weight: 600; }
+.route-num.principal { position: relative; } /* punt principal, veure NIVELL 1 */
+.route-num.principal::after {
+  content: "*"; position: absolute; top: -6px; right: -4px;
+  font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--terracotta);
+}
+/* Capçalera integrada d'hora/preu/reserva dins d'una entrada de .route-list
+   (nou a v26) — substitueix la fila duplicada que abans hi hauria a una taula
+   .schedule a part per als punts que ja són del recorregut. NOMÉS als punts
+   amb hora fixa dins el pla (reserva, franja horària concreta); els punts
+   sense hora fixa (curiositats de pas) no porten aquesta capçalera. */
+.route-item-header {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 3px;
+}
+.route-time {
+  font-family: var(--condensed); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; color: var(--terracotta); flex-shrink: 0;
+}
+.route-cost {
+  font-family: var(--condensed); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-mute); margin-left: auto;
+  white-space: nowrap;
+}
+.route-cost .cost-amount {
+  font-family: var(--serif); font-style: italic; color: var(--terracotta);
+  font-size: 14px; margin-left: 4px;
+}
+/* ─── ALTERNATIVES DE RESTAURANT EN LÍNIA (nou a v27) ─── */
+/* Botó "Alternatives" a la capçalera d'un àpat, que desplega les 3 propostes
+   just allà mateix (mai en una secció a part més avall). SEMPRE present a tot
+   àpat, encara que ja hi hagi un local triat i reservat. */
+.alt-restaurants { display: inline; margin-left: 8px; }
+.alt-restaurants summary {
+  display: inline !important; cursor: pointer; white-space: nowrap;
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  font-family: var(--condensed); font-weight: 600;
+  color: var(--ink-mute); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 2px 7px !important; gap: 0 !important;
+}
+.alt-restaurants summary:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.alt-restaurants summary::before { content: ''; }
+.alt-restaurants .resto-grid { margin-top: 12px; }
+/* ─── FILA D'ACCIONS DEL RECORREGUT: Google Maps + Pressupost (v29) ─── */
+/* Mateixa línia, MATEIXA alçada (48px). La taula del pressupost NO estira el
+   botó de Maps: .budget-toggle és display:contents i la caixa va a la fila 2. */
+.route-actions-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  margin: 4px 0 28px;
+  width: 100%;
+}
+.route-actions-row .gmaps-btn,
+.route-actions-row .budget-toggle summary {
+  margin: 0 !important;
+  box-sizing: border-box;
+  min-height: 48px;
+  height: 48px;
+  padding: 0 20px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1;
+  overflow: hidden;
+}
+.route-actions-row .gmaps-btn { width: 100%; }
+.route-actions-row .budget-toggle { display: contents; }
+.budget-toggle summary {
+  cursor: pointer; list-style: none;
+  font-family: var(--condensed); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+  border: 1px solid var(--ink); background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.budget-toggle summary::-webkit-details-marker { display: none; }
+.budget-toggle summary:hover { background: var(--ink); color: var(--paper); }
+.budget-toggle[open] summary { background: var(--ink); color: var(--paper); }
+.route-actions-row .budget-toggle .budget-box {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 8px 0 0;
+}
+/* Desplegable cultural INTEGRAT dins d'una entrada de .route-list (nou a v25),
+   amb el "Saber-ne més" a la MATEIXA línia que la descripció (nou a v26 —
+   abans quedava en una línia a part, ara flueix en línia gràcies a
+   display:inline al <details> i al <summary>). IMPORTANT: cal !important a
+   `display` (i a `padding`/`gap`) perquè la regla base `.culture-toggle summary`
+   (definida amb display:flex per als desplegables normals) té la MATEIXA
+   especificitat i, per ordre de declaració al full d'estils, guanyaria per
+   damunt d'aquesta si no es força — comprovat amb un cas real on el "Saber-ne
+   més" saltava de línia igualment tot i haver posat display:inline sense
+   !important. */
+.route-culture { display: inline; margin-left: 6px; }
+.route-culture summary {
+  display: inline !important; cursor: pointer; white-space: nowrap;
+  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-family: var(--condensed); color: var(--terracotta); font-weight: 600;
+  padding: 0 !important; gap: 0 !important;
+}
+.route-culture summary::before { content: '+ '; }
+.route-culture[open] summary::before { content: '– '; }
+.route-culture .culture-body { display: block; padding-left: 0; margin-top: 10px; }
+ 
+/* ─── RUTA AEROPORT ↔ ALLOTJAMENT (nou a v16) ─── */
+/* Format Google Maps de "direccions" (origen → destí), NO una simple ubicació —
+   veure NIVELL 1, secció transport, apartat "trasllats aeroport ↔ allotjament".
+   Sintaxi: https://www.google.com/maps/dir/?api=1&origin=ORIGEN&destination=DESTI&travelmode=transit
+   — origin/destination: nom del lloc amb + en lloc d'espais (URL encoding)
+   — travelmode=transit: preselecciona transport públic (el més útil per a l'usuari)
+   S'insereix com un .gmaps-btn normal, reutilitzant el mateix component visual,
+   dins la fila d'horari del trasllat (schedule-notes) o com a botó independent
+   igual que la ruta general del dia:
+ 
+  <a href="https://www.google.com/maps/dir/?api=1&origin=Aeroporto+Francisco+S%C3%A1+Carneiro&destination=[Zona/adreça allotjament]&travelmode=transit" target="_blank" class="gmaps-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    Veure ruta a Google Maps
+  </a>
+ 
+Dia d'arribada: origin = aeroport, destination = zona/adreça de l'allotjament.
+Dia de sortida: invertit (origin = allotjament, destination = aeroport).
+Viatge multi-ciutat (CAS B): un d'aquests per cada tram, del punt d'arribada
+(aeroport/estació d'aquella ciutat) fins a l'hotel corresponent d'aquell tram.
+ 
+/* ─── TAULA D'HORARIS ─── */
+.schedule {
+  width: 100%; border-collapse: collapse;
+  margin-top: 10px;
+}
+.schedule tr { background: transparent !important; }
+.schedule td {
+  background: transparent !important;
+  border-bottom: 1px solid var(--rule-soft) !important;
+  border-left: none !important;
+  vertical-align: top;
+  padding: 20px 16px !important;
+}
+.schedule td:first-child { padding-left: 0 !important; }
+.schedule td:last-child { padding-right: 0 !important; }
+.schedule tr:last-child td { border-bottom: none !important; }
+ 
+.schedule-time {
+  font-family: var(--serif) !important; font-style: italic;
+  font-size: 24px !important; font-weight: 400 !important;
+  color: var(--terracotta) !important;
+  white-space: nowrap; width: 92px;
+  letter-spacing: -0.01em;
+}
+.schedule-place {
+  font-family: var(--sans) !important;
+  font-size: 14px !important; font-weight: 600 !important;
+  color: var(--ink) !important;
+  width: 230px; letter-spacing: 0.01em; line-height: 1.4 !important;
+}
+.schedule-place.highlight { color: var(--terracotta) !important; }
+.schedule-notes {
+  font-family: var(--sans);
+  font-size: 13.5px; font-weight: 400;
+  color: var(--ink-soft); line-height: 1.6 !important;
+}
+/* Quarta columna — cost: */
+.schedule-cost {
+  font-family: var(--condensed);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-mute);
+  text-align: right; white-space: nowrap;
+  vertical-align: top;
+  padding: 20px 0 20px 16px !important;
+  line-height: 1.5;
+}
+.schedule-cost .cost-amount {
+  font-family: var(--serif); font-style: italic;
+  font-size: 17px; font-weight: 400;
+  color: var(--terracotta);
+  display: block; margin-top: 4px; letter-spacing: -0.01em;
+}
+ 
+/* ─── BADGE DE RESERVA ─── */
+.reserve-badge {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
+  font-family: var(--condensed);
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 2px 8px;
+  margin-left: 8px; vertical-align: middle; line-height: 1.7;
+}
+.reserve-badge a { color: inherit !important; text-decoration: none; }
+ 
+/* ─── CAIXES D'AVÍS ─── */
+.box {
+  padding: 22px 28px; margin: 28px 0;
+  border-left: 2px solid var(--ink);
+  background: transparent;
+  font-size: 14px; line-height: 1.65;
+  color: var(--ink-soft);
+  font-family: var(--sans); font-weight: 400;
+}
+.box strong { font-weight: 600; color: var(--ink); }
+.box-warn  { border-left-color: var(--terracotta); }
+.box-info  { border-left-color: var(--ocean); }
+.box-food,
+.box-gold  { border-left-color: var(--gold); }
+.box-label {
+  font-family: var(--condensed);
+  font-weight: 600; font-size: 10.5px;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  margin-bottom: 10px; display: block; color: var(--ink);
+}
+.box-warn .box-label { color: var(--terracotta); }
+.box-info .box-label { color: var(--ocean); }
+.box-food .box-label,
+.box-gold .box-label { color: var(--gold); }
+ 
+/* ─── GRAELLES D'URGENTS, RESTAURANTS I ALLOTJAMENT ─── */
+/* .resto-grid/.resto-row és genèric: es reutilitza tant per a "3 alternatives de
+   restaurant" com per a "3 opcions d'hotel" (mateixes columnes: nom, preu/categoria,
+   adreça i contacte). No cal cap classe nova per als hotels. */
+.urgents-grid, .resto-grid {
+  display: block; border: none; margin: 16px 0 32px;
+  border-top: 1px solid var(--ink);
+}
+.urgent-row, .resto-row {
+  border-bottom: 1px solid var(--rule);
+  display: grid; background: transparent !important;
+}
+.urgent-row { grid-template-columns: 1.8fr 1.4fr 1.1fr 1fr; } /* 4 columnes: nom, enllaç, dia i hora, nivell — nou a v17 */
+.resto-row  { grid-template-columns: 2fr 1.2fr 1.6fr; }
+.urgent-row.header, .resto-row.header {
+  background: transparent !important;
+  border-bottom: 1px solid var(--rule);
+}
+.urgent-row.header .urgent-cell,
+.resto-row.header .resto-cell {
+  color: var(--ink-mute) !important;
+  font-family: var(--condensed) !important;
+  font-size: 10px !important; font-weight: 600 !important;
+  letter-spacing: 0.26em !important; text-transform: uppercase;
+  background: transparent !important;
+  padding: 12px 20px 12px 0;
+}
+.urgent-cell, .resto-cell {
+  padding: 18px 24px 18px 0;
+  font-size: 13.5px; background: transparent !important;
+  border-right: none !important; color: var(--ink-soft);
+  line-height: 1.55; font-family: var(--sans);
+}
+.urgent-cell:last-child, .resto-cell:last-child { padding-right: 0; }
+.urgent-name { font-weight: 600; color: var(--ink); font-family: var(--sans); }
+.urgent-web  { color: var(--ocean); font-size: 12.5px; font-style: italic; }
+.urgent-level { font-size: 12px; font-family: var(--condensed); letter-spacing: 0.08em; }
+ 
+/* ─── TAULA DE KM I DISTÀNCIES (.km-table) ─── */
+/* Usada a la secció "Resum de sortida" per a la taula d'itinerari dia a dia
+   amb l'activitat principal i els km a peu de cada dia — veure PESTANYA
+   "RESUM DE SORTIDA" més avall per a l'exemple HTML complet. */
+.km-table {
+  width: 100%; border-collapse: collapse;
+  margin: 16px 0 8px; border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.km-table th {
+  background: transparent !important;
+  color: var(--ink-mute) !important;
+  font-family: var(--condensed) !important;
+  font-size: 10px !important; font-weight: 600 !important;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  padding: 14px 16px; text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+.km-table th:last-child { text-align: right; } /* alinea "Km a peu" amb els números (nou a v14) */
+.km-table td {
+  padding: 14px 16px; font-size: 13.5px;
+  background: transparent !important;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top; color: var(--ink-soft);
+  font-family: var(--sans); font-weight: 400;
+}
+.km-table td strong { color: var(--ink); font-weight: 600; }
+.km-table tr:last-child td { border-bottom: none; }
+.km-table tr.total td {
+  background: transparent !important; color: var(--ink) !important;
+  font-weight: 600 !important; font-family: var(--condensed) !important;
+  font-size: 12px !important; letter-spacing: 0.16em; text-transform: uppercase;
+  border-top: 1px solid var(--ink); padding: 18px 16px;
+}
+.km-num {
+  font-family: var(--serif) !important; font-style: italic !important;
+  font-weight: 400 !important; color: var(--terracotta) !important;
+  font-size: 22px !important; text-align: right; letter-spacing: -0.01em;
+}
+.km-table tr.total .km-num {
+  color: var(--terracotta) !important; font-size: 24px !important;
+  font-style: italic !important;
+}
+ 
+/* ─── TARGETES DE VILLA / MONUMENT ─── */
+.villa-card {
+  border: none; border-top: 1px solid var(--rule);
+  margin-bottom: 0;
+  display: grid; grid-template-columns: 1fr;
+  padding: 28px 0; background: transparent;
+}
+.villa-card:last-child { border-bottom: 1px solid var(--rule); }
+.villa-day-bar { display: none; }
+.villa-content { padding: 0; }
+.villa-header {
+  display: flex; justify-content: space-between;
+  align-items: baseline; margin-bottom: 18px;
+  gap: 28px; flex-wrap: wrap;
+}
+.villa-name {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.01em; line-height: 1.25;
+  flex: 1 1 auto; min-width: 0;
+}
+.villa-name span {
+  color: var(--ink-mute) !important; font-style: italic !important;
+  font-size: 18px !important; font-weight: 300 !important;
+}
+.villa-when {
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--terracotta); white-space: nowrap; flex-shrink: 0;
+}
+.villa-desc {
+  font-size: 16px; line-height: 1.65;
+  color: var(--ink-soft); font-style: italic;
+  font-family: var(--serif); font-weight: 400; max-width: 760px;
+}
+ 
+/* ─── GRAELLA GASTRONÒMICA ─── */
+.gastro-grid {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 0; border: none;
+  border-top: 1px solid var(--ink);
+  margin: 16px 0 28px;
+}
+.gastro-zone {
+  background: transparent !important; color: var(--ink) !important;
+  padding: 24px 24px 24px 0 !important;
+  font-family: var(--serif) !important;
+  font-size: 26px !important; font-weight: 400 !important;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: flex-start;
+  letter-spacing: -0.01em; font-style: italic;
+}
+.gastro-dishes {
+  padding: 24px 0 24px 24px;
+  font-size: 13.5px; line-height: 1.7; color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  background: transparent !important; font-weight: 400;
+  border-left: 1px solid var(--rule);
+}
+.gastro-dishes strong { color: var(--ink); font-weight: 600; }
+ 
+/* ─── LLISTES DE CONSELLS ─── */
+ul.tips { list-style: none; padding: 0; margin: 18px 0 28px; }
+ul.tips li {
+  padding: 16px 0 16px 32px;
+  font-size: 14px; line-height: 1.6;
+  border-bottom: 1px solid var(--rule-soft);
+  position: relative; color: var(--ink-soft); font-weight: 400;
+}
+ul.tips li::before {
+  content: '—'; position: absolute; left: 0; top: 14px;
+  color: var(--terracotta); font-weight: 400;
+  font-family: var(--serif); font-size: 18px;
+}
+ul.tips li strong { color: var(--ink); font-weight: 600; }
+ 
+/* ─── BLOC DE PRESSUPOST ─── */
+.budget-box {
+  margin: 36px 0 12px;
+  border: none !important;
+  border-top: 1px solid var(--ink) !important;
+  border-bottom: 1px solid var(--ink) !important;
+}
+.budget-header {
+  background: transparent !important;
+  padding: 18px 0 14px !important;
+  font-family: var(--condensed) !important;
+  font-size: 11px !important; font-weight: 600 !important;
+  letter-spacing: 0.3em !important; text-transform: uppercase !important;
+  color: var(--ink-mute) !important;
+  border-bottom: 1px solid var(--rule) !important;
+}
+.budget-table { width: 100%; border-collapse: collapse; }
+.budget-table tr { background: transparent !important; }
+.budget-table td {
+  padding: 13px 16px 13px 0 !important;
+  font-size: 13.5px !important;
+  border-bottom: 1px solid var(--rule-soft) !important;
+  color: var(--ink-soft) !important; background: transparent !important;
+  font-family: var(--sans) !important; font-weight: 400 !important;
+}
+.budget-table td:first-child { padding-left: 0 !important; }
+.budget-table td:last-child {
+  text-align: right;
+  font-family: var(--serif) !important; font-style: italic !important;
+  font-weight: 400 !important; font-size: 17px !important;
+  color: var(--terracotta) !important; white-space: nowrap;
+  padding-right: 0 !important;
+}
+/* Fila de capçalera interna de la taula de pressupost */
+.budget-table tr:first-child td {
+  background: transparent !important; color: var(--ink-mute) !important;
+  font-family: var(--condensed) !important;
+  font-size: 10px !important; font-weight: 600 !important;
+  letter-spacing: 0.24em !important; text-transform: uppercase !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding: 14px 16px 14px 0 !important;
+  font-style: normal !important; text-align: left !important;
+}
+.budget-table tr:first-child td:last-child,
+.budget-table tr:first-child td:nth-last-child(-n+2) { text-align: right !important; }
+.budget-table tr:first-child td:first-child,
+.budget-table tr:first-child td:nth-child(2) { text-align: left !important; }
+/* Fila TOTAL */
+.budget-table tr.budget-total td {
+  background: transparent !important; color: var(--ink) !important;
+  font-weight: 600 !important; font-family: var(--condensed) !important;
+  font-size: 12px !important; letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  border-top: 1px solid var(--ink) !important; border-bottom: none !important;
+  padding-top: 18px !important; font-style: normal !important;
+}
+.budget-table tr.budget-total td strong { font-weight: 600; }
+.budget-table tr.budget-total td:last-child {
+  color: var(--terracotta) !important; font-family: var(--serif) !important;
+  font-style: italic !important; font-size: 22px !important;
+  font-weight: 400 !important; letter-spacing: -0.01em; text-transform: none !important;
+}
+.budget-note {
+  font-size: 12px !important; color: var(--ink-mute) !important;
+  font-style: italic !important; padding: 12px 0 !important;
+  background: transparent !important; border-top: none !important;
+  font-family: var(--serif) !important;
+}
+ 
+/* ─── ELEMENTS ADDICIONALS ─── */
+.divider { display: none; }    /* separadors entre seccions — ara invisible, reservat */
+hr.thin { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+ 
+/* ─── LINKS EXTERNS (.ext) ─── */
+a.ext {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.15s, color 0.15s;
+  padding-bottom: 1px;
+}
+a.ext:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+/* Ajustos contextuals de .ext per evitar sobrescriptures de color: */
+.schedule-place a.ext { color: inherit !important; font-weight: inherit !important; border-bottom-color: var(--rule); }
+.schedule-place a.ext:hover { color: var(--terracotta) !important; border-bottom-color: var(--terracotta); }
+.urgent-web a.ext { color: var(--ocean); border-bottom-color: var(--ocean-soft); }
+.villa-name a.ext { color: inherit; border-bottom: none; }
+.villa-name a.ext:hover { color: var(--terracotta); }
+ 
+/* ─── DESPLEGABLE DE CONTEXT CULTURAL (.culture-toggle) ─── */
+/* Un per monument/lloc rellevant, sota "Per aprofundir-hi" (h3.sub) al final
+   dels horaris de cada dia. Veure NIVELL 1 per al contingut i extensió. */
+.culture-toggle { margin: 18px 0 6px; border-top: 1px solid var(--rule-soft); padding-top: 4px; }
+.culture-toggle summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; font-family: var(--condensed);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terracotta); transition: color 0.15s;
+}
+.culture-toggle summary::-webkit-details-marker { display: none; }
+.culture-toggle summary::before {
+  content: '+'; font-family: var(--serif); font-size: 18px; font-weight: 400;
+  line-height: 1; width: 16px; text-align: center; flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.culture-toggle[open] summary::before { content: '–'; }
+.culture-toggle summary:hover { color: var(--terracotta-dark); }
+.culture-body {
+  padding: 6px 4px 22px 26px;
+  font-family: var(--serif); font-size: 15.5px; line-height: 1.75;
+  color: var(--ink-soft); max-width: 740px;
+  border-left: 1px solid var(--rule-soft); margin-left: 7px;
+}
+.culture-body h4 {
+  font-family: var(--condensed); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute);
+  margin: 18px 0 6px;
+}
+.culture-body h4:first-child { margin-top: 0; }
+.culture-body p { margin-bottom: 10px; }
+.culture-body strong { color: var(--ink); font-weight: 600; }
+.culture-links {
+  margin-top: 14px; padding-top: 12px; border-top: 1px dotted var(--rule);
+  font-family: var(--sans); font-size: 12.5px; font-style: normal;
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+}
+.culture-links a { color: var(--ocean); border-bottom-color: var(--ocean-soft); }
+ 
+/* ─── BARRA DE NAVEGACIÓ INFERIOR FIXA ─── */
+.bottom-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: stretch; height: 52px;
+}
+.bottom-bar a {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 10px; text-decoration: none;
+  color: rgba(255,255,255,0.62);
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  transition: all 0.2s; padding: 0 16px;
+}
+.bottom-bar a:hover { background: rgba(255,255,255,0.05); color: var(--paper); }
+.bottom-bar a.disabled { color: rgba(255,255,255,0.18); pointer-events: none; }
+.bottom-bar .bar-prev {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  justify-content: flex-start; padding-left: 28px;
+}
+.bottom-bar .bar-next {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  justify-content: flex-end; padding-right: 28px;
+}
+.bottom-bar .bar-center {
+  flex: 0 0 auto; padding: 0 28px;
+  font-family: var(--serif); font-style: italic;
+  font-size: 17px; color: var(--terracotta-tint);
+  letter-spacing: 0; text-transform: none;
+  cursor: pointer; flex-direction: column; gap: 1px;
+}
+.bottom-bar .bar-center span {
+  font-family: var(--condensed); font-size: 9px;
+  color: rgba(255,255,255,0.45); font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+}
+ 
+.day-nav-bottom { display: none; } /* navegació alternativa — ocult en favor de .bottom-bar */
+ 
+/* ─── BOTÓ D'IMPRESSIÓ ─── */
+.print-btn {
+  position: fixed; bottom: 72px; right: 24px;
+  width: 172px; text-align: center;
+  background: var(--ink); color: var(--paper);
+  border: none; padding: 14px 22px;
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  cursor: pointer; z-index: 100;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+  transition: background 0.2s;
+  white-space: nowrap; line-height: 1;
+}
+.print-btn:hover { background: var(--terracotta); }
+ 
+/* ─── BOTÓ D'IMPRESSIÓ NOMÉS DEL RESUM (nou a v9, unificat visualment a v11) ─── */
+/* Segon botó, independent del .print-btn general, situat just a sobre. Mateix
+   estil visual EXACTE que .print-btn (mateix color, mida, pes I AMPLADA) —
+   només es diferencien pel text i la posició vertical. L'amplada fixa
+   (width: 172px) és obligatòria als dos botons perquè els vores verticals
+   coincideixin sempre, independentment de si el text és "Resum" o "Tot"
+   (nou a v14 — abans cada botó tenia una amplada diferent segons el text). */
+.print-btn-summary {
+  position: fixed; bottom: 122px; right: 24px;
+  width: 172px; text-align: center;
+  background: var(--ink); color: var(--paper);
+  border: none; padding: 14px 22px;
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  cursor: pointer; z-index: 100;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+  transition: background 0.2s;
+  white-space: nowrap; line-height: 1;
+}
+.print-btn-summary:hover { background: var(--terracotta); }
+ 
+/* ─── SECCIÓ RESUM DE SORTIDA (nou a v9) ─── */
+.summary-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 48px; margin: 24px 0 40px;
+}
+.summary-block {
+  border-top: 1px solid var(--ink);
+  padding-top: 18px; margin-bottom: 32px;
+}
+.summary-block h3 {
+  font-family: var(--condensed);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 14px;
+}
+.summary-row {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 10px 0; border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--sans); font-size: 13.5px; color: var(--ink-soft);
+}
+.summary-row strong { color: var(--ink); font-weight: 600; }
+.summary-row .val { text-align: right; font-family: var(--serif); font-style: italic; color: var(--ink); }
+@media (max-width: 760px) {
+  .summary-grid { grid-template-columns: 1fr; }
+}
+/* Impressió selectiva: quan s'activa via JS (veure JAVASCRIPT COMPLET), s'afegeix
+   la classe .print-summary-only al <body>, que amaga tot excepte #resum */
+@media print {
+  body.print-summary-only .cover,
+  body.print-summary-only .toc,
+  body.print-summary-only .day-nav-top,
+  body.print-summary-only .bottom-bar,
+  body.print-summary-only [id^="dia"],
+  body.print-summary-only #reserves,
+  body.print-summary-only #allotjament,
+  body.print-summary-only #palladi,
+  body.print-summary-only #gastro,
+  body.print-summary-only #logistica,
+  body.print-summary-only .doc-footer { display: none !important; }
+}
+ 
+/* ─── PEU DE PÀGINA ─── */
+.doc-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.55);
+  text-align: center; padding: 72px 32px;
+  margin-top: 96px;
+}
+.doc-footer p {
+  font-family: var(--serif); font-size: 36px; font-style: italic;
+  color: var(--terracotta-tint); margin-bottom: 16px;
+  font-weight: 300; letter-spacing: -0.005em;
+}
+.doc-footer small {
+  font-family: var(--condensed); font-size: 10.5px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+ 
+/* ─── SCROLL I ANCLES ─── */
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+/* scroll-margin-top: 72px s'aplica a TOTS els ID d'ancle del document:
+   #top, #dia0, #dia1 ... #dia(N), #reserves, #palladi, #gastro, #logistica */
+ 
+/* ─── IMPRESSIÓ ─── */
+@media print {
+  .no-print, .day-nav-top, .bottom-bar, .print-btn, .print-btn-summary { display: none !important; }
+  body { padding: 0; font-size: 12px; background: white; }
+  .cover { min-height: auto; margin-top: 0; }
+  .cover-inner { padding: 60px 40px; }
+  .page-break { page-break-before: always; }
+  .day-card { page-break-inside: avoid; }
+  .section-header { page-break-after: avoid; }
+  .culture-toggle { page-break-inside: avoid; }
+  .culture-toggle summary::before { display: none; }
+  /* Nou a v8 — evita que una fila d'horari o el bloc de pressupost es
+     parteixin entre dues pàgines del PDF: */
+  .schedule tr { page-break-inside: avoid; }
+  .budget-box { page-break-inside: avoid; }
+  .villa-card { page-break-inside: avoid; }
+  /* NOTA: display:block!important aquí NO revela el contingut — Chrome/Edge
+     ignoren l'override durant la paginació d'impressió. El fix real és per
+     JavaScript (veure event beforeprint/afterprint, més avall). Aquesta regla
+     només amaga la fletxa +/- quan sí que s'obre via JS. */
+  /* Pas 9: en imprimir, sortir del mode una secció */
+  body.section-view .cover,
+  body.section-view .content > .toc,
+  body.section-view .content > [id],
+  body.section-view .doc-footer {
+    display: block !important;
+  }
+  body.section-view .cover {
+    display: flex !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+  }
+  body.section-view .content {
+    display: block !important;
+  }
+}
+
+/* ─── MODE UNA SECCIÓ (pas 9) — pantalla, no impressió ─── */
+body.section-view .cover,
+body.section-view .content > .toc,
+body.section-view .content > [id],
+body.section-view .doc-footer {
+  display: none !important;
+}
+
+body.section-view[data-active-section="top"] .cover {
+  display: flex !important;
+  min-height: auto !important;
+  max-height: min(52vh, 520px);
+  margin-top: -56px;
+}
+
+body.section-view[data-active-section="top"] .content {
+  display: none !important;
+}
+
+body.section-view:not([data-active-section="top"]) .content {
+  display: block !important;
+}
+
+body.section-view[data-active-section="menu"] .content > .toc,
+body.section-view[data-active-section="menu"] .content > #menu {
+  display: block !important;
+}
+
+body.section-view[data-active-section="resum"] .content > #resum,
+body.section-view[data-active-section="reserves"] .content > #reserves,
+body.section-view[data-active-section="allotjament"] .content > #allotjament,
+body.section-view[data-active-section="gastro"] .content > #gastro,
+body.section-view[data-active-section="logistica"] .content > #logistica {
+  display: block !important;
+}
+
+body.section-view[data-active-section="dia0"] .content > #dia0,
+body.section-view[data-active-section="dia1"] .content > #dia1,
+body.section-view[data-active-section="dia2"] .content > #dia2,
+body.section-view[data-active-section="dia3"] .content > #dia3,
+body.section-view[data-active-section="dia4"] .content > #dia4,
+body.section-view[data-active-section="dia5"] .content > #dia5,
+body.section-view[data-active-section="dia6"] .content > #dia6,
+body.section-view[data-active-section="dia7"] .content > #dia7,
+body.section-view[data-active-section="dia8"] .content > #dia8,
+body.section-view[data-active-section="dia9"] .content > #dia9 {
+  display: block !important;
+}
+
+body.section-view[data-active-section="logistica"] .doc-footer {
+  display: block !important;
+}
+
+body.section-view[data-active-section="top"] .cover-inner {
+  padding: 48px var(--pad-x) 56px;
+}
+
+/* ─── CAPA RÀPIDA DEL DIA (pas 12) — pantalla, dins cada #diaN ─── */
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-num.principal) {
+  background: var(--paper-warm);
+  padding: 12px 14px;
+  margin: 6px 0;
+  border-left: 3px solid var(--terracotta);
+  border-bottom-color: transparent;
+}
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-num.principal) .route-time {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-quick) {
+  align-items: flex-start;
+  padding: 10px 0;
+}
+body.section-view[data-active-section^="dia"] .route-list li:has(.route-quick) .route-num {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  background: var(--rule);
+  color: var(--ink-mute);
+  margin-top: 2px;
+}
+body.section-view[data-active-section^="dia"] .route-quick {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  margin: 0;
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::-webkit-details-marker {
+  display: none;
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::marker {
+  content: '';
+}
+body.section-view[data-active-section^="dia"] .route-quick-summary::after {
+  content: 'Més';
+  flex-shrink: 0;
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--rule);
+  padding: 3px 8px;
+  line-height: 1.2;
+}
+body.section-view[data-active-section^="dia"] .route-quick[open] .route-quick-summary::after {
+  content: 'Menys';
+}
+body.section-view[data-active-section^="dia"] .route-quick-body {
+  padding: 10px 0 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+body.section-view[data-active-section^="dia"] .route-quick:not([open]) .route-quick-body {
+  display: none;
+}
+body.section-view[data-active-section^="dia"] .day-card > .culture-toggle:not([open]) .culture-body,
+body.section-view[data-active-section^="dia"] .route-culture:not([open]) .culture-body {
+  display: none;
+}
+body.section-view[data-active-section^="dia"] .gmaps-btn::after {
+  content: ' · punts principals *';
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  margin-left: 4px;
+}
+@media print {
+  body .route-quick,
+  body .route-quick[open] {
+    display: block;
+  }
+  body .route-quick-summary {
+    display: none !important;
+  }
+  body .route-quick-body {
+    display: block !important;
+    padding: 0;
+  }
+}
+
+/* ─── RESPONSIVE MÒBIL (v30: Android/iPhone/iPad, sense scroll horitzontal) ─── */
+@media (max-width: 760px) {
+  .content { padding: 48px 16px 64px; width: 100%; max-width: 100%; }
+  .cover-inner { padding: 64px 20px 64px; }
+  .cover-meta { grid-template-columns: 1fr 1fr; }
+  .cover-meta-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.12); }
+  .cover-meta-item:nth-child(2n) { border-right: none; padding-right: 0; }
+  .cover-meta-item:nth-child(n+3) { padding-top: 18px; margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .section-header { grid-template-columns: 48px 1fr; gap: 12px; margin-top: 48px; }
+  .section-number { font-size: 48px; }
+  .section-title-group h2 { font-size: 26px; }
+  .day-photo, .day-photo-wrap { height: 220px; max-height: 220px; }
+  .day-header { padding: 20px; grid-template-columns: 1fr; gap: 12px; }
+  .day-km { text-align: left; }
+  .day-km-value { font-size: 38px; }
+  .schedule td { padding: 12px 0 !important; display: block; }
+  .schedule-time { width: auto; }
+  .schedule-place { width: auto; padding-top: 4px !important; }
+  .toc-grid { grid-template-columns: 1fr; gap: 0; }
+  .urgent-row, .resto-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .urgent-cell, .resto-cell { padding: 4px 0; }
+  .gastro-grid { grid-template-columns: 1fr; }
+  .gastro-dishes { border-left: none; padding-left: 0; padding-top: 0; }
+  .gastro-zone { padding-bottom: 8px; }
+  .day-nav-top a { padding: 0 12px; gap: 8px; }
+  .print-btn, .print-btn-summary { display: none; }
+  .budget-table td { white-space: normal !important; }
+  .budget-table td:last-child { white-space: nowrap !important; }
+  .route-actions-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .route-actions-row .gmaps-btn,
+  .route-actions-row .budget-toggle summary {
+    width: 100%;
+    height: auto !important;
+    min-height: 48px;
+    white-space: normal !important;
+    overflow: hidden;
+    text-overflow: clip;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    line-height: 1.3;
+    padding: 12px 14px !important;
+  }
+  .route-actions-row .budget-toggle .budget-box { grid-column: 1; }
+}
+
+  </style>
 </head>
 <body>
-<div class="wrap">
 
-<h1>Munich i Neuschwanstein</h1>
-<p class="meta">Cap d'any 2026/2027 · dijous 31/12/2026 a dimarts 05/01/2027 · 2 persones · 5 nits</p>
+<nav class="day-nav-top" id="main-nav">
+  <a href="#top" onclick="setActive(this)"><span class="nav-day">·</span>Portada</a>
+  <a href="#resum" onclick="setActive(this)"><span class="nav-day">→</span>Resum</a>
+  <a href="#resum-visites" onclick="setActive(this)"><span class="nav-day">◎</span>Resum de visites</a>
+  <a href="#reserves" onclick="setActive(this)"><span class="nav-day">★</span>Reserves</a>
+  <a href="#allotjament" onclick="setActive(this)"><span class="nav-day">⌂</span>Allotjament</a>
+  <a href="#dia0" onclick="setActive(this)"><span class="nav-day">1</span>Dj 31 · Cap d'any</a>
+  <a href="#dia1" onclick="setActive(this)"><span class="nav-day">2</span>Dv 1 · Festiu</a>
+  <a href="#dia2" onclick="setActive(this)"><span class="nav-day">3</span>Ds 2 · Centre</a>
+  <a href="#dia3" onclick="setActive(this)"><span class="nav-day">4</span>Dg 3 · Nymphenburg</a>
+  <a href="#dia4" onclick="setActive(this)"><span class="nav-day">5</span>Dl 4 · Neuschwanstein</a>
+  <a href="#dia5" onclick="setActive(this)"><span class="nav-day">6</span>Dm 5 · Tornada</a>
+  <a href="#gastro" onclick="setActive(this)"><span class="nav-day">✦</span>Gastronomia</a>
+  <a href="#logistica" onclick="setActive(this)"><span class="nav-day">◆</span>Logística</a>
+</nav>
 
-<div class="banner"><strong>ESBORRANY.</strong> Pla provisional per anar-lo mirant i millorant. Vols, allotjament, preus i horaris encara no estan confirmats. Els textos marcats <span class="pend">(pendent)</span> cal verificar-los.</div>
-
-<h2>Resum</h2>
-<table>
-  <tr><th>Sortida</th><td>Cotxe fins a l'aeroport de Barcelona (T1). Aparcament llarg termini <span class="pend">(pendent: preu i reserva)</span></td></tr>
-  <tr><th>Vols</th><td>Companyies amb vol directe BCN – MUC: Vueling i Lufthansa. <span class="pend">Horari i preu per a 31/12 (anada) i 05/01 (tornada) no confirmats. Els preus de comparadors són d'altres dates de gener de 2027 (des de ~50 € per trajecte).</span></td></tr>
-  <tr><th>Allotjament</th><td>Intercanvi de casa amb HomeExchange (perfil actiu). <span class="pend">Casa a Munich pendent de trobar</span></td></tr>
-  <tr><th>Transport a Munich</th><td>Metro (U-Bahn), S-Bahn i tramvia. <span class="pend">Bayern-Ticket: preu 2027 pendent</span></td></tr>
-  <tr><th>Tornada</th><td>Dimarts 05/01: vol MUC – BCN i recollida del cotxe a BCN</td></tr>
-</table>
-
-<h2>Dies</h2>
-
-<h3>Dijous 31/12 · Arribada i Cap d'Any</h3>
-<ul>
-  <li>Arribada a Munich i trasllat a l'allotjament. <span class="pend">(hora de vol pendent)</span></li>
-  <li>Passeig pel centre: Marienplatz i Nuevo Rathaus (carilló).</li>
-  <li>Sopar tradicional de Baviera (Haxn, Weisswurst).</li>
-  <li>Cap d'any, dues opcions: <strong>A</strong> sopar de gala o concert a la Residenz (cal reserva, <span class="pend">pendent de verificar</span>); <strong>B</strong> sopar tranquil i veure el foc des d'un punt elevat fora del centre (Olympiaberg). Al centre està prohibit encendre petards; <span class="pend">regles 2026/27 pendents de publicar</span>.</li>
-</ul>
-
-<h3>Divendres 01/01 · Dia lliure</h3>
-<ul>
-  <li>Dia de festa: molts museus i serveis tancats, transport amb horari reduït. <span class="pend">(pendent de verificar)</span></li>
-  <li>Proposta: passeig tranquil per Schwabing i Englischer Garten (si fa bon temps).</li>
-</ul>
-
-<h3>Dissabte 02/01 · Centre històric i art</h3>
-<ul>
-  <li>Marienplatz, Frauenkirche, Residenz (apartaments i tresor) i Hofgarten.</li>
-  <li>Tarda: Alte Pinakothek (art europeu, Renaixement i barroc).</li>
-  <li>Vespre: Hofbräuhaus.</li>
-</ul>
-
-<h3>Diumenge 03/01 · Nymphenburg i jardins</h3>
-<ul>
-  <li>Matí: Palau de Nymphenburg (jardins i galeries).</li>
-  <li>Tarda: Englischer Garten (Chinesischer Turm i cerveseria del jardí, si fa bon temps).</li>
-  <li>Vespre: Viktualienmarkt i sopar a Schwabing o Glockenbach.</li>
-</ul>
-
-<h3>Dilluns 04/01 · Neuschwanstein (excursió d'un dia)</h3>
-<div class="box">
-  <p><strong>Empresa:</strong> Civitatis, en tren, amb guia en castellà. <a href="https://www.civitatis.com/es/munich/excursion-castillo-neuschwanstein-tren/" target="_blank">Enllaç de referència</a>.</p>
-  <ul>
-    <li>Sortida de l'estació central de Munich en tren cap a Füssen (~2 h).</li>
-    <li>Bus fins a Hohenschwangau i pujada al castell a peu (30–40 min) o en bus.</li>
-    <li>Visita al castell amb guia. L'entrada (~24 €, segons fonts de 2024–2025) es paga en efectiu al guia. <span class="pend">(preu actual pendent)</span></li>
-    <li>Tornada a Munich a la tarda-vespre. Durada total aprox. 9–10 h. Porteu menjar (no inclòs).</li>
-  </ul>
-  <p class="pend">Pendent: confirmar sortida del 04/01/2027, preu final, mínim de persones i que el guia sigui en castellà. Horari del castell d'hivern (les fonts diuen 10–16 h o 8–15:30 h).</p>
-  <p class="meta">Consideracions: a l'hivern pot haver-hi neu i la llum és curta. Cal tornar abans de fosc.</p>
+<div class="cover" id="top">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Itinerari · Cap d'any 2026/2027 · ESBORRANY</div>
+    <div class="cover-title">Munich<br><em>i Neuschwanstein</em></div>
+    <div class="cover-subtitle">Centre històric · Nymphenburg · Cap d'Any · excursió al castell</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Dates</label><span>31 de desembre de 2026 a 5 de gener de 2027 (5 nits)</span></div>
+      <div class="cover-meta-item"><label>Vols</label><span>Vueling / Lufthansa · directes · <span class="pend">(pendent)</span></span></div>
+      <div class="cover-meta-item"><label>Base</label><span>Intercanvi de casa (HomeExchange) · <span class="pend">(pendent)</span></span></div>
+      <div class="cover-meta-item"><label>Viatgers</label><span>2 persones</span></div>
+      <div class="cover-meta-item"><label>Pendents</label><span>Vols · casa · Civitatis · pressupost</span></div>
+    </div>
+  </div>
 </div>
 
-<h3>Dimarts 05/01 · Tornada</h3>
-<ul>
-  <li>Matí lliure (compres o museu curt).</li>
-  <li>Trasllat a l'aeroport de Munich (MUC, S-Bahn S1 o S8, ~45 min) i vol de tornada a BCN. <span class="pend">(hora de vol pendent)</span></li>
-  <li>Recollida del cotxe al parc de BCN.</li>
-</ul>
+<div class="content">
 
-<h2>Pendents</h2>
-<ul>
-  <li class="pend">Vols: horari i preu de 31/12 (BCN – MUC) i de 05/01 (MUC – BCN), a vueling.com o lufthansa.com.</li>
-  <li class="pend">Casa de HomeExchange a Munich lliure del 31/12 al 05/01.</li>
-  <li class="pend">Aparcament a BCN per a aquestes dates (preu i reserva).</li>
-  <li class="pend">Civitatis: sortida del 04/01, preu final i guia en castellà.</li>
-  <li class="pend">Horari d'hivern del castell de Neuschwanstein el 04/01.</li>
-  <li class="pend">Regles del Cap d'Any a Munich 2026/27 i programa de Silvestre.</li>
-  <li class="pend">Bayern-Ticket 2027 (preu i validesa).</li>
-  <li class="pend">Pressupost global.</li>
-</ul>
+  <div class="toc" id="menu">
+    <h3>Contingut del document</h3>
+    <div class="toc-grid" style="margin-bottom: 28px;">
+      <a href="#resum" class="toc-item" onclick="scrollToSection('#resum')"><span class="toc-num">→</span><span class="toc-text">Resum de sortida</span></a>
+      <a href="#resum-visites" class="toc-item" onclick="scrollToSection('#resum-visites')"><span class="toc-num">◎</span><span class="toc-text">Resum de visites</span></a>
+      <a href="#reserves" class="toc-item" onclick="scrollToSection('#reserves')"><span class="toc-num">★</span><span class="toc-text">Reserves urgents</span></a>
+      <a href="#gastro" class="toc-item" onclick="scrollToSection('#gastro')"><span class="toc-num">✦</span><span class="toc-text">Què tastar</span></a>
+      <a href="#logistica" class="toc-item" onclick="scrollToSection('#logistica')"><span class="toc-num">◆</span><span class="toc-text">Logística i pressupost</span></a>
+    </div>
+    <table class="km-table">
+      <tr><th>Dia</th><th>Activitat principal</th><th>Km a peu</th></tr>
+      <tr><td><a href="#dia0" onclick="scrollToSection('#dia0')" class="ext">Dia 1 · Dj 31/12</a></td><td>Arribada i Cap d'Any</td><td class="km-num">pendent</td></tr>
+      <tr><td><a href="#dia1" onclick="scrollToSection('#dia1')" class="ext">Dia 2 · Dv 01/01</a></td><td>Englischer Garten i Schwabing</td><td class="km-num">pendent</td></tr>
+      <tr><td><a href="#dia2" onclick="scrollToSection('#dia2')" class="ext">Dia 3 · Ds 02/01</a></td><td>Centre històric i art</td><td class="km-num">pendent</td></tr>
+      <tr><td><a href="#dia3" onclick="scrollToSection('#dia3')" class="ext">Dia 4 · Dg 03/01</a></td><td>Nymphenburg i Viktualienmarkt</td><td class="km-num">pendent</td></tr>
+      <tr><td><a href="#dia4" onclick="scrollToSection('#dia4')" class="ext">Dia 5 · Dl 04/01</a></td><td>Neuschwanstein (excursió)</td><td class="km-num">—</td></tr>
+      <tr><td><a href="#dia5" onclick="scrollToSection('#dia5')" class="ext">Dia 6 · Dm 05/01</a></td><td>Tornada</td><td class="km-num">—</td></tr>
+    </table>
+  </div>
 
-<h2>Notes</h2>
-<ul>
-  <li>El Christkindlmarkt del Marienplatz acaba el 24/12, abans del viatge (<a href="https://www.muenchen.de/veranstaltungen/weihnachtsmaerkte-christkindlmaerkte-2026" target="_blank">font: muenchen.de</a>).</li>
-  <li>Els preus i horaris són provisionals. Cal confirmar-los abans de reservar.</li>
-</ul>
+  <div id="resum-visites">
+    <div class="section-header">
+      <div class="section-number">◎</div>
+      <div class="section-title-group">
+        <h2>Resum de visites</h2>
+        <p>Totes les visites previstes, per dia, amb hora i adreça</p>
+      </div>
+    </div>
+    <p class="visites-nota">Horaris aproximats i pendents de confirmar. No hi són els trasllats, els dinars ni els sopars. Els enllaços obren Google Maps.</p>
+    <h3 class="visites-dia">Dj 31 · Arribada i Cap d'Any</h3>
+    <p class="visites-buit">Arribada i passeig. Cap visita obligada.</p>
+    <h3 class="visites-dia">Dv 1 · Dia de festa</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:00</td><td><strong>Englischer Garten</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Englischer+Garten+Englischer+Garten%2C+80538+M%C3%BCnchen" target="_blank" class="ext">Englischer Garten, 80538 München</a></td></tr>
+      <tr><td>~11:00</td><td><strong>Chinesischer Turm</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Chinesischer+Turm+Gisela-Str.+1%2C+80538+M%C3%BCnchen" target="_blank" class="ext">Gisela-Str. 1, 80538 München</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Ds 2 · Centre històric i art</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:00</td><td><strong>Marienplatz</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Marienplatz+Marienplatz%2C+80331+M%C3%BCnchen" target="_blank" class="ext">Marienplatz, 80331 München</a></td></tr>
+      <tr><td>~10:30</td><td><strong>Frauenkirche</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Frauenkirche+Frauenplatz+1%2C+80331+M%C3%BCnchen" target="_blank" class="ext">Frauenplatz 1, 80331 München</a></td></tr>
+      <tr><td>~11:30</td><td><strong>Residenz</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Residenz+Residenzstra%C3%9Fe+1%2C+80333+M%C3%BCnchen" target="_blank" class="ext">Residenzstraße 1, 80333 München</a></td></tr>
+      <tr><td>~15:00</td><td><strong>Alte Pinakothek</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Alte+Pinakothek+Barer+Str.+27%2C+80333+M%C3%BCnchen" target="_blank" class="ext">Barer Str. 27, 80333 München</a></td></tr>
+      <tr><td>~18:00</td><td><strong>Hofbräuhaus</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Hofbr%C3%A4uhaus+Platzl+9%2C+80331+M%C3%BCnchen" target="_blank" class="ext">Platzl 9, 80331 München</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dg 3 · Nymphenburg i Viktualienmarkt</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>~10:00</td><td><strong>Palau de Nymphenburg</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Palau+de+Nymphenburg+Schloss+Nymphenburg+1%2C+80638+M%C3%BCnchen" target="_blank" class="ext">Schloss Nymphenburg 1, 80638 München</a></td></tr>
+      <tr><td>~15:00</td><td><strong>Viktualienmarkt</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Viktualienmarkt+Viktualienmarkt%2C+80331+M%C3%BCnchen" target="_blank" class="ext">Viktualienmarkt, 80331 München</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dl 4 · Neuschwanstein</h3>
+    <table class="km-table visites-taula">
+      <tr><th>Hora</th><th>Lloc</th><th>Adreça</th></tr>
+      <tr><td>Pendent</td><td><strong>Sortida en tren (Civitatis)</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Sortida+en+tren+%28Civitatis%29+M%C3%BCnchner+Hauptbahnhof%2C+Bahnhofplatz+2%2C+80335+M%C3%BCnchen" target="_blank" class="ext">Münchner Hauptbahnhof, Bahnhofplatz 2, 80335 München</a></td></tr>
+      <tr><td>Pendent</td><td><strong>Castell de Neuschwanstein</strong></td><td><a href="https://www.google.com/maps/search/?api=1&query=Castell+de+Neuschwanstein+Neuschwanstein%2C+87645+Schwangau" target="_blank" class="ext">Neuschwanstein, 87645 Schwangau</a></td></tr>
+    </table>
+    <h3 class="visites-dia">Dm 5 · Tornada</h3>
+    <p class="visites-buit">Matí lliure (opció: Deutsches Museum). Després, trasllat a l'aeroport.</p>
+  </div>
+
+  <div id="resum">
+    <div class="section-header">
+      <div class="section-number">→</div>
+      <div class="section-title-group">
+        <h2>Resum de sortida</h2>
+        <p>Tot l'essencial, d'un cop d'ull</p>
+      </div>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-block">
+        <h3>Vols · BCN – MUC i MUC – BCN</h3>
+        <div class="summary-row"><span>Companyies</span><span class="val">Vueling i Lufthansa (vol directe). <span class="pend">(pendent)</span></span></div>
+        <div class="summary-row"><span>Anada · dj 31/12</span><span class="val">Horari i preu <span class="pend">(pendent)</span></span></div>
+        <div class="summary-row"><span>Tornada · dm 05/01</span><span class="val">Horari i preu <span class="pend">(pendent)</span></span></div>
+        <div class="summary-row"><span>Aparcament a BCN</span><span class="val">Llarg termini, com a Londres. Preu i reserva <span class="pend">(pendent)</span></span></div>
+      </div>
+      <div class="summary-block" id="allotjament">
+        <h3>Allotjament · intercanvi de casa</h3>
+        <div class="summary-row"><span>Plataforma</span><span class="val">HomeExchange (perfil actiu, molts intercanvis anteriors)</span></div>
+        <div class="summary-row"><span>Casa a Munich</span><span class="val">Pendent de trobar i confirmar (adreça, accés, normes)</span></div>
+        <div class="summary-row"><span>Dates</span><span class="val">31/12/2026 a 05/01/2027 (5 nits)</span></div>
+      </div>
+      <div class="summary-block">
+        <h3>Trasllats a Munich</h3>
+        <div class="summary-row"><span>Aeroport → centre</span><span class="val">S-Bahn S1 o S8, uns 45 min <span class="pend">(pendent)</span></span></div>
+        <div class="summary-row"><span>Transport urbà</span><span class="val">U-Bahn, S-Bahn i tramvia. Bayern-Ticket: preu 2027 <span class="pend">(pendent)</span></span></div>
+      </div>
+      <div class="summary-block">
+        <h3>Telèfons i emergències</h3>
+        <div class="summary-row"><span>Emergències (Alemanya)</span><span class="val">112 (policia: 110)</span></div>
+        <div class="summary-row"><span>Consolat d'Espanya a Munich</span><span class="val">Adreça i telèfon <span class="pend">(pendent)</span></span></div>
+        <div class="summary-row"><span>Assegurança de viatge</span><span class="val">No consta</span></div>
+      </div>
+    </div>
+    <button class="print-btn-summary no-print" onclick="printSummaryOnly()">Imprimir · Resum</button>
+  </div>
+
+  <div id="reserves">
+    <div class="section-header">
+      <div class="section-number">★</div>
+      <div class="section-title-group">
+        <h2>Reserves urgents</h2>
+        <p>Què cal reservar i quan</p>
+      </div>
+    </div>
+    <div class="urgents-grid">
+      <div class="urgent-row"><div><strong>Vol BCN – MUC</strong></div><div>Vueling / Lufthansa</div><div>Abans de comprar</div><div><span class="reserve-badge">CRÍTICA</span></div></div>
+      <div class="urgent-row"><div><strong>Vol MUC – BCN</strong></div><div>Vueling / Lufthansa</div><div>Abans de comprar</div><div><span class="reserve-badge">CRÍTICA</span></div></div>
+      <div class="urgent-row"><div><strong>Casa a Munich (HomeExchange)</strong></div><div>Plataforma d'intercanvi</div><div>Quan abans millor (festes)</div><div><span class="reserve-badge">CRÍTICA</span></div></div>
+      <div class="urgent-row"><div><strong>Civitatis · Neuschwanstein</strong></div><div>civitatis.com</div><div>Dl 04/01 · confirmar sortida</div><div><span class="reserve-badge">ALTA</span></div></div>
+      <div class="urgent-row"><div><strong>Entrada al castell</strong></div><div>Pagament al guia (efectiu)</div><div>Dl 04/01 · horari a confirmar</div><div><span class="reserve-badge">ALTA</span></div></div>
+      <div class="urgent-row"><div><strong>Cap d'Any (sopar o concert)</strong></div><div>Residenz / restaurant</div><div>Dj 31/12 · si es vol</div><div><span class="reserve-badge">RECOMANABLE</span></div></div>
+    </div>
+  </div>
+
+  <div id="dia0">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title-group">
+        <h2>Arribada i Cap d'Any</h2>
+        <p>31 de desembre de 2026</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 1 · Dijous</div>
+          <div class="day-title">Arribada i Cap d'Any</div>
+          <div class="day-date">31 de desembre de 2026</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Arribada a Munich, trasllat a l'allotjament i primer passeig pel centre. Sopar tradicional i Cap d'Any.</div>
+      
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num principal">1</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Arribada a l'aeroport de Munich</strong></div>Hora de vol <span class="pend">(pendent)</span>. Des de BCN amb vol directe.</span></li>
+<li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~45 min</span><strong>Trasllat al centre</strong></div>S-Bahn S1 o S8 fins a Marienplatz o Hauptbahnhof.</span></li>
+<li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Check-in a la casa d'intercanvi</strong></div>Adreça i accés <span class="pend">(pendent)</span>.</span></li>
+<li><span class="route-num principal">4</span><span><div class="route-item-header"><span class="route-time">~17:00</span><strong>Marienplatz i Nuevo Rathaus</strong></div>Passeig i carilló (horari a comprovar).</span></li>
+<li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">~19:00</span><strong>Sopar tradicional de Baviera</strong></div>Haxn, Weisswurst. Restaurant <span class="pend">(pendent)</span>.</span></li>
+<li><span class="route-num">6</span><span><div class="route-item-header"><span class="route-time">Vespre</span><strong>Cap d'Any · opció A o B</strong></div><strong>A:</strong> sopar de gala o concert a la Residenz (cal reserva, pendent). <strong>B:</strong> sopar tranquil i veure el foc des d'un punt elevat fora del centre (Olympiaberg). Al centre està prohibit encendre petards; regles 2026/27 pendents.</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Munich+Airport/Marienplatz/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dia1">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title-group">
+        <h2>Dia de festa</h2>
+        <p>1 de gener de 2027</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 2 · Divendres</div>
+          <div class="day-title">Dia de festa</div>
+          <div class="day-date">1 de gener de 2027</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Dia festiu: molts museus i serveis tancats i transport amb horari reduït. Pla tranquil.</div>
+      <div class="box box-info"><span class="box-label">Festiu</span>Comprovar horaris de museus i restaurants abans de sortir <span class="pend">(pendent)</span>.</div>
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num principal">1</span><span><div class="route-item-header"><span class="route-time">~10:00</span><strong>Englischer Garten</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Englischer+Garten+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Passeig pla pel parc.</span></li>
+<li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~11:00</span><strong>Chinesischer Turm</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Chinesischer+Turm+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Passeig fins a la torre; cerveseria del jardí si està oberta (comprovar).</span></li>
+<li><span class="route-num">3</span><span><div class="route-item-header"><span class="route-time">Tarda</span><strong>Schwabing</strong></div>Passeig pels carrers de Schwabing i dinar tranquil.</span></li>
+<li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">Vespre</span><strong>Lliure</strong></div>Sopar tranquil. Comprovar què està obert per festa.</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Englischer+Garten+München/Chinesischer+Turm+München/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dia2">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title-group">
+        <h2>Centre històric i art</h2>
+        <p>2 de gener de 2027</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 3 · Dissabte</div>
+          <div class="day-title">Centre històric i art</div>
+          <div class="day-date">2 de gener de 2027</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Dia del centre històric: Marienplatz, Frauenkirche, Residenz i la pinacoteca. Vespre a Hofbräuhaus.</div>
+      
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num principal">1</span><span><div class="route-item-header"><span class="route-time">~10:00</span><strong>Marienplatz</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Marienplatz+80331+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Punt de partida i carilló.</span></li>
+<li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">~10:30</span><strong>Frauenkirche</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Frauenkirche+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Església gòtica. Torre si està oberta.</span></li>
+<li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">~11:30</span><strong>Residenz</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Residenz+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Palau reial: apartaments i tresor (horari a comprovar).</span></li>
+<li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">~13:30</span><strong>Hofgarten i dinar</strong></div>Dinar al barri (restaurant pendent).</span></li>
+<li><span class="route-num principal">5</span><span><div class="route-item-header"><span class="route-time">~15:00</span><strong>Alte Pinakothek</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Alte+Pinakothek+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Art europeu, Renaixement i barroc (horari a comprovar).</span></li>
+<li><span class="route-num">6</span><span><div class="route-item-header"><span class="route-time">~18:00</span><strong>Hofbräuhaus</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Hofbr%C3%A4uhaus+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Cervesa i sopar tradicional.</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Marienplatz+80331+München/Frauenkirche+München/Residenz+München/Alte+Pinakothek+München/Hofbräuhaus+München/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dia3">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title-group">
+        <h2>Nymphenburg i Viktualienmarkt</h2>
+        <p>3 de gener de 2027</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 4 · Diumenge</div>
+          <div class="day-title">Nymphenburg i Viktualienmarkt</div>
+          <div class="day-date">3 de gener de 2027</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Palau de Nymphenburg al matí i tarda al mercat i a Glockenbach.</div>
+      
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num principal">1</span><span><div class="route-item-header"><span class="route-time">~10:00</span><strong>Palau de Nymphenburg</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Schloss+Nymphenburg+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Jardins i galeries (horari a comprovar).</span></li>
+<li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">~13:00</span><strong>Dinar a Nymphenburg</strong></div>Restaurant pendent.</span></li>
+<li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">~15:00</span><strong>Viktualienmarkt</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Viktualienmarkt+M%C3%BCnchen" target="_blank" class="ext">Google Maps</a></div>Mercat de productes locals.</span></li>
+<li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">Vespre</span><strong>Sopar a Glockenbach</strong></div>Restaurant pendent.</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Schloss+Nymphenburg+München/Viktualienmarkt+München/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dia4">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title-group">
+        <h2>Neuschwanstein</h2>
+        <p>4 de gener de 2027</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 5 · Dilluns</div>
+          <div class="day-title">Neuschwanstein</div>
+          <div class="day-date">4 de gener de 2027</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Excursió d'un dia amb Civitatis, en tren i amb guia en castellà. Entrada al castell a part (en efectiu al guia).</div>
+      <div class="box box-info"><span class="box-label">Civitatis · abans de reservar</span>Confirmar sortida del 04/01/2027, preu final, mínim de persones, guia en castellà i entrada del castell. Porteu menjar (no inclòs). <span class="pend">(pendent)</span></div>
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num principal">1</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Sortida de l'estació central</strong> · <a href="https://www.google.com/maps/search/?api=1&query=M%C3%BCnchner+Hauptbahnhof" target="_blank" class="ext">Google Maps</a></div>Tren cap a Füssen (~2 h). Hora <span class="pend">(pendent)</span>.</span></li>
+<li><span class="route-num">2</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Arribada a Füssen i bus</strong></div>Bus fins a Hohenschwangau.</span></li>
+<li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Castell de Neuschwanstein</strong> · <a href="https://www.google.com/maps/search/?api=1&query=Schloss+Neuschwanstein" target="_blank" class="ext">Google Maps</a></div>Pujada a peu (30–40 min) o en bus. Entrada amb hora <span class="pend">(pendent)</span>. Horari d'hivern a confirmar.</span></li>
+<li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Tornada a Munich</strong></div>Tornada en tren a la tarda-vespre, abans de fosc.</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Münchner+Hauptbahnhof/Schloss+Neuschwanstein/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dia5">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title-group">
+        <h2>Tornada</h2>
+        <p>5 de gener de 2027</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-header-left">
+          <div class="day-label">Dia 6 · Dimarts</div>
+          <div class="day-title">Tornada</div>
+          <div class="day-date">5 de gener de 2027</div>
+        </div>
+        <div class="day-km">
+          <div class="day-km-value">—</div><div class="day-km-label">quilòmetres</div>
+          <div class="day-km-walk"><div class="day-km-walk-value">pendent</div><div class="day-km-walk-label">km a peu</div></div>
+        </div>
+      </div>
+      <div class="day-intro">Matí lliure i trasllat a l'aeroport. Vol de tornada i recollida del cotxe a BCN.</div>
+      
+      <div class="route-block">
+        <h3 class="sub">Recorregut del dia</h3>
+        <ol class="route-list">
+<li><span class="route-num">1</span><span><div class="route-item-header"><span class="route-time">Matí</span><strong>Matí lliure</strong></div>Opció: Deutsches Museum (ciència i tècnica).</span></li>
+<li><span class="route-num principal">2</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Trasllat a l'aeroport de Munich</strong></div>S-Bahn S1 o S8 (~45 min).</span></li>
+<li><span class="route-num principal">3</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Vol de tornada a BCN</strong></div>Hora <span class="pend">(pendent)</span>.</span></li>
+<li><span class="route-num">4</span><span><div class="route-item-header"><span class="route-time">Pendent</span><strong>Recollida del cotxe a BCN</strong></div>Parc de llarg termini a l'aeroport de BCN (com a Londres).</span></li>
+        </ol>
+        <div class="route-actions-row"><a href="https://www.google.com/maps/dir/Munich+Airport/" target="_blank" class="gmaps-btn">Veure recorregut a Google Maps</a></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="gastro">
+    <div class="section-header">
+      <div class="section-number">✦</div>
+      <div class="section-title-group">
+        <h2>Què tastar</h2>
+        <p>Plats i productes típics de Baviera</p>
+      </div>
+    </div>
+    <div class="gastro-dishes">
+      <p><strong>Haxn</strong> (Schweinshaxe): pern de porc al forn, amb crosta cruixent.</p>
+      <p><strong>Weisswurst</strong>: salsitxa blanca de vedella i vedella, sovint amb mostassa dolça i bretzel.</p>
+      <p><strong>Obatzda</strong>: crema de formatge camembert amb cervesa i ceba.</p>
+      <p><strong>Kaiserschmarrn</strong>: truita trossejada amb cirera i pruna, de postres.</p>
+      <p><strong>Brezn</strong>: bretzel fresc, sovint amb sal.</p>
+    </div>
+  </div>
+
+
+  <div id="logistica">
+    <div class="section-header">
+      <div class="section-number">◆</div>
+      <div class="section-title-group">
+        <h2>Logística i pressupost</h2>
+        <p>Dades pràctiques i cost estimat</p>
+      </div>
+    </div>
+    <div class="box box-info">
+      <span class="box-label">Viatgers</span>
+      2 persones (matrimoni). Edats segons les dates del viatge (N1).
+    </div>
+    <div class="box box-info">
+      <span class="box-label">Pressupost</span>
+      Encara no hi ha xifres confirmades. Vols, allotjament, aparcament, transport, excursió i menjars <span class="pend">(pendent)</span>. Es farà la taula total quan hi hagi preus verificats.
+    </div>
+    <div class="box box-info">
+      <span class="box-label">Pendents abans de viatjar</span>
+      Vols i horaris · casa a Munich · Civitatis (sortida, preu, idioma) · horari del castell · regles de Cap d'Any · Bayern-Ticket 2027 · aparcament a BCN.
+    </div>
+  </div>
+
 
 </div>
+
+<div class="doc-footer">
+  <p>Bon viatge!</p>
+  <small>Munich i Neuschwanstein · 31/12/2026 – 05/01/2027 · esborrany</small>
+</div>
+
+<div class="bottom-bar" id="bottom-bar">
+  <a id="bar-prev" class="bar-prev disabled">← Anterior</a>
+  <a id="bar-center" class="bar-center" href="#menu">↑ Menú<span id="bar-day-label">Portada</span></a>
+  <a id="bar-next" class="bar-next disabled">Següent →</a>
+</div>
+
+<button class="print-btn-summary no-print" onclick="printSummaryOnly()">Imprimir · Resum</button>
+<button class="print-btn no-print" onclick="window.print()">Imprimir · Tot</button>
+
+<script>
+/* JS canonic — adapta days[] a cada viatge. Mode pantalla: section-view (pas 9). */
+
+// Ordre Anterior/Següent — inclou menu (TOC) i Resum (veure estructura.md)
+const days = [
+  { id: 'top',       label: 'Portada',       prev: null,           next: 'menu' },
+  { id: 'menu',      label: 'Contingut',     prev: 'top',          next: 'resum' },
+  { id: 'resum',     label: 'Resum',         prev: 'menu',         next: 'resum-visites' },
+  { id: 'resum-visites', label: 'Resum de visites', prev: 'resum', next: 'reserves' },
+  { id: 'reserves',  label: 'Reserves',      prev: 'resum-visites', next: 'dia0' },
+  { id: 'dia0', label: "Dj 31 · Cap d'any", prev: 'reserves', next: 'dia1' },
+  { id: 'dia1', label: 'Dv 1 · Festiu', prev: 'dia0', next: 'dia2' },
+  { id: 'dia2', label: 'Ds 2 · Centre', prev: 'dia1', next: 'dia3' },
+  { id: 'dia3', label: 'Dg 3 · Nymphenburg', prev: 'dia2', next: 'dia4' },
+  { id: 'dia4', label: 'Dl 4 · Neuschwanstein', prev: 'dia3', next: 'dia5' },
+  { id: 'dia5', label: 'Dm 5 · Tornada', prev: 'dia4', next: 'gastro' },
+  { id: 'gastro',    label: 'Gastronomia',   prev: 'dia5',         next: 'logistica' },
+  { id: 'logistica', label: 'Logística',     prev: 'gastro',       next: null },
+];
+
+let currentDay = 'top';
+let activeSectionId = 'top';
+let printRestoreSection = null;
+
+function screenSectionId(rawId) {
+  if (!rawId || rawId === 'main-nav') return 'menu';
+  if (rawId === 'menu') return 'menu';
+  const el = document.getElementById(rawId);
+  if (!el) return null;
+  if (rawId === 'top' || el.classList.contains('cover')) return 'top';
+  if (el.parentElement && el.parentElement.classList.contains('content')) return rawId;
+  if (el.closest('#resum')) return 'resum';
+  return rawId;
+}
+
+function setActive(el) {
+  if (!el) return;
+  document.querySelectorAll('.day-nav-top a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function updateBottomBar(dayId) {
+  currentDay = dayId;
+  activeSectionId = dayId;
+  const d = days.find(x => x.id === dayId);
+  const prev = document.getElementById('bar-prev');
+  const next = document.getElementById('bar-next');
+  const label = document.getElementById('bar-day-label');
+  if (!d || !prev || !next || !label) return;
+
+  label.textContent = d.label;
+
+  if (d.prev) {
+    const prevD = days.find(x => x.id === d.prev);
+    prev.textContent = '← ' + (prevD ? prevD.label : '');
+    prev.classList.remove('disabled');
+    prev.setAttribute('data-target', '#' + d.prev);
+  } else {
+    prev.textContent = '← Inici';
+    prev.classList.add('disabled');
+    prev.removeAttribute('data-target');
+  }
+
+  if (d.next) {
+    const nextD = days.find(x => x.id === d.next);
+    next.textContent = (nextD ? nextD.label : '') + ' →';
+    next.classList.remove('disabled');
+    next.setAttribute('data-target', '#' + d.next);
+  } else {
+    next.textContent = 'Fi del viatge →';
+    next.classList.add('disabled');
+    next.removeAttribute('data-target');
+  }
+}
+
+function applySectionView(screenId, scrollToRawId) {
+  document.body.classList.add('section-view');
+  document.body.setAttribute('data-active-section', screenId);
+  window.scrollTo(0, 0);
+
+  if (scrollToRawId && scrollToRawId !== screenId) {
+    const sub = document.getElementById(scrollToRawId);
+    if (sub) {
+      requestAnimationFrame(() => {
+        sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  }
+}
+
+function navigateToSection(href) {
+  const target = (href || '').replace('#', '');
+  if (!target) return;
+
+  const screenId = screenSectionId(target);
+  if (!screenId) return;
+
+  applySectionView(screenId, target !== screenId ? target : null);
+
+  let navLink = document.querySelector('.day-nav-top a[href="#' + target + '"]');
+  if (!navLink && screenId === 'resum') {
+    navLink = document.querySelector('.day-nav-top a[href="#resum"]');
+  }
+  if (!navLink && screenId === 'menu') {
+    navLink = document.querySelector('.day-nav-top a[href="#top"]');
+  }
+  if (navLink) setActive(navLink);
+
+  if (days.find(x => x.id === screenId)) {
+    updateBottomBar(screenId);
+  }
+}
+
+function scrollToSection(href) {
+  navigateToSection(href);
+}
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[data-target], a[href^="#"]');
+  if (!link) return;
+  if (link.classList.contains('disabled')) return;
+  const t = link.getAttribute('data-target') || link.getAttribute('href');
+  if (!t || t === '#') return;
+  e.preventDefault();
+  navigateToSection(t);
+});
+
+function routeQuickTitle(contentSpan) {
+  const header = contentSpan.querySelector('.route-item-header');
+  if (header) {
+    const clone = header.cloneNode(true);
+    clone.querySelectorAll('.route-cost, .reserve-badge, .alt-restaurants').forEach(el => el.remove());
+    return clone.textContent.trim().replace(/\s+/g, ' ');
+  }
+
+  const strongTop = contentSpan.querySelector(':scope > strong');
+  if (strongTop) return strongTop.textContent.trim().replace(/\s+/g, ' ');
+
+  for (const node of contentSpan.childNodes) {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.matches('details.culture-toggle, details.route-quick, details.alt-restaurants')) break;
+      if (node.matches('strong')) {
+        return node.textContent.trim().replace(/\s+/g, ' ');
+      }
+      if (node.matches('a.ext') && !node.closest('.culture-links')) {
+        const label = node.textContent.trim();
+        if (label && !/^Visit Porto\s/i.test(label)) return label;
+      }
+    } else if (node.nodeType === Node.TEXT_NODE) {
+      const chunk = node.textContent.trim();
+      if (!chunk) continue;
+      const dash = chunk.indexOf('—');
+      const head = (dash > 0 ? chunk.slice(0, dash) : chunk).trim();
+      if (head) return head.replace(/\s+/g, ' ');
+    }
+  }
+
+  const topLink = contentSpan.querySelector(':scope > a.ext');
+  if (topLink) return topLink.textContent.trim();
+
+  const text = contentSpan.textContent.trim();
+  const dash = text.indexOf('—');
+  if (dash > 0) return text.slice(0, dash).trim();
+  return text.length > 72 ? text.slice(0, 72) + '…' : text;
+}
+
+function initDayQuickLayer() {
+  document.querySelectorAll('.route-list li').forEach(li => {
+    if (li.dataset.routeQuickInit) return;
+    if (li.querySelector('.route-num.principal')) return;
+    if (li.querySelector('.route-item-header')) return;
+
+    const contentSpan = li.querySelector(':scope > span:last-of-type');
+    if (!contentSpan || contentSpan.querySelector('details.route-quick')) return;
+
+    const title = routeQuickTitle(contentSpan);
+    if (!title) return;
+
+    li.dataset.routeQuickInit = '1';
+
+    const details = document.createElement('details');
+    details.className = 'route-quick';
+
+    const summary = document.createElement('summary');
+    summary.className = 'route-quick-summary';
+    summary.textContent = title;
+
+    const body = document.createElement('div');
+    body.className = 'route-quick-body';
+    while (contentSpan.firstChild) {
+      body.appendChild(contentSpan.firstChild);
+    }
+
+    details.appendChild(summary);
+    details.appendChild(body);
+    contentSpan.appendChild(details);
+  });
+}
+
+function initSectionView() {
+  const barCenter = document.querySelector('#bar-center, .bar-center');
+  if (barCenter) {
+    barCenter.setAttribute('href', '#menu');
+    barCenter.setAttribute('data-target', '#menu');
+  }
+  initDayQuickLayer();
+  navigateToSection('#top');
+}
+
+function printSummaryOnly() {
+  document.body.classList.add('print-summary-only');
+  window.print();
+}
+
+let culturePrevOpenState = [];
+let routeQuickPrevOpen = [];
+
+window.addEventListener('beforeprint', () => {
+  printRestoreSection = document.body.getAttribute('data-active-section') || activeSectionId;
+  document.body.classList.remove('section-view');
+  document.body.removeAttribute('data-active-section');
+
+  culturePrevOpenState = Array.from(document.querySelectorAll('.culture-toggle')).map(d => d.open);
+  document.querySelectorAll('.culture-toggle').forEach(d => { d.open = true; });
+
+  routeQuickPrevOpen = Array.from(document.querySelectorAll('details.route-quick')).map(d => d.open);
+  document.querySelectorAll('details.route-quick').forEach(d => { d.open = true; });
+});
+
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('print-summary-only');
+
+  document.querySelectorAll('.culture-toggle').forEach((d, i) => {
+    d.open = culturePrevOpenState[i] ?? false;
+  });
+
+  document.querySelectorAll('details.route-quick').forEach((d, i) => {
+    d.open = routeQuickPrevOpen[i] ?? false;
+  });
+
+  if (printRestoreSection) {
+    document.body.classList.add('section-view');
+    document.body.setAttribute('data-active-section', printRestoreSection);
+    activeSectionId = printRestoreSection;
+  }
+});
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSectionView);
+} else {
+  initSectionView();
+}
+
+</script>
+
 </body>
 </html>
